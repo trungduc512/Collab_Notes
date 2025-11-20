@@ -17,6 +17,14 @@ export const SupplierProvider = ({ children }) => {
   const triggerUpdate = () => {
     setShouldUpdate((prev) => !prev);
   };
+  // Helper function to generate a color based on username
+  const getUserColor = (username) => {
+    let hash = 0;
+    for (let i = 0; i < username.length; i++) {
+      hash = username.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return `hsl(${hash % 360}, 70%, 50%)`;
+  };
 
   return (
     <SupplierContext.Provider
@@ -32,6 +40,7 @@ export const SupplierProvider = ({ children }) => {
         currentDoc,
         setCurrentDoc,
         socket,
+        getUserColor,
       }}
     >
       {children}

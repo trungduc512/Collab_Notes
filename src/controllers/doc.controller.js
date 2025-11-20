@@ -63,7 +63,9 @@ export const getSingleUserDocument = async (req, res) => {
       const redisClient = getRedisClient();
       const cachedDocument = await redisClient.get(`document:${documentId}`);
       if (cachedDocument) {
-        console.log(`✅ Document ${documentId} fetched from cache`);
+        console.log(
+          `✅ Document ${documentId} fetched from cache using controller`
+        );
         return res.status(200).json({
           document: JSON.parse(cachedDocument),
           message: "Document fetched from cache successfully",
@@ -95,10 +97,46 @@ export const getSingleUserDocument = async (req, res) => {
 
 export const getDocThroughSocket = async (id) => {
   try {
+    // --- Kiểm tra Redis Cache ---
+    let cachedDocument = null;
+
+    try {
+      const redisClient = getRedisClient();
+      cachedDocument = await redisClient.get(`document:${id}`);
+
+      if (cachedDocument) {
+        console.log(`✅ Document ${id} fetched from Redis cache (socket)`);
+        return JSON.parse(cachedDocument);
+      }
+    } catch (cacheError) {
+      // Không throw — để hệ thống fallback về MongoDB
+      console.error("⚠️ Redis cache error:", cacheError);
+    }
+
+    // --- Fallback: Lấy từ MongoDB ---
     const document = await DocumentModel.findById(id);
+    if (!document) {
+      console.log(`❌ Document ${id} not found in DB`);
+      return null;
+    }
+
+    // Lưu vào Redis để cache lần sau
+    try {
+      const redisClient = getRedisClient();
+      await redisClient.set(
+        `document:${id}`,
+        JSON.stringify(document),
+        { EX: 60 } // 60 giây cache, tùy bạn chỉnh
+      );
+      console.log(`🟩 Document ${id} saved to Redis cache`);
+    } catch (cacheSetError) {
+      console.error("⚠️ Redis set error:", cacheSetError);
+    }
+
     return document;
   } catch (error) {
-    console.log(error);
+    console.error("❌ getDocThroughSocket error:", error);
+    return null;
   }
 };
 

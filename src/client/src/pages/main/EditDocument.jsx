@@ -232,43 +232,6 @@ const EditDocument = () => {
       socket.off("receive-changes");
     };
   }, [currentDoc, socket]);
-  // Handle receiving cursor positions from other collaborators
-  useEffect(() => {
-    if (!quill || !currentDoc?._id) return;
-
-    const handler = (range, oldRange, source) => {
-      if (source !== "user") return;
-
-      socket.emit("send-cursor", {
-        username: auth?.user?.username,
-        range,
-        roomId: currentDoc?._id,
-      });
-    };
-
-    quill.on("selection-change", handler);
-
-    return () => quill.off("selection-change", handler);
-  }, [quill, socket, currentDoc, auth?.user?.username]);
-  // Listen for cursor updates from other collaborators
-  useEffect(() => {
-    if (!quill) return;
-
-    const handleReceiveCursor = ({ username, range }) => {
-      if (username === auth?.user?.username) return;
-
-      const cursors = quill.getModule("cursors");
-      const userColor = getUserColor(username);
-      cursors.createCursor(username, username, userColor);
-      cursors.moveCursor(username, range);
-    };
-
-    socket.on("receive-cursor", handleReceiveCursor);
-
-    return () => {
-      socket.off("receive-cursor", handleReceiveCursor);
-    };
-  }, [quill, socket, auth?.user?.username]);
 
   return (
     <div

@@ -3,14 +3,14 @@ import DocumentModel from "../models/documents.model.js";
 const roomUsers = {};
 
 export const socketCtrl = (io) => {
-  io.on('connection', (socket) => {
+  io.on("connection", (socket) => {
     const userId = socket.id;
     handleConnection(socket, io, userId);
   });
 };
 
 const handleConnection = async (socket, io, userId) => {
-  socket.on('joinRoom', (data, callback) => {
+  socket.on("joinRoom", (data, callback) => {
     try {
       socket.join(data.roomId);
 
@@ -20,22 +20,19 @@ const handleConnection = async (socket, io, userId) => {
 
       roomUsers[data.roomId].push({ username: data.username, userId });
 
-
-      io.to(data.roomId).emit('someoneJoined', {
+      io.to(data.roomId).emit("someoneJoined", {
         username: data.username,
         roomUsers: roomUsers[data.roomId],
       });
 
       callback(null);
     } catch (error) {
-      console.error('Error in joinRoom:', error);
-      callback('Error joining room');
+      console.error("Error in joinRoom:", error);
+      callback("Error joining room");
     }
   });
 
-
-
-  socket.on('leaveRoom', (data, callback) => {
+  socket.on("leaveRoom", (data, callback) => {
     try {
       socket.leave(data.roomId);
 
@@ -44,7 +41,7 @@ const handleConnection = async (socket, io, userId) => {
           (user) => user.username !== data.username
         );
 
-        io.to(data.roomId).emit('someoneLeft', {
+        io.to(data.roomId).emit("someoneLeft", {
           username: data.username,
           roomUsers: roomUsers[data.roomId],
         });
@@ -52,71 +49,64 @@ const handleConnection = async (socket, io, userId) => {
 
       callback(null);
     } catch (error) {
-      console.error('Error in leaveRoom:', error);
-      callback('Error leaving room');
+      console.error("Error in leaveRoom:", error);
+      callback("Error leaving room");
     }
   });
 
-  socket.on('send-cursor', (data) => {
-    socket.to(data.roomId).emit('receive-cursor', {
+  socket.on("send-cursor", (data) => {
+    socket.to(data.roomId).emit("receive-cursor", {
       username: data.username,
-      range: data.range
+      range: data.range,
     });
   });
 
-
-  socket.on('send-changes', (data, callback) => {
+  socket.on("send-changes", (data, callback) => {
     try {
-      io.to(data.roomId).emit('receive-changes', { delta: data.delta, username: data.username })
+      io.to(data.roomId).emit("receive-changes", {
+        delta: data.delta,
+        username: data.username,
+      });
     } catch (error) {
-      console.error('Error in send-changes:', error);
-      callback('Error sending changes');
+      console.error("Error in send-changes:", error);
+      callback("Error sending changes");
     }
   });
 
-
-  socket.on('get-doc', async (data) => {
+  socket.on("get-doc", async (data) => {
     try {
-
       const curr_doc = await getDocThroughSocket(data.docId);
       let content = curr_doc.content;
 
       if (!content) {
-        content = '';
+        content = "";
       }
 
-      io.to(data.docId).emit('load-document', content);
+      io.to(data.docId).emit("load-document", content);
     } catch (error) {
-      console.error('Error in get-doc:', error);
+      console.error("Error in get-doc:", error);
     }
-
-
+  });
+  /// New cursor handling code
+  socket.on("send-cursor", (data) => {
+    socket.to(data.roomId).emit("receive-cursor", data);
   });
 
-
-
-
-
-
-
-
-  socket.on('save-doc', async (data, callback) => {
+  socket.on("save-doc", async (data, callback) => {
     try {
-
       if (!data.data) return;
-      await DocumentModel.findByIdAndUpdate(data?.docId?.toString(), { content: data?.data });
-
-
+      await DocumentModel.findByIdAndUpdate(data?.docId?.toString(), {
+        content: data?.data,
+      });
 
       callback(null);
     } catch (error) {
-      console.error('Error in save-doc:', error);
-      callback('Error saving doc');
+      console.error("Error in save-doc:", error);
+      callback("Error saving doc");
     }
   });
 
-
-  socket.on('disconnect', () => {
+  socket.on("disconnect", () => {
     try {
       let username;
       let roomId;
@@ -131,17 +121,15 @@ const handleConnection = async (socket, io, userId) => {
         roomId = currentRoomId;
       });
 
-
       if (username && roomId) {
         socket.leave(roomId);
-        io.to(roomId).emit('someoneLeft', {
+        io.to(roomId).emit("someoneLeft", {
           username,
           roomUsers: roomUsers[roomId],
         });
       }
     } catch (error) {
-      console.error('Error in disconnect:', error);
+      console.error("Error in disconnect:", error);
     }
   });
-
 };

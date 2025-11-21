@@ -1,11 +1,11 @@
-import React, { useCallback, useEffect, useRef } from "react";
-import Quill from "quill";
-import "quill/dist/quill.snow.css";
-import { useSupplier } from "../../context/supplierContext";
-import QuillCursors from "quill-cursors"; // Import the cursor plugin
-import { useParams } from "react-router-dom";
-import { useAuth } from "../../context/authContext";
-Quill.register("modules/cursors", QuillCursors); // Register the cursors module
+import React, { useCallback, useEffect, useRef } from 'react';
+import Quill from 'quill';
+import 'quill/dist/quill.snow.css';
+import { useSupplier } from '../../context/supplierContext';
+import QuillCursors from 'quill-cursors'; // Import the cursor plugin
+import { useParams } from 'react-router-dom';
+import { useAuth } from '../../context/authContext';
+Quill.register('modules/cursors', QuillCursors); // Register the cursors module
 // Handle receiving cursor positions from other collaborators
 
 const Editor = () => {
@@ -19,28 +19,39 @@ const Editor = () => {
   // Debounce timer for emitting cursor events
   const cursorEmitTimerRef = useRef(null);
 
+  // useEffect(() => {
+  //   if (socket == null || quill == null) return;
+
+  //   // Request document from server
+  //   socket.once('load-document', (document) => {
+  //     quill.setContents(document);
+  //     quill.enable();
+  //   });
+
+  //   socket.emit('get-doc', { docId: documentId });
+  // }, [socket, quill, documentId]);
   // Emit cursor position changes to the server
   useEffect(() => {
     if (!quill || !currentDoc?._id) return;
 
     const handler = (range, oldRange, source) => {
-      if (source !== "user") return;
+      if (source !== 'user') return;
 
       // Debounce cursor emits to reduce network churn
       if (cursorEmitTimerRef.current) clearTimeout(cursorEmitTimerRef.current);
       cursorEmitTimerRef.current = setTimeout(() => {
-        socket.emit("send-cursor", {
+        socket.emit('send-cursor', {
           username: auth?.user?.username,
           range,
-          roomId: currentDoc?._id,
+          docId: currentDoc?._id,
         });
         cursorEmitTimerRef.current = null;
       }, 150);
     };
 
-    quill.on("selection-change", handler);
+    quill.on('selection-change', handler);
 
-    return () => quill.off("selection-change", handler);
+    return () => quill.off('selection-change', handler);
   }, [quill, socket, currentDoc, auth?.user?.username]);
   // Listen for cursor updates from other collaborators
   useEffect(() => {
@@ -49,7 +60,7 @@ const Editor = () => {
     const handleReceiveCursor = ({ username, range }) => {
       if (username === auth?.user?.username) return;
 
-      const cursors = quill.getModule("cursors");
+      const cursors = quill.getModule('cursors');
       const userColor = getUserColor(username);
       // store remote range so we can transform it later when other deltas arrive
       remoteCursorsRef.current[username] = range;
@@ -57,24 +68,13 @@ const Editor = () => {
       cursors.moveCursor(username, range);
     };
 
-    socket.on("receive-cursor", handleReceiveCursor);
+    socket.on('receive-cursor', handleReceiveCursor);
 
     return () => {
-      socket.off("receive-cursor", handleReceiveCursor);
+      socket.off('receive-cursor', handleReceiveCursor);
     };
   }, [quill, socket, auth?.user?.username, getUserColor]);
   // Add effect to load document and enable editor
-  useEffect(() => {
-    if (socket == null || quill == null) return;
-
-    // Request document from server
-    socket.once("load-document", (document) => {
-      quill.setContents(document);
-      quill.enable();
-    });
-
-    socket.emit("get-document", documentId);
-  }, [socket, quill, documentId]);
 
   // Handle incoming text deltas and transform remote cursor positions
   useEffect(() => {
@@ -89,7 +89,7 @@ const Editor = () => {
           curr += op.retain;
         } else if (op.insert) {
           // insertion at `curr` shifts indices at/after curr
-          const len = typeof op.insert === "string" ? op.insert.length : 1;
+          const len = typeof op.insert === 'string' ? op.insert.length : 1;
           if (curr <= pos) pos += len;
         } else if (op.delete) {
           const del = op.delete;
@@ -106,7 +106,7 @@ const Editor = () => {
     const handleReceiveChanges = (data) => {
       if (!data?.delta) return;
       // Transform stored remote cursor positions and update visuals
-      const cursors = quill.getModule("cursors");
+      const cursors = quill.getModule('cursors');
       Object.entries(remoteCursorsRef.current).forEach(([username, range]) => {
         try {
           const start = range.index ?? 0;
@@ -120,15 +120,15 @@ const Editor = () => {
           remoteCursorsRef.current[username] = newRange;
           if (cursors) cursors.moveCursor(username, newRange);
         } catch (err) {
-          console.error("Failed to transform cursor for", username, err);
+          console.error('Failed to transform cursor for', username, err);
         }
       });
     };
 
-    socket.on("receive-changes", handleReceiveChanges);
+    socket.on('receive-changes', handleReceiveChanges);
 
     return () => {
-      socket.off("receive-changes", handleReceiveChanges);
+      socket.off('receive-changes', handleReceiveChanges);
     };
   }, [socket, quill]);
 
@@ -139,7 +139,7 @@ const Editor = () => {
     const handleSomeoneLeft = (data) => {
       const username = data?.username;
       if (!username) return;
-      const cursors = quill.getModule("cursors");
+      const cursors = quill.getModule('cursors');
       delete remoteCursorsRef.current[username];
       try {
         if (cursors && cursors.removeCursor) cursors.removeCursor(username);
@@ -148,47 +148,47 @@ const Editor = () => {
       }
     };
 
-    socket.on("someoneLeft", handleSomeoneLeft);
-    return () => socket.off("someoneLeft", handleSomeoneLeft);
+    socket.on('someoneLeft', handleSomeoneLeft);
+    return () => socket.off('someoneLeft', handleSomeoneLeft);
   }, [socket, quill]);
 
   const wrapperRef = useCallback(
     (wrapper) => {
       if (wrapper == null) return;
-      wrapper.innerHTML = ""; // Clear the wrapper content
+      wrapper.innerHTML = ''; // Clear the wrapper content
 
-      const editor = document.createElement("div");
-      editor.style.minHeight = "30em";
-      editor.style.maxHeight = "80em";
-      editor.style.borderRadius = "10px";
+      const editor = document.createElement('div');
+      editor.style.minHeight = '30em';
+      editor.style.maxHeight = '80em';
+      editor.style.borderRadius = '10px';
 
       // Apply dark or light theme styles dynamically based on darkMode
       if (darkMode) {
-        editor.classList.add("bg-dark", "text-white");
-        editor.style.color = "white";
+        editor.classList.add('bg-dark', 'text-white');
+        editor.style.color = 'white';
       } else {
-        editor.classList.add("bg-light", "text-black");
-        editor.style.color = "black";
+        editor.classList.add('bg-light', 'text-black');
+        editor.style.color = 'black';
       }
 
       wrapper.append(editor);
 
       // Initialize Quill with the cursor module
       const q = new Quill(editor, {
-        theme: "snow",
+        theme: 'snow',
         modules: {
           cursors: true, // Enable the cursor module
           toolbar: [
             [{ header: [1, 2, false] }],
-            ["bold", "italic", "underline"],
-            ["image", "code-block"],
+            ['bold', 'italic', 'underline'],
+            ['image', 'code-block'],
           ],
         },
       });
 
       // Set the Quill instance in context
       q.disable();
-      q.setText("Loading...");
+      q.setText('Loading...');
       setQuill(q);
     },
     [darkMode, setQuill]

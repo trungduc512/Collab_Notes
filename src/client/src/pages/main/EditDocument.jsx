@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { useSupplier } from "../../context/supplierContext";
-import { toast } from "react-toastify";
-import Modal from "../../components/Modal";
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useSupplier } from '../../context/supplierContext';
+import { toast } from 'react-toastify';
+import Modal from '../../components/Modal';
 import {
   addCollaboratorToDoc,
   getAllCollaborators,
-} from "../../helpers/docs/doc.helper";
-import { useAuth } from "../../context/authContext";
-import { API } from "../../helpers/config";
-import Editor from "./Editor.jsx";
+} from '../../helpers/docs/doc.helper';
+import { useAuth } from '../../context/authContext';
+import { API } from '../../helpers/config';
+import Editor from './Editor.jsx';
 
 const EditDocument = () => {
   const [currentUsers, setCurrentUsers] = useState([]);
-  const [collaboratorEmail, setCollaboratorEmail] = useState("");
+  const [collaboratorEmail, setCollaboratorEmail] = useState('');
   const [collaborators, setCollaborators] = useState([]);
   const [isModified, setIsModified] = useState(false);
 
@@ -40,8 +40,8 @@ const EditDocument = () => {
       auth?.token
     ).finally(() => setLoading(false));
     if (res?.status === 200) {
-      setCollaboratorEmail("");
-      document.getElementById("closeTheModal").click();
+      setCollaboratorEmail('');
+      document.getElementById('closeTheModal').click();
       toast.success(res?.data?.message);
       triggerUpdate();
       return;
@@ -52,9 +52,8 @@ const EditDocument = () => {
   useEffect(() => {
     if (quill == null || !currentDoc?._id) return;
 
-    socket.emit("get-doc", { docId: currentDoc?._id });
-
-    socket.once("load-document", (document) => {
+    socket.emit('get-doc', { docId: currentDoc?._id });
+    socket.once('load-document', (document) => {
       quill.setContents(document);
       quill.enable();
     });
@@ -65,15 +64,15 @@ const EditDocument = () => {
     if (quill == null || !currentDoc?._id) return;
 
     const handleTextChange = (delta, oldDelta, source) => {
-      if (source === "user") {
+      if (source === 'user') {
         setIsModified(true); // Mark as modified when the user makes changes
       }
     };
 
-    quill.on("text-change", handleTextChange);
+    quill.on('text-change', handleTextChange);
 
     return () => {
-      quill.off("text-change", handleTextChange);
+      quill.off('text-change', handleTextChange);
     };
   }, [quill, currentDoc]);
 
@@ -83,15 +82,15 @@ const EditDocument = () => {
 
     const interval = setInterval(() => {
       if (isModified) {
-        toast.info("Saving document...");
+        toast.info('Saving document...');
         socket.emit(
-          "save-doc",
+          'save-doc',
           { docId: currentDoc?._id, data: quill?.getContents() },
           (error) => {
             if (error) {
               console.error(error);
             } else {
-              toast.success("Document saved successfully");
+              toast.success('Document saved successfully');
               setIsModified(false); // After saving, mark as not modified
             }
           }
@@ -108,13 +107,13 @@ const EditDocument = () => {
   const saveDocumentImmediately = () => {
     if (isModified) {
       socket.emit(
-        "save-doc",
+        'save-doc',
         { docId: currentDoc?._id, data: quill?.getContents() },
         (error) => {
           if (error) {
             console.error(error);
           } else {
-            toast.success("Document saved successfully");
+            toast.success('Document saved successfully');
             setIsModified(false); // After saving, mark as not modified
           }
         }
@@ -137,9 +136,9 @@ const EditDocument = () => {
 
     const resetCurrentDocStateOnReload = async () => {
       const fetchDoc = await fetch(`${API}/documents/${id}`, {
-        method: "GET",
+        method: 'GET',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           Authorization: `Bearer ${auth?.token}`,
         },
       });
@@ -159,20 +158,20 @@ const EditDocument = () => {
     if (!quill || !currentDoc?._id) return;
 
     const handler = (delta, oldDelta, source) => {
-      if (source !== "user") return;
+      if (source !== 'user') return;
 
-      socket.emit("send-changes", {
+      socket.emit('send-changes', {
         delta,
-        roomId: currentDoc?._id,
+        docId: currentDoc?._id,
         username: auth?.user?.username,
       });
     };
 
-    quill.on("text-change", handler);
+    quill.on('text-change', handler);
 
     return () => {
       if (quill) {
-        quill.off("text-change", handler);
+        quill.off('text-change', handler);
       }
     };
   }, [quill, socket, currentDoc, auth?.user?.username]);
@@ -189,17 +188,17 @@ const EditDocument = () => {
     };
 
     socket.emit(
-      "joinRoom",
-      { roomId: currentDoc?._id, username: auth?.user?.username },
+      'joinRoom',
+      { docId: currentDoc?._id, username: auth?.user?.username },
       (error) => {
         if (error) {
-          console.error("Error joining room:", error);
+          console.error('Error joining room:', error);
         }
       }
     );
 
-    socket.on("someoneJoined", handleSomeoneJoined);
-    socket.on("someoneLeft", handleSomeoneLeft);
+    socket.on('someoneJoined', handleSomeoneJoined);
+    socket.on('someoneLeft', handleSomeoneLeft);
 
     return () => {
       if (quill) {
@@ -207,45 +206,45 @@ const EditDocument = () => {
       }
 
       socket.emit(
-        "leaveRoom",
-        { roomId: currentDoc?._id, username: auth?.user?.username },
+        'leaveRoom',
+        { docId: currentDoc?._id, username: auth?.user?.username },
         (error) => {
           if (error) {
-            console.error("Error leaving room:", error);
+            console.error('Error leaving room:', error);
           }
         }
       );
 
-      socket.off("someoneJoined", handleSomeoneJoined);
-      socket.off("someoneLeft", handleSomeoneLeft);
+      socket.off('someoneJoined', handleSomeoneJoined);
+      socket.off('someoneLeft', handleSomeoneLeft);
       setCurrentUsers([]);
     };
   }, [currentDoc, socket, auth?.user?.username]);
 
   useEffect(() => {
-    socket.on("receive-changes", (data) => {
+    socket.on('receive-changes', (data) => {
       if (data?.username === auth?.user?.username) return;
       quill.updateContents(data?.delta);
     });
 
     return () => {
-      socket.off("receive-changes");
+      socket.off('receive-changes');
     };
   }, [currentDoc, socket]);
 
   return (
     <div
       className={`container-fluid ${
-        darkMode ? "bg-dark text-light" : "bg-light text-dark"
+        darkMode ? 'bg-dark text-light' : 'bg-light text-dark'
       } vh-100`}
     >
       <div className="row h-100">
         {/* Sidebar - collapses on smaller screens */}
         <div
           className={`col-lg-3 col-md-4 col-12 p-3 ${
-            darkMode ? "bg-dark text-light" : "bg-light text-dark"
+            darkMode ? 'bg-dark text-light' : 'bg-light text-dark'
           }`}
-          style={{ minWidth: "280px" }}
+          style={{ minWidth: '280px' }}
         >
           <div className="d-flex align-items-center justify-content-between mb-4">
             <h4 className="fw-bold">Collaborators</h4>
@@ -263,7 +262,7 @@ const EditDocument = () => {
           <ul className="list-group mb-4">
             <li
               className={`list-group-item ${
-                darkMode ? "bg-dark text-light" : "bg-secondary text-dark"
+                darkMode ? 'bg-dark text-light' : 'bg-secondary text-dark'
               }`}
             >
               <i className="bi bi-people-fill"></i> Online Collaborators (
@@ -273,11 +272,11 @@ const EditDocument = () => {
               <li
                 key={index}
                 className={`list-group-item ${
-                  darkMode ? "bg-dark text-light" : "bg-light text-dark"
+                  darkMode ? 'bg-dark text-light' : 'bg-light text-dark'
                 }`}
               >
-                <i className="bi bi-person"></i>&nbsp;{user?.username}{" "}
-                {user?.username === auth?.user?.username && "(You)"}
+                <i className="bi bi-person"></i>&nbsp;{user?.username}{' '}
+                {user?.username === auth?.user?.username && '(You)'}
               </li>
             ))}
           </ul>
@@ -286,7 +285,7 @@ const EditDocument = () => {
           <ul className="list-group">
             <li
               className={`list-group-item ${
-                darkMode ? "bg-dark text-light" : "bg-primary text-dark"
+                darkMode ? 'bg-dark text-light' : 'bg-primary text-dark'
               }`}
             >
               <i className="bi bi-person-check-fill"></i> All Collaborators (
@@ -296,7 +295,7 @@ const EditDocument = () => {
               <li
                 key={index}
                 className={`list-group-item ${
-                  darkMode ? "bg-dark text-light" : "bg-light text-dark"
+                  darkMode ? 'bg-dark text-light' : 'bg-light text-dark'
                 }`}
               >
                 <i className="bi bi-person"></i>&nbsp;{user?.username}
@@ -312,11 +311,11 @@ const EditDocument = () => {
             <button
               type="button"
               className={`btn btn-warning mb-2 mb-md-0 ${
-                darkMode ? "text-light" : ""
+                darkMode ? 'text-light' : ''
               }`}
               onClick={() => {
                 saveDocumentImmediately();
-                navigate("/home");
+                navigate('/home');
               }}
             >
               <i className="bi bi-arrow-left"></i> Back
@@ -325,7 +324,7 @@ const EditDocument = () => {
             {/* Document Title */}
             <h1
               className={`display-6 text-center ${
-                darkMode ? "text-light" : "text-dark"
+                darkMode ? 'text-light' : 'text-dark'
               } mb-2 mb-md-0`}
             >
               Document Title: <u>{currentDoc?.title}</u>
@@ -345,7 +344,7 @@ const EditDocument = () => {
           {/* Quill Editor */}
           <div
             className="editor-container border rounded p-3"
-            style={{ minHeight: "60vh" }}
+            style={{ minHeight: '60vh' }}
           >
             <Editor />
           </div>
@@ -358,7 +357,7 @@ const EditDocument = () => {
         modalId="addCollaborator"
         content={
           <>
-            <p className={`lead ${darkMode ? "text-light" : "text-dark"}`}>
+            <p className={`lead ${darkMode ? 'text-light' : 'text-dark'}`}>
               Enter the email of the user you want to add as a collaborator
             </p>
             <div className="input-group">
@@ -367,7 +366,7 @@ const EditDocument = () => {
                 value={collaboratorEmail}
                 onChange={(e) => setCollaboratorEmail(e.target.value)}
                 className={`form-control ${
-                  darkMode ? "bg-dark text-light" : "bg-light text-dark"
+                  darkMode ? 'bg-dark text-light' : 'bg-light text-dark'
                 }`}
                 placeholder="Email"
               />
@@ -391,14 +390,14 @@ const EditDocument = () => {
         content={
           <ul
             className={`list-group ${
-              darkMode ? "bg-dark text-light" : "bg-light text-dark"
+              darkMode ? 'bg-dark text-light' : 'bg-light text-dark'
             }`}
           >
             {collaborators?.map((user, index) => (
               <li
                 key={index}
                 className={`list-group-item ${
-                  darkMode ? "bg-dark text-light" : "bg-light text-dark"
+                  darkMode ? 'bg-dark text-light' : 'bg-light text-dark'
                 }`}
               >
                 <i className="bi bi-person"></i>&nbsp;{user?.username}

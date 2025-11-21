@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 15s # Tần suất lấy mẫu (scrape)
+
+scrape_configs:
+  - job_name: "collab_notes_backend"
+    scrape_interval: 5s
+    metrics_path: "/metrics"
+    static_configs:
+      # Sử dụng host.docker.internal để trỏ về máy host nơi Node.js đang chạy port 8080
+      - targets: ["host.docker.internal:8080"]

@@ -1,4 +1,11 @@
 services:
+  # websocket gateway
+  ws-gateway:
+    build: ./src/gateway
+    ports:
+      - "8080"
+    restart: unless-stopped
+
   # Dịch vụ MongoDB
   mongo:
     image: mongo:latest

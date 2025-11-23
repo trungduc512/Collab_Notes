@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Test Nginx WebSocket LB</title>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <style>
+      body {
+        font-family: monospace;
+        background: #222;
+        color: #0f0;
+        padding: 20px;
+      }
+      #logs {
+        border: 1px solid #444;
+        padding: 10px;
+        height: 300px;
+        overflow-y: scroll;
+        background: #000;
+      }
+      .success {
+        color: #0f0;
+      }
+      .error {
+        color: #f00;
+      }
+      .info {
+        color: #0ff;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>WebSocket Load Balancer Test</h2>
+    <div>Status: <span id="status" class="error">Disconnected</span></div>
+    <br />
+    <div id="logs"></div>
+
+    <script>
+      const logDiv = document.getElementById("logs");
+      const statusSpan = document.getElementById("status");
+
+      function log(msg, type = "info") {
+        const p = document.createElement("p");
+        p.className = type;
+        p.innerText = `[${new Date().toLocaleTimeString()}] ${msg}`;
+        logDiv.appendChild(p);
+        logDiv.scrollTop = logDiv.scrollHeight;
+      }
+
+      // --- CẤU HÌNH KẾT NỐI ---
+      // Kết nối vào localhost cổng 80 (Cổng của Nginx)
+      const socket = io("http://localhost:80", {
+        transports: ["websocket"], // Bắt buộc dùng WebSocket để tránh lỗi polling qua Nginx
+        reconnection: true,
+      });
+
+      socket.on("connect", () => {
+        statusSpan.innerText = "CONNECTED";
+        statusSpan.className = "success";
+        log(`Kết nối thành công! Socket ID: ${socket.id}`, "success");
+      });
+
+      socket.on("connect_error", (err) => {
+        statusSpan.innerText = "ERROR";
+        statusSpan.className = "error";
+        log(`Lỗi kết nối: ${err.message}`, "error");
+      });
+
+      // Nhận tin nhắn xưng danh từ Server
+      socket.on("server_identity", (data) => {
+        log(`-----------------------------------------`, "info");
+        log(`📩 Phản hồi từ Server: ${data.message}`, "info");
+        log(`🏢 Đang được phục vụ bởi Container: ${data.server}`, "success");
+        log(`-----------------------------------------`, "info");
+      });
+
+      socket.on("disconnect", () => {
+        statusSpan.innerText = "DISCONNECTED";
+        statusSpan.className = "error";
+        log("Mất kết nối tới server", "error");
+      });
+    </script>
+  </body>
+</html>

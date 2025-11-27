@@ -1,4 +1,27 @@
 services:
+  # websocket gateway
+  ws-gateway:
+    build: ./src/gateway
+    ports:
+      - "8080"
+    networks:
+      - app-network
+
+  # Nginx reverse proxy, load balancer
+  nginx:
+    build: ./src/nginx # Chúng ta sẽ viết Dockerfile riêng cho Nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - APP_SERVICE_NAME=collab_notes-ws-gateway
+      - APP_PORT=8080
+    depends_on:
+      - ws-gateway
+    restart: unless-stopped
+    networks:
+      - app-network
+
   # Dịch vụ MongoDB
   mongo:
     image: mongo:latest
@@ -18,3 +41,7 @@ services:
 volumes:
   mongo-data:
     driver: local
+
+networks:
+  app-network:
+    driver: bridge

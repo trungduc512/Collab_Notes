@@ -24,7 +24,8 @@
     "nodemailer": "^6.9.8",
     "nodemon": "^3.1.4",
     "quill-delta": "^5.1.0",
-    "redis": "^5.10.0",
-    "socket.io": "^4.8.1"
+    "ws": "^8.18.3",
+    "y-mongodb-provider": "^0.2.1",
+    "y-websocket": "^1.5.0"
   }
 }

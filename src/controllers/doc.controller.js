@@ -1,6 +1,6 @@
 import DocumentModel from "../models/documents.model.js";
 import User from "../models/user.model.js";
-import { getRedisClient } from "../utils/redisConnect.js";
+import mongoose from "mongoose";
 
 export const createDocument = async (req, res) => {
   try {
@@ -58,78 +58,10 @@ export const getAllRespectedUserDocuments = async (req, res) => {
 export const getSingleUserDocument = async (req, res) => {
   try {
     const { documentId } = req.params;
-    // Kiểm tra xem document có trong cache không
-    try {
-      const redisClient = getRedisClient();
-      const cachedDocument = await redisClient.get(`document:${documentId}`);
-      if (cachedDocument) {
-        console.log(`✅ Document ${documentId} fetched from cache`);
-        return res.status(200).json({
-          document: JSON.parse(cachedDocument),
-          message: "Document fetched from cache successfully",
-        });
-      }
-    } catch (cacheError) {
-      console.error("Redis error:", cacheError);
-    }
     const document = await DocumentModel.findById(documentId)
       .populate("owner", "username")
       .populate("collaborators", "username");
-    // Lưu document vào cache
-    try {
-      const redisClient = getRedisClient();
-      await redisClient.set(
-        `document:${documentId}`,
-        JSON.stringify(document),
-        { EX: 3600 } // Cache trong 1 giờ
-      );
-      console.log(`✅ Document ${documentId} cached successfully`);
-    } catch (cacheError) {
-      console.error("Redis error:", cacheError);
-    }
     res.status(200).json({ document });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
-export const getDocThroughSocket = async (id) => {
-  try {
-    const document = await DocumentModel.findById(id);
-    return document;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const updateDocument = async (req, res) => {
-  const { documentId } = req.params;
-
-  try {
-    const doesDocumentExist = await DocumentModel.findById(documentId);
-
-    if (!doesDocumentExist)
-      return res
-        .status(404)
-        .json({ message: `Document with id : ${documentId} doesn't exist` });
-
-    if (doesDocumentExist.owner.toString() !== req.user.id)
-      return res
-        .status(401)
-        .json({ message: `You are not authorized to update this document` });
-
-    const { content } = req.body;
-
-    const updatedDocument = await DocumentModel.findByIdAndUpdate(
-      documentId,
-      { content },
-      { new: true }
-    );
-
-    res.status(200).json({
-      document: updatedDocument,
-      message: `Document with id : ${documentId} updated successfully`,
-    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -152,6 +84,10 @@ export const deleteDocument = async (req, res) => {
         .json({ message: `You are not authorized to delete this document` });
 
     await DocumentModel.findByIdAndDelete(documentId);
+
+    // Delete Yjs document data
+    const yjsCollection = mongoose.connection.db.collection("yjs-transactions");
+    await yjsCollection.deleteMany({ docName: documentId });
 
     res.status(200).json({
       message: `Document: ${

@@ -6,6 +6,45 @@ export const socketCtrl = (io) => {
   io.on("connection", (socket) => {
     const userId = socket.id;
     handleConnection(socket, io, userId);
+
+    // --- YJS EVENTS ---
+
+    // 1. Client tham gia vào room tài liệu
+    socket.on("join-yjs-room", ({ roomId }) => {
+      socket.join(roomId);
+      // Có thể thêm logic thông báo user joined tại đây nếu muốn
+    });
+
+    // 2. Nhận update nội dung (binary) từ 1 client và gửi cho các client khác trong room
+    socket.on("yjs-update", ({ roomId, update }) => {
+      console.log("Received yjs-update for room:", roomId);
+      // Broadcast tới tất cả trừ người gửi
+      socket.to(roomId).emit("yjs-update", { update });
+    });
+
+    // 3. Nhận update con trỏ/trạng thái (awareness) và gửi cho các client khác
+    socket.on("yjs-awareness", ({ roomId, update }) => {
+      socket.to(roomId).emit("yjs-awareness", { update });
+    });
+
+    // --- CÁC SỰ KIỆN KHÁC (GIỮ NGUYÊN NẾU CẦN) ---
+
+    // Sự kiện lưu tài liệu vào MongoDB (Snapshot)
+    socket.on("save-doc", async (data, callback) => {
+      try {
+        if (!data.data) return;
+        await DocumentModel.findByIdAndUpdate(data?.docId, {
+          content: data?.data,
+        });
+        if (callback) callback(null);
+      } catch (error) {
+        console.error("Error in save-doc:", error);
+      }
+    });
+
+    socket.on("disconnect", () => {
+      // Xử lý cleanup nếu cần
+    });
   });
 };
 

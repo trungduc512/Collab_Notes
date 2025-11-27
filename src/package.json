@@ -23,6 +23,9 @@
     "mongoose": "^8.1.0",
     "nodemailer": "^6.9.8",
     "nodemon": "^3.1.4",
-    "socket.io": "^4.8.1"
+    "socket.io": "^4.8.1",
+    "ws": "^8.18.3",
+    "y-websocket": "^3.0.0",
+    "yjs": "^13.6.27"
   }
 }

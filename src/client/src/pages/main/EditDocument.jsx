@@ -12,7 +12,7 @@ import { API } from "../../helpers/config";
 import Editor from "./Editor.jsx";
 
 const EditDocument = () => {
-  const [currentUsers, setCurrentUsers] = useState([]);
+  const [currentUsers, setCurrentUsers] = useState([]); // Tạm thời để trống
   const [collaboratorEmail, setCollaboratorEmail] = useState("");
   const [collaborators, setCollaborators] = useState([]);
   const [isModified, setIsModified] = useState(false);
@@ -28,10 +28,10 @@ const EditDocument = () => {
     triggerUpdate,
     quill,
     setLoading,
-    getUserColor,
   } = useSupplier();
   const { id } = useParams();
 
+  // --- XỬ LÝ THÊM COLLABORATOR (REST API) ---
   const handleAddCollaborator = async () => {
     setLoading(true);
     const res = await addCollaboratorToDoc(
@@ -39,6 +39,7 @@ const EditDocument = () => {
       collaboratorEmail,
       auth?.token
     ).finally(() => setLoading(false));
+
     if (res?.status === 200) {
       setCollaboratorEmail("");
       document.getElementById("closeTheModal").click();
@@ -49,24 +50,15 @@ const EditDocument = () => {
     toast.error(res?.data?.message);
   };
 
-  useEffect(() => {
-    if (quill == null || !currentDoc?._id) return;
-
-    socket.emit("get-doc", { docId: currentDoc?._id });
-
-    socket.once("load-document", (document) => {
-      quill.setContents(document);
-      quill.enable();
-    });
-  }, [quill, socket, currentDoc]);
-
-  // Register document modifications and mark as modified
+  // --- THEO DÕI THAY ĐỔI ĐỂ LƯU (SAVE) ---
+  // Lưu ý: Yjs tự động đồng bộ real-time, nhưng ta vẫn cần đánh dấu
+  // để lưu bản snapshot vào DB (cho lần load sau hoặc hiển thị ở trang chủ).
   useEffect(() => {
     if (quill == null || !currentDoc?._id) return;
 
     const handleTextChange = (delta, oldDelta, source) => {
       if (source === "user") {
-        setIsModified(true); // Mark as modified when the user makes changes
+        setIsModified(true);
       }
     };
 
@@ -77,13 +69,13 @@ const EditDocument = () => {
     };
   }, [quill, currentDoc]);
 
-  // Check and save only if there are modifications
+  // --- AUTO SAVE (SNAPSHOT) ---
   useEffect(() => {
     if (quill == null) return;
 
     const interval = setInterval(() => {
       if (isModified) {
-        toast.info("Saving document...");
+        // Gửi toàn bộ nội dung hiện tại để lưu đè vào DB
         socket.emit(
           "save-doc",
           { docId: currentDoc?._id, data: quill?.getContents() },
@@ -91,148 +83,71 @@ const EditDocument = () => {
             if (error) {
               console.error(error);
             } else {
-              toast.success("Document saved successfully");
-              setIsModified(false); // After saving, mark as not modified
+              // toast.success("Auto-saved"); // Có thể bỏ comment nếu muốn thông báo
+              setIsModified(false);
             }
           }
         );
       }
-    }, 30000); // Interval to check for modifications
+    }, 30000); // 30 giây lưu 1 lần
 
-    return () => {
-      clearInterval(interval);
-    };
-  }, [quill, isModified, currentDoc]);
+    return () => clearInterval(interval);
+  }, [quill, isModified, currentDoc, socket]);
 
-  // Function to save immediately when necessary (can be called when leaving the page, for example)
+  // Hàm lưu ngay lập tức (khi bấm nút Back)
   const saveDocumentImmediately = () => {
     if (isModified) {
       socket.emit(
         "save-doc",
         { docId: currentDoc?._id, data: quill?.getContents() },
         (error) => {
-          if (error) {
-            console.error(error);
-          } else {
+          if (error) console.error(error);
+          else {
             toast.success("Document saved successfully");
-            setIsModified(false); // After saving, mark as not modified
+            setIsModified(false);
           }
         }
       );
     }
   };
 
-  // Other collaborator and room functionalities
+  // --- KHỞI TẠO DỮ LIỆU BAN ĐẦU ---
   useEffect(() => {
     const fetchCollaborators = async () => {
-      setLoading(true);
-      const res = await getAllCollaborators(
-        currentDoc?._id,
-        auth?.token
-      ).finally(() => setLoading(false));
+      // setLoading(true); // Tắt loading để tránh flicker khi editor đang load
+      const res = await getAllCollaborators(currentDoc?._id, auth?.token);
       if (res?.status === 200) {
         setCollaborators(res?.data?.collaborators);
       }
     };
 
     const resetCurrentDocStateOnReload = async () => {
-      const fetchDoc = await fetch(`${API}/documents/${id}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${auth?.token}`,
-        },
-      });
-      const doc = await fetchDoc.json();
-      setCurrentDoc(doc?.document);
+      try {
+        const fetchDoc = await fetch(`${API}/documents/${id}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${auth?.token}`,
+          },
+        });
+        const doc = await fetchDoc.json();
+        setCurrentDoc(doc?.document);
+      } catch (err) {
+        console.error("Failed to fetch doc", err);
+      }
     };
 
+    // Nếu chưa có currentDoc (do reload trang), fetch lại từ API
     if (!currentDoc && auth?.token) {
       resetCurrentDocStateOnReload();
     }
+    // Nếu đã có doc, fetch danh sách collaborator
     if (auth?.token && currentDoc?._id) {
       fetchCollaborators();
     }
-  }, [auth, currentDoc]);
+  }, [auth, currentDoc, id, setCurrentDoc]);
 
-  useEffect(() => {
-    if (!quill || !currentDoc?._id) return;
-
-    const handler = (delta, oldDelta, source) => {
-      if (source !== "user") return;
-
-      socket.emit("send-changes", {
-        delta,
-        roomId: currentDoc?._id,
-        username: auth?.user?.username,
-      });
-    };
-
-    quill.on("text-change", handler);
-
-    return () => {
-      if (quill) {
-        quill.off("text-change", handler);
-      }
-    };
-  }, [quill, socket, currentDoc, auth?.user?.username]);
-
-  useEffect(() => {
-    if (quill == null || !currentDoc?._id) return;
-
-    const handleSomeoneJoined = (data) => {
-      setCurrentUsers(data?.roomUsers);
-    };
-
-    const handleSomeoneLeft = (data) => {
-      setCurrentUsers(data?.roomUsers);
-    };
-
-    socket.emit(
-      "joinRoom",
-      { roomId: currentDoc?._id, username: auth?.user?.username },
-      (error) => {
-        if (error) {
-          console.error("Error joining room:", error);
-        }
-      }
-    );
-
-    socket.on("someoneJoined", handleSomeoneJoined);
-    socket.on("someoneLeft", handleSomeoneLeft);
-
-    return () => {
-      if (quill) {
-        quill.disable();
-      }
-
-      socket.emit(
-        "leaveRoom",
-        { roomId: currentDoc?._id, username: auth?.user?.username },
-        (error) => {
-          if (error) {
-            console.error("Error leaving room:", error);
-          }
-        }
-      );
-
-      socket.off("someoneJoined", handleSomeoneJoined);
-      socket.off("someoneLeft", handleSomeoneLeft);
-      setCurrentUsers([]);
-    };
-  }, [currentDoc, socket, auth?.user?.username]);
-
-  useEffect(() => {
-    socket.on("receive-changes", (data) => {
-      if (data?.username === auth?.user?.username) return;
-      quill.updateContents(data?.delta);
-    });
-
-    return () => {
-      socket.off("receive-changes");
-    };
-  }, [currentDoc, socket]);
-
+  // --- RENDER ---
   return (
     <div
       className={`container-fluid ${
@@ -240,7 +155,7 @@ const EditDocument = () => {
       } vh-100`}
     >
       <div className="row h-100">
-        {/* Sidebar - collapses on smaller screens */}
+        {/* Sidebar */}
         <div
           className={`col-lg-3 col-md-4 col-12 p-3 ${
             darkMode ? "bg-dark text-light" : "bg-light text-dark"
@@ -259,30 +174,19 @@ const EditDocument = () => {
             </button>
           </div>
 
-          {/* Online Collaborators List */}
+          {/* Online Collaborators List (Tạm thời chưa có data từ Yjs Awareness) */}
           <ul className="list-group mb-4">
             <li
               className={`list-group-item ${
                 darkMode ? "bg-dark text-light" : "bg-secondary text-dark"
               }`}
             >
-              <i className="bi bi-people-fill"></i> Online Collaborators (
-              {currentUsers?.length})
+              <i className="bi bi-people-fill"></i> Online (Yjs synced)
             </li>
-            {currentUsers?.map((user, index) => (
-              <li
-                key={index}
-                className={`list-group-item ${
-                  darkMode ? "bg-dark text-light" : "bg-light text-dark"
-                }`}
-              >
-                <i className="bi bi-person"></i>&nbsp;{user?.username}{" "}
-                {user?.username === auth?.user?.username && "(You)"}
-              </li>
-            ))}
+            {/* Logic hiển thị user online sẽ được cập nhật sau khi tích hợp Awareness */}
           </ul>
 
-          {/* Available Collaborators List */}
+          {/* All Collaborators List */}
           <ul className="list-group">
             <li
               className={`list-group-item ${
@@ -305,10 +209,9 @@ const EditDocument = () => {
           </ul>
         </div>
 
-        {/* Main Editor Container - expands on smaller screens */}
+        {/* Main Editor Area */}
         <div className="col-lg-9 col-md-8 col-12 p-4">
           <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4">
-            {/* Back Button */}
             <button
               type="button"
               className={`btn btn-warning mb-2 mb-md-0 ${
@@ -322,16 +225,14 @@ const EditDocument = () => {
               <i className="bi bi-arrow-left"></i> Back
             </button>
 
-            {/* Document Title */}
             <h1
               className={`display-6 text-center ${
                 darkMode ? "text-light" : "text-dark"
               } mb-2 mb-md-0`}
             >
-              Document Title: <u>{currentDoc?.title}</u>
+              Document: <u>{currentDoc?.title}</u>
             </h1>
 
-            {/* View Collaborators Button */}
             <button
               type="button"
               className="btn btn-secondary"
@@ -342,7 +243,7 @@ const EditDocument = () => {
             </button>
           </div>
 
-          {/* Quill Editor */}
+          {/* Editor Component (Chứa logic Yjs) */}
           <div
             className="editor-container border rounded p-3"
             style={{ minHeight: "60vh" }}
@@ -359,7 +260,7 @@ const EditDocument = () => {
         content={
           <>
             <p className={`lead ${darkMode ? "text-light" : "text-dark"}`}>
-              Enter the email of the user you want to add as a collaborator
+              Enter email to add collaborator
             </p>
             <div className="input-group">
               <input

@@ -4,6 +4,10 @@ services:
     build: ./src/gateway
     ports:
       - "8080"
+    environment:
+      - WS_PORT=1234
+      - MONGODB_URI=mongodb://mongo:27017/collab_notes
+      - JWT_SECRET=my_super_secret_123
     networks:
       - app-network
 
@@ -15,7 +19,7 @@ services:
       - "443:443"
     environment:
       - APP_SERVICE_NAME=collab_notes-ws-gateway
-      - APP_PORT=8080
+      - APP_PORT=1234
     depends_on:
       - ws-gateway
     restart: unless-stopped

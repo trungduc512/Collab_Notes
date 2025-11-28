@@ -2,83 +2,165 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Test Nginx WebSocket LB</title>
-    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebSocket Cluster Test</title>
     <style>
       body {
-        font-family: monospace;
-        background: #222;
-        color: #0f0;
-        padding: 20px;
+        font-family: sans-serif;
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 0 1rem;
       }
-      #logs {
-        border: 1px solid #444;
+      .container {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 1rem;
+      }
+      input {
+        padding: 8px;
+        flex-grow: 1;
+      }
+      button {
+        padding: 8px 16px;
+        cursor: pointer;
+      }
+      #status {
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+      .connected {
+        color: green;
+      }
+      .disconnected {
+        color: red;
+      }
+      textarea {
+        width: 100%;
+        height: 150px;
+        margin-bottom: 1rem;
         padding: 10px;
-        height: 300px;
-        overflow-y: scroll;
-        background: #000;
       }
-      .success {
-        color: #0f0;
-      }
-      .error {
-        color: #f00;
-      }
-      .info {
-        color: #0ff;
+      pre {
+        background: #f4f4f4;
+        padding: 10px;
+        height: 200px;
+        overflow-y: auto;
+        border: 1px solid #ddd;
       }
     </style>
   </head>
   <body>
-    <h2>WebSocket Load Balancer Test</h2>
-    <div>Status: <span id="status" class="error">Disconnected</span></div>
-    <br />
-    <div id="logs"></div>
+    <h1>🔍 Test WebSocket Sharding</h1>
+    <p>
+      Nhập tên tài liệu để kiểm tra. Nginx sẽ điều hướng các tài liệu khác nhau
+      vào các server khác nhau (dựa trên Hash).
+    </p>
 
-    <script>
-      const logDiv = document.getElementById("logs");
-      const statusSpan = document.getElementById("status");
+    <div class="container">
+      <input
+        type="text"
+        id="docName"
+        placeholder="Nhập tên tài liệu (vd: doc-1, doc-2)"
+        value="doc-1"
+      />
+      <button onclick="connect()" id="btnConnect">Kết nối</button>
+      <button onclick="disconnect()" disabled id="btnDisconnect">Ngắt</button>
+    </div>
 
-      function log(msg, type = "info") {
-        const p = document.createElement("p");
-        p.className = type;
-        p.innerText = `[${new Date().toLocaleTimeString()}] ${msg}`;
-        logDiv.appendChild(p);
-        logDiv.scrollTop = logDiv.scrollHeight;
-      }
+    <div id="status" class="disconnected">Trạng thái: Chưa kết nối</div>
 
-      // --- CẤU HÌNH KẾT NỐI ---
-      // Kết nối vào localhost cổng 80 (Cổng của Nginx)
-      const socket = io("http://localhost:80", {
-        transports: ["websocket"], // Bắt buộc dùng WebSocket để tránh lỗi polling qua Nginx
-        reconnection: true,
-      });
+    <h3>📝 Soạn thảo thử (Real-time Sync)</h3>
+    <textarea
+      id="editor"
+      placeholder="Gõ vào đây để test đồng bộ..."
+      disabled
+    ></textarea>
 
-      socket.on("connect", () => {
-        statusSpan.innerText = "CONNECTED";
-        statusSpan.className = "success";
-        log(`Kết nối thành công! Socket ID: ${socket.id}`, "success");
-      });
+    <h3>log hệ thống:</h3>
+    <pre id="logs"></pre>
 
-      socket.on("connect_error", (err) => {
-        statusSpan.innerText = "ERROR";
-        statusSpan.className = "error";
-        log(`Lỗi kết nối: ${err.message}`, "error");
-      });
+    <script type="module">
+      import * as Y from "https://esm.sh/yjs@13";
+      import { WebsocketProvider } from "https://esm.sh/y-websocket@1";
 
-      // Nhận tin nhắn xưng danh từ Server
-      socket.on("server_identity", (data) => {
-        log(`-----------------------------------------`, "info");
-        log(`📩 Phản hồi từ Server: ${data.message}`, "info");
-        log(`🏢 Đang được phục vụ bởi Container: ${data.server}`, "success");
-        log(`-----------------------------------------`, "info");
-      });
+      let provider = null;
+      let doc = null;
+      let yText = null;
 
-      socket.on("disconnect", () => {
-        statusSpan.innerText = "DISCONNECTED";
-        statusSpan.className = "error";
-        log("Mất kết nối tới server", "error");
-      });
+      const log = (msg) => {
+        const logs = document.getElementById("logs");
+        logs.innerText =
+          `[${new Date().toLocaleTimeString()}] ${msg}\n` + logs.innerText;
+      };
+
+      window.connect = () => {
+        const docName = document.getElementById("docName").value.trim();
+        if (!docName) return alert("Vui lòng nhập tên tài liệu!");
+
+        if (provider) provider.destroy();
+
+        // Khởi tạo Yjs Doc
+        doc = new Y.Doc();
+
+        // Kết nối đến Nginx Gateway (cổng 80)
+        // ws://localhost:80/docName
+        const gatewayUrl = "ws://localhost:80";
+
+        log(`🔄 Đang kết nối tới ${gatewayUrl}/${docName}...`);
+
+        provider = new WebsocketProvider(gatewayUrl, docName, doc);
+
+        // Xử lý sự kiện trạng thái
+        provider.on("status", (event) => {
+          const statusEl = document.getElementById("status");
+          statusEl.innerText = `Trạng thái: ${event.status}`;
+          statusEl.className = event.status;
+
+          log(`📡 Connection Status: ${event.status}`);
+
+          if (event.status === "connected") {
+            document.getElementById("editor").disabled = false;
+            document.getElementById("btnConnect").disabled = true;
+            document.getElementById("btnDisconnect").disabled = false;
+          } else {
+            document.getElementById("editor").disabled = true;
+          }
+        });
+
+        // Binding Textarea với Yjs (Sync logic đơn giản)
+        yText = doc.getText("content");
+        const editor = document.getElementById("editor");
+
+        // Khi dữ liệu từ Server về -> Cập nhật Textarea
+        yText.observe(() => {
+          if (editor.value !== yText.toString()) {
+            editor.value = yText.toString();
+          }
+        });
+
+        // Khi người dùng gõ -> Gửi lên Server
+        editor.oninput = () => {
+          if (editor.value !== yText.toString()) {
+            doc.transact(() => {
+              yText.delete(0, yText.length);
+              yText.insert(0, editor.value);
+            });
+          }
+        };
+      };
+
+      window.disconnect = () => {
+        if (provider) {
+          provider.destroy();
+          provider = null;
+          document.getElementById("status").innerText = "Trạng thái: Đã ngắt";
+          document.getElementById("status").className = "disconnected";
+          document.getElementById("editor").disabled = true;
+          document.getElementById("btnConnect").disabled = false;
+          document.getElementById("btnDisconnect").disabled = true;
+          log("❌ Đã ngắt kết nối.");
+        }
+      };
     </script>
   </body>
 </html>

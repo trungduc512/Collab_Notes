@@ -13,7 +13,7 @@ const AuthProvider = ({ children }) => {
     token: "",
   });
 
-  // Lần load đầu tiên → nếu có token thì gọi /users/me
+  // Lần load đầu tiên → nếu có token thì gọi /auth/me
   useEffect(() => {
     const data = getLocalStorageWithExpiry("auth");
     if (!data?.token) return;
@@ -21,7 +21,7 @@ const AuthProvider = ({ children }) => {
     const fetchUser = async () => {
       try {
         const res = await fetch(
-          `${import.meta.env.VITE_APP_BACKEND_URL}/users/me`,
+          `${import.meta.env.VITE_APP_BACKEND_URL}/auth/me`,
           {
             method: "GET",
             credentials: "include",
@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
     fetchUser();
   }, []);
 
-  // Tự động refresh token mỗi 1 phút để đảm bảo token không hết hạn
+  // Tự động refresh token 24h để đảm bảo token không hết hạn
   useEffect(() => {
     const interval = setInterval(async () => {
       const data = getLocalStorageWithExpiry("auth");
@@ -74,9 +74,9 @@ const AuthProvider = ({ children }) => {
 
       if (newToken) {
         setAuth((prev) => ({ ...prev, token: newToken }));
-        setLocalStorageWithExpiry("auth", { ...data, token: newToken }, 60);
+        setLocalStorageWithExpiry("auth", { ...data, token: newToken }, 24);
       }
-    }, 1 * 60 * 1000); // Refresh mỗi 1 phút
+    }, 24 * 60 * 60 * 1000); // Refresh sau 24h
 
     return () => clearInterval(interval);
   }, []);

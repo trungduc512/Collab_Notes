@@ -2,7 +2,7 @@ export const setLocalStorageWithExpiry = (key, data, expirationMinutes) => {
   const now = new Date();
   const item = {
     data: data,
-    expiry: now.getTime() + expirationMinutes * 60 * 1000,
+    expiry: now.getTime() + expirationMinutes * 60 * 60 * 1000,
   };
   localStorage.setItem(key, JSON.stringify(item));
 };
@@ -26,7 +26,7 @@ export const login = async (user) => {
     const { email, password } = user;
 
     const res = await fetch(
-      `${import.meta.env.VITE_APP_BACKEND_URL || "/api/v1"}/users/login`,
+      `${import.meta.env.VITE_APP_BACKEND_URL}/auth/login`,
       {
         method: "POST",
         credentials: "include",
@@ -64,7 +64,7 @@ export const register = async (user) => {
     const { username, email, password } = user;
 
     const res = await fetch(
-      `${import.meta.env.VITE_APP_BACKEND_URL || "/api/v1"}/users/register`,
+      `${import.meta.env.VITE_APP_BACKEND_URL}/auth/register`,
       {
         method: "POST",
         headers: {
@@ -85,7 +85,7 @@ export const register = async (user) => {
 
 export const refreshAccessToken = async () => {
   const res = await fetch(
-    `${import.meta.env.VITE_APP_BACKEND_URL}/users/refresh-token`,
+    `${import.meta.env.VITE_APP_BACKEND_URL}/auth/refresh-token`,
     {
       method: "POST",
       credentials: "include",

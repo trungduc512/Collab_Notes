@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  auth-service:
+    image: my-auth-service
+    build:
+      context: ./auth-service
+
+  document-service:
+    image: my-document-service
+    build:
+      context: ./document-service
+
+  websocket-service:
+    image: my-websocket-service
+    build:
+      context: ./websocket-service
+
+  gateway:
+    image: my-gateway
+    build:
+      context: ./gateway
+
+  client:
+    image: my-client
+    build:
+      context: ./client

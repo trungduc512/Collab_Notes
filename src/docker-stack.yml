@@ -2,66 +2,64 @@ version: "3.9"
 
 services:
   # ===============================
-  # 1. AUTH SERVICE
+  # 1. AUTH SERVICE (Swarm LB)
   # ===============================
   auth-service:
-    build:
-      context: ./auth-service
-    container_name: auth-service
+    image: my-auth-service
+
     restart: always
-    env_file:
-      - ./auth-service/.env
+
     environment:
-      - MONGODB_URI=mongodb://host.docker.internal:27017/collab_notes
+      - MONGODB_URI=mongodb+srv://nguyentronghieu2kk5_db_user:8OQlHdhPdUCHWxES@cluster0.ttgxlkn.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0
+      - JWT_SECRET=hao123
+      - JWT_REFRESH_SECRET=hao123
+
     networks:
       - app-network
-    ports:
-      - "5001:5001"
+    deploy:
+      mode: replicated
+      replicas: 3
 
   # ===============================
-  # 2. DOCUMENT SERVICE
+  # 2. DOCUMENT SERVICE (Swarm LB)
   # ===============================
   document-service:
-    build:
-      context: ./document-service
-    container_name: document-service
+    image: my-document-service
+
     restart: always
-    env_file:
-      - ./document-service/.env
+
     environment:
-      - MONGODB_URI=mongodb://host.docker.internal:27017/collab_notes
+      - MONGODB_URI=mongodb+srv://nguyentronghieu2kk5_db_user:8OQlHdhPdUCHWxES@cluster0.ttgxlkn.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0
       - AUTH_SERVICE_URL=http://auth-service:5001
     networks:
       - app-network
-    ports:
-      - "5002:5002"
+    deploy:
+      mode: replicated
+      replicas: 3
 
   # ===============================
-  # 3. WEBSOCKET SERVICE
+  # 3. WEBSOCKET SERVICE (NGINX LB)
   # ===============================
   websocket-service:
-    build:
-      context: ./websocket-service
-    container_name: websocket-service
+    image: my-websocket-service
+
     restart: always
-    env_file:
-      - ./websocket-service/.env
+
     environment:
       - DOCUMENT_SERVICE_URL=http://document-service:5002
       - WS_PORT=5003
       - FRONTEND_ORIGIN=http://localhost:5173
     networks:
       - app-network
-    ports:
-      - "5003:5003"
+    deploy:
+      mode: replicated
+      replicas: 3
 
   # ===============================
   # 4. GATEWAY (OpenResty)
   # ===============================
   gateway:
-    build:
-      context: ./gateway
-    container_name: gateway
+    image: my-gateway
     ports:
       - "80:80"
     volumes:
@@ -72,28 +70,33 @@ services:
       - auth-service
       - document-service
       - websocket-service
+    deploy:
+      mode: replicated
+      replicas: 1
 
   # ===============================
   # 5. FRONTEND (Vite dev server)
   # ===============================
   client:
-    build:
-      context: ./client
-    container_name: client
+    image: my-client
     restart: always
     environment:
-      - VITE_APP_BACKEND_URL=http://localhost
-      - VITE_APP_SOCKET_URL=http://localhost/ws
+      - VITE_APP_BACKEND_URL=http://localhost:80
+      - VITE_APP_SOCKET_URL=http://localhost:80
+
     ports:
       - "5173:5173"
     networks:
       - app-network
     depends_on:
       - gateway
+    deploy:
+      mode: replicated
+      replicas: 1
 
 # ===============================
 # NETWORK
 # ===============================
 networks:
   app-network:
-    driver: bridge
+    driver: overlay

@@ -12,7 +12,7 @@ app.use(cookieParser());
 
 app.use("/documents", documentRouter);
 
-app.listen(PORT, async () => {
+app.listen(PORT, "0.0.0.0", async () => {
   await dbConnect();
   console.log(`Server is running on http://localhost:${PORT}`);
 });

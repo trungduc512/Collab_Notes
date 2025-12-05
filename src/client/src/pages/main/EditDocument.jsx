@@ -10,7 +10,8 @@ import {
 import { useAuth } from "../../context/authContext";
 import { API } from "../../helpers/config";
 import Editor from "./Editor.jsx";
-
+import { SOCKET_URL } from "../../helpers/config.js";
+import { io } from "socket.io-client";
 const EditDocument = () => {
   const [currentUsers, setCurrentUsers] = useState([]);
   const [collaboratorEmail, setCollaboratorEmail] = useState("");
@@ -28,6 +29,7 @@ const EditDocument = () => {
     triggerUpdate,
     quill,
     setLoading,
+    setSocket,
   } = useSupplier();
   const { id } = useParams();
 
@@ -47,6 +49,88 @@ const EditDocument = () => {
     }
     toast.error(res?.data?.message);
   };
+  // Tạo socket 1 lần
+  // useEffect(() => {
+  //   const s = io(`${SOCKET_URL}?roomId=${currentDoc._id}`, {
+  //     path: "/ws/socket.io/",
+  //     extraHeaders: {
+  //       Authorization: `Bearer ${auth?.token}`,
+  //     },
+  //     transports: ["websocket", "polling"],
+  //   });
+
+  //   setSocket(s);
+
+  //   s.on("connect", () => {
+  //     console.log("WS connected:", s.id);
+  //   });
+
+  //   s.on("disconnect", (reason) => {
+  //     console.log("WS disconnected:", reason);
+  //   });
+
+  //   s.on("auth-expired", () => {
+  //     console.warn("WebSocket auth expired");
+  //   });
+
+  //   return () => {};
+  //   // CHÚ Ý: dependency chỉ là [] để không tạo lại socket khi auth đổi
+  // }, []);
+
+  // Reconnect WebSocket mỗi khi đổi document (đúng cho sticky routing)
+  useEffect(() => {
+    if (!currentDoc?._id) {
+      console.log("No currentDoc._id, not connecting WS");
+      return;
+    }
+    console.log("Connecting WS for document:", currentDoc._id);
+
+    // Tạo socket mới với roomId để Nginx route đúng instance
+    document.cookie = `token=${auth?.token}; path=/`;
+    const s = io(`${SOCKET_URL}?roomId=${currentDoc._id}`, {
+      path: "/ws/socket.io/",
+      auth: {
+        username: auth?.user?.username || "Unknown",
+      },
+      transports: ["websocket"],
+    });
+
+    setSocket(s);
+
+    s.on("connect", () => console.log("WS connected:", s.id));
+    s.on("disconnect", (reason) => console.log("WS disconnected:", reason));
+
+    return () => {
+      s.disconnect();
+    };
+  }, [currentDoc?._id]);
+
+  // Mỗi khi accessToken hoặc socket đổi -> gửi refresh-auth cho socket
+  useEffect(() => {
+    if (!socket) return;
+    if (!auth?.token) return;
+
+    const sendAuth = () => {
+      console.log("Sending refresh-auth to WS");
+      socket.emit("refresh-auth", { token: auth.token }, (err, res) => {
+        if (err) {
+          console.error("WS refresh-auth error:", err);
+        } else {
+          console.log("WS refresh-auth success:", res);
+        }
+      });
+    };
+
+    if (socket.connected) {
+      sendAuth();
+    } else {
+      socket.once("connect", sendAuth);
+    }
+
+    return () => {
+      socket.off("connect", sendAuth);
+    };
+  }, [socket, auth?.token]);
 
   useEffect(() => {
     if (!quill || !socket || !currentDoc?._id) return;

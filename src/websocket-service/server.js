@@ -36,20 +36,15 @@ const io = new Server(server, {
 
 // Auth middleware cho Socket.IO – lấy user từ Gateway offloading
 io.use((socket, next) => {
-  // Gateway sẽ inject X-User-Id vào header trong quá trình handshake
+  // // Gateway sẽ inject X-User-Id vào header trong quá trình handshake
   const userId = socket.handshake.headers["x-user-id"];
+  console.log("WebSocket Auth Middleware - User ID from header:", userId);
 
-  if (!userId) {
-    return next(new Error("Unauthorized: missing X-User-Id"));
-  }
+  // // Optional: Gateway cũng có thể inject X-User-Name
+  const username = socket.handshake.auth.username;
+  console.log("WebSocket Auth Middleware - User Name from header:", username);
 
-  // Optional: Gateway cũng có thể inject X-User-Name
-  const username =
-    socket.handshake.headers["x-user-name"] ||
-    socket.handshake.auth?.username || // fallback từ client (ít tin cậy hơn)
-    "Unknown";
-
-  socket.user = { id: userId, username };
+  socket.user = { id: userId, username }; // Cần có username để hiển thị trong collaborative editor
 
   // Ban đầu chưa có exp rõ ràng; sẽ được set khi client gửi refresh-auth lần đầu
   socket.authExpiresAt = null;
@@ -59,6 +54,6 @@ io.use((socket, next) => {
 
 socketCtrl(io);
 
-server.listen(PORT, () => {
+server.listen(PORT, "0.0.0.0", () => {
   console.log(`✅ WebSocket service listening on port ${PORT}`);
 });

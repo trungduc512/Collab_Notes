@@ -25,6 +25,7 @@ export const createDocument = async (req, res) => {
       title,
       isPublic,
       owner: req.user.id,
+      content: { ops: [] },
     });
 
     res.status(201).json({

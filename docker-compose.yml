@@ -58,6 +58,7 @@ services:
     depends_on:
       - mongo
       - kafka
+    restart: unless-stopped
     networks:
       - app-network
 

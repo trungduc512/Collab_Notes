@@ -4,7 +4,7 @@ export const setLocalStorageWithExpiry = (key, data, expirationMinutes) => {
   const now = new Date();
   const item = {
     data: data,
-    expiry: now.getTime() + expirationMinutes * 60 * 1000,
+    expiry: now.getTime() + expirationMinutes * 60 * 60 * 1000,
   };
   localStorage.setItem(key, JSON.stringify(item));
 };
@@ -28,9 +28,10 @@ export const login = async (user) => {
     const { email, password } = user;
 
     const res = await fetch(
-      `${import.meta.env.VITE_APP_BACKEND_URL || API}/users/login`,
+      `${import.meta.env.VITE_APP_BACKEND_URL}/auth/login`,
       {
         method: "POST",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
@@ -39,11 +40,18 @@ export const login = async (user) => {
     );
     const data = await res.json();
     if (res.status === 200) {
-      setLocalStorageWithExpiry("auth", data, 60); // 60 minutes expiration
+      setLocalStorageWithExpiry(
+        "auth",
+        {
+          user: data.user,
+          token: data.accessToken,
+        },
+        60
+      );
       return {
         status: 200,
         user: data.user,
-        token: data.token,
+        token: data.accessToken,
         message: data.message,
       };
     }
@@ -58,7 +66,7 @@ export const register = async (user) => {
     const { username, email, password } = user;
 
     const res = await fetch(
-      `${import.meta.env.VITE_APP_BACKEND_URL || API}/users/register`,
+      `${import.meta.env.VITE_APP_BACKEND_URL}/auth/register`,
       {
         method: "POST",
         headers: {
@@ -75,4 +83,19 @@ export const register = async (user) => {
   } catch (error) {
     return { status: 500, message: error.message };
   }
+};
+
+export const refreshAccessToken = async () => {
+  const res = await fetch(
+    `${import.meta.env.VITE_APP_BACKEND_URL}/auth/refresh-token`,
+    {
+      method: "POST",
+      credentials: "include",
+    }
+  );
+
+  if (res.status !== 200) return null;
+
+  const data = await res.json();
+  return data.accessToken;
 };

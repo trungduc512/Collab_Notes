@@ -1,6 +1,6 @@
 import User from "../models/user.model.js";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import { generateAccessToken, generateRefreshToken } from "../utils/token.js";
 
 export const me = async (req, res) => {
   try {
@@ -51,15 +51,25 @@ export const login = async (req, res) => {
     );
     if (!isPasswordCorrect)
       return res.status(400).json({ message: "Invalid credentials" });
-    const token = jwt.sign(
-      { email: existingUser.email, id: existingUser._id },
-      process.env.JWT_SECRET || "your_super_secret_jwt_key",
-      { expiresIn: "1h" }
-    );
-    res.status(200).json({
+
+    const accessToken = generateAccessToken(existingUser);
+    const refreshToken = generateRefreshToken(existingUser);
+
+    // Store refresh token in database
+    existingUser.refreshToken = refreshToken;
+    await existingUser.save();
+
+    res.cookie("refreshToken", refreshToken, {
+      httpOnly: true,
+      secure: false, // Set to true if using HTTPS
+      sameSite: "lax",
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    });
+
+    return res.status(200).json({
       user: existingUser,
-      token: token,
-      message: "Logged in successfully",
+      accessToken,
+      message: "Login successfully",
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -73,4 +83,11 @@ export const getUsers = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+};
+
+export const getUserByEmail = async (req, res) => {
+  const user = await User.findOne({ email: req.params.email });
+  if (!user) return res.status(404).json({ message: "User not found" });
+
+  return res.json({ id: user._id, username: user.username });
 };

@@ -1,0 +1,99 @@
+version: "3.9"
+
+services:
+  # ===============================
+  # 1. AUTH SERVICE
+  # ===============================
+  auth-service:
+    build:
+      context: ./auth-service
+    container_name: auth-service
+    restart: always
+    env_file:
+      - ./auth-service/.env
+    environment:
+      - MONGODB_URI=mongodb://host.docker.internal:27017/collab_notes
+    networks:
+      - app-network
+    ports:
+      - "5001:5001"
+
+  # ===============================
+  # 2. DOCUMENT SERVICE
+  # ===============================
+  document-service:
+    build:
+      context: ./document-service
+    container_name: document-service
+    restart: always
+    env_file:
+      - ./document-service/.env
+    environment:
+      - MONGODB_URI=mongodb://host.docker.internal:27017/collab_notes
+      - AUTH_SERVICE_URL=http://auth-service:5001
+    networks:
+      - app-network
+    ports:
+      - "5002:5002"
+
+  # ===============================
+  # 3. WEBSOCKET SERVICE
+  # ===============================
+  websocket-service:
+    build:
+      context: ./websocket-service
+    container_name: websocket-service
+    restart: always
+    env_file:
+      - ./websocket-service/.env
+    environment:
+      - DOCUMENT_SERVICE_URL=http://document-service:5002
+      - WS_PORT=5003
+      - FRONTEND_ORIGIN=http://localhost:5173
+    networks:
+      - app-network
+    ports:
+      - "5003:5003"
+
+  # ===============================
+  # 4. GATEWAY (OpenResty)
+  # ===============================
+  gateway:
+    build:
+      context: ./gateway
+    container_name: gateway
+    ports:
+      - "80:80"
+    volumes:
+      - ./gateway/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+    networks:
+      - app-network
+    depends_on:
+      - auth-service
+      - document-service
+      - websocket-service
+
+  # ===============================
+  # 5. FRONTEND (Vite dev server)
+  # ===============================
+  client:
+    build:
+      context: ./client
+    container_name: client
+    restart: always
+    environment:
+      - VITE_APP_BACKEND_URL=http://localhost
+      - VITE_APP_SOCKET_URL=http://localhost/ws
+    ports:
+      - "5173:5173"
+    networks:
+      - app-network
+    depends_on:
+      - gateway
+
+# ===============================
+# NETWORK
+# ===============================
+networks:
+  app-network:
+    driver: bridge

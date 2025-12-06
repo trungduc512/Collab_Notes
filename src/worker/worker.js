@@ -4,7 +4,7 @@ const Y = require("yjs"); // Cần Yjs để xử lý logic update nếu cần
 
 const KAFKA_BROKER = process.env.KAFKA_BROKER || "kafka:29092";
 const MONGO_URI =
-  process.env.MONGODB_URI || "mongodb://mongo:27017/collab_notes";
+  process.env.MONGODB_URI || "mongodb://localhost:27017/collab_notes";
 const TOPIC_NAME = "yjs-updates"; // Topic chứa binary update
 const GROUP_ID = "yjs-storage-worker";
 

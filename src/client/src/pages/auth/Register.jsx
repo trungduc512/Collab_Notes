@@ -1,23 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { register } from '../../helpers/auth/auth.helper.js';
-import { useNavigate, Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { useSupplier } from '../../context/supplierContext.jsx';
+import React, { useState, useEffect } from "react";
+import { register } from "../../helpers/auth/auth.helper.js";
+import { useNavigate, Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useSupplier } from "../../context/supplierContext.jsx";
+import { useAuth } from "../../context/authContext.jsx";
 
 const Register = () => {
   const navigate = useNavigate();
-  const { auth, loading, setLoading, darkMode } = useSupplier();
+  const { loading, setLoading, darkMode } = useSupplier();
+  const { auth } = useAuth();
 
   const [userCreds, setUser] = useState({
-    username: '',
-    email: '',
-    password: '',
-    phone: ''
+    username: "",
+    email: "",
+    password: "",
+    phone: "",
   });
 
   useEffect(() => {
-    if (auth) {
-      navigate('/home');
+    if (auth?.user) {
+      navigate("/home");
     }
   }, [auth]);
 
@@ -31,13 +33,13 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (userCreds.username.length < 3) {
-      toast.warning('Username must be at least 3 characters long');
+      toast.warning("Username must be at least 3 characters long");
       return;
     } else if (userCreds.password.length < 6) {
-      toast.warning('Password must be at least 6 characters long');
+      toast.warning("Password must be at least 6 characters long");
       return;
     } else if (userCreds.username.length > 15) {
-      toast.warning('Username must be less than 15 characters long');
+      toast.warning("Username must be less than 15 characters long");
       return;
     }
 
@@ -45,7 +47,7 @@ const Register = () => {
     const result = await register(userCreds).finally(() => setLoading(false));
     if (result.status === 201) {
       toast.success(result.message);
-      navigate('/');
+      navigate("/");
     } else if (result.status === 400) {
       toast.warning(result.message);
     } else {
@@ -54,12 +56,28 @@ const Register = () => {
   };
 
   return (
-    <div className={`container my-5 d-flex justify-content-center align-items-center ${darkMode ? 'text-light bg-dark' : 'text-dark bg-light'}`} style={{ minHeight: '80vh' }}>
+    <div
+      className={`container my-5 d-flex justify-content-center align-items-center ${
+        darkMode ? "text-light bg-dark" : "text-dark bg-light"
+      }`}
+      style={{ minHeight: "80vh" }}
+    >
       <div className="col-md-8 col-lg-6 col-xl-5 p-5 shadow rounded">
-        <h1 className={`display-4 mb-4 text-center ${darkMode ? 'text-light' : 'text-dark'}`}>Register</h1>
+        <h1
+          className={`display-4 mb-4 text-center ${
+            darkMode ? "text-light" : "text-dark"
+          }`}
+        >
+          Register
+        </h1>
         <form onSubmit={handleSubmit} className="w-100">
           <div className="form-group mb-3">
-            <label htmlFor="username" className={darkMode ? 'text-light' : 'text-dark'}>Username</label>
+            <label
+              htmlFor="username"
+              className={darkMode ? "text-light" : "text-dark"}
+            >
+              Username
+            </label>
             <input
               type="text"
               className="form-control"
@@ -71,7 +89,12 @@ const Register = () => {
             />
           </div>
           <div className="form-group mb-3">
-            <label htmlFor="email" className={darkMode ? 'text-light' : 'text-dark'}>Email</label>
+            <label
+              htmlFor="email"
+              className={darkMode ? "text-light" : "text-dark"}
+            >
+              Email
+            </label>
             <input
               type="email"
               className="form-control"
@@ -83,7 +106,12 @@ const Register = () => {
             />
           </div>
           <div className="form-group mb-3">
-            <label htmlFor="password" className={darkMode ? 'text-light' : 'text-dark'}>Password</label>
+            <label
+              htmlFor="password"
+              className={darkMode ? "text-light" : "text-dark"}
+            >
+              Password
+            </label>
             <input
               type="password"
               className="form-control"
@@ -95,15 +123,19 @@ const Register = () => {
             />
           </div>
           <div className="d-grid gap-2 my-3">
-            <button type="submit" disabled={loading} className={`btn btn-${darkMode ? 'light' : 'primary'}`}>
-              {loading ? 'Registering...' : 'Register'}
+            <button
+              type="submit"
+              disabled={loading}
+              className={`btn btn-${darkMode ? "light" : "primary"}`}
+            >
+              {loading ? "Registering..." : "Register"}
             </button>
           </div>
         </form>
-        <hr className={`my-4 ${darkMode ? 'border-light' : 'border-dark'}`} />
-        <p className={`text-center ${darkMode ? 'text-light' : 'text-dark'}`}>
-          Already have an account?{' '}
-          <Link to="/" className={darkMode ? 'text-light' : 'text-primary'}>
+        <hr className={`my-4 ${darkMode ? "border-light" : "border-dark"}`} />
+        <p className={`text-center ${darkMode ? "text-light" : "text-dark"}`}>
+          Already have an account?{" "}
+          <Link to="/" className={darkMode ? "text-light" : "text-primary"}>
             Login here
           </Link>
         </p>

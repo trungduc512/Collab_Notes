@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useSupplier } from "../../context/supplierContext";
+import { useSupplier } from "../../context/supplierContext.jsx";
 import { toast } from "react-toastify";
-import Modal from "../../components/Modal";
+import Modal from "../../components/Modal.jsx";
 import {
   addCollaboratorToDoc,
   getAllCollaborators,
 } from "../../helpers/docs/doc.helper";
-import { useAuth } from "../../context/authContext";
-import { API } from "../../helpers/config";
+import { useAuth } from "../../context/authContext.jsx";
+import { WS_URL } from "../../helpers/config.js";
 import Editor from "./Editor.jsx";
 import * as Y from "yjs";
 import { WebsocketProvider } from "y-websocket";
@@ -32,17 +32,19 @@ const EditDocument = () => {
   } = useSupplier();
   const { id } = useParams();
 
+  // Khởi tạo Y.Doc + WebSocket (có token)
   useEffect(() => {
+    if (!auth?.token) return; // đợi có token
+
     const doc = new Y.Doc();
     setYDoc(doc);
-    const websocketProvider = new WebsocketProvider(
-      import.meta.env.VITE_APP_YJS_WEBSOCKET_URL || "ws://localhost:1234",
-      id,
-      doc
-    );
+
+    const websocketProvider = new WebsocketProvider(WS_URL, id, doc, {
+      params: { token: auth.token }, // ?token=...
+    });
 
     websocketProvider.on("status", (event) => {
-      console.log(event.status); // logs "connected" or "disconnected"
+      console.log("[WS status]", event.status);
     });
 
     setProvider(websocketProvider);
@@ -50,17 +52,27 @@ const EditDocument = () => {
     return () => {
       websocketProvider.destroy();
     };
-  }, [id, setYDoc]);
+  }, [id, setYDoc, auth?.token]);
 
+  // Lắng nghe danh sách online
   useEffect(() => {
     if (!provider) return;
 
-    provider.awareness.on("change", () => {
-      const states = Array.from(provider.awareness.getStates().values());
+    const awareness = provider.awareness;
+
+    const handleChange = () => {
+      const states = Array.from(awareness.getStates().values());
       setOnlineUsers(states.map((state) => state.user));
-    });
+    };
+
+    awareness.on("change", handleChange);
+
+    return () => {
+      awareness.off("change", handleChange);
+    };
   }, [provider]);
 
+  // Set thông tin user cho awareness
   useEffect(() => {
     if (provider && auth.user) {
       provider.awareness.setLocalStateField("user", {

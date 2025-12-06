@@ -11,11 +11,10 @@ const validateToken = async (req, res, next) => {
     try {
       const decoded = jwt.verify(
         token,
-        process.env.JWT_SECRET || "your_super_secret_jwt_key"
+        process.env.ACCESS_TOKEN_SECRET || "super_access_secret_change_me"
       );
 
       req.user = decoded;
-
       next();
     } catch (error) {
       res.status(401).json({ msg: "Token is not valid", error: error.message });

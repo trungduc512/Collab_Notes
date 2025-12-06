@@ -1,154 +1,123 @@
 services:
-  # Websocket Service (Stateless, handles WS connections & Kafka production)
-  websocket-service:
-    build: ./src/websocket-service
-    # Internal port 1234, exposed via Nginx.
-    # Uncomment ports below if direct access is needed for debugging.
-    # ports:
-    #   - '8080:1234'
-    environment:
-      - WS_PORT=1234
-      - MONGODB_URI=mongodb://mongo:27017/collab_notes
-      - JWT_SECRET=my_super_secret_123
-      - DOC_SERVICE_URL=http://doc-service:3001
-      - KAFKA_BROKER=kafka:29092
-    depends_on:
-      - mongo
-      - kafka
-      - doc-service
-    restart: unless-stopped
-    networks:
-      - app-network
-
-  # Nginx API Gateway & Load Balancer
-  nginx:
-    build: ./src/nginx
-    ports:
-      - '80:80'
-      - '443:443'
-    environment:
-      - APP_SERVICE_NAME=collab_notes-websocket-service
-      - APP_PORT=1234
-    depends_on:
-      - websocket-service
-      - auth-service
-      - doc-service
-      - mongo
-      - kafka
-      - worker
-    restart: unless-stopped
-    networks:
-      - app-network
-
-  # MongoDB
-  mongo:
-    image: mongo:latest
-    ports:
-      - '27017:27017'
-    volumes:
-      - mongo-data:/data/db
-    restart: unless-stopped
-    networks:
-      - app-network
-
-  # Worker (Background processing, Kafka Consumer)
-  worker:
-    build: ./src/worker
-    deploy:
-      mode: replicated
-      replicas: 2
-    environment:
-      - MONGODB_URI=mongodb://mongo:27017/collab_notes
-      - KAFKA_BROKER=kafka:29092
-    depends_on:
-      - mongo
-      - kafka
-    restart: unless-stopped
-    networks:
-      - app-network
-
-  # Kafka & Zookeeper
+  # ---------------------------------------------------------
+  # ZOOKEEPER
+  # ---------------------------------------------------------
   zookeeper:
-    image: confluentinc/cp-zookeeper:7.5.0
-    hostname: zookeeper
+    image: confluentinc/cp-zookeeper:7.4.0
     container_name: zookeeper
-    ports:
-      - '2181:2181'
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
-    networks:
-      - app-network
+    ports:
+      - "2181:2181"
 
+  # ---------------------------------------------------------
+  # KAFKA
+  # ---------------------------------------------------------
   kafka:
-    image: confluentinc/cp-kafka:7.5.0
-    hostname: kafka
+    image: confluentinc/cp-kafka:7.4.0
     container_name: kafka
     depends_on:
       - zookeeper
     ports:
-      - '9092:9092'
+      - "29092:29092"
     environment:
       KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092
+
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+      # FIX replication for 1 broker
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
-      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-    networks:
-      - app-network
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
 
-  kafka-ui:
-    image: provectuslabs/kafka-ui:latest
-    container_name: kafka-ui
-    depends_on:
-      - kafka
-    ports:
-      - '4000:8080'
-    environment:
-      KAFKA_CLUSTERS_0_NAME: local
-      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
-      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
-    networks:
-      - app-network
-
-  # Doc Service (REST API + Yjs State Provider)
-  doc-service:
-    build:
-      context: ./src/doc-service
-    ports:
-      - '3001:3001'
-    environment:
-      - DOC_SERVICE_PORT=3001
-      - MONGODB_URI=mongodb://mongo:27017/collab_notes
-      - JWT_SECRET=my_super_secret_123
-    depends_on:
-      - mongo
-    networks:
-      - app-network
-
-  # Auth Service (REST API)
+  # ---------------------------------------------------------
+  # AUTH SERVICE
+  # ---------------------------------------------------------
   auth-service:
     build:
       context: ./src/auth-service
+    container_name: auth-service
+    restart: always
     ports:
-      - '3002:3002'
+      - "3002:3002"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
-      - AUTH_SERVICE_PORT=3002
-      - MONGODB_URI=mongodb://mongo:27017/collab_notes
-      - JWT_SECRET=my_super_secret_123
+      PORT: 3002
+      MONGO_URI: mongodb://host.docker.internal:27017/collab_notes
+      JWT_SECRET: mysecret
+      JWT_REFRESH_SECRET: myrefreshsecret
+      TOKEN_EXPIRES_IN: 15m
+      REFRESH_EXPIRES_IN: 7d
+
+  # ---------------------------------------------------------
+  # DOC SERVICE
+  # ---------------------------------------------------------
+  doc-service:
+    build:
+      context: ./src/doc-service
+    container_name: doc-service
+    restart: always
+    ports:
+      - "3001:3001"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      PORT: 3001
+      MONGO_URI: mongodb://host.docker.internal:27017/collab_notes
+
+  # ---------------------------------------------------------
+  # WEBSOCKET SERVICE
+  # ---------------------------------------------------------
+  websocket-service:
+    build:
+      context: ./src/websocket-service
+    container_name: websocket-service
+    restart: always
     depends_on:
-      - mongo
-    networks:
-      - app-network
-    restart: unless-stopped
+      - kafka
+      - auth-service
+      - doc-service
+    ports:
+      - "1234:1234"
+    environment:
+      PORT: 1234
+      AUTH_SERVICE_URL: http://auth-service:3002
+      DOC_SERVICE_URL: http://doc-service:3001
+      KAFKA_BROKER: kafka:29092
 
-volumes:
-  mongo-data:
-    driver: local
+  # ---------------------------------------------------------
+  # WORKER SERVICE
+  # ---------------------------------------------------------
+  worker:
+    build:
+      context: ./src/worker
+    container_name: worker
+    restart: always
+    depends_on:
+      - kafka
+      - doc-service
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      KAFKA_BROKER: kafka:29092
+      MONGODB_URI: mongodb://host.docker.internal:27017/collab_notes
+      TOPIC_NAME: yjs-updates
 
-networks:
-  app-network:
-    driver: bridge
+  # ---------------------------------------------------------
+  # API GATEWAY
+  # ---------------------------------------------------------
+  gateway:
+    image: nginx:latest
+    container_name: gateway
+    depends_on:
+      - auth-service
+      - doc-service
+      - websocket-service
+    ports:
+      - "80:80"
+    volumes:
+      - ./src/gateway/nginx.conf:/etc/nginx/nginx.conf:ro

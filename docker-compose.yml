@@ -116,6 +116,34 @@ services:
     networks:
       - app-network
 
+  doc-service:
+    build:
+      context: ./src/doc-service
+    ports:
+      - "3001:3001"
+    environment:
+      - DOC_SERVICE_PORT=3001
+      - MONGODB_URI=mongodb://mongo:27017/collab_notes
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+
+  gateway:
+    build:
+      context: ./src/gateway
+    ports:
+      - "1234:1234"
+    environment:
+      - WS_PORT=1234
+      - KAFKA_BROKER=kafka:29092
+      - DOC_SERVICE_URL=http://doc-service:3001
+    depends_on:
+      - kafka
+      - doc-service
+    networks:
+      - app-network
+
 volumes:
   mongo-data:
     driver: local

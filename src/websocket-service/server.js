@@ -1,93 +1,111 @@
+// server.js
+import http from "http";
 import { WebSocketServer } from "ws";
+import dotenv from "dotenv";
 import { setupWSConnection, docs } from "y-websocket/bin/utils";
 import * as Y from "yjs";
-import http from "http";
-import { Kafka, Partitioners } from "kafkajs";
+
+import { verifyWsUpgrade } from "./middlewares/wsAuth.js";
+import {
+  createKafkaProducer,
+  sendYjsUpdate,
+} from "./services/kafka.service.js";
+import { loadDocFromService } from "./services/docLoader.service.js";
+import { attachWsMessageHandlers } from "./yjs/wsMessages.js";
+
+dotenv.config();
 
 const PORT = process.env.WS_PORT || 1234;
-const KAFKA_BROKER = process.env.KAFKA_BROKER || "kafka:29092";
-const DOC_SERVICE_URL =
-  process.env.DOC_SERVICE_URL || "http://doc-service:3001";
 
-// === 1. KAFKA PRODUCER ===
-const kafka = new Kafka({ clientId: "ws-gateway", brokers: [KAFKA_BROKER] });
-const producer = kafka.producer({
-  createPartitioner: Partitioners.DefaultPartitioner,
-});
-producer.connect().then(() => console.log("✅ Kafka Producer Connected"));
-
-const sendToKafka = async (docName, update) => {
-  const buffer = Buffer.from(update);
-  await producer.send({
-    topic: "yjs-updates",
-    messages: [{ key: docName, value: buffer }],
-  });
-};
-
-// === 2. GỌI DOC SERVICE ĐỂ LOAD DOCUMENT ===
-const loadDocFromService = async (docName) => {
-  try {
-    const response = await fetch(
-      `${DOC_SERVICE_URL}/docs/${encodeURIComponent(docName)}/state`
-    );
-    if (!response.ok) {
-      if (response.status === 404) return null; // Doc chưa tồn tại
-      throw new Error(`Doc service error: ${response.status}`);
-    }
-    const arrayBuffer = await response.arrayBuffer();
-    return new Uint8Array(arrayBuffer);
-  } catch (error) {
-    console.error(`❌ Failed to load doc '${docName}' from service:`, error);
-    return null;
-  }
-};
-
-// === 3. SERVER SETUP ===
+// HTTP server chỉ để upgrade WS + healthcheck
 const server = http.createServer((req, res) => {
+  if (req.url === "/health") {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ status: "ok", service: "websocket-service" }));
+    return;
+  }
+
   res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end("Yjs Gateway Running (Stateless)");
+  res.end("Yjs WebSocket Gateway");
 });
+
 const wss = new WebSocketServer({ noServer: true });
 
-server.on("upgrade", (request, socket, head) => {
-  wss.handleUpgrade(request, socket, head, (ws) => {
-    wss.emit("connection", ws, request);
+// Tạo Kafka producer
+let producer;
+createKafkaProducer()
+  .then((p) => {
+    producer = p;
+  })
+  .catch((err) => {
+    console.error("❌ [ws] Failed to init Kafka producer:", err);
+    process.exit(1);
+  });
+
+// Xử lý HTTP upgrade → WebSocket + Auth
+server.on("upgrade", (req, socket, head) => {
+  const authResult = verifyWsUpgrade(req);
+
+  if (!authResult.ok) {
+    socket.write(
+      `HTTP/1.1 ${authResult.statusCode || 401} Unauthorized\r\n\r\n`
+    );
+    socket.destroy();
+    return;
+  }
+
+  wss.handleUpgrade(req, socket, head, (ws) => {
+    wss.emit("connection", ws, req);
   });
 });
 
-// === 4. XỬ LÝ KẾT NỐI ===
-wss.on("connection", async (conn, req) => {
+// Khi client connect
+wss.on("connection", async (ws, req) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
-  const docName = url.pathname.slice(1);
+  const docName = url.pathname.slice(1); // "/<docId>" → "<docId>"
 
-  // --- SETUP WEBSOCKET TRƯỚC ---
-  setupWSConnection(conn, req, {
-    docName: docName,
-    gc: true,
-  });
+  console.log(`🔌 [ws] Client connected to doc '${docName}'`);
 
+  // Đăng ký handler của y-websocket
+  setupWSConnection(ws, req, { docName, gc: true });
+
+  // Handler cho message JSON đặc biệt (refresh token)
+  attachWsMessageHandlers(ws);
+
+  // Lấy Y.Doc tương ứng từ y-websocket
   const doc = docs.get(docName);
 
-  // --- LOAD TỪ DOC SERVICE NẾU CHƯA CÓ ---
+  // Nếu chưa load từ doc-service thì load
   if (!doc.isLoadedFromService) {
-    console.log(`📥 Loading document '${docName}' from Doc Service...`);
-    const stateUpdate = await loadDocFromService(docName);
-    if (stateUpdate) {
-      Y.applyUpdate(doc, stateUpdate);
+    const persisted = await loadDocFromService(docName);
+    if (persisted) {
+      const persistedUpdate = Y.encodeStateAsUpdate(persisted);
+      Y.applyUpdate(doc, persistedUpdate);
     }
     doc.isLoadedFromService = true;
   }
 
-  // --- BẮT SỰ KIỆN UPDATE ĐỂ GỬI KAFKA ---
+  // Gắn listener để forward các update sang Kafka (nếu chưa gắn)
   if (!doc.kafkaListenerAttached) {
-    doc.on("update", (update, origin) => {
-      sendToKafka(docName, update);
+    doc.on("update", async (update, origin) => {
+      if (!producer) return;
+      try {
+        await sendYjsUpdate(producer, docName, update);
+      } catch (err) {
+        console.error(
+          `❌ [ws] Failed to send update for doc '${docName}' to Kafka:`,
+          err
+        );
+      }
     });
+
     doc.kafkaListenerAttached = true;
-    console.log(`📡 Redirecting writes for '${docName}' to Kafka queue`);
+    console.log(
+      `📡 [ws] Attached Kafka forwarder for Yjs updates of doc '${docName}'`
+    );
   }
 });
 
 server.listen(PORT, () => {
-  console.log(`🚀 Gateway running on port ${PORT}`);
+  console.log(`🚀 [ws] WebSocket gateway listening on port ${PORT}`);
 });

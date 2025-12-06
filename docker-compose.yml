@@ -124,6 +124,7 @@ services:
     environment:
       - DOC_SERVICE_PORT=3001
       - MONGODB_URI=mongodb://mongo:27017/collab_notes
+      - JWT_SECRET=my_super_secret_123
     depends_on:
       - mongo
     networks:
@@ -143,6 +144,22 @@ services:
       - doc-service
     networks:
       - app-network
+
+  # Auth Service
+  auth-service:
+    build:
+      context: ./src/auth-service
+    ports:
+      - "3002:3002"
+    environment:
+      - AUTH_SERVICE_PORT=3002
+      - MONGODB_URI=mongodb://mongo:27017/collab_notes
+      - JWT_SECRET=my_super_secret_123
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+    restart: unless-stopped
 
 volumes:
   mongo-data:

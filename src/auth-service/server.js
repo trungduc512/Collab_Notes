@@ -1,7 +1,6 @@
 // server.js - Auth Service
 import express from "express";
 import mongoose from "mongoose";
-import cors from "cors";
 import dotenv from "dotenv";
 
 import userRouter from "./routes/user.routes.js";
@@ -20,7 +19,6 @@ const PORT = process.env.AUTH_SERVICE_PORT || 3002;
 const MONGODB_URI =
   process.env.MONGODB_URI || "mongodb://mongo:27017/collab_notes";
 
-app.use(cors());
 app.use(express.json());
 
 // Prefix chung cho các route auth

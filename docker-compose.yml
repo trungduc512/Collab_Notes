@@ -1,57 +1,62 @@
 services:
-  # websocket gateway
-  ws-gateway:
-    build: ./src/gateway
-    ports:
-      - "8080"
+  # Websocket Service (Stateless, handles WS connections & Kafka production)
+  websocket-service:
+    build: ./src/websocket-service
+    # Internal port 1234, exposed via Nginx.
+    # Uncomment ports below if direct access is needed for debugging.
+    # ports:
+    #   - '8080:1234'
     environment:
       - WS_PORT=1234
       - MONGODB_URI=mongodb://mongo:27017/collab_notes
       - JWT_SECRET=my_super_secret_123
+      - DOC_SERVICE_URL=http://doc-service:3001
+      - KAFKA_BROKER=kafka:29092
     depends_on:
       - mongo
       - kafka
+      - doc-service
     restart: unless-stopped
     networks:
       - app-network
 
-  # Nginx reverse proxy, load balancer
+  # Nginx API Gateway & Load Balancer
   nginx:
-    build: ./src/nginx # Chúng ta sẽ viết Dockerfile riêng cho Nginx
+    build: ./src/nginx
     ports:
-      - "80:80"
-      - "443:443"
+      - '80:80'
+      - '443:443'
     environment:
-      - APP_SERVICE_NAME=collab_notes-ws-gateway
+      - APP_SERVICE_NAME=collab_notes-websocket-service
       - APP_PORT=1234
     depends_on:
-      - ws-gateway
+      - websocket-service
+      - auth-service
+      - doc-service
       - mongo
-      - redis
       - kafka
       - worker
     restart: unless-stopped
     networks:
       - app-network
 
-  # Dịch vụ MongoDB
+  # MongoDB
   mongo:
     image: mongo:latest
     ports:
-      - "27017:27017"
+      - '27017:27017'
     volumes:
       - mongo-data:/data/db
     restart: unless-stopped
     networks:
       - app-network
 
-  # Dịch vụ Worker xử lý nền
+  # Worker (Background processing, Kafka Consumer)
   worker:
     build: ./src/worker
-    # Không đặt container_name cố định vì chúng ta scale nhiều worker
     deploy:
       mode: replicated
-      replicas: 2 # Chạy thử 2 worker song song để xử lý nhanh hơn
+      replicas: 2
     environment:
       - MONGODB_URI=mongodb://mongo:27017/collab_notes
       - KAFKA_BROKER=kafka:29092
@@ -62,19 +67,13 @@ services:
     networks:
       - app-network
 
-  # THÊM SERVICE REDIS
-  redis:
-    image: redis:alpine
-    ports:
-      - "6379:6379"
-    restart: unless-stopped
-
+  # Kafka & Zookeeper
   zookeeper:
     image: confluentinc/cp-zookeeper:7.5.0
     hostname: zookeeper
     container_name: zookeeper
     ports:
-      - "2181:2181"
+      - '2181:2181'
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
@@ -88,11 +87,10 @@ services:
     depends_on:
       - zookeeper
     ports:
-      - "9092:9092"
+      - '9092:9092'
     environment:
       KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
-      # Cấu hình quang trọng để kết nối từ bên ngoài (localhost) và bên trong Docker
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
@@ -108,7 +106,7 @@ services:
     depends_on:
       - kafka
     ports:
-      - "4000:8080"
+      - '4000:8080'
     environment:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
@@ -116,11 +114,12 @@ services:
     networks:
       - app-network
 
+  # Doc Service (REST API + Yjs State Provider)
   doc-service:
     build:
       context: ./src/doc-service
     ports:
-      - "3001:3001"
+      - '3001:3001'
     environment:
       - DOC_SERVICE_PORT=3001
       - MONGODB_URI=mongodb://mongo:27017/collab_notes
@@ -130,27 +129,12 @@ services:
     networks:
       - app-network
 
-  gateway:
-    build:
-      context: ./src/gateway
-    ports:
-      - "1234:1234"
-    environment:
-      - WS_PORT=1234
-      - KAFKA_BROKER=kafka:29092
-      - DOC_SERVICE_URL=http://doc-service:3001
-    depends_on:
-      - kafka
-      - doc-service
-    networks:
-      - app-network
-
-  # Auth Service
+  # Auth Service (REST API)
   auth-service:
     build:
       context: ./src/auth-service
     ports:
-      - "3002:3002"
+      - '3002:3002'
     environment:
       - AUTH_SERVICE_PORT=3002
       - MONGODB_URI=mongodb://mongo:27017/collab_notes

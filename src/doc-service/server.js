@@ -11,10 +11,15 @@ const MONGO_URL =
 const JWT_SECRET = process.env.JWT_SECRET || "your_super_secret_jwt_key";
 
 // === MONGODB PERSISTENCE (Yjs) ===
-const mdb = new MongodbPersistence(MONGO_URL, {
-  collectionName: "yjs-transactions",
-  flushSize: 100,
-});
+let mdb;
+try {
+  mdb = new MongodbPersistence(MONGO_URL, {
+    collectionName: "yjs-transactions",
+    flushSize: 100,
+  });
+} catch (err) {
+  console.error("Failed to initialize Yjs Persistence:", err);
+}
 
 // === MONGOOSE MODELS ===
 const documentSchema = new mongoose.Schema(

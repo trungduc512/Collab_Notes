@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { getLocalStorageWithExpiry } from "../helpers/auth/auth.helper.js";
+import { AUTH_API } from "../helpers/config.js";
 
 const AuthContext = createContext();
 
@@ -13,19 +14,13 @@ const AuthProvider = ({ children }) => {
     const data = getLocalStorageWithExpiry("auth");
     const fetchUser = async () => {
       try {
-        const res = await fetch(
-          `${
-            import.meta.env.VITE_APP_BACKEND_URL ||
-            "http://localhost:8080/api/v1"
-          }/users/me`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${data?.token}`,
-            },
-          }
-        );
+        const res = await fetch(`${AUTH_API}/auth/me`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${data?.token}`,
+          },
+        });
 
         const result = await res.json();
         if (res.status === 200) {
@@ -35,10 +30,10 @@ const AuthProvider = ({ children }) => {
           });
         }
       } catch (err) {
-        console.log(err);
+        console.log("Auth fetch error:", err);
       }
     };
-    if (data) {
+    if (data?.token) {
       fetchUser();
     }
   }, []);

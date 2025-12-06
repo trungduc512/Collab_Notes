@@ -1,4 +1,4 @@
-import { API } from "../config.js";
+import { AUTH_API } from "../config.js";
 
 export const setLocalStorageWithExpiry = (key, data, expirationMinutes) => {
   const now = new Date();
@@ -27,19 +27,16 @@ export const login = async (user) => {
   try {
     const { email, password } = user;
 
-    const res = await fetch(
-      `${import.meta.env.VITE_APP_BACKEND_URL || API}/users/login`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      }
-    );
+    const res = await fetch(`${AUTH_API}/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
     const data = await res.json();
     if (res.status === 200) {
-      setLocalStorageWithExpiry("auth", data, 60); // 60 minutes expiration
+      setLocalStorageWithExpiry("auth", data, 60);
       return {
         status: 200,
         user: data.user,
@@ -47,9 +44,13 @@ export const login = async (user) => {
         message: data.message,
       };
     }
-    return { status: 500, message: data.message };
+    return { status: res.status, message: data.message };
   } catch (error) {
-    console.log(error);
+    console.error("Login error:", error);
+    return {
+      status: 500,
+      message: "Connection failed. Please check if services are running.",
+    };
   }
 };
 
@@ -57,22 +58,27 @@ export const register = async (user) => {
   try {
     const { username, email, password } = user;
 
-    const res = await fetch(
-      `${import.meta.env.VITE_APP_BACKEND_URL || API}/users/register`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, email, password }),
-      }
-    );
+    const res = await fetch(`${AUTH_API}/auth/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, email, password }),
+    });
     const data = await res.json();
     if (res.status === 201) {
-      return { status: 201, message: data.message };
+      return {
+        status: 201,
+        user: data.user,
+        message: data.message,
+      };
     }
-    return { status: 400, message: data.message };
+    return { status: res.status, message: data.message };
   } catch (error) {
-    return { status: 500, message: error.message };
+    console.error("Register error:", error);
+    return {
+      status: 500,
+      message: "Connection failed. Please check if services are running.",
+    };
   }
 };

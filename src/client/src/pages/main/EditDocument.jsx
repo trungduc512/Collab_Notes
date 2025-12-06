@@ -36,7 +36,7 @@ const EditDocument = () => {
     const doc = new Y.Doc();
     setYDoc(doc);
     const websocketProvider = new WebsocketProvider(
-      import.meta.env.VITE_APP_YJS_WEBSOCKET_URL || "ws://localhost:8080",
+      import.meta.env.VITE_APP_YJS_WEBSOCKET_URL || "ws://localhost:1234",
       id,
       doc
     );

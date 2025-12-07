@@ -23,14 +23,10 @@ services:
       - "29092:29092"
     environment:
       KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT:
-        zookeeper:2181
-        # Cực kỳ quan trọng:
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092
-
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
-      # FIX replication for 1 broker
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
@@ -53,7 +49,7 @@ services:
       MONGODB_URI: mongodb+srv://nguyentronghieu2kk5_db_user:8OQlHdhPdUCHWxES@cluster0.ttgxlkn.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0
       JWT_SECRET: mysecret
       JWT_REFRESH_SECRET: myrefreshsecret
-      TOKEN_EXPIRES_IN: 15m
+      TOKEN_EXPIRES_IN: 12h
       REFRESH_EXPIRES_IN: 7d
 
   # ---------------------------------------------------------
@@ -72,20 +68,18 @@ services:
       PORT: 3001
       MONGODB_URI: mongodb+srv://nguyentronghieu2kk5_db_user:8OQlHdhPdUCHWxES@cluster0.ttgxlkn.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0
       JWT_SECRET: mysecret
+
   # ---------------------------------------------------------
-  # WEBSOCKET SERVICE
+  # WEBSOCKET SERVICE (có thể scale)
   # ---------------------------------------------------------
   websocket-service:
     build:
       context: ./src/websocket-service
-    container_name: websocket-service
     restart: always
     depends_on:
       - kafka
       - auth-service
       - doc-service
-    ports:
-      - "1234:1234"
     environment:
       PORT: 1234
       AUTH_SERVICE_URL: http://auth-service:3002
@@ -113,19 +107,26 @@ services:
       TOPIC_NAME: yjs-updates
 
   # ---------------------------------------------------------
-  # API GATEWAY
+  # NGINX GATEWAY
   # ---------------------------------------------------------
-  gateway:
-    image: nginx:latest
-    container_name: gateway
+  nginx:
+    build:
+      context: ./src/nginx
+    container_name: nginx
+    restart: always
     depends_on:
       - auth-service
       - doc-service
       - websocket-service
     ports:
       - "80:80"
-    volumes:
-      - ./src/gateway/nginx.conf:/etc/nginx/nginx.conf:ro
+    environment:
+      - APP_SERVICE_NAME=websocket-service
+      - APP_PORT=1234
+
+  # ---------------------------------------------------------
+  # CLIENT
+  # ---------------------------------------------------------
   client:
     build:
       context: ./src/client
@@ -133,8 +134,8 @@ services:
     restart: always
     environment:
       - VITE_APP_BACKEND_URL=http://localhost:80/api/v1
-      - VITE_APP_SOCKET_URL=http://localhost:80
+      - VITE_APP_WS_URL=ws://localhost:80
     ports:
       - "5173:5173"
     depends_on:
-      - gateway
+      - nginx

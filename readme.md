@@ -1,86 +1,101 @@
-# Collab Notes
+🚀 Collab Notes – Real-Time Collaborative Editing Platform
+<div>
 
-Collab Notes is a real-time collaborative document editing web application built using the MERN stack (MongoDB, Express.js, React, Node.js), Socket.IO for real-time communication, and Quill as the text editor.
 
-## Features
 
-### 1. Document Collaboration
 
-Users can create documents and collaborate with others in real-time. Collaborators can simultaneously edit the document, and changes are instantly reflected for all participants.
 
-### 2. Collaborator Presence
 
-The web app displays a list of online collaborators for each document. Users can see who else is currently active in the document, making collaboration more transparent.
 
-### 3. Real-Time Editing
 
-Quill, a powerful and customizable WYSIWYG editor, is integrated into Collab Notes to provide a seamless real-time editing experience. Users can see live updates as collaborators edit the document.
 
-## Technologies Used
 
-- **MERN Stack:**
-  - MongoDB: NoSQL database for storing user data and document content.
-  - Express.js: Backend framework for building the API.
-  - React: Frontend library for building the user interface.
-  - Node.js: JavaScript runtime for server-side development.
+Nền tảng chỉnh sửa tài liệu thời gian thực – tương tự Google Docs
 
-- **Socket.IO:**
-  - Enables real-time bidirectional communication between clients and the server. Used for collaborative editing and presence tracking.
+MongoDB: Cơ sở dữ liệu NoSQL để lưu trữ dữ liệu người dùng và nội dung tài liệu.
 
-- **Quill:**
-  - Feature-rich WYSIWYG editor used for document editing. Customized for real-time collaboration.
+Express.js: Khung backend để xây dựng API.
 
-## Getting Started
+React: Thư viện frontend để xây dựng giao diện người dùng.
 
-Follow these steps to run Collab Notes locally:
+Node.js: JavaScript runtime để phát triển phía máy chủ.
 
-1. **Clone repo:**
+Socket.IO: Cho phép giao tiếp hai chiều thời gian thực giữa máy khách và máy chủ. Được sử dụng để chỉnh sửa cộng tác và theo dõi sự hiện diện.
 
-    clone the repository from github.
+Quill:Trình soạn thảo WYSIWYG giàu tính năng được sử dụng để chỉnh sửa tài liệu. Được tùy chỉnh cho cộng tác thời gian thực.
+</div>
+📘 Giới thiệu dự án
 
-2. **Install dependencies for frontend:**
+Collab Notes là một ứng dụng web cho phép nhiều người dùng chỉnh sửa tài liệu cùng lúc với khả năng realtime mạnh mẽ, kết hợp với WebSocket để đồng bộ nội dung theo thời gian thực.
 
-  ```bash
-     cd src/client
-     npm i
-  ```
-3. **Install dependencies for backend:**
+✨ Các tính năng chính:
 
-  ```bash
-     cd src
-     npm i
-  ```
+Đăng ký, đăng nhập người dùng
 
-3. **Set up .env variables by creating a .env file in the server directory and adding the following variables:**
+Tạo tài liệu cá nhân
 
-  - For server side:
-   ```bash
-    MONGODB_URI=your_mongo_db_uri
-    JWT_SECRET=your_jwt_secret
-   ```
+Chỉnh sửa tài liệu realtime (websocket)
 
-   Replace `your_mongodb_connection_string`, `your_jwt_secret` with your own values.
+Mời cộng tác viên, xem ai đang online trong tài liệu
 
-  - For client side:
-   ```bash
-    VITE_APP_BACKEND_URL=your_backend_url/api/v1
-    VITE_APP_SOCKET_URL=your_backend_url
-   ```
+Xác thực người dùng bằng JWT
 
-   Replace `your_backend_url` with the URL where the backend server is running.
+Quản lý quyền người dùng
 
-4. **Run the frontend**
-  ```bash
-    cd src/client
-    npm run dev
-  ```
+👥 Đội ngũ cải 
+<table align="center" cellspacing="0" cellpadding="14" style="border-collapse:separate; border-spacing:18px; font-family:'Segoe UI', sans-serif;"> <tr> <td style="background:linear-gradient(135deg,#42a5f5,#478ed1);border-radius:20px;color:white;width:240px;height:170px;box-shadow:0 6px 14px rgba(0,0,0,0.25);display:flex;flex-direction:column;align-items:center;justify-content:center;"> <span style="font-size:18px;font-weight:bold;background:rgba(0,0,0,0.3);padding:6px 12px;border-radius:12px;"> 🌟 MSV: Đỗ Trung Đức </span><br/> 📧 email@example.com <br/> <span style="font-weight:bold;">👑 Team Leader</span><br/> </td> <td style="background:linear-gradient(135deg,#f06292,#ba68c8);border-radius:20px;color:white;width:240px;height:170px;box-shadow:0 6px 14px rgba(0,0,0,0.25);display:flex;flex-direction:column;align-items:center;justify-content:center;"> <span style="font-size:18px;font-weight:bold;background:rgba(0,0,0,0.3);padding:6px 12px;border-radius:12px;"> MSV: Trương Quang Duy </span><br/> 📧 email@example.com <br/> </td> <td style="background:linear-gradient(135deg,#ffb74d,#ff8a65);border-radius:20px;color:white;width:240px;height:170px;box-shadow:0 6px 14px rgba(0,0,0,0.25);display:flex;flex-direction:column;align-items:center;justify-content:center;"> <span style="font-size:18px;font-weight:bold;background:rgba(0,0,0,0.3);padding:6px 12px;border-radius:12px;"> 23020060 Nguyễn Anh Hào </span><br/> 23020060@vnu.edu.vn <br/> </td> <td style="background:linear-gradient(135deg,#66bb6a,#26a69a);border-radius:20px;color:white;width:240px;height:170px;box-shadow:0 6px 14px rgba(0,0,0,0.25);display:flex;flex-direction:column;align-items:center;justify-content:center;"> <span style="font-size:18px;font-weight:bold;background:rgba(0,0,0,0.3);padding:6px 12px;border-radius:12px;"> 23020069 Nguyễn Trọng Hiếu </span><br/> 23020069@vnu.edu.vn  <br/> </td> </tr> </table>
 
-5. **Run the backend**
-  ```bash
-    cd src
-    npm run dev
-  ```
-6. **Access the application in your browser at http://localhost:5173.**
+1. Cơ chế Refresh Token
+   - Vấn đề:
+     
+     Chỉ có access token
 
-7. **Create an account and start collaborating on documents!**
+     Khi token hết hạn → user bị logout ngay
 
+     Không thể duy trì phiên đăng nhập lâu dài
+     
+   - Giải pháp:
+
+     Thêm refreshToken
+
+     Backend rotate refresh token để tăng bảo mật
+
+     Tăng trải nghiệm của người dùng
+2. Xác thực WebSocket bằng JWT
+   - Vấn đề:
+  
+     Websocket chỉ truyền username -> không có xác thực
+
+     Chỉ cần thay đổi username -> vào được tài liệu của người
+
+   - Giải pháp:
+  
+     Websocket gửi cả token khi kết nối
+
+     Server verify token khi handshake
+
+     Thêm cơ chế refresh cho WebSocket
+3. API Gateway Offloading (Nginx)
+   - Vấn đề:
+
+     Mỗi service đều phải verify JWT -> trùng code, kém hiệu quả
+
+     Tất cả logic từ auth, socket, docs đều nằm chung -> khó bảo trì
+
+     Backend bị quá tải
+
+   - Giải pháp:
+  
+     Kiến trúc microservice dễ mở rộng, bảo trì + Gateway Offloading
+  
+     Gateway verify JWT chỉ 1 lần
+
+     Gateway forrward thông tin user qua headers cho các service phía sau
+4. Load balancing
+   - Vấn đề:
+  
+     Mỗi service đểu chỉ có 1 instance để xử lý request từ client dẫn tới dễ bị quá tải
+
+   - Giải pháp:
+  
+     Mỗi service tạo nhiều instance để xử lý được nhiều request đồng thời

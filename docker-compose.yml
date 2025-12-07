@@ -1,5 +1,17 @@
 services:
   # ---------------------------------------------------------
+  # MONGODB LOCAL
+  # ---------------------------------------------------------
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  # ---------------------------------------------------------
   # ZOOKEEPER
   # ---------------------------------------------------------
   zookeeper:
@@ -42,11 +54,11 @@ services:
     restart: always
     ports:
       - "3002:3002"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    depends_on:
+      - mongo
     environment:
       PORT: 3002
-      MONGODB_URI: mongodb+srv://nguyentronghieu2kk5_db_user:8OQlHdhPdUCHWxES@cluster0.ttgxlkn.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0
+      MONGODB_URI: mongodb://mongo:27017/collab_notes
       JWT_SECRET: mysecret
       JWT_REFRESH_SECRET: myrefreshsecret
       TOKEN_EXPIRES_IN: 12h
@@ -62,11 +74,11 @@ services:
     restart: always
     ports:
       - "3001:3001"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    depends_on:
+      - mongo
     environment:
       PORT: 3001
-      MONGODB_URI: mongodb+srv://nguyentronghieu2kk5_db_user:8OQlHdhPdUCHWxES@cluster0.ttgxlkn.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0
+      MONGODB_URI: mongodb://mongo:27017/collab_notes
       JWT_SECRET: mysecret
 
   # ---------------------------------------------------------
@@ -80,13 +92,14 @@ services:
       - kafka
       - auth-service
       - doc-service
+      - mongo
     environment:
       PORT: 1234
       AUTH_SERVICE_URL: http://auth-service:3002
       DOC_SERVICE_URL: http://doc-service:3001
       KAFKA_BROKER: kafka:29092
       JWT_SECRET: mysecret
-      MONGO_URL: mongodb+srv://nguyentronghieu2kk5_db_user:8OQlHdhPdUCHWxES@cluster0.ttgxlkn.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0
+      MONGO_URL: mongodb://mongo:27017/collab_notes
 
   # ---------------------------------------------------------
   # WORKER SERVICE
@@ -99,11 +112,10 @@ services:
     depends_on:
       - kafka
       - doc-service
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - mongo
     environment:
       KAFKA_BROKER: kafka:29092
-      MONGODB_URI: mongodb+srv://nguyentronghieu2kk5_db_user:8OQlHdhPdUCHWxES@cluster0.ttgxlkn.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0
+      MONGODB_URI: mongodb://mongo:27017/collab_notes
       TOPIC_NAME: yjs-updates
 
   # ---------------------------------------------------------
@@ -118,24 +130,32 @@ services:
       - auth-service
       - doc-service
       - websocket-service
+      - kafka
     ports:
       - "80:80"
     environment:
-      - APP_SERVICE_NAME=websocket-service
+      - APP_SERVICE_NAME=collab_notes-websocket-service
       - APP_PORT=1234
 
   # ---------------------------------------------------------
   # CLIENT
   # ---------------------------------------------------------
-  client:
-    build:
-      context: ./src/client
-    container_name: client
-    restart: always
-    environment:
-      - VITE_APP_BACKEND_URL=http://localhost:80/api/v1
-      - VITE_APP_WS_URL=ws://localhost:80
-    ports:
-      - "5173:5173"
-    depends_on:
-      - nginx
+  # client:
+  #   build:
+  #     context: ./src/client
+  #   container_name: client
+  #   restart: always
+  #   environment:
+  #     - VITE_APP_BACKEND_URL=http://localhost:80/api/v1
+  #     - VITE_APP_WS_URL=ws://localhost:80
+  #   ports:
+  #     - "5173:5173"
+  #   depends_on:
+  #     - nginx
+
+# ---------------------------------------------------------
+# VOLUMES
+# ---------------------------------------------------------
+volumes:
+  mongo-data:
+    driver: local

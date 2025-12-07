@@ -66,6 +66,20 @@ wss.on("connection", async (ws, req) => {
 
   console.log(`🔌 [ws] Client connected to doc '${docName}'`);
 
+  // ✅ Lắng nghe khi client ngắt kết nối
+  ws.on("close", (code, reason) => {
+    console.log(
+      `❌ [ws] Client disconnected from doc '${docName}' - Code: ${code}, Reason: ${
+        reason || "N/A"
+      }`
+    );
+  });
+
+  // ✅ Lắng nghe lỗi
+  ws.on("error", (error) => {
+    console.error(`⚠️ [ws] Error on doc '${docName}':`, error.message);
+  });
+
   // Check xem doc có trong RAM không
   const existingDoc = docs.get(docName);
   console.log(`📋 [ws] Doc '${docName}' exists in RAM: ${!!existingDoc}`);
@@ -99,6 +113,7 @@ wss.on("connection", async (ws, req) => {
   // Gắn listener để forward các update sang Kafka (nếu chưa gắn)
   if (!doc.kafkaListenerAttached) {
     doc.on("update", async (update, origin) => {
+      console.log(`📤 [ws] Yjs update in doc '${docName}', origin:`, origin);
       if (!producer) return;
       try {
         await sendYjsUpdate(producer, docName, update);

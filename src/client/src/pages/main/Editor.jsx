@@ -62,11 +62,6 @@ const Editor = ({ ydoc, provider }) => {
         }
         const newBinding = new QuillBinding(ytext, quill, provider.awareness);
         bindingRef.current = newBinding;
-
-        // Thêm ký tự đặc biệt nếu chưa có
-        // if (ytext.length === 0 || ytext.toString().slice(-1) !== "\u200B") {
-        //   ytext.insert(ytext.length, "\u200B");
-        // }
       }
     };
 

@@ -1,7 +1,7 @@
 // middlewares/wsAuth.js
 import jwt from "jsonwebtoken";
 
-export const verifyWsUpgrade = (req) => {
+export const verifyWsUpgrade = async (req) => {
   try {
     const url = new URL(req.url, `http://${req.headers.host}`);
     const token = url.searchParams.get("token");
@@ -11,17 +11,22 @@ export const verifyWsUpgrade = (req) => {
       return { ok: false, statusCode: 401, message: "Missing token" };
     }
 
-    const decoded = jwt.verify(
-      token,
-      process.env.ACCESS_TOKEN_SECRET || "super_access_secret_change_me"
+    // Gọi auth-service để verify
+    const res = await fetch(
+      `http://auth-service:3002/api/v1/auth/verify-ws?token=${token}`
     );
+    const data = await res.json();
 
-    // nhét user vào req để dùng sau nếu cần
-    req.user = decoded;
+    if (res.status !== 200 || !data.user) {
+      console.error("❌ WS Auth failed:", data.msg || data.error);
+      return { ok: false, statusCode: 401, message: "Invalid token" };
+    }
 
+    req.user = data.user;
+    console.log(`✅ WS Auth: user ${data.user.id} (${data.user.username})`);
     return { ok: true };
   } catch (err) {
     console.error("❌ WS Auth failed:", err.message);
-    return { ok: false, statusCode: 401, message: "Invalid token" };
+    return { ok: false, statusCode: 401, message: "Auth service error" };
   }
 };

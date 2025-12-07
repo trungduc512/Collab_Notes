@@ -102,3 +102,13 @@ export const getCollaborators = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+export const getDocumentTitle = async (req, res) => {
+  try {
+    const doc = await Document.findById(req.params.documentId).select("title");
+    if (!doc) return res.status(404).json({ message: "Document not found" });
+    res.status(200).json({ title: doc.title });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};

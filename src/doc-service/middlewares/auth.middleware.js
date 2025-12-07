@@ -1,23 +1,24 @@
 import jwt from "jsonwebtoken";
 
+// Gateway đã verify JWT - chỉ cần đọc X-User headers
 export const validateToken = (req, res, next) => {
-  try {
-    const token = req.header("Authorization")?.replace("Bearer ", "");
-    if (!token)
-      return res.status(401).json({ msg: "No token, authorization denied" });
+  const userId = req.header("X-User-Id");
+  const username = req.header("X-User-Name");
+  const email = req.header("X-User-Email");
 
-    const decoded = jwt.verify(
-      token,
-      process.env.ACCESS_TOKEN_SECRET || "super_access_secret_change_me"
-    );
-
-    req.user = decoded; // { id, email, username }
-    next();
-  } catch (err) {
-    console.error("Token error:", err);
-    return res.status(401).json({
-      msg: "Token is not valid",
-      error: err.message,
-    });
+  // Gateway đã verify, nếu không có header = chưa qua gateway
+  if (!userId) {
+    return res
+      .status(401)
+      .json({ msg: "Unauthorized - missing gateway headers" });
   }
+
+  req.user = {
+    id: userId,
+    username: username || "",
+    email: email || "",
+  };
+
+  console.log(`✅ [Gateway] User: ${userId} (${username})`);
+  next();
 };

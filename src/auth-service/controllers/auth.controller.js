@@ -200,12 +200,41 @@ export const logout = async (req, res) => {
   }
 };
 
-// Endpoint cho API Gateway dùng auth_request
+// Endpoint cho API Gateway dùng auth_request (Authorization header)
 export const verify = async (req, res) => {
   // validateToken middleware đã gán req.user
-  return res.status(200).json({
-    user: req.user,
-  });
+  // Set headers cho NGINX auth_request
+  res.set("X-User-Id", req.user.id || "");
+  res.set("X-User-Name", req.user.username || "");
+  res.set("X-User-Email", req.user.email || "");
+
+  return res.status(200).json({ user: req.user });
+};
+
+// Verify token từ query param (cho WebSocket handshake)
+export const verifyQuery = async (req, res) => {
+  try {
+    const token = req.query.token;
+
+    if (!token) {
+      return res.status(401).json({ msg: "No token provided" });
+    }
+
+    const decoded = jwt.verify(
+      token,
+      process.env.ACCESS_TOKEN_SECRET || "super_access_secret_change_me"
+    );
+
+    // Set headers cho NGINX auth_request
+    res.set("X-User-Id", decoded.id || "");
+    res.set("X-User-Name", decoded.username || "");
+    res.set("X-User-Email", decoded.email || "");
+
+    return res.status(200).json({ user: decoded });
+  } catch (error) {
+    console.error("Token verification failed:", error.message);
+    return res.status(401).json({ msg: "Invalid token" });
+  }
 };
 
 // optional: lấy danh sách user (để debug)

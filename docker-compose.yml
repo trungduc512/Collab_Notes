@@ -59,10 +59,10 @@ services:
     environment:
       PORT: 3002
       MONGODB_URI: mongodb://mongo:27017/collab_notes
-      JWT_SECRET: mysecret
-      JWT_REFRESH_SECRET: myrefreshsecret
-      TOKEN_EXPIRES_IN: 12h
-      REFRESH_EXPIRES_IN: 7d
+      ACCESS_TOKEN_SECRET: mysecret
+      REFRESH_TOKEN_SECRET: mysecret
+      ACCESS_TOKEN_EXPIRES_IN: 12h
+      REFRESH_TOKEN_EXPIRES_IN: 7d
 
   # ---------------------------------------------------------
   # DOC SERVICE
@@ -79,7 +79,7 @@ services:
     environment:
       PORT: 3001
       MONGODB_URI: mongodb://mongo:27017/collab_notes
-      JWT_SECRET: mysecret
+      ACCESS_TOKEN_SECRET: mysecret
 
   # ---------------------------------------------------------
   # WEBSOCKET SERVICE (có thể scale)
@@ -98,8 +98,7 @@ services:
       AUTH_SERVICE_URL: http://auth-service:3002
       DOC_SERVICE_URL: http://doc-service:3001
       KAFKA_BROKER: kafka:29092
-      JWT_SECRET: mysecret
-      MONGO_URL: mongodb://mongo:27017/collab_notes
+      ACCESS_TOKEN_SECRET: mysecret
 
   # ---------------------------------------------------------
   # WORKER SERVICE

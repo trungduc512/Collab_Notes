@@ -6,6 +6,7 @@ import Modal from "../../components/Modal.jsx";
 import {
   addCollaboratorToDoc,
   getAllCollaborators,
+  getDocumentTitle,
 } from "../../helpers/docs/doc.helper";
 import { useAuth } from "../../context/authContext.jsx";
 import { WS_URL } from "../../helpers/config.js";
@@ -117,22 +118,6 @@ const EditDocument = () => {
 
   // Chỉ fetch metadata document (title, collaborators) - không fetch content
   useEffect(() => {
-    const fetchDocumentMetadata = async () => {
-      if (!auth?.token || !id) return;
-
-      setLoading(true);
-      try {
-        const res = await getDocumentById(id, auth.token);
-        if (res?.status === 200) {
-          setCurrentDoc(res.data.document);
-        }
-      } catch (err) {
-        console.error("Failed to fetch document metadata:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     const fetchCollaborators = async () => {
       if (!currentDoc?._id || !auth?.token) return;
 
@@ -142,9 +127,17 @@ const EditDocument = () => {
       }
     };
 
+    const fetchTitle = async () => {
+      if (!auth?.token || !id) return;
+      const res = await getDocumentTitle(id, auth.token);
+      if (res?.status === 200) {
+        setCurrentDoc((prev) => ({ ...prev, title: res.data.title }));
+      }
+    };
+
     // Fetch metadata nếu chưa có
     if (!currentDoc || currentDoc._id !== id) {
-      fetchDocumentMetadata();
+      fetchTitle();
     }
 
     // Fetch collaborators khi có currentDoc

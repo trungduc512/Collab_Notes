@@ -6,6 +6,7 @@ import {
   deleteDocument,
   addCollaborator,
   getCollaborators,
+  getDocumentTitle,
 } from "../controllers/document.controller.js";
 import { validateToken } from "../middlewares/auth.middleware.js";
 
@@ -21,5 +22,6 @@ router.get(
   validateToken,
   getCollaborators
 );
+router.get("/:documentId/title", validateToken, getDocumentTitle);
 
 export default router;

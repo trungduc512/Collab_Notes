@@ -9,6 +9,10 @@ export const loadDocFromService = async (docName) => {
       `${baseUrl}/docs/${encodeURIComponent(docName)}/state`
     );
 
+    console.log(
+      `📥 [ws] Fetching doc '${docName}' from doc-service, res: ${res}`
+    );
+
     if (!res.ok) {
       if (res.status === 404) {
         console.log(`ℹ️ [ws] Doc '${docName}' has no persisted state yet.`);
@@ -20,11 +24,8 @@ export const loadDocFromService = async (docName) => {
     const arrayBuffer = await res.arrayBuffer();
     const stateUpdate = new Uint8Array(arrayBuffer);
 
-    const ydoc = new Y.Doc();
-    Y.applyUpdate(ydoc, stateUpdate);
-
     console.log(`📥 [ws] Loaded state for doc '${docName}' from doc-service`);
-    return ydoc;
+    return stateUpdate;
   } catch (err) {
     console.error(
       `❌ [ws] Failed to load doc '${docName}' from doc-service:`,

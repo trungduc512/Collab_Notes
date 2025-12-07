@@ -1,8 +1,8 @@
 // server.js
-import http from "http";
+import http, { get } from "http";
 import { WebSocketServer } from "ws";
 import dotenv from "dotenv";
-import { setupWSConnection, docs } from "y-websocket/bin/utils";
+import { setupWSConnection, docs, getYDoc } from "y-websocket/bin/utils";
 import * as Y from "yjs";
 
 import { verifyWsUpgrade } from "./middlewares/wsAuth.js";
@@ -33,7 +33,6 @@ createKafkaProducer()
     });
 
     const wss = new WebSocketServer({ noServer: true });
-    const docTimeouts = new Map();
 
     // Xử lý HTTP upgrade → WebSocket + Auth
     server.on("upgrade", async (req, socket, head) => {
@@ -61,33 +60,8 @@ createKafkaProducer()
 
       // ✅ Lắng nghe khi client ngắt kết nối
       ws.on("close", () => {
-        // const clients = Array.from(wss.clients).filter(
-        //   (client) =>
-        //     client !== ws &&
-        //     client.readyState === ws.OPEN &&
-        //     new URL(
-        //       client.upgradeReq?.url || client.url,
-        //       `http://${req.headers.host}`
-        //     ).pathname.slice(1) === docName
-        // );
-        // if (clients.length === 0 && !docTimeouts.has(docName)) {
-        //   // Chỉ đặt timer nếu chưa có
-        //   docTimeouts.set(
-        //     docName,
-        //     setTimeout(() => {
-        //       docs.delete(docName);
-        //       docTimeouts.delete(docName);
-        //       console.log(`🧹 Doc '${docName}' removed from RAM`);
-        //     }, 10000)
-        //   );
-        // }
         console.log(`🔌 [ws] Client disconnected from doc '${docName}'`);
       });
-
-      // if (docTimeouts.has(docName)) {
-      //   clearTimeout(docTimeouts.get(docName));
-      //   docTimeouts.delete(docName);
-      // }
 
       // ✅ Lắng nghe lỗi
       ws.on("error", (error) => {
@@ -100,6 +74,7 @@ createKafkaProducer()
 
       if (existingDoc) {
         const content = existingDoc.getText("quill").toString();
+        console.log("content length: ", content.length);
         console.log(
           `📄 [ws] Current content in RAM: "${content.substring(0, 10000)}"`
         );
@@ -112,16 +87,17 @@ createKafkaProducer()
       attachWsMessageHandlers(ws);
 
       // Lấy Y.Doc tương ứng từ y-websocket
-      const doc = docs.get(docName);
+      const doc = getYDoc(docName);
 
       // Nếu chưa load từ doc-service thì load
-      if (!doc.isLoadedFromService) {
-        const persisted = await loadDocFromService(docName);
-        if (persisted) {
-          const persistedUpdate = Y.encodeStateAsUpdate(persisted);
-          Y.applyUpdate(doc, persistedUpdate);
+      if (!doc.isLoaded) {
+        const stateUpdate = await loadDocFromService(docName);
+        if (stateUpdate) {
+          // const persistedUpdate = Y.encodeStateAsUpdate(persisted);
+          console.log("stateUpdate length:", stateUpdate);
+          Y.applyUpdate(doc, stateUpdate);
         }
-        doc.isLoadedFromService = true;
+        doc.isLoaded = true;
       }
 
       // Gắn listener để forward các update sang Kafka (nếu chưa gắn)

@@ -66,6 +66,17 @@ wss.on("connection", async (ws, req) => {
 
   console.log(`🔌 [ws] Client connected to doc '${docName}'`);
 
+  // Check xem doc có trong RAM không
+  const existingDoc = docs.get(docName);
+  console.log(`📋 [ws] Doc '${docName}' exists in RAM: ${!!existingDoc}`);
+
+  if (existingDoc) {
+    const content = existingDoc.getText("quill").toString();
+    console.log(
+      `📄 [ws] Current content in RAM: "${content.substring(0, 100)}..."`
+    );
+  }
+
   // Đăng ký handler của y-websocket
   setupWSConnection(ws, req, { docName, gc: true });
 

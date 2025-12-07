@@ -34,22 +34,38 @@ const EditDocument = () => {
 
   // Khởi tạo Y.Doc + WebSocket (có token)
   useEffect(() => {
-    if (!auth?.token) return; // đợi có token
+    if (!auth?.token) return;
 
     const doc = new Y.Doc();
     setYDoc(doc);
 
     const websocketProvider = new WebsocketProvider(WS_URL, id, doc, {
-      params: { token: auth.token }, // ?token=...
+      params: { token: auth.token },
     });
 
     websocketProvider.on("status", (event) => {
       console.log("[WS status]", event.status);
     });
 
+    websocketProvider.on("connection-error", (event) => {
+      console.error("[WS connection-error]", event);
+    });
+
+    websocketProvider.on("connection-close", (event) => {
+      console.log("[WS connection-close]", event);
+    });
+
+    // Lắng nghe khi sync hoàn tất
+    websocketProvider.on("sync", (isSynced) => {
+      if (isSynced) {
+        console.log("[WS] Document synced from server");
+      }
+    });
+
     setProvider(websocketProvider);
 
     return () => {
+      console.log("[WS] Destroying provider...");
       websocketProvider.destroy();
     };
   }, [id, setYDoc, auth?.token]);
@@ -85,7 +101,7 @@ const EditDocument = () => {
   const handleAddCollaborator = async () => {
     setLoading(true);
     const res = await addCollaboratorToDoc(
-      currentDoc?._id,
+      currentDoc?._id || id,
       collaboratorEmail,
       auth?.token
     ).finally(() => setLoading(false));
@@ -99,37 +115,43 @@ const EditDocument = () => {
     toast.error(res?.data?.message);
   };
 
+  // Chỉ fetch metadata document (title, collaborators) - không fetch content
   useEffect(() => {
-    const fetchCollaborators = async () => {
+    const fetchDocumentMetadata = async () => {
+      if (!auth?.token || !id) return;
+
       setLoading(true);
-      const res = await getAllCollaborators(
-        currentDoc?._id,
-        auth?.token
-      ).finally(() => setLoading(false));
-      if (res?.status === 200) {
-        setCollaborators(res?.data?.collaborators);
+      try {
+        const res = await getDocumentById(id, auth.token);
+        if (res?.status === 200) {
+          setCurrentDoc(res.data.document);
+        }
+      } catch (err) {
+        console.error("Failed to fetch document metadata:", err);
+      } finally {
+        setLoading(false);
       }
     };
 
-    const resetCurrentDocStateOnReload = async () => {
-      const fetchDoc = await fetch(`${API}/documents/${id}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${auth?.token}`,
-        },
-      });
-      const doc = await fetchDoc.json();
-      setCurrentDoc(doc?.document);
+    const fetchCollaborators = async () => {
+      if (!currentDoc?._id || !auth?.token) return;
+
+      const res = await getAllCollaborators(currentDoc._id, auth.token);
+      if (res?.status === 200) {
+        setCollaborators(res.data.collaborators);
+      }
     };
 
-    if (!currentDoc && auth?.token) {
-      resetCurrentDocStateOnReload();
+    // Fetch metadata nếu chưa có
+    if (!currentDoc || currentDoc._id !== id) {
+      fetchDocumentMetadata();
     }
-    if (auth?.token && currentDoc?._id) {
+
+    // Fetch collaborators khi có currentDoc
+    if (currentDoc?._id) {
       fetchCollaborators();
     }
-  }, [auth, currentDoc, id, setCurrentDoc, setLoading]);
+  }, [auth?.token, id, currentDoc, setCurrentDoc, setLoading]);
 
   return (
     <div
@@ -220,7 +242,7 @@ const EditDocument = () => {
                 darkMode ? "text-light" : "text-dark"
               } mb-2 mb-md-0`}
             >
-              Document Title: <u>{currentDoc?.title}</u>
+              Document Title: <u>{currentDoc?.title || "Loading..."}</u>
             </h1>
 
             <button

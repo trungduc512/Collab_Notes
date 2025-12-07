@@ -1,8 +1,13 @@
-.ql-toolbar{
-    color: white;
+.ql-toolbar {
+  color: white;
 }
 
 .custom-tooltip {
-    --bs-tooltip-bg: var(--bd-violet-bg);
-    --bs-tooltip-color: var(--bs-white);
-  }
+  --bs-tooltip-bg: var(--bd-violet-bg);
+  --bs-tooltip-color: var(--bs-white);
+}
+
+/* Thêm padding-top để cursor name không bị che */
+.ql-editor {
+  padding-top: 25px !important;
+}

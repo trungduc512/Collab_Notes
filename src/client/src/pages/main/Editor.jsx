@@ -52,16 +52,28 @@ const Editor = ({ ydoc, provider }) => {
   useEffect(() => {
     if (!quill || !ydoc || !provider) return;
 
-    // Destroy previous binding if exists
-    if (bindingRef.current) {
-      bindingRef.current.destroy();
-    }
-
     const ytext = ydoc.getText("quill");
-    const newBinding = new QuillBinding(ytext, quill, provider.awareness);
-    bindingRef.current = newBinding;
+
+    const handleSync = (isSynced) => {
+      if (isSynced) {
+        // Destroy previous binding if exists
+        if (bindingRef.current) {
+          bindingRef.current.destroy();
+        }
+        const newBinding = new QuillBinding(ytext, quill, provider.awareness);
+        bindingRef.current = newBinding;
+
+        // Thêm ký tự đặc biệt nếu chưa có
+        // if (ytext.length === 0 || ytext.toString().slice(-1) !== "\u200B") {
+        //   ytext.insert(ytext.length, "\u200B");
+        // }
+      }
+    };
+
+    provider.on("sync", handleSync);
 
     return () => {
+      provider.off("sync", handleSync);
       if (bindingRef.current) {
         bindingRef.current.destroy();
         bindingRef.current = null;

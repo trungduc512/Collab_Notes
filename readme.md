@@ -32,7 +32,7 @@ Collab Notes là một nền tảng web cho phép nhiều người dùng cùng c
 
 ## 2. Các nhiệm vụ Đã hoàn thành
 
-- **Xây dựng hệ thống microservices:** Tách biệt các service: Auth, Doc, Websocket, Worker, Client, Nginx.
+- **Xây dựng hệ thống:** Tách biệt các service: Auth, Doc, Websocket, Worker, Client, Nginx.
 - **Chỉnh sửa tài liệu realtime:** Sử dụng Yjs, y-websocket, Quill, Kafka để đồng bộ nội dung giữa nhiều người dùng.
 - **Xác thực bảo mật:** Đăng ký, đăng nhập, xác thực JWT, refresh token, phân quyền truy cập tài liệu.
 - **Mời cộng tác viên, theo dõi online:** Quản lý cộng tác viên, hiển thị trạng thái online.
@@ -208,7 +208,7 @@ Trong hệ thống cộng tác realtime, xung đột xảy ra khi nhiều ngư�
 - Server chỉ lưu trữ và chuyển tiếp các bản vá, không tự sinh ra nội dung chỉnh sửa.
 - Mọi update từ client đều được merge vào lịch sử chung, không có thao tác ghi đè, đảm bảo không mất dữ liệu hay sai lệch phiên bản.
 
-## 3. Kiến trúc triển khai hiện tại (Microservices, Kafka, MongoDB, Load Balancing)
+## 3. Kiến trúc triển khai hiện tại
 
 ![Sơ đồ kiến trúc hệ thống](system-architecture.png)
 

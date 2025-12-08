@@ -1,0 +1,1610 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: tests/load/scenarios/constant.js
+        output: json (tests/load/results/constant_metrics_2025-12-08_15-00-23.json)
+
+     scenarios: (100.00%) 3 scenarios, 30 max VUs, 5m30s max duration (incl. graceful stop):
+              * auth_service_test: 1.00 iterations/s for 5m0s (maxVUs: 5-10, exec: authTest, gracefulStop: 30s)
+              * doc_service_test: 1.00 iterations/s for 5m0s (maxVUs: 5-10, exec: docTest, gracefulStop: 30s)
+              * websocket_service_test: 1.00 iterations/s for 5m0s (maxVUs: 5-10, exec: wsTest, gracefulStop: 30s)
+
+
+running (0m01.0s), 03/15 VUs, 0 complete and 0 interrupted iterations
+auth_service_test        [   0% ] 01/05 VUs  0m00.8s/5m0s  1.00 iters/s
+doc_service_test         [   0% ] 01/05 VUs  0m00.8s/5m0s  1.00 iters/s
+websocket_service_test   [   0% ] 01/05 VUs  0m00.8s/5m0s  1.00 iters/s
+
+running (0m02.0s), 04/15 VUs, 2 complete and 0 interrupted iterations
+auth_service_test        [   1% ] 01/05 VUs  0m01.8s/5m0s  1.00 iters/s
+doc_service_test         [   1% ] 01/05 VUs  0m01.8s/5m0s  1.00 iters/s
+websocket_service_test   [   1% ] 02/05 VUs  0m01.8s/5m0s  1.00 iters/s
+
+running (0m03.0s), 05/15 VUs, 4 complete and 0 interrupted iterations
+auth_service_test        [   1% ] 01/05 VUs  0m02.8s/5m0s  1.00 iters/s
+doc_service_test         [   1% ] 01/05 VUs  0m02.8s/5m0s  1.00 iters/s
+websocket_service_test   [   1% ] 03/05 VUs  0m02.8s/5m0s  1.00 iters/s
+
+running (0m04.0s), 06/15 VUs, 6 complete and 0 interrupted iterations
+auth_service_test        [   1% ] 01/05 VUs  0m03.8s/5m0s  1.00 iters/s
+doc_service_test         [   1% ] 01/05 VUs  0m03.8s/5m0s  1.00 iters/s
+websocket_service_test   [   1% ] 04/05 VUs  0m03.8s/5m0s  1.00 iters/s
+
+running (0m05.0s), 07/15 VUs, 8 complete and 0 interrupted iterations
+auth_service_test        [   2% ] 01/05 VUs  0m04.8s/5m0s  1.00 iters/s
+doc_service_test         [   2% ] 01/05 VUs  0m04.8s/5m0s  1.00 iters/s
+websocket_service_test   [   2% ] 05/05 VUs  0m04.8s/5m0s  1.00 iters/s
+
+running (0m06.0s), 07/16 VUs, 10 complete and 0 interrupted iterations
+auth_service_test        [   2% ] 01/05 VUs  0m05.8s/5m0s  1.00 iters/s
+doc_service_test         [   2% ] 01/05 VUs  0m05.8s/5m0s  1.00 iters/s
+websocket_service_test   [   2% ] 05/06 VUs  0m05.8s/5m0s  1.00 iters/s
+
+running (0m07.3s), 08/16 VUs, 12 complete and 0 interrupted iterations
+auth_service_test        [   2% ] 01/05 VUs  0m06.8s/5m0s  1.00 iters/s
+doc_service_test         [   2% ] 01/05 VUs  0m06.8s/5m0s  1.00 iters/s
+websocket_service_test   [   2% ] 06/06 VUs  0m06.8s/5m0s  1.00 iters/s
+
+running (0m08.3s), 08/17 VUs, 14 complete and 0 interrupted iterations
+auth_service_test        [   3% ] 01/05 VUs  0m07.8s/5m0s  1.00 iters/s
+doc_service_test         [   3% ] 01/05 VUs  0m07.8s/5m0s  1.00 iters/s
+websocket_service_test   [   3% ] 06/07 VUs  0m07.8s/5m0s  1.00 iters/s
+
+running (0m09.3s), 08/17 VUs, 17 complete and 0 interrupted iterations
+auth_service_test        [   3% ] 01/05 VUs  0m08.8s/5m0s  1.00 iters/s
+doc_service_test         [   3% ] 01/05 VUs  0m08.8s/5m0s  1.00 iters/s
+websocket_service_test   [   3% ] 06/07 VUs  0m08.8s/5m0s  1.00 iters/s
+
+running (0m10.3s), 08/17 VUs, 20 complete and 0 interrupted iterations
+auth_service_test        [   3% ] 01/05 VUs  0m09.8s/5m0s  1.00 iters/s
+doc_service_test         [   3% ] 01/05 VUs  0m09.8s/5m0s  1.00 iters/s
+websocket_service_test   [   3% ] 06/07 VUs  0m09.8s/5m0s  1.00 iters/s
+
+running (0m11.3s), 08/17 VUs, 23 complete and 0 interrupted iterations
+auth_service_test        [   4% ] 01/05 VUs  0m10.8s/5m0s  1.00 iters/s
+doc_service_test         [   4% ] 01/05 VUs  0m10.8s/5m0s  1.00 iters/s
+websocket_service_test   [   4% ] 06/07 VUs  0m10.8s/5m0s  1.00 iters/s
+
+running (0m12.3s), 08/17 VUs, 26 complete and 0 interrupted iterations
+auth_service_test        [   4% ] 01/05 VUs  0m11.8s/5m0s  1.00 iters/s
+doc_service_test         [   4% ] 01/05 VUs  0m11.8s/5m0s  1.00 iters/s
+websocket_service_test   [   4% ] 06/07 VUs  0m11.8s/5m0s  1.00 iters/s
+
+running (0m13.3s), 08/17 VUs, 29 complete and 0 interrupted iterations
+auth_service_test        [   4% ] 01/05 VUs  0m12.8s/5m0s  1.00 iters/s
+doc_service_test         [   4% ] 01/05 VUs  0m12.8s/5m0s  1.00 iters/s
+websocket_service_test   [   4% ] 06/07 VUs  0m12.8s/5m0s  1.00 iters/s
+
+running (0m14.3s), 09/17 VUs, 31 complete and 0 interrupted iterations
+auth_service_test        [   5% ] 01/05 VUs  0m13.8s/5m0s  1.00 iters/s
+doc_service_test         [   5% ] 01/05 VUs  0m13.8s/5m0s  1.00 iters/s
+websocket_service_test   [   5% ] 07/07 VUs  0m13.8s/5m0s  1.00 iters/s
+
+running (0m15.3s), 08/18 VUs, 34 complete and 0 interrupted iterations
+auth_service_test        [   5% ] 01/05 VUs  0m14.8s/5m0s  1.00 iters/s
+doc_service_test         [   5% ] 01/05 VUs  0m14.8s/5m0s  1.00 iters/s
+websocket_service_test   [   5% ] 06/08 VUs  0m14.8s/5m0s  1.00 iters/s
+
+running (0m16.3s), 09/18 VUs, 36 complete and 0 interrupted iterations
+auth_service_test        [   5% ] 01/05 VUs  0m15.8s/5m0s  1.00 iters/s
+doc_service_test         [   5% ] 01/05 VUs  0m15.8s/5m0s  1.00 iters/s
+websocket_service_test   [   5% ] 07/08 VUs  0m15.8s/5m0s  1.00 iters/s
+
+running (0m17.3s), 09/18 VUs, 39 complete and 0 interrupted iterations
+auth_service_test        [   6% ] 01/05 VUs  0m16.8s/5m0s  1.00 iters/s
+doc_service_test         [   6% ] 01/05 VUs  0m16.8s/5m0s  1.00 iters/s
+websocket_service_test   [   6% ] 07/08 VUs  0m16.8s/5m0s  1.00 iters/s
+
+running (0m18.3s), 09/18 VUs, 42 complete and 0 interrupted iterations
+auth_service_test        [   6% ] 01/05 VUs  0m17.8s/5m0s  1.00 iters/s
+doc_service_test         [   6% ] 01/05 VUs  0m17.8s/5m0s  1.00 iters/s
+websocket_service_test   [   6% ] 07/08 VUs  0m17.8s/5m0s  1.00 iters/s
+
+running (0m19.3s), 09/18 VUs, 45 complete and 0 interrupted iterations
+auth_service_test        [   6% ] 01/05 VUs  0m18.8s/5m0s  1.00 iters/s
+doc_service_test         [   6% ] 01/05 VUs  0m18.8s/5m0s  1.00 iters/s
+websocket_service_test   [   6% ] 07/08 VUs  0m18.8s/5m0s  1.00 iters/s
+
+running (0m20.3s), 09/18 VUs, 48 complete and 0 interrupted iterations
+auth_service_test        [   7% ] 01/05 VUs  0m19.8s/5m0s  1.00 iters/s
+doc_service_test         [   7% ] 01/05 VUs  0m19.8s/5m0s  1.00 iters/s
+websocket_service_test   [   7% ] 07/08 VUs  0m19.8s/5m0s  1.00 iters/s
+
+running (0m21.3s), 09/18 VUs, 51 complete and 0 interrupted iterations
+auth_service_test        [   7% ] 01/05 VUs  0m20.8s/5m0s  1.00 iters/s
+doc_service_test         [   7% ] 01/05 VUs  0m20.8s/5m0s  1.00 iters/s
+websocket_service_test   [   7% ] 07/08 VUs  0m20.8s/5m0s  1.00 iters/s
+
+running (0m22.3s), 09/18 VUs, 54 complete and 0 interrupted iterations
+auth_service_test        [   7% ] 01/05 VUs  0m21.8s/5m0s  1.00 iters/s
+doc_service_test         [   7% ] 01/05 VUs  0m21.8s/5m0s  1.00 iters/s
+websocket_service_test   [   7% ] 07/08 VUs  0m21.8s/5m0s  1.00 iters/s
+
+running (0m23.3s), 10/18 VUs, 56 complete and 0 interrupted iterations
+auth_service_test        [   8% ] 01/05 VUs  0m22.8s/5m0s  1.00 iters/s
+doc_service_test         [   8% ] 01/05 VUs  0m22.8s/5m0s  1.00 iters/s
+websocket_service_test   [   8% ] 08/08 VUs  0m22.8s/5m0s  1.00 iters/s
+
+running (0m24.3s), 09/19 VUs, 59 complete and 0 interrupted iterations
+auth_service_test        [   8% ] 01/05 VUs  0m23.8s/5m0s  1.00 iters/s
+doc_service_test         [   8% ] 01/05 VUs  0m23.8s/5m0s  1.00 iters/s
+websocket_service_test   [   8% ] 07/09 VUs  0m23.8s/5m0s  1.00 iters/s
+
+running (0m25.3s), 09/19 VUs, 62 complete and 0 interrupted iterations
+auth_service_test        [   8% ] 01/05 VUs  0m24.8s/5m0s  1.00 iters/s
+doc_service_test         [   8% ] 01/05 VUs  0m24.8s/5m0s  1.00 iters/s
+websocket_service_test   [   8% ] 07/09 VUs  0m24.8s/5m0s  1.00 iters/s
+
+running (0m26.3s), 09/19 VUs, 65 complete and 0 interrupted iterations
+auth_service_test        [   9% ] 01/05 VUs  0m25.8s/5m0s  1.00 iters/s
+doc_service_test         [   9% ] 01/05 VUs  0m25.8s/5m0s  1.00 iters/s
+websocket_service_test   [   9% ] 07/09 VUs  0m25.8s/5m0s  1.00 iters/s
+
+running (0m27.3s), 09/19 VUs, 68 complete and 0 interrupted iterations
+auth_service_test        [   9% ] 01/05 VUs  0m26.8s/5m0s  1.00 iters/s
+doc_service_test         [   9% ] 01/05 VUs  0m26.8s/5m0s  1.00 iters/s
+websocket_service_test   [   9% ] 07/09 VUs  0m26.8s/5m0s  1.00 iters/s
+
+running (0m28.3s), 09/19 VUs, 71 complete and 0 interrupted iterations
+auth_service_test        [   9% ] 01/05 VUs  0m27.8s/5m0s  1.00 iters/s
+doc_service_test         [   9% ] 01/05 VUs  0m27.8s/5m0s  1.00 iters/s
+websocket_service_test   [   9% ] 07/09 VUs  0m27.8s/5m0s  1.00 iters/s
+
+running (0m29.3s), 09/19 VUs, 74 complete and 0 interrupted iterations
+auth_service_test        [  10% ] 01/05 VUs  0m28.8s/5m0s  1.00 iters/s
+doc_service_test         [  10% ] 01/05 VUs  0m28.8s/5m0s  1.00 iters/s
+websocket_service_test   [  10% ] 07/09 VUs  0m28.8s/5m0s  1.00 iters/s
+
+running (0m30.3s), 09/19 VUs, 77 complete and 0 interrupted iterations
+auth_service_test        [  10% ] 01/05 VUs  0m29.8s/5m0s  1.00 iters/s
+doc_service_test         [  10% ] 01/05 VUs  0m29.8s/5m0s  1.00 iters/s
+websocket_service_test   [  10% ] 07/09 VUs  0m29.8s/5m0s  1.00 iters/s
+
+running (0m31.3s), 09/19 VUs, 80 complete and 0 interrupted iterations
+auth_service_test        [  10% ] 01/05 VUs  0m30.8s/5m0s  1.00 iters/s
+doc_service_test         [  10% ] 01/05 VUs  0m30.8s/5m0s  1.00 iters/s
+websocket_service_test   [  10% ] 07/09 VUs  0m30.8s/5m0s  1.00 iters/s
+
+running (0m32.3s), 10/19 VUs, 82 complete and 0 interrupted iterations
+auth_service_test        [  11% ] 01/05 VUs  0m31.8s/5m0s  1.00 iters/s
+doc_service_test         [  11% ] 01/05 VUs  0m31.8s/5m0s  1.00 iters/s
+websocket_service_test   [  11% ] 08/09 VUs  0m31.8s/5m0s  1.00 iters/s
+
+running (0m33.3s), 10/19 VUs, 85 complete and 0 interrupted iterations
+auth_service_test        [  11% ] 01/05 VUs  0m32.8s/5m0s  1.00 iters/s
+doc_service_test         [  11% ] 01/05 VUs  0m32.8s/5m0s  1.00 iters/s
+websocket_service_test   [  11% ] 08/09 VUs  0m32.8s/5m0s  1.00 iters/s
+
+running (0m34.3s), 10/19 VUs, 88 complete and 0 interrupted iterations
+auth_service_test        [  11% ] 01/05 VUs  0m33.8s/5m0s  1.00 iters/s
+doc_service_test         [  11% ] 01/05 VUs  0m33.8s/5m0s  1.00 iters/s
+websocket_service_test   [  11% ] 08/09 VUs  0m33.8s/5m0s  1.00 iters/s
+
+running (0m35.3s), 10/19 VUs, 91 complete and 0 interrupted iterations
+auth_service_test        [  12% ] 01/05 VUs  0m34.8s/5m0s  1.00 iters/s
+doc_service_test         [  12% ] 01/05 VUs  0m34.8s/5m0s  1.00 iters/s
+websocket_service_test   [  12% ] 08/09 VUs  0m34.8s/5m0s  1.00 iters/s
+
+running (0m36.3s), 10/19 VUs, 94 complete and 0 interrupted iterations
+auth_service_test        [  12% ] 01/05 VUs  0m35.8s/5m0s  1.00 iters/s
+doc_service_test         [  12% ] 01/05 VUs  0m35.8s/5m0s  1.00 iters/s
+websocket_service_test   [  12% ] 08/09 VUs  0m35.8s/5m0s  1.00 iters/s
+
+running (0m37.6s), 10/19 VUs, 97 complete and 0 interrupted iterations
+auth_service_test        [  12% ] 01/05 VUs  0m36.8s/5m0s  1.00 iters/s
+doc_service_test         [  12% ] 01/05 VUs  0m36.8s/5m0s  1.00 iters/s
+websocket_service_test   [  12% ] 08/09 VUs  0m36.8s/5m0s  1.00 iters/s
+
+running (0m38.6s), 10/19 VUs, 100 complete and 0 interrupted iterations
+auth_service_test        [  13% ] 01/05 VUs  0m37.8s/5m0s  1.00 iters/s
+doc_service_test         [  13% ] 01/05 VUs  0m37.8s/5m0s  1.00 iters/s
+websocket_service_test   [  13% ] 08/09 VUs  0m37.8s/5m0s  1.00 iters/s
+
+running (0m39.6s), 10/19 VUs, 103 complete and 0 interrupted iterations
+auth_service_test        [  13% ] 01/05 VUs  0m38.8s/5m0s  1.00 iters/s
+doc_service_test         [  13% ] 01/05 VUs  0m38.8s/5m0s  1.00 iters/s
+websocket_service_test   [  13% ] 08/09 VUs  0m38.8s/5m0s  1.00 iters/s
+
+running (0m40.6s), 10/19 VUs, 106 complete and 0 interrupted iterations
+auth_service_test        [  13% ] 01/05 VUs  0m39.8s/5m0s  1.00 iters/s
+doc_service_test         [  13% ] 01/05 VUs  0m39.8s/5m0s  1.00 iters/s
+websocket_service_test   [  13% ] 08/09 VUs  0m39.8s/5m0s  1.00 iters/s
+
+running (0m41.6s), 10/19 VUs, 109 complete and 0 interrupted iterations
+auth_service_test        [  14% ] 01/05 VUs  0m40.8s/5m0s  1.00 iters/s
+doc_service_test         [  14% ] 01/05 VUs  0m40.8s/5m0s  1.00 iters/s
+websocket_service_test   [  14% ] 08/09 VUs  0m40.8s/5m0s  1.00 iters/s
+
+running (0m42.6s), 10/19 VUs, 112 complete and 0 interrupted iterations
+auth_service_test        [  14% ] 01/05 VUs  0m41.8s/5m0s  1.00 iters/s
+doc_service_test         [  14% ] 01/05 VUs  0m41.8s/5m0s  1.00 iters/s
+websocket_service_test   [  14% ] 08/09 VUs  0m41.8s/5m0s  1.00 iters/s
+
+running (0m43.6s), 10/19 VUs, 115 complete and 0 interrupted iterations
+auth_service_test        [  14% ] 01/05 VUs  0m42.8s/5m0s  1.00 iters/s
+doc_service_test         [  14% ] 01/05 VUs  0m42.8s/5m0s  1.00 iters/s
+websocket_service_test   [  14% ] 08/09 VUs  0m42.8s/5m0s  1.00 iters/s
+
+running (0m44.6s), 10/19 VUs, 118 complete and 0 interrupted iterations
+auth_service_test        [  15% ] 01/05 VUs  0m43.8s/5m0s  1.00 iters/s
+doc_service_test         [  15% ] 01/05 VUs  0m43.8s/5m0s  1.00 iters/s
+websocket_service_test   [  15% ] 08/09 VUs  0m43.8s/5m0s  1.00 iters/s
+
+running (0m45.6s), 10/19 VUs, 121 complete and 0 interrupted iterations
+auth_service_test        [  15% ] 01/05 VUs  0m44.8s/5m0s  1.00 iters/s
+doc_service_test         [  15% ] 01/05 VUs  0m44.8s/5m0s  1.00 iters/s
+websocket_service_test   [  15% ] 08/09 VUs  0m44.8s/5m0s  1.00 iters/s
+
+running (0m46.6s), 10/19 VUs, 124 complete and 0 interrupted iterations
+auth_service_test        [  15% ] 01/05 VUs  0m45.8s/5m0s  1.00 iters/s
+doc_service_test         [  15% ] 01/05 VUs  0m45.8s/5m0s  1.00 iters/s
+websocket_service_test   [  15% ] 08/09 VUs  0m45.8s/5m0s  1.00 iters/s
+
+running (0m47.6s), 10/19 VUs, 127 complete and 0 interrupted iterations
+auth_service_test        [  16% ] 01/05 VUs  0m46.8s/5m0s  1.00 iters/s
+doc_service_test         [  16% ] 01/05 VUs  0m46.8s/5m0s  1.00 iters/s
+websocket_service_test   [  16% ] 08/09 VUs  0m46.8s/5m0s  1.00 iters/s
+
+running (0m48.6s), 10/19 VUs, 130 complete and 0 interrupted iterations
+auth_service_test        [  16% ] 01/05 VUs  0m47.8s/5m0s  1.00 iters/s
+doc_service_test         [  16% ] 01/05 VUs  0m47.8s/5m0s  1.00 iters/s
+websocket_service_test   [  16% ] 08/09 VUs  0m47.8s/5m0s  1.00 iters/s
+
+running (0m49.6s), 10/19 VUs, 133 complete and 0 interrupted iterations
+auth_service_test        [  16% ] 01/05 VUs  0m48.8s/5m0s  1.00 iters/s
+doc_service_test         [  16% ] 01/05 VUs  0m48.8s/5m0s  1.00 iters/s
+websocket_service_test   [  16% ] 08/09 VUs  0m48.8s/5m0s  1.00 iters/s
+
+running (0m50.6s), 10/19 VUs, 136 complete and 0 interrupted iterations
+auth_service_test        [  17% ] 01/05 VUs  0m49.8s/5m0s  1.00 iters/s
+doc_service_test         [  17% ] 01/05 VUs  0m49.8s/5m0s  1.00 iters/s
+websocket_service_test   [  17% ] 08/09 VUs  0m49.8s/5m0s  1.00 iters/s
+
+running (0m51.6s), 10/19 VUs, 139 complete and 0 interrupted iterations
+auth_service_test        [  17% ] 01/05 VUs  0m50.8s/5m0s  1.00 iters/s
+doc_service_test         [  17% ] 01/05 VUs  0m50.8s/5m0s  1.00 iters/s
+websocket_service_test   [  17% ] 08/09 VUs  0m50.8s/5m0s  1.00 iters/s
+
+running (0m52.6s), 10/19 VUs, 142 complete and 0 interrupted iterations
+auth_service_test        [  17% ] 01/05 VUs  0m51.8s/5m0s  1.00 iters/s
+doc_service_test         [  17% ] 01/05 VUs  0m51.8s/5m0s  1.00 iters/s
+websocket_service_test   [  17% ] 08/09 VUs  0m51.8s/5m0s  1.00 iters/s
+
+running (0m53.6s), 10/19 VUs, 145 complete and 0 interrupted iterations
+auth_service_test        [  18% ] 01/05 VUs  0m52.8s/5m0s  1.00 iters/s
+doc_service_test         [  18% ] 01/05 VUs  0m52.8s/5m0s  1.00 iters/s
+websocket_service_test   [  18% ] 08/09 VUs  0m52.8s/5m0s  1.00 iters/s
+
+running (0m54.6s), 10/19 VUs, 148 complete and 0 interrupted iterations
+auth_service_test        [  18% ] 01/05 VUs  0m53.8s/5m0s  1.00 iters/s
+doc_service_test         [  18% ] 01/05 VUs  0m53.8s/5m0s  1.00 iters/s
+websocket_service_test   [  18% ] 08/09 VUs  0m53.8s/5m0s  1.00 iters/s
+
+running (0m55.6s), 10/19 VUs, 151 complete and 0 interrupted iterations
+auth_service_test        [  18% ] 01/05 VUs  0m54.8s/5m0s  1.00 iters/s
+doc_service_test         [  18% ] 01/05 VUs  0m54.8s/5m0s  1.00 iters/s
+websocket_service_test   [  18% ] 08/09 VUs  0m54.8s/5m0s  1.00 iters/s
+
+running (0m56.6s), 10/19 VUs, 154 complete and 0 interrupted iterations
+auth_service_test        [  19% ] 01/05 VUs  0m55.8s/5m0s  1.00 iters/s
+doc_service_test         [  19% ] 01/05 VUs  0m55.8s/5m0s  1.00 iters/s
+websocket_service_test   [  19% ] 08/09 VUs  0m55.8s/5m0s  1.00 iters/s
+
+running (0m57.6s), 10/19 VUs, 157 complete and 0 interrupted iterations
+auth_service_test        [  19% ] 01/05 VUs  0m56.8s/5m0s  1.00 iters/s
+doc_service_test         [  19% ] 01/05 VUs  0m56.8s/5m0s  1.00 iters/s
+websocket_service_test   [  19% ] 08/09 VUs  0m56.8s/5m0s  1.00 iters/s
+
+running (0m58.6s), 10/19 VUs, 160 complete and 0 interrupted iterations
+auth_service_test        [  19% ] 01/05 VUs  0m57.8s/5m0s  1.00 iters/s
+doc_service_test         [  19% ] 01/05 VUs  0m57.8s/5m0s  1.00 iters/s
+websocket_service_test   [  19% ] 08/09 VUs  0m57.8s/5m0s  1.00 iters/s
+
+running (0m59.6s), 10/19 VUs, 163 complete and 0 interrupted iterations
+auth_service_test        [  20% ] 01/05 VUs  0m58.8s/5m0s  1.00 iters/s
+doc_service_test         [  20% ] 01/05 VUs  0m58.8s/5m0s  1.00 iters/s
+websocket_service_test   [  20% ] 08/09 VUs  0m58.8s/5m0s  1.00 iters/s
+
+running (1m00.6s), 10/19 VUs, 166 complete and 0 interrupted iterations
+auth_service_test        [  20% ] 01/05 VUs  0m59.8s/5m0s  1.00 iters/s
+doc_service_test         [  20% ] 01/05 VUs  0m59.8s/5m0s  1.00 iters/s
+websocket_service_test   [  20% ] 08/09 VUs  0m59.8s/5m0s  1.00 iters/s
+
+running (1m01.6s), 10/19 VUs, 169 complete and 0 interrupted iterations
+auth_service_test        [  20% ] 01/05 VUs  1m00.8s/5m0s  1.00 iters/s
+doc_service_test         [  20% ] 01/05 VUs  1m00.8s/5m0s  1.00 iters/s
+websocket_service_test   [  20% ] 08/09 VUs  1m00.8s/5m0s  1.00 iters/s
+
+running (1m02.6s), 10/19 VUs, 172 complete and 0 interrupted iterations
+auth_service_test        [  21% ] 01/05 VUs  1m01.8s/5m0s  1.00 iters/s
+doc_service_test         [  21% ] 01/05 VUs  1m01.8s/5m0s  1.00 iters/s
+websocket_service_test   [  21% ] 08/09 VUs  1m01.8s/5m0s  1.00 iters/s
+
+running (1m03.6s), 10/19 VUs, 175 complete and 0 interrupted iterations
+auth_service_test        [  21% ] 01/05 VUs  1m02.8s/5m0s  1.00 iters/s
+doc_service_test         [  21% ] 01/05 VUs  1m02.8s/5m0s  1.00 iters/s
+websocket_service_test   [  21% ] 08/09 VUs  1m02.8s/5m0s  1.00 iters/s
+
+running (1m04.6s), 10/19 VUs, 178 complete and 0 interrupted iterations
+auth_service_test        [  21% ] 01/05 VUs  1m03.8s/5m0s  1.00 iters/s
+doc_service_test         [  21% ] 01/05 VUs  1m03.8s/5m0s  1.00 iters/s
+websocket_service_test   [  21% ] 08/09 VUs  1m03.8s/5m0s  1.00 iters/s
+
+running (1m05.6s), 10/19 VUs, 181 complete and 0 interrupted iterations
+auth_service_test        [  22% ] 01/05 VUs  1m04.8s/5m0s  1.00 iters/s
+doc_service_test         [  22% ] 01/05 VUs  1m04.8s/5m0s  1.00 iters/s
+websocket_service_test   [  22% ] 08/09 VUs  1m04.8s/5m0s  1.00 iters/s
+
+running (1m06.6s), 10/19 VUs, 184 complete and 0 interrupted iterations
+auth_service_test        [  22% ] 01/05 VUs  1m05.8s/5m0s  1.00 iters/s
+doc_service_test         [  22% ] 01/05 VUs  1m05.8s/5m0s  1.00 iters/s
+websocket_service_test   [  22% ] 08/09 VUs  1m05.8s/5m0s  1.00 iters/s
+
+running (1m08.3s), 10/19 VUs, 187 complete and 0 interrupted iterations
+auth_service_test        [  22% ] 01/05 VUs  1m06.8s/5m0s  1.00 iters/s
+doc_service_test         [  22% ] 01/05 VUs  1m06.8s/5m0s  1.00 iters/s
+websocket_service_test   [  22% ] 08/09 VUs  1m06.8s/5m0s  1.00 iters/s
+
+running (1m09.3s), 10/19 VUs, 190 complete and 0 interrupted iterations
+auth_service_test        [  23% ] 01/05 VUs  1m07.8s/5m0s  1.00 iters/s
+doc_service_test         [  23% ] 01/05 VUs  1m07.8s/5m0s  1.00 iters/s
+websocket_service_test   [  23% ] 08/09 VUs  1m07.8s/5m0s  1.00 iters/s
+
+running (1m10.3s), 10/19 VUs, 193 complete and 0 interrupted iterations
+auth_service_test        [  23% ] 01/05 VUs  1m08.8s/5m0s  1.00 iters/s
+doc_service_test         [  23% ] 01/05 VUs  1m08.8s/5m0s  1.00 iters/s
+websocket_service_test   [  23% ] 08/09 VUs  1m08.8s/5m0s  1.00 iters/s
+
+running (1m11.3s), 10/19 VUs, 196 complete and 0 interrupted iterations
+auth_service_test        [  23% ] 01/05 VUs  1m09.8s/5m0s  1.00 iters/s
+doc_service_test         [  23% ] 01/05 VUs  1m09.8s/5m0s  1.00 iters/s
+websocket_service_test   [  23% ] 08/09 VUs  1m09.8s/5m0s  1.00 iters/s
+
+running (1m12.3s), 10/19 VUs, 199 complete and 0 interrupted iterations
+auth_service_test        [  24% ] 01/05 VUs  1m10.8s/5m0s  1.00 iters/s
+doc_service_test         [  24% ] 01/05 VUs  1m10.8s/5m0s  1.00 iters/s
+websocket_service_test   [  24% ] 08/09 VUs  1m10.8s/5m0s  1.00 iters/s
+
+running (1m13.3s), 10/19 VUs, 202 complete and 0 interrupted iterations
+auth_service_test        [  24% ] 01/05 VUs  1m11.8s/5m0s  1.00 iters/s
+doc_service_test         [  24% ] 01/05 VUs  1m11.8s/5m0s  1.00 iters/s
+websocket_service_test   [  24% ] 08/09 VUs  1m11.8s/5m0s  1.00 iters/s
+
+running (1m14.3s), 10/19 VUs, 205 complete and 0 interrupted iterations
+auth_service_test        [  24% ] 01/05 VUs  1m12.8s/5m0s  1.00 iters/s
+doc_service_test         [  24% ] 01/05 VUs  1m12.8s/5m0s  1.00 iters/s
+websocket_service_test   [  24% ] 08/09 VUs  1m12.8s/5m0s  1.00 iters/s
+
+running (1m15.3s), 10/19 VUs, 208 complete and 0 interrupted iterations
+auth_service_test        [  25% ] 01/05 VUs  1m13.8s/5m0s  1.00 iters/s
+doc_service_test         [  25% ] 01/05 VUs  1m13.8s/5m0s  1.00 iters/s
+websocket_service_test   [  25% ] 08/09 VUs  1m13.8s/5m0s  1.00 iters/s
+
+running (1m16.3s), 10/19 VUs, 211 complete and 0 interrupted iterations
+auth_service_test        [  25% ] 01/05 VUs  1m14.8s/5m0s  1.00 iters/s
+doc_service_test         [  25% ] 01/05 VUs  1m14.8s/5m0s  1.00 iters/s
+websocket_service_test   [  25% ] 08/09 VUs  1m14.8s/5m0s  1.00 iters/s
+
+running (1m17.3s), 10/19 VUs, 214 complete and 0 interrupted iterations
+auth_service_test        [  25% ] 01/05 VUs  1m15.8s/5m0s  1.00 iters/s
+doc_service_test         [  25% ] 01/05 VUs  1m15.8s/5m0s  1.00 iters/s
+websocket_service_test   [  25% ] 08/09 VUs  1m15.8s/5m0s  1.00 iters/s
+
+running (1m18.3s), 10/19 VUs, 217 complete and 0 interrupted iterations
+auth_service_test        [  26% ] 01/05 VUs  1m16.8s/5m0s  1.00 iters/s
+doc_service_test         [  26% ] 01/05 VUs  1m16.8s/5m0s  1.00 iters/s
+websocket_service_test   [  26% ] 08/09 VUs  1m16.8s/5m0s  1.00 iters/s
+
+running (1m19.3s), 10/19 VUs, 220 complete and 0 interrupted iterations
+auth_service_test        [  26% ] 01/05 VUs  1m17.8s/5m0s  1.00 iters/s
+doc_service_test         [  26% ] 01/05 VUs  1m17.8s/5m0s  1.00 iters/s
+websocket_service_test   [  26% ] 08/09 VUs  1m17.8s/5m0s  1.00 iters/s
+
+running (1m20.3s), 10/19 VUs, 223 complete and 0 interrupted iterations
+auth_service_test        [  26% ] 01/05 VUs  1m18.8s/5m0s  1.00 iters/s
+doc_service_test         [  26% ] 01/05 VUs  1m18.8s/5m0s  1.00 iters/s
+websocket_service_test   [  26% ] 08/09 VUs  1m18.8s/5m0s  1.00 iters/s
+
+running (1m21.3s), 10/19 VUs, 226 complete and 0 interrupted iterations
+auth_service_test        [  27% ] 01/05 VUs  1m19.8s/5m0s  1.00 iters/s
+doc_service_test         [  27% ] 01/05 VUs  1m19.8s/5m0s  1.00 iters/s
+websocket_service_test   [  27% ] 08/09 VUs  1m19.8s/5m0s  1.00 iters/s
+
+running (1m22.3s), 10/19 VUs, 229 complete and 0 interrupted iterations
+auth_service_test        [  27% ] 01/05 VUs  1m20.8s/5m0s  1.00 iters/s
+doc_service_test         [  27% ] 01/05 VUs  1m20.8s/5m0s  1.00 iters/s
+websocket_service_test   [  27% ] 08/09 VUs  1m20.8s/5m0s  1.00 iters/s
+
+running (1m23.3s), 10/19 VUs, 232 complete and 0 interrupted iterations
+auth_service_test        [  27% ] 01/05 VUs  1m21.8s/5m0s  1.00 iters/s
+doc_service_test         [  27% ] 01/05 VUs  1m21.8s/5m0s  1.00 iters/s
+websocket_service_test   [  27% ] 08/09 VUs  1m21.8s/5m0s  1.00 iters/s
+
+running (1m24.3s), 10/19 VUs, 235 complete and 0 interrupted iterations
+auth_service_test        [  28% ] 01/05 VUs  1m22.8s/5m0s  1.00 iters/s
+doc_service_test         [  28% ] 01/05 VUs  1m22.8s/5m0s  1.00 iters/s
+websocket_service_test   [  28% ] 08/09 VUs  1m22.8s/5m0s  1.00 iters/s
+
+running (1m25.3s), 10/19 VUs, 238 complete and 0 interrupted iterations
+auth_service_test        [  28% ] 01/05 VUs  1m23.8s/5m0s  1.00 iters/s
+doc_service_test         [  28% ] 01/05 VUs  1m23.8s/5m0s  1.00 iters/s
+websocket_service_test   [  28% ] 08/09 VUs  1m23.8s/5m0s  1.00 iters/s
+
+running (1m26.3s), 10/19 VUs, 241 complete and 0 interrupted iterations
+auth_service_test        [  28% ] 01/05 VUs  1m24.8s/5m0s  1.00 iters/s
+doc_service_test         [  28% ] 01/05 VUs  1m24.8s/5m0s  1.00 iters/s
+websocket_service_test   [  28% ] 08/09 VUs  1m24.8s/5m0s  1.00 iters/s
+
+running (1m27.3s), 10/19 VUs, 244 complete and 0 interrupted iterations
+auth_service_test        [  29% ] 01/05 VUs  1m25.8s/5m0s  1.00 iters/s
+doc_service_test         [  29% ] 01/05 VUs  1m25.8s/5m0s  1.00 iters/s
+websocket_service_test   [  29% ] 08/09 VUs  1m25.8s/5m0s  1.00 iters/s
+
+running (1m28.3s), 10/19 VUs, 247 complete and 0 interrupted iterations
+auth_service_test        [  29% ] 01/05 VUs  1m26.8s/5m0s  1.00 iters/s
+doc_service_test         [  29% ] 01/05 VUs  1m26.8s/5m0s  1.00 iters/s
+websocket_service_test   [  29% ] 08/09 VUs  1m26.8s/5m0s  1.00 iters/s
+
+running (1m29.3s), 10/19 VUs, 250 complete and 0 interrupted iterations
+auth_service_test        [  29% ] 01/05 VUs  1m27.8s/5m0s  1.00 iters/s
+doc_service_test         [  29% ] 01/05 VUs  1m27.8s/5m0s  1.00 iters/s
+websocket_service_test   [  29% ] 08/09 VUs  1m27.8s/5m0s  1.00 iters/s
+
+running (1m30.3s), 10/19 VUs, 253 complete and 0 interrupted iterations
+auth_service_test        [  30% ] 01/05 VUs  1m28.8s/5m0s  1.00 iters/s
+doc_service_test         [  30% ] 01/05 VUs  1m28.8s/5m0s  1.00 iters/s
+websocket_service_test   [  30% ] 08/09 VUs  1m28.8s/5m0s  1.00 iters/s
+
+running (1m31.3s), 10/19 VUs, 256 complete and 0 interrupted iterations
+auth_service_test        [  30% ] 01/05 VUs  1m29.8s/5m0s  1.00 iters/s
+doc_service_test         [  30% ] 01/05 VUs  1m29.8s/5m0s  1.00 iters/s
+websocket_service_test   [  30% ] 08/09 VUs  1m29.8s/5m0s  1.00 iters/s
+
+running (1m32.3s), 10/19 VUs, 259 complete and 0 interrupted iterations
+auth_service_test        [  30% ] 01/05 VUs  1m30.8s/5m0s  1.00 iters/s
+doc_service_test         [  30% ] 01/05 VUs  1m30.8s/5m0s  1.00 iters/s
+websocket_service_test   [  30% ] 08/09 VUs  1m30.8s/5m0s  1.00 iters/s
+
+running (1m33.3s), 10/19 VUs, 262 complete and 0 interrupted iterations
+auth_service_test        [  31% ] 01/05 VUs  1m31.8s/5m0s  1.00 iters/s
+doc_service_test         [  31% ] 01/05 VUs  1m31.8s/5m0s  1.00 iters/s
+websocket_service_test   [  31% ] 08/09 VUs  1m31.8s/5m0s  1.00 iters/s
+
+running (1m34.3s), 10/19 VUs, 265 complete and 0 interrupted iterations
+auth_service_test        [  31% ] 01/05 VUs  1m32.8s/5m0s  1.00 iters/s
+doc_service_test         [  31% ] 01/05 VUs  1m32.8s/5m0s  1.00 iters/s
+websocket_service_test   [  31% ] 08/09 VUs  1m32.8s/5m0s  1.00 iters/s
+
+running (1m35.3s), 10/19 VUs, 268 complete and 0 interrupted iterations
+auth_service_test        [  31% ] 01/05 VUs  1m33.8s/5m0s  1.00 iters/s
+doc_service_test         [  31% ] 01/05 VUs  1m33.8s/5m0s  1.00 iters/s
+websocket_service_test   [  31% ] 08/09 VUs  1m33.8s/5m0s  1.00 iters/s
+
+running (1m36.3s), 10/19 VUs, 271 complete and 0 interrupted iterations
+auth_service_test        [  32% ] 01/05 VUs  1m34.8s/5m0s  1.00 iters/s
+doc_service_test         [  32% ] 01/05 VUs  1m34.8s/5m0s  1.00 iters/s
+websocket_service_test   [  32% ] 08/09 VUs  1m34.8s/5m0s  1.00 iters/s
+
+running (1m37.3s), 10/19 VUs, 274 complete and 0 interrupted iterations
+auth_service_test        [  32% ] 01/05 VUs  1m35.8s/5m0s  1.00 iters/s
+doc_service_test         [  32% ] 01/05 VUs  1m35.8s/5m0s  1.00 iters/s
+websocket_service_test   [  32% ] 08/09 VUs  1m35.8s/5m0s  1.00 iters/s
+
+running (1m39.0s), 10/19 VUs, 277 complete and 0 interrupted iterations
+auth_service_test        [  32% ] 01/05 VUs  1m36.8s/5m0s  1.00 iters/s
+doc_service_test         [  32% ] 01/05 VUs  1m36.8s/5m0s  1.00 iters/s
+websocket_service_test   [  32% ] 08/09 VUs  1m36.8s/5m0s  1.00 iters/s
+
+running (1m40.0s), 10/19 VUs, 280 complete and 0 interrupted iterations
+auth_service_test        [  33% ] 01/05 VUs  1m37.8s/5m0s  1.00 iters/s
+doc_service_test         [  33% ] 01/05 VUs  1m37.8s/5m0s  1.00 iters/s
+websocket_service_test   [  33% ] 08/09 VUs  1m37.8s/5m0s  1.00 iters/s
+
+running (1m41.0s), 10/19 VUs, 283 complete and 0 interrupted iterations
+auth_service_test        [  33% ] 01/05 VUs  1m38.8s/5m0s  1.00 iters/s
+doc_service_test         [  33% ] 01/05 VUs  1m38.8s/5m0s  1.00 iters/s
+websocket_service_test   [  33% ] 08/09 VUs  1m38.8s/5m0s  1.00 iters/s
+
+running (1m42.0s), 10/19 VUs, 286 complete and 0 interrupted iterations
+auth_service_test        [  33% ] 01/05 VUs  1m39.8s/5m0s  1.00 iters/s
+doc_service_test         [  33% ] 01/05 VUs  1m39.8s/5m0s  1.00 iters/s
+websocket_service_test   [  33% ] 08/09 VUs  1m39.8s/5m0s  1.00 iters/s
+
+running (1m43.0s), 10/19 VUs, 289 complete and 0 interrupted iterations
+auth_service_test        [  34% ] 01/05 VUs  1m40.8s/5m0s  1.00 iters/s
+doc_service_test         [  34% ] 01/05 VUs  1m40.8s/5m0s  1.00 iters/s
+websocket_service_test   [  34% ] 08/09 VUs  1m40.8s/5m0s  1.00 iters/s
+
+running (1m44.0s), 10/19 VUs, 292 complete and 0 interrupted iterations
+auth_service_test        [  34% ] 01/05 VUs  1m41.8s/5m0s  1.00 iters/s
+doc_service_test         [  34% ] 01/05 VUs  1m41.8s/5m0s  1.00 iters/s
+websocket_service_test   [  34% ] 08/09 VUs  1m41.8s/5m0s  1.00 iters/s
+
+running (1m45.0s), 10/19 VUs, 295 complete and 0 interrupted iterations
+auth_service_test        [  34% ] 01/05 VUs  1m42.8s/5m0s  1.00 iters/s
+doc_service_test         [  34% ] 01/05 VUs  1m42.8s/5m0s  1.00 iters/s
+websocket_service_test   [  34% ] 08/09 VUs  1m42.8s/5m0s  1.00 iters/s
+
+running (1m46.0s), 10/19 VUs, 298 complete and 0 interrupted iterations
+auth_service_test        [  35% ] 01/05 VUs  1m43.8s/5m0s  1.00 iters/s
+doc_service_test         [  35% ] 01/05 VUs  1m43.8s/5m0s  1.00 iters/s
+websocket_service_test   [  35% ] 08/09 VUs  1m43.8s/5m0s  1.00 iters/s
+
+running (1m47.0s), 10/19 VUs, 301 complete and 0 interrupted iterations
+auth_service_test        [  35% ] 01/05 VUs  1m44.8s/5m0s  1.00 iters/s
+doc_service_test         [  35% ] 01/05 VUs  1m44.8s/5m0s  1.00 iters/s
+websocket_service_test   [  35% ] 08/09 VUs  1m44.8s/5m0s  1.00 iters/s
+
+running (1m48.0s), 10/19 VUs, 304 complete and 0 interrupted iterations
+auth_service_test        [  35% ] 01/05 VUs  1m45.8s/5m0s  1.00 iters/s
+doc_service_test         [  35% ] 01/05 VUs  1m45.8s/5m0s  1.00 iters/s
+websocket_service_test   [  35% ] 08/09 VUs  1m45.8s/5m0s  1.00 iters/s
+
+running (1m49.0s), 10/19 VUs, 307 complete and 0 interrupted iterations
+auth_service_test        [  36% ] 01/05 VUs  1m46.8s/5m0s  1.00 iters/s
+doc_service_test         [  36% ] 01/05 VUs  1m46.8s/5m0s  1.00 iters/s
+websocket_service_test   [  36% ] 08/09 VUs  1m46.8s/5m0s  1.00 iters/s
+
+running (1m50.0s), 10/19 VUs, 310 complete and 0 interrupted iterations
+auth_service_test        [  36% ] 01/05 VUs  1m47.8s/5m0s  1.00 iters/s
+doc_service_test         [  36% ] 01/05 VUs  1m47.8s/5m0s  1.00 iters/s
+websocket_service_test   [  36% ] 08/09 VUs  1m47.8s/5m0s  1.00 iters/s
+
+running (1m51.0s), 10/19 VUs, 313 complete and 0 interrupted iterations
+auth_service_test        [  36% ] 01/05 VUs  1m48.8s/5m0s  1.00 iters/s
+doc_service_test         [  36% ] 01/05 VUs  1m48.8s/5m0s  1.00 iters/s
+websocket_service_test   [  36% ] 08/09 VUs  1m48.8s/5m0s  1.00 iters/s
+
+running (1m52.0s), 10/19 VUs, 316 complete and 0 interrupted iterations
+auth_service_test        [  37% ] 01/05 VUs  1m49.8s/5m0s  1.00 iters/s
+doc_service_test         [  37% ] 01/05 VUs  1m49.8s/5m0s  1.00 iters/s
+websocket_service_test   [  37% ] 08/09 VUs  1m49.8s/5m0s  1.00 iters/s
+
+running (1m53.0s), 10/19 VUs, 319 complete and 0 interrupted iterations
+auth_service_test        [  37% ] 01/05 VUs  1m50.8s/5m0s  1.00 iters/s
+doc_service_test         [  37% ] 01/05 VUs  1m50.8s/5m0s  1.00 iters/s
+websocket_service_test   [  37% ] 08/09 VUs  1m50.8s/5m0s  1.00 iters/s
+
+running (1m54.0s), 10/19 VUs, 322 complete and 0 interrupted iterations
+auth_service_test        [  37% ] 01/05 VUs  1m51.8s/5m0s  1.00 iters/s
+doc_service_test         [  37% ] 01/05 VUs  1m51.8s/5m0s  1.00 iters/s
+websocket_service_test   [  37% ] 08/09 VUs  1m51.8s/5m0s  1.00 iters/s
+
+running (1m55.0s), 10/19 VUs, 325 complete and 0 interrupted iterations
+auth_service_test        [  38% ] 01/05 VUs  1m52.8s/5m0s  1.00 iters/s
+doc_service_test         [  38% ] 01/05 VUs  1m52.8s/5m0s  1.00 iters/s
+websocket_service_test   [  38% ] 08/09 VUs  1m52.8s/5m0s  1.00 iters/s
+
+running (1m56.0s), 10/19 VUs, 328 complete and 0 interrupted iterations
+auth_service_test        [  38% ] 01/05 VUs  1m53.8s/5m0s  1.00 iters/s
+doc_service_test         [  38% ] 01/05 VUs  1m53.8s/5m0s  1.00 iters/s
+websocket_service_test   [  38% ] 08/09 VUs  1m53.8s/5m0s  1.00 iters/s
+
+running (1m57.0s), 10/19 VUs, 331 complete and 0 interrupted iterations
+auth_service_test        [  38% ] 01/05 VUs  1m54.8s/5m0s  1.00 iters/s
+doc_service_test         [  38% ] 01/05 VUs  1m54.8s/5m0s  1.00 iters/s
+websocket_service_test   [  38% ] 08/09 VUs  1m54.8s/5m0s  1.00 iters/s
+
+running (1m58.0s), 10/19 VUs, 334 complete and 0 interrupted iterations
+auth_service_test        [  39% ] 01/05 VUs  1m55.8s/5m0s  1.00 iters/s
+doc_service_test         [  39% ] 01/05 VUs  1m55.8s/5m0s  1.00 iters/s
+websocket_service_test   [  39% ] 08/09 VUs  1m55.8s/5m0s  1.00 iters/s
+
+running (1m59.0s), 10/19 VUs, 337 complete and 0 interrupted iterations
+auth_service_test        [  39% ] 01/05 VUs  1m56.8s/5m0s  1.00 iters/s
+doc_service_test         [  39% ] 01/05 VUs  1m56.8s/5m0s  1.00 iters/s
+websocket_service_test   [  39% ] 08/09 VUs  1m56.8s/5m0s  1.00 iters/s
+
+running (2m00.0s), 10/19 VUs, 340 complete and 0 interrupted iterations
+auth_service_test        [  39% ] 01/05 VUs  1m57.8s/5m0s  1.00 iters/s
+doc_service_test         [  39% ] 01/05 VUs  1m57.8s/5m0s  1.00 iters/s
+websocket_service_test   [  39% ] 08/09 VUs  1m57.8s/5m0s  1.00 iters/s
+
+running (2m01.0s), 10/19 VUs, 343 complete and 0 interrupted iterations
+auth_service_test        [  40% ] 01/05 VUs  1m58.8s/5m0s  1.00 iters/s
+doc_service_test         [  40% ] 01/05 VUs  1m58.8s/5m0s  1.00 iters/s
+websocket_service_test   [  40% ] 08/09 VUs  1m58.8s/5m0s  1.00 iters/s
+
+running (2m02.0s), 10/19 VUs, 346 complete and 0 interrupted iterations
+auth_service_test        [  40% ] 01/05 VUs  1m59.8s/5m0s  1.00 iters/s
+doc_service_test         [  40% ] 01/05 VUs  1m59.8s/5m0s  1.00 iters/s
+websocket_service_test   [  40% ] 08/09 VUs  1m59.8s/5m0s  1.00 iters/s
+
+running (2m03.0s), 10/19 VUs, 349 complete and 0 interrupted iterations
+auth_service_test        [  40% ] 01/05 VUs  2m00.8s/5m0s  1.00 iters/s
+doc_service_test         [  40% ] 01/05 VUs  2m00.8s/5m0s  1.00 iters/s
+websocket_service_test   [  40% ] 08/09 VUs  2m00.8s/5m0s  1.00 iters/s
+
+running (2m04.0s), 10/19 VUs, 352 complete and 0 interrupted iterations
+auth_service_test        [  41% ] 01/05 VUs  2m01.8s/5m0s  1.00 iters/s
+doc_service_test         [  41% ] 01/05 VUs  2m01.8s/5m0s  1.00 iters/s
+websocket_service_test   [  41% ] 08/09 VUs  2m01.8s/5m0s  1.00 iters/s
+
+running (2m05.0s), 10/19 VUs, 355 complete and 0 interrupted iterations
+auth_service_test        [  41% ] 01/05 VUs  2m02.8s/5m0s  1.00 iters/s
+doc_service_test         [  41% ] 01/05 VUs  2m02.8s/5m0s  1.00 iters/s
+websocket_service_test   [  41% ] 08/09 VUs  2m02.8s/5m0s  1.00 iters/s
+
+running (2m06.0s), 10/19 VUs, 358 complete and 0 interrupted iterations
+auth_service_test        [  41% ] 01/05 VUs  2m03.8s/5m0s  1.00 iters/s
+doc_service_test         [  41% ] 01/05 VUs  2m03.8s/5m0s  1.00 iters/s
+websocket_service_test   [  41% ] 08/09 VUs  2m03.8s/5m0s  1.00 iters/s
+
+running (2m07.0s), 10/19 VUs, 361 complete and 0 interrupted iterations
+auth_service_test        [  42% ] 01/05 VUs  2m04.8s/5m0s  1.00 iters/s
+doc_service_test         [  42% ] 01/05 VUs  2m04.8s/5m0s  1.00 iters/s
+websocket_service_test   [  42% ] 08/09 VUs  2m04.8s/5m0s  1.00 iters/s
+
+running (2m08.0s), 10/19 VUs, 364 complete and 0 interrupted iterations
+auth_service_test        [  42% ] 01/05 VUs  2m05.8s/5m0s  1.00 iters/s
+doc_service_test         [  42% ] 01/05 VUs  2m05.8s/5m0s  1.00 iters/s
+websocket_service_test   [  42% ] 08/09 VUs  2m05.8s/5m0s  1.00 iters/s
+
+running (2m09.3s), 10/19 VUs, 367 complete and 0 interrupted iterations
+auth_service_test        [  42% ] 01/05 VUs  2m06.8s/5m0s  1.00 iters/s
+doc_service_test         [  42% ] 01/05 VUs  2m06.8s/5m0s  1.00 iters/s
+websocket_service_test   [  42% ] 08/09 VUs  2m06.8s/5m0s  1.00 iters/s
+
+running (2m10.3s), 10/19 VUs, 370 complete and 0 interrupted iterations
+auth_service_test        [  43% ] 01/05 VUs  2m07.8s/5m0s  1.00 iters/s
+doc_service_test         [  43% ] 01/05 VUs  2m07.8s/5m0s  1.00 iters/s
+websocket_service_test   [  43% ] 08/09 VUs  2m07.8s/5m0s  1.00 iters/s
+
+running (2m11.3s), 10/19 VUs, 373 complete and 0 interrupted iterations
+auth_service_test        [  43% ] 01/05 VUs  2m08.8s/5m0s  1.00 iters/s
+doc_service_test         [  43% ] 01/05 VUs  2m08.8s/5m0s  1.00 iters/s
+websocket_service_test   [  43% ] 08/09 VUs  2m08.8s/5m0s  1.00 iters/s
+
+running (2m12.3s), 10/19 VUs, 376 complete and 0 interrupted iterations
+auth_service_test        [  43% ] 01/05 VUs  2m09.8s/5m0s  1.00 iters/s
+doc_service_test         [  43% ] 01/05 VUs  2m09.8s/5m0s  1.00 iters/s
+websocket_service_test   [  43% ] 08/09 VUs  2m09.8s/5m0s  1.00 iters/s
+
+running (2m13.3s), 10/19 VUs, 379 complete and 0 interrupted iterations
+auth_service_test        [  44% ] 01/05 VUs  2m10.8s/5m0s  1.00 iters/s
+doc_service_test         [  44% ] 01/05 VUs  2m10.8s/5m0s  1.00 iters/s
+websocket_service_test   [  44% ] 08/09 VUs  2m10.8s/5m0s  1.00 iters/s
+
+running (2m14.3s), 10/19 VUs, 382 complete and 0 interrupted iterations
+auth_service_test        [  44% ] 01/05 VUs  2m11.8s/5m0s  1.00 iters/s
+doc_service_test         [  44% ] 01/05 VUs  2m11.8s/5m0s  1.00 iters/s
+websocket_service_test   [  44% ] 08/09 VUs  2m11.8s/5m0s  1.00 iters/s
+
+running (2m15.3s), 10/19 VUs, 385 complete and 0 interrupted iterations
+auth_service_test        [  44% ] 01/05 VUs  2m12.8s/5m0s  1.00 iters/s
+doc_service_test         [  44% ] 01/05 VUs  2m12.8s/5m0s  1.00 iters/s
+websocket_service_test   [  44% ] 08/09 VUs  2m12.8s/5m0s  1.00 iters/s
+
+running (2m16.3s), 10/19 VUs, 388 complete and 0 interrupted iterations
+auth_service_test        [  45% ] 01/05 VUs  2m13.8s/5m0s  1.00 iters/s
+doc_service_test         [  45% ] 01/05 VUs  2m13.8s/5m0s  1.00 iters/s
+websocket_service_test   [  45% ] 08/09 VUs  2m13.8s/5m0s  1.00 iters/s
+
+running (2m17.3s), 10/19 VUs, 391 complete and 0 interrupted iterations
+auth_service_test        [  45% ] 01/05 VUs  2m14.8s/5m0s  1.00 iters/s
+doc_service_test         [  45% ] 01/05 VUs  2m14.8s/5m0s  1.00 iters/s
+websocket_service_test   [  45% ] 08/09 VUs  2m14.8s/5m0s  1.00 iters/s
+
+running (2m18.3s), 10/19 VUs, 394 complete and 0 interrupted iterations
+auth_service_test        [  45% ] 01/05 VUs  2m15.8s/5m0s  1.00 iters/s
+doc_service_test         [  45% ] 01/05 VUs  2m15.8s/5m0s  1.00 iters/s
+websocket_service_test   [  45% ] 08/09 VUs  2m15.8s/5m0s  1.00 iters/s
+
+running (2m19.3s), 10/19 VUs, 397 complete and 0 interrupted iterations
+auth_service_test        [  46% ] 01/05 VUs  2m16.8s/5m0s  1.00 iters/s
+doc_service_test         [  46% ] 01/05 VUs  2m16.8s/5m0s  1.00 iters/s
+websocket_service_test   [  46% ] 08/09 VUs  2m16.8s/5m0s  1.00 iters/s
+
+running (2m20.3s), 10/19 VUs, 400 complete and 0 interrupted iterations
+auth_service_test        [  46% ] 01/05 VUs  2m17.8s/5m0s  1.00 iters/s
+doc_service_test         [  46% ] 01/05 VUs  2m17.8s/5m0s  1.00 iters/s
+websocket_service_test   [  46% ] 08/09 VUs  2m17.8s/5m0s  1.00 iters/s
+
+running (2m21.3s), 10/19 VUs, 403 complete and 0 interrupted iterations
+auth_service_test        [  46% ] 01/05 VUs  2m18.8s/5m0s  1.00 iters/s
+doc_service_test         [  46% ] 01/05 VUs  2m18.8s/5m0s  1.00 iters/s
+websocket_service_test   [  46% ] 08/09 VUs  2m18.8s/5m0s  1.00 iters/s
+
+running (2m22.3s), 10/19 VUs, 406 complete and 0 interrupted iterations
+auth_service_test        [  47% ] 01/05 VUs  2m19.8s/5m0s  1.00 iters/s
+doc_service_test         [  47% ] 01/05 VUs  2m19.8s/5m0s  1.00 iters/s
+websocket_service_test   [  47% ] 08/09 VUs  2m19.8s/5m0s  1.00 iters/s
+
+running (2m23.3s), 10/19 VUs, 409 complete and 0 interrupted iterations
+auth_service_test        [  47% ] 01/05 VUs  2m20.8s/5m0s  1.00 iters/s
+doc_service_test         [  47% ] 01/05 VUs  2m20.8s/5m0s  1.00 iters/s
+websocket_service_test   [  47% ] 08/09 VUs  2m20.8s/5m0s  1.00 iters/s
+
+running (2m24.3s), 10/19 VUs, 412 complete and 0 interrupted iterations
+auth_service_test        [  47% ] 01/05 VUs  2m21.8s/5m0s  1.00 iters/s
+doc_service_test         [  47% ] 01/05 VUs  2m21.8s/5m0s  1.00 iters/s
+websocket_service_test   [  47% ] 08/09 VUs  2m21.8s/5m0s  1.00 iters/s
+
+running (2m25.3s), 10/19 VUs, 415 complete and 0 interrupted iterations
+auth_service_test        [  48% ] 01/05 VUs  2m22.8s/5m0s  1.00 iters/s
+doc_service_test         [  48% ] 01/05 VUs  2m22.8s/5m0s  1.00 iters/s
+websocket_service_test   [  48% ] 08/09 VUs  2m22.8s/5m0s  1.00 iters/s
+
+running (2m26.3s), 10/19 VUs, 418 complete and 0 interrupted iterations
+auth_service_test        [  48% ] 01/05 VUs  2m23.8s/5m0s  1.00 iters/s
+doc_service_test         [  48% ] 01/05 VUs  2m23.8s/5m0s  1.00 iters/s
+websocket_service_test   [  48% ] 08/09 VUs  2m23.8s/5m0s  1.00 iters/s
+
+running (2m27.3s), 10/19 VUs, 421 complete and 0 interrupted iterations
+auth_service_test        [  48% ] 01/05 VUs  2m24.8s/5m0s  1.00 iters/s
+doc_service_test         [  48% ] 01/05 VUs  2m24.8s/5m0s  1.00 iters/s
+websocket_service_test   [  48% ] 08/09 VUs  2m24.8s/5m0s  1.00 iters/s
+
+running (2m28.3s), 10/19 VUs, 424 complete and 0 interrupted iterations
+auth_service_test        [  49% ] 01/05 VUs  2m25.8s/5m0s  1.00 iters/s
+doc_service_test         [  49% ] 01/05 VUs  2m25.8s/5m0s  1.00 iters/s
+websocket_service_test   [  49% ] 08/09 VUs  2m25.8s/5m0s  1.00 iters/s
+
+running (2m29.3s), 10/19 VUs, 427 complete and 0 interrupted iterations
+auth_service_test        [  49% ] 01/05 VUs  2m26.8s/5m0s  1.00 iters/s
+doc_service_test         [  49% ] 01/05 VUs  2m26.8s/5m0s  1.00 iters/s
+websocket_service_test   [  49% ] 08/09 VUs  2m26.8s/5m0s  1.00 iters/s
+
+running (2m30.3s), 10/19 VUs, 430 complete and 0 interrupted iterations
+auth_service_test        [  49% ] 01/05 VUs  2m27.8s/5m0s  1.00 iters/s
+doc_service_test         [  49% ] 01/05 VUs  2m27.8s/5m0s  1.00 iters/s
+websocket_service_test   [  49% ] 08/09 VUs  2m27.8s/5m0s  1.00 iters/s
+
+running (2m31.3s), 10/19 VUs, 433 complete and 0 interrupted iterations
+auth_service_test        [  50% ] 01/05 VUs  2m28.8s/5m0s  1.00 iters/s
+doc_service_test         [  50% ] 01/05 VUs  2m28.8s/5m0s  1.00 iters/s
+websocket_service_test   [  50% ] 08/09 VUs  2m28.8s/5m0s  1.00 iters/s
+
+running (2m32.3s), 10/19 VUs, 436 complete and 0 interrupted iterations
+auth_service_test        [  50% ] 01/05 VUs  2m29.8s/5m0s  1.00 iters/s
+doc_service_test         [  50% ] 01/05 VUs  2m29.8s/5m0s  1.00 iters/s
+websocket_service_test   [  50% ] 08/09 VUs  2m29.8s/5m0s  1.00 iters/s
+
+running (2m33.3s), 10/19 VUs, 439 complete and 0 interrupted iterations
+auth_service_test        [  50% ] 01/05 VUs  2m30.8s/5m0s  1.00 iters/s
+doc_service_test         [  50% ] 01/05 VUs  2m30.8s/5m0s  1.00 iters/s
+websocket_service_test   [  50% ] 08/09 VUs  2m30.8s/5m0s  1.00 iters/s
+
+running (2m34.3s), 10/19 VUs, 442 complete and 0 interrupted iterations
+auth_service_test        [  51% ] 01/05 VUs  2m31.8s/5m0s  1.00 iters/s
+doc_service_test         [  51% ] 01/05 VUs  2m31.8s/5m0s  1.00 iters/s
+websocket_service_test   [  51% ] 08/09 VUs  2m31.8s/5m0s  1.00 iters/s
+
+running (2m35.3s), 10/19 VUs, 445 complete and 0 interrupted iterations
+auth_service_test        [  51% ] 01/05 VUs  2m32.8s/5m0s  1.00 iters/s
+doc_service_test         [  51% ] 01/05 VUs  2m32.8s/5m0s  1.00 iters/s
+websocket_service_test   [  51% ] 08/09 VUs  2m32.8s/5m0s  1.00 iters/s
+
+running (2m36.3s), 10/19 VUs, 448 complete and 0 interrupted iterations
+auth_service_test        [  51% ] 01/05 VUs  2m33.8s/5m0s  1.00 iters/s
+doc_service_test         [  51% ] 01/05 VUs  2m33.8s/5m0s  1.00 iters/s
+websocket_service_test   [  51% ] 08/09 VUs  2m33.8s/5m0s  1.00 iters/s
+
+running (2m37.3s), 10/19 VUs, 451 complete and 0 interrupted iterations
+auth_service_test        [  52% ] 01/05 VUs  2m34.8s/5m0s  1.00 iters/s
+doc_service_test         [  52% ] 01/05 VUs  2m34.8s/5m0s  1.00 iters/s
+websocket_service_test   [  52% ] 08/09 VUs  2m34.8s/5m0s  1.00 iters/s
+
+running (2m38.3s), 10/19 VUs, 454 complete and 0 interrupted iterations
+auth_service_test        [  52% ] 01/05 VUs  2m35.8s/5m0s  1.00 iters/s
+doc_service_test         [  52% ] 01/05 VUs  2m35.8s/5m0s  1.00 iters/s
+websocket_service_test   [  52% ] 08/09 VUs  2m35.8s/5m0s  1.00 iters/s
+
+running (2m39.6s), 10/19 VUs, 457 complete and 0 interrupted iterations
+auth_service_test        [  52% ] 01/05 VUs  2m36.8s/5m0s  1.00 iters/s
+doc_service_test         [  52% ] 01/05 VUs  2m36.8s/5m0s  1.00 iters/s
+websocket_service_test   [  52% ] 08/09 VUs  2m36.8s/5m0s  1.00 iters/s
+
+running (2m40.6s), 10/19 VUs, 460 complete and 0 interrupted iterations
+auth_service_test        [  53% ] 01/05 VUs  2m37.8s/5m0s  1.00 iters/s
+doc_service_test         [  53% ] 01/05 VUs  2m37.8s/5m0s  1.00 iters/s
+websocket_service_test   [  53% ] 08/09 VUs  2m37.8s/5m0s  1.00 iters/s
+
+running (2m41.6s), 10/19 VUs, 463 complete and 0 interrupted iterations
+auth_service_test        [  53% ] 01/05 VUs  2m38.8s/5m0s  1.00 iters/s
+doc_service_test         [  53% ] 01/05 VUs  2m38.8s/5m0s  1.00 iters/s
+websocket_service_test   [  53% ] 08/09 VUs  2m38.8s/5m0s  1.00 iters/s
+
+running (2m42.6s), 10/19 VUs, 466 complete and 0 interrupted iterations
+auth_service_test        [  53% ] 01/05 VUs  2m39.8s/5m0s  1.00 iters/s
+doc_service_test         [  53% ] 01/05 VUs  2m39.8s/5m0s  1.00 iters/s
+websocket_service_test   [  53% ] 08/09 VUs  2m39.8s/5m0s  1.00 iters/s
+
+running (2m43.6s), 10/19 VUs, 469 complete and 0 interrupted iterations
+auth_service_test        [  54% ] 01/05 VUs  2m40.8s/5m0s  1.00 iters/s
+doc_service_test         [  54% ] 01/05 VUs  2m40.8s/5m0s  1.00 iters/s
+websocket_service_test   [  54% ] 08/09 VUs  2m40.8s/5m0s  1.00 iters/s
+
+running (2m44.6s), 10/19 VUs, 472 complete and 0 interrupted iterations
+auth_service_test        [  54% ] 01/05 VUs  2m41.8s/5m0s  1.00 iters/s
+doc_service_test         [  54% ] 01/05 VUs  2m41.8s/5m0s  1.00 iters/s
+websocket_service_test   [  54% ] 08/09 VUs  2m41.8s/5m0s  1.00 iters/s
+
+running (2m45.6s), 10/19 VUs, 475 complete and 0 interrupted iterations
+auth_service_test        [  54% ] 01/05 VUs  2m42.8s/5m0s  1.00 iters/s
+doc_service_test         [  54% ] 01/05 VUs  2m42.8s/5m0s  1.00 iters/s
+websocket_service_test   [  54% ] 08/09 VUs  2m42.8s/5m0s  1.00 iters/s
+
+running (2m46.6s), 10/19 VUs, 478 complete and 0 interrupted iterations
+auth_service_test        [  55% ] 01/05 VUs  2m43.8s/5m0s  1.00 iters/s
+doc_service_test         [  55% ] 01/05 VUs  2m43.8s/5m0s  1.00 iters/s
+websocket_service_test   [  55% ] 08/09 VUs  2m43.8s/5m0s  1.00 iters/s
+
+running (2m47.6s), 10/19 VUs, 481 complete and 0 interrupted iterations
+auth_service_test        [  55% ] 01/05 VUs  2m44.8s/5m0s  1.00 iters/s
+doc_service_test         [  55% ] 01/05 VUs  2m44.8s/5m0s  1.00 iters/s
+websocket_service_test   [  55% ] 08/09 VUs  2m44.8s/5m0s  1.00 iters/s
+
+running (2m48.6s), 10/19 VUs, 484 complete and 0 interrupted iterations
+auth_service_test        [  55% ] 01/05 VUs  2m45.8s/5m0s  1.00 iters/s
+doc_service_test         [  55% ] 01/05 VUs  2m45.8s/5m0s  1.00 iters/s
+websocket_service_test   [  55% ] 08/09 VUs  2m45.8s/5m0s  1.00 iters/s
+
+running (2m49.6s), 10/19 VUs, 487 complete and 0 interrupted iterations
+auth_service_test        [  56% ] 01/05 VUs  2m46.8s/5m0s  1.00 iters/s
+doc_service_test         [  56% ] 01/05 VUs  2m46.8s/5m0s  1.00 iters/s
+websocket_service_test   [  56% ] 08/09 VUs  2m46.8s/5m0s  1.00 iters/s
+
+running (2m50.6s), 10/19 VUs, 490 complete and 0 interrupted iterations
+auth_service_test        [  56% ] 01/05 VUs  2m47.8s/5m0s  1.00 iters/s
+doc_service_test         [  56% ] 01/05 VUs  2m47.8s/5m0s  1.00 iters/s
+websocket_service_test   [  56% ] 08/09 VUs  2m47.8s/5m0s  1.00 iters/s
+
+running (2m51.6s), 10/19 VUs, 493 complete and 0 interrupted iterations
+auth_service_test        [  56% ] 01/05 VUs  2m48.8s/5m0s  1.00 iters/s
+doc_service_test         [  56% ] 01/05 VUs  2m48.8s/5m0s  1.00 iters/s
+websocket_service_test   [  56% ] 08/09 VUs  2m48.8s/5m0s  1.00 iters/s
+
+running (2m52.6s), 10/19 VUs, 496 complete and 0 interrupted iterations
+auth_service_test        [  57% ] 01/05 VUs  2m49.8s/5m0s  1.00 iters/s
+doc_service_test         [  57% ] 01/05 VUs  2m49.8s/5m0s  1.00 iters/s
+websocket_service_test   [  57% ] 08/09 VUs  2m49.8s/5m0s  1.00 iters/s
+
+running (2m53.6s), 10/19 VUs, 499 complete and 0 interrupted iterations
+auth_service_test        [  57% ] 01/05 VUs  2m50.8s/5m0s  1.00 iters/s
+doc_service_test         [  57% ] 01/05 VUs  2m50.8s/5m0s  1.00 iters/s
+websocket_service_test   [  57% ] 08/09 VUs  2m50.8s/5m0s  1.00 iters/s
+
+running (2m54.6s), 10/19 VUs, 502 complete and 0 interrupted iterations
+auth_service_test        [  57% ] 01/05 VUs  2m51.8s/5m0s  1.00 iters/s
+doc_service_test         [  57% ] 01/05 VUs  2m51.8s/5m0s  1.00 iters/s
+websocket_service_test   [  57% ] 08/09 VUs  2m51.8s/5m0s  1.00 iters/s
+
+running (2m55.6s), 10/19 VUs, 505 complete and 0 interrupted iterations
+auth_service_test        [  58% ] 01/05 VUs  2m52.8s/5m0s  1.00 iters/s
+doc_service_test         [  58% ] 01/05 VUs  2m52.8s/5m0s  1.00 iters/s
+websocket_service_test   [  58% ] 08/09 VUs  2m52.8s/5m0s  1.00 iters/s
+
+running (2m56.6s), 10/19 VUs, 508 complete and 0 interrupted iterations
+auth_service_test        [  58% ] 01/05 VUs  2m53.8s/5m0s  1.00 iters/s
+doc_service_test         [  58% ] 01/05 VUs  2m53.8s/5m0s  1.00 iters/s
+websocket_service_test   [  58% ] 08/09 VUs  2m53.8s/5m0s  1.00 iters/s
+
+running (2m57.6s), 10/19 VUs, 511 complete and 0 interrupted iterations
+auth_service_test        [  58% ] 01/05 VUs  2m54.8s/5m0s  1.00 iters/s
+doc_service_test         [  58% ] 01/05 VUs  2m54.8s/5m0s  1.00 iters/s
+websocket_service_test   [  58% ] 08/09 VUs  2m54.8s/5m0s  1.00 iters/s
+
+running (2m58.6s), 10/19 VUs, 514 complete and 0 interrupted iterations
+auth_service_test        [  59% ] 01/05 VUs  2m55.8s/5m0s  1.00 iters/s
+doc_service_test         [  59% ] 01/05 VUs  2m55.8s/5m0s  1.00 iters/s
+websocket_service_test   [  59% ] 08/09 VUs  2m55.8s/5m0s  1.00 iters/s
+
+running (2m59.6s), 10/19 VUs, 517 complete and 0 interrupted iterations
+auth_service_test        [  59% ] 01/05 VUs  2m56.8s/5m0s  1.00 iters/s
+doc_service_test         [  59% ] 01/05 VUs  2m56.8s/5m0s  1.00 iters/s
+websocket_service_test   [  59% ] 08/09 VUs  2m56.8s/5m0s  1.00 iters/s
+
+running (3m00.6s), 10/19 VUs, 520 complete and 0 interrupted iterations
+auth_service_test        [  59% ] 01/05 VUs  2m57.8s/5m0s  1.00 iters/s
+doc_service_test         [  59% ] 01/05 VUs  2m57.8s/5m0s  1.00 iters/s
+websocket_service_test   [  59% ] 08/09 VUs  2m57.8s/5m0s  1.00 iters/s
+
+running (3m01.6s), 10/19 VUs, 523 complete and 0 interrupted iterations
+auth_service_test        [  60% ] 01/05 VUs  2m58.8s/5m0s  1.00 iters/s
+doc_service_test         [  60% ] 01/05 VUs  2m58.8s/5m0s  1.00 iters/s
+websocket_service_test   [  60% ] 08/09 VUs  2m58.8s/5m0s  1.00 iters/s
+
+running (3m02.6s), 10/19 VUs, 526 complete and 0 interrupted iterations
+auth_service_test        [  60% ] 01/05 VUs  2m59.8s/5m0s  1.00 iters/s
+doc_service_test         [  60% ] 01/05 VUs  2m59.8s/5m0s  1.00 iters/s
+websocket_service_test   [  60% ] 08/09 VUs  2m59.8s/5m0s  1.00 iters/s
+
+running (3m03.6s), 10/19 VUs, 529 complete and 0 interrupted iterations
+auth_service_test        [  60% ] 01/05 VUs  3m00.8s/5m0s  1.00 iters/s
+doc_service_test         [  60% ] 01/05 VUs  3m00.8s/5m0s  1.00 iters/s
+websocket_service_test   [  60% ] 08/09 VUs  3m00.8s/5m0s  1.00 iters/s
+
+running (3m04.6s), 10/19 VUs, 532 complete and 0 interrupted iterations
+auth_service_test        [  61% ] 01/05 VUs  3m01.8s/5m0s  1.00 iters/s
+doc_service_test         [  61% ] 01/05 VUs  3m01.8s/5m0s  1.00 iters/s
+websocket_service_test   [  61% ] 08/09 VUs  3m01.8s/5m0s  1.00 iters/s
+
+running (3m05.6s), 10/19 VUs, 535 complete and 0 interrupted iterations
+auth_service_test        [  61% ] 01/05 VUs  3m02.8s/5m0s  1.00 iters/s
+doc_service_test         [  61% ] 01/05 VUs  3m02.8s/5m0s  1.00 iters/s
+websocket_service_test   [  61% ] 08/09 VUs  3m02.8s/5m0s  1.00 iters/s
+
+running (3m06.6s), 10/19 VUs, 538 complete and 0 interrupted iterations
+auth_service_test        [  61% ] 01/05 VUs  3m03.8s/5m0s  1.00 iters/s
+doc_service_test         [  61% ] 01/05 VUs  3m03.8s/5m0s  1.00 iters/s
+websocket_service_test   [  61% ] 08/09 VUs  3m03.8s/5m0s  1.00 iters/s
+
+running (3m07.6s), 10/19 VUs, 541 complete and 0 interrupted iterations
+auth_service_test        [  62% ] 01/05 VUs  3m04.8s/5m0s  1.00 iters/s
+doc_service_test         [  62% ] 01/05 VUs  3m04.8s/5m0s  1.00 iters/s
+websocket_service_test   [  62% ] 08/09 VUs  3m04.8s/5m0s  1.00 iters/s
+
+running (3m08.6s), 10/19 VUs, 544 complete and 0 interrupted iterations
+auth_service_test        [  62% ] 01/05 VUs  3m05.8s/5m0s  1.00 iters/s
+doc_service_test         [  62% ] 01/05 VUs  3m05.8s/5m0s  1.00 iters/s
+websocket_service_test   [  62% ] 08/09 VUs  3m05.8s/5m0s  1.00 iters/s
+
+running (3m09.9s), 10/19 VUs, 547 complete and 0 interrupted iterations
+auth_service_test        [  62% ] 01/05 VUs  3m06.8s/5m0s  1.00 iters/s
+doc_service_test         [  62% ] 01/05 VUs  3m06.8s/5m0s  1.00 iters/s
+websocket_service_test   [  62% ] 08/09 VUs  3m06.8s/5m0s  1.00 iters/s
+
+running (3m10.9s), 10/19 VUs, 550 complete and 0 interrupted iterations
+auth_service_test        [  63% ] 01/05 VUs  3m07.8s/5m0s  1.00 iters/s
+doc_service_test         [  63% ] 01/05 VUs  3m07.8s/5m0s  1.00 iters/s
+websocket_service_test   [  63% ] 08/09 VUs  3m07.8s/5m0s  1.00 iters/s
+
+running (3m11.9s), 10/19 VUs, 553 complete and 0 interrupted iterations
+auth_service_test        [  63% ] 01/05 VUs  3m08.8s/5m0s  1.00 iters/s
+doc_service_test         [  63% ] 01/05 VUs  3m08.8s/5m0s  1.00 iters/s
+websocket_service_test   [  63% ] 08/09 VUs  3m08.8s/5m0s  1.00 iters/s
+
+running (3m12.9s), 10/19 VUs, 556 complete and 0 interrupted iterations
+auth_service_test        [  63% ] 01/05 VUs  3m09.8s/5m0s  1.00 iters/s
+doc_service_test         [  63% ] 01/05 VUs  3m09.8s/5m0s  1.00 iters/s
+websocket_service_test   [  63% ] 08/09 VUs  3m09.8s/5m0s  1.00 iters/s
+
+running (3m13.9s), 10/19 VUs, 559 complete and 0 interrupted iterations
+auth_service_test        [  64% ] 01/05 VUs  3m10.8s/5m0s  1.00 iters/s
+doc_service_test         [  64% ] 01/05 VUs  3m10.8s/5m0s  1.00 iters/s
+websocket_service_test   [  64% ] 08/09 VUs  3m10.8s/5m0s  1.00 iters/s
+
+running (3m14.9s), 10/19 VUs, 562 complete and 0 interrupted iterations
+auth_service_test        [  64% ] 01/05 VUs  3m11.8s/5m0s  1.00 iters/s
+doc_service_test         [  64% ] 01/05 VUs  3m11.8s/5m0s  1.00 iters/s
+websocket_service_test   [  64% ] 08/09 VUs  3m11.8s/5m0s  1.00 iters/s
+
+running (3m15.9s), 10/19 VUs, 565 complete and 0 interrupted iterations
+auth_service_test        [  64% ] 01/05 VUs  3m12.8s/5m0s  1.00 iters/s
+doc_service_test         [  64% ] 01/05 VUs  3m12.8s/5m0s  1.00 iters/s
+websocket_service_test   [  64% ] 08/09 VUs  3m12.8s/5m0s  1.00 iters/s
+
+running (3m16.9s), 10/19 VUs, 568 complete and 0 interrupted iterations
+auth_service_test        [  65% ] 01/05 VUs  3m13.8s/5m0s  1.00 iters/s
+doc_service_test         [  65% ] 01/05 VUs  3m13.8s/5m0s  1.00 iters/s
+websocket_service_test   [  65% ] 08/09 VUs  3m13.8s/5m0s  1.00 iters/s
+
+running (3m17.9s), 10/19 VUs, 571 complete and 0 interrupted iterations
+auth_service_test        [  65% ] 01/05 VUs  3m14.8s/5m0s  1.00 iters/s
+doc_service_test         [  65% ] 01/05 VUs  3m14.8s/5m0s  1.00 iters/s
+websocket_service_test   [  65% ] 08/09 VUs  3m14.8s/5m0s  1.00 iters/s
+
+running (3m18.9s), 10/19 VUs, 574 complete and 0 interrupted iterations
+auth_service_test        [  65% ] 01/05 VUs  3m15.8s/5m0s  1.00 iters/s
+doc_service_test         [  65% ] 01/05 VUs  3m15.8s/5m0s  1.00 iters/s
+websocket_service_test   [  65% ] 08/09 VUs  3m15.8s/5m0s  1.00 iters/s
+
+running (3m19.9s), 10/19 VUs, 577 complete and 0 interrupted iterations
+auth_service_test        [  66% ] 01/05 VUs  3m16.8s/5m0s  1.00 iters/s
+doc_service_test         [  66% ] 01/05 VUs  3m16.8s/5m0s  1.00 iters/s
+websocket_service_test   [  66% ] 08/09 VUs  3m16.8s/5m0s  1.00 iters/s
+
+running (3m20.9s), 10/19 VUs, 580 complete and 0 interrupted iterations
+auth_service_test        [  66% ] 01/05 VUs  3m17.8s/5m0s  1.00 iters/s
+doc_service_test         [  66% ] 01/05 VUs  3m17.8s/5m0s  1.00 iters/s
+websocket_service_test   [  66% ] 08/09 VUs  3m17.8s/5m0s  1.00 iters/s
+
+running (3m21.9s), 10/19 VUs, 583 complete and 0 interrupted iterations
+auth_service_test        [  66% ] 01/05 VUs  3m18.8s/5m0s  1.00 iters/s
+doc_service_test         [  66% ] 01/05 VUs  3m18.8s/5m0s  1.00 iters/s
+websocket_service_test   [  66% ] 08/09 VUs  3m18.8s/5m0s  1.00 iters/s
+
+running (3m22.9s), 10/19 VUs, 586 complete and 0 interrupted iterations
+auth_service_test        [  67% ] 01/05 VUs  3m19.8s/5m0s  1.00 iters/s
+doc_service_test         [  67% ] 01/05 VUs  3m19.8s/5m0s  1.00 iters/s
+websocket_service_test   [  67% ] 08/09 VUs  3m19.8s/5m0s  1.00 iters/s
+
+running (3m23.9s), 10/19 VUs, 589 complete and 0 interrupted iterations
+auth_service_test        [  67% ] 01/05 VUs  3m20.8s/5m0s  1.00 iters/s
+doc_service_test         [  67% ] 01/05 VUs  3m20.8s/5m0s  1.00 iters/s
+websocket_service_test   [  67% ] 08/09 VUs  3m20.8s/5m0s  1.00 iters/s
+
+running (3m24.9s), 10/19 VUs, 592 complete and 0 interrupted iterations
+auth_service_test        [  67% ] 01/05 VUs  3m21.8s/5m0s  1.00 iters/s
+doc_service_test         [  67% ] 01/05 VUs  3m21.8s/5m0s  1.00 iters/s
+websocket_service_test   [  67% ] 08/09 VUs  3m21.8s/5m0s  1.00 iters/s
+
+running (3m25.9s), 10/19 VUs, 595 complete and 0 interrupted iterations
+auth_service_test        [  68% ] 01/05 VUs  3m22.8s/5m0s  1.00 iters/s
+doc_service_test         [  68% ] 01/05 VUs  3m22.8s/5m0s  1.00 iters/s
+websocket_service_test   [  68% ] 08/09 VUs  3m22.8s/5m0s  1.00 iters/s
+
+running (3m26.9s), 10/19 VUs, 598 complete and 0 interrupted iterations
+auth_service_test        [  68% ] 01/05 VUs  3m23.8s/5m0s  1.00 iters/s
+doc_service_test         [  68% ] 01/05 VUs  3m23.8s/5m0s  1.00 iters/s
+websocket_service_test   [  68% ] 08/09 VUs  3m23.8s/5m0s  1.00 iters/s
+
+running (3m27.9s), 10/19 VUs, 601 complete and 0 interrupted iterations
+auth_service_test        [  68% ] 01/05 VUs  3m24.8s/5m0s  1.00 iters/s
+doc_service_test         [  68% ] 01/05 VUs  3m24.8s/5m0s  1.00 iters/s
+websocket_service_test   [  68% ] 08/09 VUs  3m24.8s/5m0s  1.00 iters/s
+
+running (3m28.9s), 10/19 VUs, 604 complete and 0 interrupted iterations
+auth_service_test        [  69% ] 01/05 VUs  3m25.8s/5m0s  1.00 iters/s
+doc_service_test         [  69% ] 01/05 VUs  3m25.8s/5m0s  1.00 iters/s
+websocket_service_test   [  69% ] 08/09 VUs  3m25.8s/5m0s  1.00 iters/s
+
+running (3m29.9s), 10/19 VUs, 607 complete and 0 interrupted iterations
+auth_service_test        [  69% ] 01/05 VUs  3m26.8s/5m0s  1.00 iters/s
+doc_service_test         [  69% ] 01/05 VUs  3m26.8s/5m0s  1.00 iters/s
+websocket_service_test   [  69% ] 08/09 VUs  3m26.8s/5m0s  1.00 iters/s
+
+running (3m30.9s), 10/19 VUs, 610 complete and 0 interrupted iterations
+auth_service_test        [  69% ] 01/05 VUs  3m27.8s/5m0s  1.00 iters/s
+doc_service_test         [  69% ] 01/05 VUs  3m27.8s/5m0s  1.00 iters/s
+websocket_service_test   [  69% ] 08/09 VUs  3m27.8s/5m0s  1.00 iters/s
+
+running (3m31.9s), 10/19 VUs, 613 complete and 0 interrupted iterations
+auth_service_test        [  70% ] 01/05 VUs  3m28.8s/5m0s  1.00 iters/s
+doc_service_test         [  70% ] 01/05 VUs  3m28.8s/5m0s  1.00 iters/s
+websocket_service_test   [  70% ] 08/09 VUs  3m28.8s/5m0s  1.00 iters/s
+
+running (3m32.9s), 10/19 VUs, 616 complete and 0 interrupted iterations
+auth_service_test        [  70% ] 01/05 VUs  3m29.8s/5m0s  1.00 iters/s
+doc_service_test         [  70% ] 01/05 VUs  3m29.8s/5m0s  1.00 iters/s
+websocket_service_test   [  70% ] 08/09 VUs  3m29.8s/5m0s  1.00 iters/s
+
+running (3m33.9s), 10/19 VUs, 619 complete and 0 interrupted iterations
+auth_service_test        [  70% ] 01/05 VUs  3m30.8s/5m0s  1.00 iters/s
+doc_service_test         [  70% ] 01/05 VUs  3m30.8s/5m0s  1.00 iters/s
+websocket_service_test   [  70% ] 08/09 VUs  3m30.8s/5m0s  1.00 iters/s
+
+running (3m34.9s), 10/19 VUs, 622 complete and 0 interrupted iterations
+auth_service_test        [  71% ] 01/05 VUs  3m31.8s/5m0s  1.00 iters/s
+doc_service_test         [  71% ] 01/05 VUs  3m31.8s/5m0s  1.00 iters/s
+websocket_service_test   [  71% ] 08/09 VUs  3m31.8s/5m0s  1.00 iters/s
+
+running (3m35.9s), 10/19 VUs, 625 complete and 0 interrupted iterations
+auth_service_test        [  71% ] 01/05 VUs  3m32.8s/5m0s  1.00 iters/s
+doc_service_test         [  71% ] 01/05 VUs  3m32.8s/5m0s  1.00 iters/s
+websocket_service_test   [  71% ] 08/09 VUs  3m32.8s/5m0s  1.00 iters/s
+
+running (3m36.9s), 10/19 VUs, 628 complete and 0 interrupted iterations
+auth_service_test        [  71% ] 01/05 VUs  3m33.8s/5m0s  1.00 iters/s
+doc_service_test         [  71% ] 01/05 VUs  3m33.8s/5m0s  1.00 iters/s
+websocket_service_test   [  71% ] 08/09 VUs  3m33.8s/5m0s  1.00 iters/s
+
+running (3m37.9s), 10/19 VUs, 631 complete and 0 interrupted iterations
+auth_service_test        [  72% ] 01/05 VUs  3m34.8s/5m0s  1.00 iters/s
+doc_service_test         [  72% ] 01/05 VUs  3m34.8s/5m0s  1.00 iters/s
+websocket_service_test   [  72% ] 08/09 VUs  3m34.8s/5m0s  1.00 iters/s
+
+running (3m38.9s), 10/19 VUs, 634 complete and 0 interrupted iterations
+auth_service_test        [  72% ] 01/05 VUs  3m35.8s/5m0s  1.00 iters/s
+doc_service_test         [  72% ] 01/05 VUs  3m35.8s/5m0s  1.00 iters/s
+websocket_service_test   [  72% ] 08/09 VUs  3m35.8s/5m0s  1.00 iters/s
+
+running (3m40.1s), 10/19 VUs, 637 complete and 0 interrupted iterations
+auth_service_test        [  72% ] 01/05 VUs  3m36.8s/5m0s  1.00 iters/s
+doc_service_test         [  72% ] 01/05 VUs  3m36.8s/5m0s  1.00 iters/s
+websocket_service_test   [  72% ] 08/09 VUs  3m36.8s/5m0s  1.00 iters/s
+
+running (3m41.1s), 10/19 VUs, 640 complete and 0 interrupted iterations
+auth_service_test        [  73% ] 01/05 VUs  3m37.8s/5m0s  1.00 iters/s
+doc_service_test         [  73% ] 01/05 VUs  3m37.8s/5m0s  1.00 iters/s
+websocket_service_test   [  73% ] 08/09 VUs  3m37.8s/5m0s  1.00 iters/s
+
+running (3m42.1s), 10/19 VUs, 643 complete and 0 interrupted iterations
+auth_service_test        [  73% ] 01/05 VUs  3m38.8s/5m0s  1.00 iters/s
+doc_service_test         [  73% ] 01/05 VUs  3m38.8s/5m0s  1.00 iters/s
+websocket_service_test   [  73% ] 08/09 VUs  3m38.8s/5m0s  1.00 iters/s
+
+running (3m43.1s), 10/19 VUs, 646 complete and 0 interrupted iterations
+auth_service_test        [  73% ] 01/05 VUs  3m39.8s/5m0s  1.00 iters/s
+doc_service_test         [  73% ] 01/05 VUs  3m39.8s/5m0s  1.00 iters/s
+websocket_service_test   [  73% ] 08/09 VUs  3m39.8s/5m0s  1.00 iters/s
+
+running (3m44.1s), 10/19 VUs, 649 complete and 0 interrupted iterations
+auth_service_test        [  74% ] 01/05 VUs  3m40.8s/5m0s  1.00 iters/s
+doc_service_test         [  74% ] 01/05 VUs  3m40.8s/5m0s  1.00 iters/s
+websocket_service_test   [  74% ] 08/09 VUs  3m40.8s/5m0s  1.00 iters/s
+
+running (3m45.1s), 10/19 VUs, 652 complete and 0 interrupted iterations
+auth_service_test        [  74% ] 01/05 VUs  3m41.8s/5m0s  1.00 iters/s
+doc_service_test         [  74% ] 01/05 VUs  3m41.8s/5m0s  1.00 iters/s
+websocket_service_test   [  74% ] 08/09 VUs  3m41.8s/5m0s  1.00 iters/s
+
+running (3m46.1s), 10/19 VUs, 655 complete and 0 interrupted iterations
+auth_service_test        [  74% ] 01/05 VUs  3m42.8s/5m0s  1.00 iters/s
+doc_service_test         [  74% ] 01/05 VUs  3m42.8s/5m0s  1.00 iters/s
+websocket_service_test   [  74% ] 08/09 VUs  3m42.8s/5m0s  1.00 iters/s
+
+running (3m47.1s), 10/19 VUs, 658 complete and 0 interrupted iterations
+auth_service_test        [  75% ] 01/05 VUs  3m43.8s/5m0s  1.00 iters/s
+doc_service_test         [  75% ] 01/05 VUs  3m43.8s/5m0s  1.00 iters/s
+websocket_service_test   [  75% ] 08/09 VUs  3m43.8s/5m0s  1.00 iters/s
+
+running (3m48.1s), 10/19 VUs, 661 complete and 0 interrupted iterations
+auth_service_test        [  75% ] 01/05 VUs  3m44.8s/5m0s  1.00 iters/s
+doc_service_test         [  75% ] 01/05 VUs  3m44.8s/5m0s  1.00 iters/s
+websocket_service_test   [  75% ] 08/09 VUs  3m44.8s/5m0s  1.00 iters/s
+
+running (3m49.1s), 10/19 VUs, 664 complete and 0 interrupted iterations
+auth_service_test        [  75% ] 01/05 VUs  3m45.8s/5m0s  1.00 iters/s
+doc_service_test         [  75% ] 01/05 VUs  3m45.8s/5m0s  1.00 iters/s
+websocket_service_test   [  75% ] 08/09 VUs  3m45.8s/5m0s  1.00 iters/s
+
+running (3m50.1s), 10/19 VUs, 667 complete and 0 interrupted iterations
+auth_service_test        [  76% ] 01/05 VUs  3m46.8s/5m0s  1.00 iters/s
+doc_service_test         [  76% ] 01/05 VUs  3m46.8s/5m0s  1.00 iters/s
+websocket_service_test   [  76% ] 08/09 VUs  3m46.8s/5m0s  1.00 iters/s
+
+running (3m51.1s), 10/19 VUs, 670 complete and 0 interrupted iterations
+auth_service_test        [  76% ] 01/05 VUs  3m47.8s/5m0s  1.00 iters/s
+doc_service_test         [  76% ] 01/05 VUs  3m47.8s/5m0s  1.00 iters/s
+websocket_service_test   [  76% ] 08/09 VUs  3m47.8s/5m0s  1.00 iters/s
+
+running (3m52.1s), 10/19 VUs, 673 complete and 0 interrupted iterations
+auth_service_test        [  76% ] 01/05 VUs  3m48.8s/5m0s  1.00 iters/s
+doc_service_test         [  76% ] 01/05 VUs  3m48.8s/5m0s  1.00 iters/s
+websocket_service_test   [  76% ] 08/09 VUs  3m48.8s/5m0s  1.00 iters/s
+
+running (3m53.1s), 10/19 VUs, 676 complete and 0 interrupted iterations
+auth_service_test        [  77% ] 01/05 VUs  3m49.8s/5m0s  1.00 iters/s
+doc_service_test         [  77% ] 01/05 VUs  3m49.8s/5m0s  1.00 iters/s
+websocket_service_test   [  77% ] 08/09 VUs  3m49.8s/5m0s  1.00 iters/s
+
+running (3m54.1s), 10/19 VUs, 679 complete and 0 interrupted iterations
+auth_service_test        [  77% ] 01/05 VUs  3m50.8s/5m0s  1.00 iters/s
+doc_service_test         [  77% ] 01/05 VUs  3m50.8s/5m0s  1.00 iters/s
+websocket_service_test   [  77% ] 08/09 VUs  3m50.8s/5m0s  1.00 iters/s
+
+running (3m55.1s), 10/19 VUs, 682 complete and 0 interrupted iterations
+auth_service_test        [  77% ] 01/05 VUs  3m51.8s/5m0s  1.00 iters/s
+doc_service_test         [  77% ] 01/05 VUs  3m51.8s/5m0s  1.00 iters/s
+websocket_service_test   [  77% ] 08/09 VUs  3m51.8s/5m0s  1.00 iters/s
+
+running (3m56.1s), 10/19 VUs, 685 complete and 0 interrupted iterations
+auth_service_test        [  78% ] 01/05 VUs  3m52.8s/5m0s  1.00 iters/s
+doc_service_test         [  78% ] 01/05 VUs  3m52.8s/5m0s  1.00 iters/s
+websocket_service_test   [  78% ] 08/09 VUs  3m52.8s/5m0s  1.00 iters/s
+
+running (3m57.1s), 10/19 VUs, 688 complete and 0 interrupted iterations
+auth_service_test        [  78% ] 01/05 VUs  3m53.8s/5m0s  1.00 iters/s
+doc_service_test         [  78% ] 01/05 VUs  3m53.8s/5m0s  1.00 iters/s
+websocket_service_test   [  78% ] 08/09 VUs  3m53.8s/5m0s  1.00 iters/s
+
+running (3m58.1s), 10/19 VUs, 691 complete and 0 interrupted iterations
+auth_service_test        [  78% ] 01/05 VUs  3m54.8s/5m0s  1.00 iters/s
+doc_service_test         [  78% ] 01/05 VUs  3m54.8s/5m0s  1.00 iters/s
+websocket_service_test   [  78% ] 08/09 VUs  3m54.8s/5m0s  1.00 iters/s
+
+running (3m59.1s), 10/19 VUs, 694 complete and 0 interrupted iterations
+auth_service_test        [  79% ] 01/05 VUs  3m55.8s/5m0s  1.00 iters/s
+doc_service_test         [  79% ] 01/05 VUs  3m55.8s/5m0s  1.00 iters/s
+websocket_service_test   [  79% ] 08/09 VUs  3m55.8s/5m0s  1.00 iters/s
+
+running (4m00.1s), 10/19 VUs, 697 complete and 0 interrupted iterations
+auth_service_test        [  79% ] 01/05 VUs  3m56.8s/5m0s  1.00 iters/s
+doc_service_test         [  79% ] 01/05 VUs  3m56.8s/5m0s  1.00 iters/s
+websocket_service_test   [  79% ] 08/09 VUs  3m56.8s/5m0s  1.00 iters/s
+
+running (4m01.1s), 10/19 VUs, 700 complete and 0 interrupted iterations
+auth_service_test        [  79% ] 01/05 VUs  3m57.8s/5m0s  1.00 iters/s
+doc_service_test         [  79% ] 01/05 VUs  3m57.8s/5m0s  1.00 iters/s
+websocket_service_test   [  79% ] 08/09 VUs  3m57.8s/5m0s  1.00 iters/s
+
+running (4m02.1s), 10/19 VUs, 703 complete and 0 interrupted iterations
+auth_service_test        [  80% ] 01/05 VUs  3m58.8s/5m0s  1.00 iters/s
+doc_service_test         [  80% ] 01/05 VUs  3m58.8s/5m0s  1.00 iters/s
+websocket_service_test   [  80% ] 08/09 VUs  3m58.8s/5m0s  1.00 iters/s
+
+running (4m03.1s), 10/19 VUs, 706 complete and 0 interrupted iterations
+auth_service_test        [  80% ] 01/05 VUs  3m59.8s/5m0s  1.00 iters/s
+doc_service_test         [  80% ] 01/05 VUs  3m59.8s/5m0s  1.00 iters/s
+websocket_service_test   [  80% ] 08/09 VUs  3m59.8s/5m0s  1.00 iters/s
+
+running (4m04.1s), 10/19 VUs, 709 complete and 0 interrupted iterations
+auth_service_test        [  80% ] 01/05 VUs  4m00.8s/5m0s  1.00 iters/s
+doc_service_test         [  80% ] 01/05 VUs  4m00.8s/5m0s  1.00 iters/s
+websocket_service_test   [  80% ] 08/09 VUs  4m00.8s/5m0s  1.00 iters/s
+
+running (4m05.1s), 10/19 VUs, 712 complete and 0 interrupted iterations
+auth_service_test        [  81% ] 01/05 VUs  4m01.8s/5m0s  1.00 iters/s
+doc_service_test         [  81% ] 01/05 VUs  4m01.8s/5m0s  1.00 iters/s
+websocket_service_test   [  81% ] 08/09 VUs  4m01.8s/5m0s  1.00 iters/s
+
+running (4m06.1s), 10/19 VUs, 715 complete and 0 interrupted iterations
+auth_service_test        [  81% ] 01/05 VUs  4m02.8s/5m0s  1.00 iters/s
+doc_service_test         [  81% ] 01/05 VUs  4m02.8s/5m0s  1.00 iters/s
+websocket_service_test   [  81% ] 08/09 VUs  4m02.8s/5m0s  1.00 iters/s
+
+running (4m07.1s), 10/19 VUs, 718 complete and 0 interrupted iterations
+auth_service_test        [  81% ] 01/05 VUs  4m03.8s/5m0s  1.00 iters/s
+doc_service_test         [  81% ] 01/05 VUs  4m03.8s/5m0s  1.00 iters/s
+websocket_service_test   [  81% ] 08/09 VUs  4m03.8s/5m0s  1.00 iters/s
+
+running (4m08.1s), 10/19 VUs, 721 complete and 0 interrupted iterations
+auth_service_test        [  82% ] 01/05 VUs  4m04.8s/5m0s  1.00 iters/s
+doc_service_test         [  82% ] 01/05 VUs  4m04.8s/5m0s  1.00 iters/s
+websocket_service_test   [  82% ] 08/09 VUs  4m04.8s/5m0s  1.00 iters/s
+
+running (4m09.1s), 10/19 VUs, 724 complete and 0 interrupted iterations
+auth_service_test        [  82% ] 01/05 VUs  4m05.8s/5m0s  1.00 iters/s
+doc_service_test         [  82% ] 01/05 VUs  4m05.8s/5m0s  1.00 iters/s
+websocket_service_test   [  82% ] 08/09 VUs  4m05.8s/5m0s  1.00 iters/s
+
+running (4m10.4s), 10/19 VUs, 727 complete and 0 interrupted iterations
+auth_service_test        [  82% ] 01/05 VUs  4m06.8s/5m0s  1.00 iters/s
+doc_service_test         [  82% ] 01/05 VUs  4m06.8s/5m0s  1.00 iters/s
+websocket_service_test   [  82% ] 08/09 VUs  4m06.8s/5m0s  1.00 iters/s
+
+running (4m11.4s), 10/19 VUs, 730 complete and 0 interrupted iterations
+auth_service_test        [  83% ] 01/05 VUs  4m07.8s/5m0s  1.00 iters/s
+doc_service_test         [  83% ] 01/05 VUs  4m07.8s/5m0s  1.00 iters/s
+websocket_service_test   [  83% ] 08/09 VUs  4m07.8s/5m0s  1.00 iters/s
+
+running (4m12.4s), 10/19 VUs, 733 complete and 0 interrupted iterations
+auth_service_test        [  83% ] 01/05 VUs  4m08.8s/5m0s  1.00 iters/s
+doc_service_test         [  83% ] 01/05 VUs  4m08.8s/5m0s  1.00 iters/s
+websocket_service_test   [  83% ] 08/09 VUs  4m08.8s/5m0s  1.00 iters/s
+
+running (4m13.4s), 10/19 VUs, 736 complete and 0 interrupted iterations
+auth_service_test        [  83% ] 01/05 VUs  4m09.8s/5m0s  1.00 iters/s
+doc_service_test         [  83% ] 01/05 VUs  4m09.8s/5m0s  1.00 iters/s
+websocket_service_test   [  83% ] 08/09 VUs  4m09.8s/5m0s  1.00 iters/s
+
+running (4m14.4s), 10/19 VUs, 739 complete and 0 interrupted iterations
+auth_service_test        [  84% ] 01/05 VUs  4m10.8s/5m0s  1.00 iters/s
+doc_service_test         [  84% ] 01/05 VUs  4m10.8s/5m0s  1.00 iters/s
+websocket_service_test   [  84% ] 08/09 VUs  4m10.8s/5m0s  1.00 iters/s
+
+running (4m15.4s), 10/19 VUs, 742 complete and 0 interrupted iterations
+auth_service_test        [  84% ] 01/05 VUs  4m11.8s/5m0s  1.00 iters/s
+doc_service_test         [  84% ] 01/05 VUs  4m11.8s/5m0s  1.00 iters/s
+websocket_service_test   [  84% ] 08/09 VUs  4m11.8s/5m0s  1.00 iters/s
+
+running (4m16.4s), 10/19 VUs, 745 complete and 0 interrupted iterations
+auth_service_test        [  84% ] 01/05 VUs  4m12.8s/5m0s  1.00 iters/s
+doc_service_test         [  84% ] 01/05 VUs  4m12.8s/5m0s  1.00 iters/s
+websocket_service_test   [  84% ] 08/09 VUs  4m12.8s/5m0s  1.00 iters/s
+
+running (4m17.4s), 10/19 VUs, 748 complete and 0 interrupted iterations
+auth_service_test        [  85% ] 01/05 VUs  4m13.8s/5m0s  1.00 iters/s
+doc_service_test         [  85% ] 01/05 VUs  4m13.8s/5m0s  1.00 iters/s
+websocket_service_test   [  85% ] 08/09 VUs  4m13.8s/5m0s  1.00 iters/s
+
+running (4m18.4s), 10/19 VUs, 751 complete and 0 interrupted iterations
+auth_service_test        [  85% ] 01/05 VUs  4m14.8s/5m0s  1.00 iters/s
+doc_service_test         [  85% ] 01/05 VUs  4m14.8s/5m0s  1.00 iters/s
+websocket_service_test   [  85% ] 08/09 VUs  4m14.8s/5m0s  1.00 iters/s
+
+running (4m19.4s), 10/19 VUs, 754 complete and 0 interrupted iterations
+auth_service_test        [  85% ] 01/05 VUs  4m15.8s/5m0s  1.00 iters/s
+doc_service_test         [  85% ] 01/05 VUs  4m15.8s/5m0s  1.00 iters/s
+websocket_service_test   [  85% ] 08/09 VUs  4m15.8s/5m0s  1.00 iters/s
+
+running (4m20.4s), 10/19 VUs, 757 complete and 0 interrupted iterations
+auth_service_test        [  86% ] 01/05 VUs  4m16.8s/5m0s  1.00 iters/s
+doc_service_test         [  86% ] 01/05 VUs  4m16.8s/5m0s  1.00 iters/s
+websocket_service_test   [  86% ] 08/09 VUs  4m16.8s/5m0s  1.00 iters/s
+
+running (4m21.4s), 10/19 VUs, 760 complete and 0 interrupted iterations
+auth_service_test        [  86% ] 01/05 VUs  4m17.8s/5m0s  1.00 iters/s
+doc_service_test         [  86% ] 01/05 VUs  4m17.8s/5m0s  1.00 iters/s
+websocket_service_test   [  86% ] 08/09 VUs  4m17.8s/5m0s  1.00 iters/s
+
+running (4m22.4s), 10/19 VUs, 763 complete and 0 interrupted iterations
+auth_service_test        [  86% ] 01/05 VUs  4m18.8s/5m0s  1.00 iters/s
+doc_service_test         [  86% ] 01/05 VUs  4m18.8s/5m0s  1.00 iters/s
+websocket_service_test   [  86% ] 08/09 VUs  4m18.8s/5m0s  1.00 iters/s
+
+running (4m23.4s), 10/19 VUs, 766 complete and 0 interrupted iterations
+auth_service_test        [  87% ] 01/05 VUs  4m19.8s/5m0s  1.00 iters/s
+doc_service_test         [  87% ] 01/05 VUs  4m19.8s/5m0s  1.00 iters/s
+websocket_service_test   [  87% ] 08/09 VUs  4m19.8s/5m0s  1.00 iters/s
+
+running (4m24.4s), 10/19 VUs, 769 complete and 0 interrupted iterations
+auth_service_test        [  87% ] 01/05 VUs  4m20.8s/5m0s  1.00 iters/s
+doc_service_test         [  87% ] 01/05 VUs  4m20.8s/5m0s  1.00 iters/s
+websocket_service_test   [  87% ] 08/09 VUs  4m20.8s/5m0s  1.00 iters/s
+
+running (4m25.4s), 10/19 VUs, 772 complete and 0 interrupted iterations
+auth_service_test        [  87% ] 01/05 VUs  4m21.8s/5m0s  1.00 iters/s
+doc_service_test         [  87% ] 01/05 VUs  4m21.8s/5m0s  1.00 iters/s
+websocket_service_test   [  87% ] 08/09 VUs  4m21.8s/5m0s  1.00 iters/s
+
+running (4m26.4s), 10/19 VUs, 775 complete and 0 interrupted iterations
+auth_service_test        [  88% ] 01/05 VUs  4m22.8s/5m0s  1.00 iters/s
+doc_service_test         [  88% ] 01/05 VUs  4m22.8s/5m0s  1.00 iters/s
+websocket_service_test   [  88% ] 08/09 VUs  4m22.8s/5m0s  1.00 iters/s
+
+running (4m27.4s), 10/19 VUs, 778 complete and 0 interrupted iterations
+auth_service_test        [  88% ] 01/05 VUs  4m23.8s/5m0s  1.00 iters/s
+doc_service_test         [  88% ] 01/05 VUs  4m23.8s/5m0s  1.00 iters/s
+websocket_service_test   [  88% ] 08/09 VUs  4m23.8s/5m0s  1.00 iters/s
+
+running (4m28.4s), 10/19 VUs, 781 complete and 0 interrupted iterations
+auth_service_test        [  88% ] 01/05 VUs  4m24.8s/5m0s  1.00 iters/s
+doc_service_test         [  88% ] 01/05 VUs  4m24.8s/5m0s  1.00 iters/s
+websocket_service_test   [  88% ] 08/09 VUs  4m24.8s/5m0s  1.00 iters/s
+
+running (4m29.4s), 10/19 VUs, 784 complete and 0 interrupted iterations
+auth_service_test        [  89% ] 01/05 VUs  4m25.8s/5m0s  1.00 iters/s
+doc_service_test         [  89% ] 01/05 VUs  4m25.8s/5m0s  1.00 iters/s
+websocket_service_test   [  89% ] 08/09 VUs  4m25.8s/5m0s  1.00 iters/s
+
+running (4m30.4s), 10/19 VUs, 787 complete and 0 interrupted iterations
+auth_service_test        [  89% ] 01/05 VUs  4m26.8s/5m0s  1.00 iters/s
+doc_service_test         [  89% ] 01/05 VUs  4m26.8s/5m0s  1.00 iters/s
+websocket_service_test   [  89% ] 08/09 VUs  4m26.8s/5m0s  1.00 iters/s
+
+running (4m31.4s), 10/19 VUs, 790 complete and 0 interrupted iterations
+auth_service_test        [  89% ] 01/05 VUs  4m27.8s/5m0s  1.00 iters/s
+doc_service_test         [  89% ] 01/05 VUs  4m27.8s/5m0s  1.00 iters/s
+websocket_service_test   [  89% ] 08/09 VUs  4m27.8s/5m0s  1.00 iters/s
+
+running (4m32.4s), 10/19 VUs, 793 complete and 0 interrupted iterations
+auth_service_test        [  90% ] 01/05 VUs  4m28.8s/5m0s  1.00 iters/s
+doc_service_test         [  90% ] 01/05 VUs  4m28.8s/5m0s  1.00 iters/s
+websocket_service_test   [  90% ] 08/09 VUs  4m28.8s/5m0s  1.00 iters/s
+
+running (4m33.4s), 10/19 VUs, 796 complete and 0 interrupted iterations
+auth_service_test        [  90% ] 01/05 VUs  4m29.8s/5m0s  1.00 iters/s
+doc_service_test         [  90% ] 01/05 VUs  4m29.8s/5m0s  1.00 iters/s
+websocket_service_test   [  90% ] 08/09 VUs  4m29.8s/5m0s  1.00 iters/s
+
+running (4m34.4s), 10/19 VUs, 799 complete and 0 interrupted iterations
+auth_service_test        [  90% ] 01/05 VUs  4m30.8s/5m0s  1.00 iters/s
+doc_service_test         [  90% ] 01/05 VUs  4m30.8s/5m0s  1.00 iters/s
+websocket_service_test   [  90% ] 08/09 VUs  4m30.8s/5m0s  1.00 iters/s
+
+running (4m35.4s), 10/19 VUs, 802 complete and 0 interrupted iterations
+auth_service_test        [  91% ] 01/05 VUs  4m31.8s/5m0s  1.00 iters/s
+doc_service_test         [  91% ] 01/05 VUs  4m31.8s/5m0s  1.00 iters/s
+websocket_service_test   [  91% ] 08/09 VUs  4m31.8s/5m0s  1.00 iters/s
+
+running (4m36.4s), 10/19 VUs, 805 complete and 0 interrupted iterations
+auth_service_test        [  91% ] 01/05 VUs  4m32.8s/5m0s  1.00 iters/s
+doc_service_test         [  91% ] 01/05 VUs  4m32.8s/5m0s  1.00 iters/s
+websocket_service_test   [  91% ] 08/09 VUs  4m32.8s/5m0s  1.00 iters/s
+
+running (4m37.4s), 10/19 VUs, 808 complete and 0 interrupted iterations
+auth_service_test        [  91% ] 01/05 VUs  4m33.8s/5m0s  1.00 iters/s
+doc_service_test         [  91% ] 01/05 VUs  4m33.8s/5m0s  1.00 iters/s
+websocket_service_test   [  91% ] 08/09 VUs  4m33.8s/5m0s  1.00 iters/s
+
+running (4m38.4s), 10/19 VUs, 811 complete and 0 interrupted iterations
+auth_service_test        [  92% ] 01/05 VUs  4m34.8s/5m0s  1.00 iters/s
+doc_service_test         [  92% ] 01/05 VUs  4m34.8s/5m0s  1.00 iters/s
+websocket_service_test   [  92% ] 08/09 VUs  4m34.8s/5m0s  1.00 iters/s
+
+running (4m39.4s), 10/19 VUs, 814 complete and 0 interrupted iterations
+auth_service_test        [  92% ] 01/05 VUs  4m35.8s/5m0s  1.00 iters/s
+doc_service_test         [  92% ] 01/05 VUs  4m35.8s/5m0s  1.00 iters/s
+websocket_service_test   [  92% ] 08/09 VUs  4m35.8s/5m0s  1.00 iters/s
+
+running (4m40.7s), 10/19 VUs, 817 complete and 0 interrupted iterations
+auth_service_test        [  92% ] 01/05 VUs  4m36.8s/5m0s  1.00 iters/s
+doc_service_test         [  92% ] 01/05 VUs  4m36.8s/5m0s  1.00 iters/s
+websocket_service_test   [  92% ] 08/09 VUs  4m36.8s/5m0s  1.00 iters/s
+
+running (4m41.7s), 10/19 VUs, 820 complete and 0 interrupted iterations
+auth_service_test        [  93% ] 01/05 VUs  4m37.8s/5m0s  1.00 iters/s
+doc_service_test         [  93% ] 01/05 VUs  4m37.8s/5m0s  1.00 iters/s
+websocket_service_test   [  93% ] 08/09 VUs  4m37.8s/5m0s  1.00 iters/s
+
+running (4m42.7s), 10/19 VUs, 823 complete and 0 interrupted iterations
+auth_service_test        [  93% ] 01/05 VUs  4m38.8s/5m0s  1.00 iters/s
+doc_service_test         [  93% ] 01/05 VUs  4m38.8s/5m0s  1.00 iters/s
+websocket_service_test   [  93% ] 08/09 VUs  4m38.8s/5m0s  1.00 iters/s
+
+running (4m43.7s), 10/19 VUs, 826 complete and 0 interrupted iterations
+auth_service_test        [  93% ] 01/05 VUs  4m39.8s/5m0s  1.00 iters/s
+doc_service_test         [  93% ] 01/05 VUs  4m39.8s/5m0s  1.00 iters/s
+websocket_service_test   [  93% ] 08/09 VUs  4m39.8s/5m0s  1.00 iters/s
+
+running (4m44.7s), 10/19 VUs, 829 complete and 0 interrupted iterations
+auth_service_test        [  94% ] 01/05 VUs  4m40.8s/5m0s  1.00 iters/s
+doc_service_test         [  94% ] 01/05 VUs  4m40.8s/5m0s  1.00 iters/s
+websocket_service_test   [  94% ] 08/09 VUs  4m40.8s/5m0s  1.00 iters/s
+
+running (4m45.7s), 10/19 VUs, 832 complete and 0 interrupted iterations
+auth_service_test        [  94% ] 01/05 VUs  4m41.8s/5m0s  1.00 iters/s
+doc_service_test         [  94% ] 01/05 VUs  4m41.8s/5m0s  1.00 iters/s
+websocket_service_test   [  94% ] 08/09 VUs  4m41.8s/5m0s  1.00 iters/s
+
+running (4m46.7s), 10/19 VUs, 835 complete and 0 interrupted iterations
+auth_service_test        [  94% ] 01/05 VUs  4m42.8s/5m0s  1.00 iters/s
+doc_service_test         [  94% ] 01/05 VUs  4m42.8s/5m0s  1.00 iters/s
+websocket_service_test   [  94% ] 08/09 VUs  4m42.8s/5m0s  1.00 iters/s
+
+running (4m47.7s), 10/19 VUs, 838 complete and 0 interrupted iterations
+auth_service_test        [  95% ] 01/05 VUs  4m43.8s/5m0s  1.00 iters/s
+doc_service_test         [  95% ] 01/05 VUs  4m43.8s/5m0s  1.00 iters/s
+websocket_service_test   [  95% ] 08/09 VUs  4m43.8s/5m0s  1.00 iters/s
+
+running (4m48.7s), 10/19 VUs, 841 complete and 0 interrupted iterations
+auth_service_test        [  95% ] 01/05 VUs  4m44.8s/5m0s  1.00 iters/s
+doc_service_test         [  95% ] 01/05 VUs  4m44.8s/5m0s  1.00 iters/s
+websocket_service_test   [  95% ] 08/09 VUs  4m44.8s/5m0s  1.00 iters/s
+
+running (4m49.7s), 10/19 VUs, 844 complete and 0 interrupted iterations
+auth_service_test        [  95% ] 01/05 VUs  4m45.8s/5m0s  1.00 iters/s
+doc_service_test         [  95% ] 01/05 VUs  4m45.8s/5m0s  1.00 iters/s
+websocket_service_test   [  95% ] 08/09 VUs  4m45.8s/5m0s  1.00 iters/s
+
+running (4m50.7s), 10/19 VUs, 847 complete and 0 interrupted iterations
+auth_service_test        [  96% ] 01/05 VUs  4m46.8s/5m0s  1.00 iters/s
+doc_service_test         [  96% ] 01/05 VUs  4m46.8s/5m0s  1.00 iters/s
+websocket_service_test   [  96% ] 08/09 VUs  4m46.8s/5m0s  1.00 iters/s
+
+running (4m51.7s), 10/19 VUs, 850 complete and 0 interrupted iterations
+auth_service_test        [  96% ] 01/05 VUs  4m47.8s/5m0s  1.00 iters/s
+doc_service_test         [  96% ] 01/05 VUs  4m47.8s/5m0s  1.00 iters/s
+websocket_service_test   [  96% ] 08/09 VUs  4m47.8s/5m0s  1.00 iters/s
+
+running (4m52.7s), 10/19 VUs, 853 complete and 0 interrupted iterations
+auth_service_test        [  96% ] 01/05 VUs  4m48.8s/5m0s  1.00 iters/s
+doc_service_test         [  96% ] 01/05 VUs  4m48.8s/5m0s  1.00 iters/s
+websocket_service_test   [  96% ] 08/09 VUs  4m48.8s/5m0s  1.00 iters/s
+
+running (4m53.7s), 10/19 VUs, 856 complete and 0 interrupted iterations
+auth_service_test        [  97% ] 01/05 VUs  4m49.8s/5m0s  1.00 iters/s
+doc_service_test         [  97% ] 01/05 VUs  4m49.8s/5m0s  1.00 iters/s
+websocket_service_test   [  97% ] 08/09 VUs  4m49.8s/5m0s  1.00 iters/s
+
+running (4m54.7s), 10/19 VUs, 859 complete and 0 interrupted iterations
+auth_service_test        [  97% ] 01/05 VUs  4m50.8s/5m0s  1.00 iters/s
+doc_service_test         [  97% ] 01/05 VUs  4m50.8s/5m0s  1.00 iters/s
+websocket_service_test   [  97% ] 08/09 VUs  4m50.8s/5m0s  1.00 iters/s
+
+running (4m55.7s), 10/19 VUs, 862 complete and 0 interrupted iterations
+auth_service_test        [  97% ] 01/05 VUs  4m51.8s/5m0s  1.00 iters/s
+doc_service_test         [  97% ] 01/05 VUs  4m51.8s/5m0s  1.00 iters/s
+websocket_service_test   [  97% ] 08/09 VUs  4m51.8s/5m0s  1.00 iters/s
+
+running (4m56.7s), 10/19 VUs, 865 complete and 0 interrupted iterations
+auth_service_test        [  98% ] 01/05 VUs  4m52.8s/5m0s  1.00 iters/s
+doc_service_test         [  98% ] 01/05 VUs  4m52.8s/5m0s  1.00 iters/s
+websocket_service_test   [  98% ] 08/09 VUs  4m52.8s/5m0s  1.00 iters/s
+
+running (4m57.7s), 10/19 VUs, 868 complete and 0 interrupted iterations
+auth_service_test        [  98% ] 01/05 VUs  4m53.8s/5m0s  1.00 iters/s
+doc_service_test         [  98% ] 01/05 VUs  4m53.8s/5m0s  1.00 iters/s
+websocket_service_test   [  98% ] 08/09 VUs  4m53.8s/5m0s  1.00 iters/s
+
+running (4m58.7s), 10/19 VUs, 871 complete and 0 interrupted iterations
+auth_service_test        [  98% ] 01/05 VUs  4m54.8s/5m0s  1.00 iters/s
+doc_service_test         [  98% ] 01/05 VUs  4m54.8s/5m0s  1.00 iters/s
+websocket_service_test   [  98% ] 08/09 VUs  4m54.8s/5m0s  1.00 iters/s
+
+running (4m59.7s), 10/19 VUs, 874 complete and 0 interrupted iterations
+auth_service_test        [  99% ] 01/05 VUs  4m55.8s/5m0s  1.00 iters/s
+doc_service_test         [  99% ] 01/05 VUs  4m55.8s/5m0s  1.00 iters/s
+websocket_service_test   [  99% ] 08/09 VUs  4m55.8s/5m0s  1.00 iters/s
+
+running (5m00.7s), 10/19 VUs, 877 complete and 0 interrupted iterations
+auth_service_test        [  99% ] 01/05 VUs  4m56.8s/5m0s  1.00 iters/s
+doc_service_test         [  99% ] 01/05 VUs  4m56.8s/5m0s  1.00 iters/s
+websocket_service_test   [  99% ] 08/09 VUs  4m56.8s/5m0s  1.00 iters/s
+
+running (5m01.7s), 10/19 VUs, 880 complete and 0 interrupted iterations
+auth_service_test        [  99% ] 01/05 VUs  4m57.8s/5m0s  1.00 iters/s
+doc_service_test         [  99% ] 01/05 VUs  4m57.8s/5m0s  1.00 iters/s
+websocket_service_test   [  99% ] 08/09 VUs  4m57.8s/5m0s  1.00 iters/s
+
+running (5m02.7s), 10/19 VUs, 883 complete and 0 interrupted iterations
+auth_service_test        [ 100% ] 01/05 VUs  4m58.8s/5m0s  1.00 iters/s
+doc_service_test         [ 100% ] 01/05 VUs  4m58.8s/5m0s  1.00 iters/s
+websocket_service_test   [ 100% ] 08/09 VUs  4m58.8s/5m0s  1.00 iters/s
+
+running (5m03.7s), 10/19 VUs, 886 complete and 0 interrupted iterations
+auth_service_test        [ 100% ] 01/05 VUs  4m59.8s/5m0s  1.00 iters/s
+doc_service_test         [ 100% ] 01/05 VUs  4m59.8s/5m0s  1.00 iters/s
+websocket_service_test   [ 100% ] 08/09 VUs  4m59.8s/5m0s  1.00 iters/s
+
+running (5m04.7s), 09/19 VUs, 889 complete and 0 interrupted iterations
+auth_service_test      ↓ [ 100% ] 02/05 VUs  5m0s  1.00 iters/s
+doc_service_test       ✓ [ 100% ] 00/05 VUs  5m0s  1.00 iters/s
+websocket_service_test ↓ [ 100% ] 09/09 VUs  5m0s  1.00 iters/s
+
+running (5m05.7s), 07/19 VUs, 891 complete and 0 interrupted iterations
+auth_service_test      ✓ [ 100% ] 00/05 VUs  5m0s  1.00 iters/s
+doc_service_test       ✓ [ 100% ] 00/05 VUs  5m0s  1.00 iters/s
+websocket_service_test ↓ [ 100% ] 09/09 VUs  5m0s  1.00 iters/s
+
+running (5m06.7s), 06/19 VUs, 892 complete and 0 interrupted iterations
+auth_service_test      ✓ [ 100% ] 00/05 VUs  5m0s  1.00 iters/s
+doc_service_test       ✓ [ 100% ] 00/05 VUs  5m0s  1.00 iters/s
+websocket_service_test ↓ [ 100% ] 09/09 VUs  5m0s  1.00 iters/s
+
+running (5m07.7s), 05/19 VUs, 893 complete and 0 interrupted iterations
+auth_service_test      ✓ [ 100% ] 00/05 VUs  5m0s  1.00 iters/s
+doc_service_test       ✓ [ 100% ] 00/05 VUs  5m0s  1.00 iters/s
+websocket_service_test ↓ [ 100% ] 09/09 VUs  5m0s  1.00 iters/s
+
+running (5m08.7s), 04/19 VUs, 894 complete and 0 interrupted iterations
+auth_service_test      ✓ [ 100% ] 00/05 VUs  5m0s  1.00 iters/s
+doc_service_test       ✓ [ 100% ] 00/05 VUs  5m0s  1.00 iters/s
+websocket_service_test ↓ [ 100% ] 09/09 VUs  5m0s  1.00 iters/s
+
+running (5m09.7s), 03/19 VUs, 895 complete and 0 interrupted iterations
+auth_service_test      ✓ [ 100% ] 00/05 VUs  5m0s  1.00 iters/s
+doc_service_test       ✓ [ 100% ] 00/05 VUs  5m0s  1.00 iters/s
+websocket_service_test ↓ [ 100% ] 09/09 VUs  5m0s  1.00 iters/s
+
+running (5m11.0s), 02/19 VUs, 896 complete and 0 interrupted iterations
+auth_service_test      ✓ [ 100% ] 00/05 VUs  5m0s  1.00 iters/s
+doc_service_test       ✓ [ 100% ] 00/05 VUs  5m0s  1.00 iters/s
+websocket_service_test ↓ [ 100% ] 09/09 VUs  5m0s  1.00 iters/s
+
+running (5m12.0s), 01/19 VUs, 897 complete and 0 interrupted iterations
+auth_service_test      ✓ [ 100% ] 00/05 VUs  5m0s  1.00 iters/s
+doc_service_test       ✓ [ 100% ] 00/05 VUs  5m0s  1.00 iters/s
+websocket_service_test ↓ [ 100% ] 09/09 VUs  5m0s  1.00 iters/s
+
+
+  █ THRESHOLDS 
+
+    http_req_duration
+    ✓ 'p(95)<500' p(95)=10.89ms
+
+    ws_connecting
+    ✓ 'p(95)<1000' p(95)=9.29ms
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 900     2.882526/s
+    checks_succeeded...: 100.00% 900 out of 900
+    checks_failed......: 0.00%   0 out of 900
+
+    ✓ Setup: Register 201
+    ✓ Setup: Login 200
+    ✓ Auth: Me 200
+    ✓ Doc: Get 200
+    ✓ WS: Connected (101)
+
+    HTTP
+    http_req_duration..............: avg=8.04ms min=4.84ms   med=7.34ms max=97.05ms p(90)=9.64ms p(95)=10.89ms
+      { expected_response:true }...: avg=8.04ms min=4.84ms   med=7.34ms max=97.05ms p(90)=9.64ms p(95)=10.89ms
+    http_req_failed................: 0.00%  0 out of 604
+    http_reqs......................: 604    1.934495/s
+
+    EXECUTION
+    dropped_iterations.............: 4      0.012811/s
+    iteration_duration.............: avg=3.32s  min=1s       med=1s     max=8.05s   p(90)=8s     p(95)=8s     
+    iterations.....................: 898    2.87612/s
+    vus............................: 1      min=1        max=10
+    vus_max........................: 19     min=15       max=19
+
+    NETWORK
+    data_received..................: 638 kB 2.0 kB/s
+    data_sent......................: 386 kB 1.2 kB/s
+
+    WEBSOCKET
+    ws_connecting..................: avg=7.23ms min=4.77ms   med=6.66ms max=54.22ms p(90)=8.58ms p(95)=9.29ms 
+    ws_msgs_received...............: 297    0.951233/s
+    ws_ping........................: avg=1.19ms min=410.55µs med=1.05ms max=16.14ms p(90)=1.79ms p(95)=2.22ms 
+    ws_session_duration............: avg=8s     min=8s       med=8s     max=8.05s   p(90)=8s     p(95)=8.01s  
+    ws_sessions....................: 297    0.951233/s
+
+
+
+
+running (5m12.2s), 00/19 VUs, 898 complete and 0 interrupted iterations
+auth_service_test      ✓ [ 100% ] 00/05 VUs  5m0s  1.00 iters/s
+doc_service_test       ✓ [ 100% ] 00/05 VUs  5m0s  1.00 iters/s
+websocket_service_test ✓ [ 100% ] 00/09 VUs  5m0s  1.00 iters/s

@@ -1,0 +1,2280 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: tests/load/scenarios/spike.js
+        output: json (tests/load/results/spike_metrics_2025-12-08_15-25-58.json)
+
+     scenarios: (100.00%) 3 scenarios, 300 max VUs, 7m30s max duration (incl. graceful stop):
+              * auth_service_test: Up to 100 looping VUs for 7m0s over 3 stages (gracefulRampDown: 30s, exec: authTest, gracefulStop: 30s)
+              * doc_service_test: Up to 100 looping VUs for 7m0s over 3 stages (gracefulRampDown: 30s, exec: docTest, gracefulStop: 30s)
+              * websocket_service_test: Up to 100 looping VUs for 7m0s over 3 stages (gracefulRampDown: 30s, exec: wsTest, gracefulStop: 30s)
+
+time="2025-12-08T15:26:02+07:00" level=warning msg="Error from API server" error="listen tcp 127.0.0.1:6565: bind: address already in use"
+
+running (0m01.0s), 003/300 VUs, 0 complete and 0 interrupted iterations
+auth_service_test        [   0% ] 001/100 VUs  0m00.8s/7m00.0s
+doc_service_test         [   0% ] 001/100 VUs  0m00.8s/7m00.0s
+websocket_service_test   [   0% ] 001/100 VUs  0m00.8s/7m00.0s
+
+running (0m02.0s), 006/300 VUs, 2 complete and 0 interrupted iterations
+auth_service_test        [   0% ] 002/100 VUs  0m01.8s/7m00.0s
+doc_service_test         [   0% ] 002/100 VUs  0m01.8s/7m00.0s
+websocket_service_test   [   0% ] 002/100 VUs  0m01.8s/7m00.0s
+
+running (0m03.0s), 012/300 VUs, 6 complete and 0 interrupted iterations
+auth_service_test        [   1% ] 004/100 VUs  0m02.8s/7m00.0s
+doc_service_test         [   1% ] 004/100 VUs  0m02.8s/7m00.0s
+websocket_service_test   [   1% ] 004/100 VUs  0m02.8s/7m00.0s
+
+running (0m04.0s), 018/300 VUs, 14 complete and 0 interrupted iterations
+auth_service_test        [   1% ] 006/100 VUs  0m03.8s/7m00.0s
+doc_service_test         [   1% ] 006/100 VUs  0m03.8s/7m00.0s
+websocket_service_test   [   1% ] 006/100 VUs  0m03.8s/7m00.0s
+
+running (0m05.0s), 021/300 VUs, 26 complete and 0 interrupted iterations
+auth_service_test        [   1% ] 007/100 VUs  0m04.8s/7m00.0s
+doc_service_test         [   1% ] 007/100 VUs  0m04.8s/7m00.0s
+websocket_service_test   [   1% ] 007/100 VUs  0m04.8s/7m00.0s
+
+running (0m06.0s), 027/300 VUs, 40 complete and 0 interrupted iterations
+auth_service_test        [   1% ] 009/100 VUs  0m05.8s/7m00.0s
+doc_service_test         [   1% ] 009/100 VUs  0m05.8s/7m00.0s
+websocket_service_test   [   1% ] 009/100 VUs  0m05.8s/7m00.0s
+
+running (0m07.0s), 033/300 VUs, 58 complete and 0 interrupted iterations
+auth_service_test        [   2% ] 011/100 VUs  0m06.8s/7m00.0s
+doc_service_test         [   2% ] 011/100 VUs  0m06.8s/7m00.0s
+websocket_service_test   [   2% ] 011/100 VUs  0m06.8s/7m00.0s
+
+running (0m08.0s), 036/300 VUs, 80 complete and 0 interrupted iterations
+auth_service_test        [   2% ] 012/100 VUs  0m07.8s/7m00.0s
+doc_service_test         [   2% ] 012/100 VUs  0m07.8s/7m00.0s
+websocket_service_test   [   2% ] 012/100 VUs  0m07.8s/7m00.0s
+
+running (0m09.0s), 042/300 VUs, 104 complete and 0 interrupted iterations
+auth_service_test        [   2% ] 014/100 VUs  0m08.8s/7m00.0s
+doc_service_test         [   2% ] 014/100 VUs  0m08.8s/7m00.0s
+websocket_service_test   [   2% ] 014/100 VUs  0m08.8s/7m00.0s
+
+running (0m10.0s), 048/300 VUs, 132 complete and 0 interrupted iterations
+auth_service_test        [   2% ] 016/100 VUs  0m09.8s/7m00.0s
+doc_service_test         [   2% ] 016/100 VUs  0m09.8s/7m00.0s
+websocket_service_test   [   2% ] 016/100 VUs  0m09.8s/7m00.0s
+
+running (0m11.0s), 051/300 VUs, 164 complete and 0 interrupted iterations
+auth_service_test        [   3% ] 017/100 VUs  0m10.8s/7m00.0s
+doc_service_test         [   3% ] 017/100 VUs  0m10.8s/7m00.0s
+websocket_service_test   [   3% ] 017/100 VUs  0m10.8s/7m00.0s
+
+running (0m12.0s), 057/300 VUs, 198 complete and 0 interrupted iterations
+auth_service_test        [   3% ] 019/100 VUs  0m11.8s/7m00.0s
+doc_service_test         [   3% ] 019/100 VUs  0m11.8s/7m00.0s
+websocket_service_test   [   3% ] 019/100 VUs  0m11.8s/7m00.0s
+
+running (0m13.0s), 063/300 VUs, 236 complete and 0 interrupted iterations
+auth_service_test        [   3% ] 021/100 VUs  0m12.8s/7m00.0s
+doc_service_test         [   3% ] 021/100 VUs  0m12.8s/7m00.0s
+websocket_service_test   [   3% ] 021/100 VUs  0m12.8s/7m00.0s
+
+running (0m14.0s), 066/300 VUs, 278 complete and 0 interrupted iterations
+auth_service_test        [   3% ] 022/100 VUs  0m13.8s/7m00.0s
+doc_service_test         [   3% ] 022/100 VUs  0m13.8s/7m00.0s
+websocket_service_test   [   3% ] 022/100 VUs  0m13.8s/7m00.0s
+
+running (0m15.0s), 072/300 VUs, 322 complete and 0 interrupted iterations
+auth_service_test        [   4% ] 024/100 VUs  0m14.8s/7m00.0s
+doc_service_test         [   4% ] 024/100 VUs  0m14.8s/7m00.0s
+websocket_service_test   [   4% ] 024/100 VUs  0m14.8s/7m00.0s
+
+running (0m16.0s), 078/300 VUs, 370 complete and 0 interrupted iterations
+auth_service_test        [   4% ] 026/100 VUs  0m15.8s/7m00.0s
+doc_service_test         [   4% ] 026/100 VUs  0m15.8s/7m00.0s
+websocket_service_test   [   4% ] 026/100 VUs  0m15.8s/7m00.0s
+
+running (0m17.2s), 081/300 VUs, 422 complete and 0 interrupted iterations
+auth_service_test        [   4% ] 027/100 VUs  0m16.8s/7m00.0s
+doc_service_test         [   4% ] 027/100 VUs  0m16.8s/7m00.0s
+websocket_service_test   [   4% ] 027/100 VUs  0m16.8s/7m00.0s
+
+running (0m18.2s), 087/300 VUs, 476 complete and 0 interrupted iterations
+auth_service_test        [   4% ] 029/100 VUs  0m17.8s/7m00.0s
+doc_service_test         [   4% ] 029/100 VUs  0m17.8s/7m00.0s
+websocket_service_test   [   4% ] 029/100 VUs  0m17.8s/7m00.0s
+
+running (0m19.2s), 093/300 VUs, 534 complete and 0 interrupted iterations
+auth_service_test        [   4% ] 031/100 VUs  0m18.8s/7m00.0s
+doc_service_test         [   4% ] 031/100 VUs  0m18.8s/7m00.0s
+websocket_service_test   [   4% ] 031/100 VUs  0m18.8s/7m00.0s
+
+running (0m20.2s), 096/300 VUs, 596 complete and 0 interrupted iterations
+auth_service_test        [   5% ] 032/100 VUs  0m19.8s/7m00.0s
+doc_service_test         [   5% ] 032/100 VUs  0m19.8s/7m00.0s
+websocket_service_test   [   5% ] 032/100 VUs  0m19.8s/7m00.0s
+
+running (0m21.2s), 102/300 VUs, 660 complete and 0 interrupted iterations
+auth_service_test        [   5% ] 034/100 VUs  0m20.8s/7m00.0s
+doc_service_test         [   5% ] 034/100 VUs  0m20.8s/7m00.0s
+websocket_service_test   [   5% ] 034/100 VUs  0m20.8s/7m00.0s
+
+running (0m22.2s), 108/300 VUs, 728 complete and 0 interrupted iterations
+auth_service_test        [   5% ] 036/100 VUs  0m21.8s/7m00.0s
+doc_service_test         [   5% ] 036/100 VUs  0m21.8s/7m00.0s
+websocket_service_test   [   5% ] 036/100 VUs  0m21.8s/7m00.0s
+
+running (0m23.2s), 111/300 VUs, 800 complete and 0 interrupted iterations
+auth_service_test        [   5% ] 037/100 VUs  0m22.8s/7m00.0s
+doc_service_test         [   5% ] 037/100 VUs  0m22.8s/7m00.0s
+websocket_service_test   [   5% ] 037/100 VUs  0m22.8s/7m00.0s
+
+running (0m24.2s), 117/300 VUs, 874 complete and 0 interrupted iterations
+auth_service_test        [   6% ] 039/100 VUs  0m23.8s/7m00.0s
+doc_service_test         [   6% ] 039/100 VUs  0m23.8s/7m00.0s
+websocket_service_test   [   6% ] 039/100 VUs  0m23.8s/7m00.0s
+
+running (0m25.2s), 123/300 VUs, 952 complete and 0 interrupted iterations
+auth_service_test        [   6% ] 041/100 VUs  0m24.8s/7m00.0s
+doc_service_test         [   6% ] 041/100 VUs  0m24.8s/7m00.0s
+websocket_service_test   [   6% ] 041/100 VUs  0m24.8s/7m00.0s
+
+running (0m26.2s), 126/300 VUs, 1034 complete and 0 interrupted iterations
+auth_service_test        [   6% ] 042/100 VUs  0m25.8s/7m00.0s
+doc_service_test         [   6% ] 042/100 VUs  0m25.8s/7m00.0s
+websocket_service_test   [   6% ] 042/100 VUs  0m25.8s/7m00.0s
+
+running (0m27.2s), 132/300 VUs, 1118 complete and 0 interrupted iterations
+auth_service_test        [   6% ] 044/100 VUs  0m26.8s/7m00.0s
+doc_service_test         [   6% ] 044/100 VUs  0m26.8s/7m00.0s
+websocket_service_test   [   6% ] 044/100 VUs  0m26.8s/7m00.0s
+
+running (0m28.2s), 138/300 VUs, 1206 complete and 0 interrupted iterations
+auth_service_test        [   7% ] 046/100 VUs  0m27.8s/7m00.0s
+doc_service_test         [   7% ] 046/100 VUs  0m27.8s/7m00.0s
+websocket_service_test   [   7% ] 046/100 VUs  0m27.8s/7m00.0s
+
+running (0m29.2s), 141/300 VUs, 1298 complete and 0 interrupted iterations
+auth_service_test        [   7% ] 047/100 VUs  0m28.8s/7m00.0s
+doc_service_test         [   7% ] 047/100 VUs  0m28.8s/7m00.0s
+websocket_service_test   [   7% ] 047/100 VUs  0m28.8s/7m00.0s
+
+running (0m30.2s), 147/300 VUs, 1391 complete and 0 interrupted iterations
+auth_service_test        [   7% ] 049/100 VUs  0m29.8s/7m00.0s
+doc_service_test         [   7% ] 049/100 VUs  0m29.8s/7m00.0s
+websocket_service_test   [   7% ] 049/100 VUs  0m29.8s/7m00.0s
+
+running (0m31.2s), 153/300 VUs, 1489 complete and 0 interrupted iterations
+auth_service_test        [   7% ] 051/100 VUs  0m30.8s/7m00.0s
+doc_service_test         [   7% ] 051/100 VUs  0m30.8s/7m00.0s
+websocket_service_test   [   7% ] 051/100 VUs  0m30.8s/7m00.0s
+
+running (0m32.2s), 156/300 VUs, 1592 complete and 0 interrupted iterations
+auth_service_test        [   8% ] 052/100 VUs  0m31.8s/7m00.0s
+doc_service_test         [   8% ] 052/100 VUs  0m31.8s/7m00.0s
+websocket_service_test   [   8% ] 052/100 VUs  0m31.8s/7m00.0s
+
+running (0m33.2s), 162/300 VUs, 1697 complete and 0 interrupted iterations
+auth_service_test        [   8% ] 054/100 VUs  0m32.8s/7m00.0s
+doc_service_test         [   8% ] 054/100 VUs  0m32.8s/7m00.0s
+websocket_service_test   [   8% ] 054/100 VUs  0m32.8s/7m00.0s
+
+running (0m34.2s), 168/300 VUs, 1806 complete and 0 interrupted iterations
+auth_service_test        [   8% ] 056/100 VUs  0m33.8s/7m00.0s
+doc_service_test         [   8% ] 056/100 VUs  0m33.8s/7m00.0s
+websocket_service_test   [   8% ] 056/100 VUs  0m33.8s/7m00.0s
+
+running (0m35.2s), 171/300 VUs, 1920 complete and 0 interrupted iterations
+auth_service_test        [   8% ] 057/100 VUs  0m34.8s/7m00.0s
+doc_service_test         [   8% ] 057/100 VUs  0m34.8s/7m00.0s
+websocket_service_test   [   8% ] 057/100 VUs  0m34.8s/7m00.0s
+
+running (0m36.2s), 177/300 VUs, 2034 complete and 0 interrupted iterations
+auth_service_test        [   9% ] 059/100 VUs  0m35.8s/7m00.0s
+doc_service_test         [   9% ] 059/100 VUs  0m35.8s/7m00.0s
+websocket_service_test   [   9% ] 059/100 VUs  0m35.8s/7m00.0s
+
+running (0m37.2s), 183/300 VUs, 2154 complete and 0 interrupted iterations
+auth_service_test        [   9% ] 061/100 VUs  0m36.8s/7m00.0s
+doc_service_test         [   9% ] 061/100 VUs  0m36.8s/7m00.0s
+websocket_service_test   [   9% ] 061/100 VUs  0m36.8s/7m00.0s
+
+running (0m38.2s), 186/300 VUs, 2278 complete and 0 interrupted iterations
+auth_service_test        [   9% ] 062/100 VUs  0m37.8s/7m00.0s
+doc_service_test         [   9% ] 062/100 VUs  0m37.8s/7m00.0s
+websocket_service_test   [   9% ] 062/100 VUs  0m37.8s/7m00.0s
+
+running (0m39.2s), 192/300 VUs, 2403 complete and 0 interrupted iterations
+auth_service_test        [   9% ] 064/100 VUs  0m38.8s/7m00.0s
+doc_service_test         [   9% ] 064/100 VUs  0m38.8s/7m00.0s
+websocket_service_test   [   9% ] 064/100 VUs  0m38.8s/7m00.0s
+
+running (0m40.2s), 198/300 VUs, 2530 complete and 0 interrupted iterations
+auth_service_test        [   9% ] 066/100 VUs  0m39.8s/7m00.0s
+doc_service_test         [   9% ] 066/100 VUs  0m39.8s/7m00.0s
+websocket_service_test   [   9% ] 066/100 VUs  0m39.8s/7m00.0s
+
+running (0m41.2s), 201/300 VUs, 2664 complete and 0 interrupted iterations
+auth_service_test        [  10% ] 067/100 VUs  0m40.8s/7m00.0s
+doc_service_test         [  10% ] 067/100 VUs  0m40.8s/7m00.0s
+websocket_service_test   [  10% ] 067/100 VUs  0m40.8s/7m00.0s
+
+running (0m42.2s), 207/300 VUs, 2797 complete and 0 interrupted iterations
+auth_service_test        [  10% ] 069/100 VUs  0m41.8s/7m00.0s
+doc_service_test         [  10% ] 069/100 VUs  0m41.8s/7m00.0s
+websocket_service_test   [  10% ] 069/100 VUs  0m41.8s/7m00.0s
+
+running (0m43.2s), 213/300 VUs, 2937 complete and 0 interrupted iterations
+auth_service_test        [  10% ] 071/100 VUs  0m42.8s/7m00.0s
+doc_service_test         [  10% ] 071/100 VUs  0m42.8s/7m00.0s
+websocket_service_test   [  10% ] 071/100 VUs  0m42.8s/7m00.0s
+
+running (0m44.2s), 216/300 VUs, 3081 complete and 0 interrupted iterations
+auth_service_test        [  10% ] 072/100 VUs  0m43.8s/7m00.0s
+doc_service_test         [  10% ] 072/100 VUs  0m43.8s/7m00.0s
+websocket_service_test   [  10% ] 072/100 VUs  0m43.8s/7m00.0s
+
+running (0m45.2s), 222/300 VUs, 3226 complete and 0 interrupted iterations
+auth_service_test        [  11% ] 074/100 VUs  0m44.8s/7m00.0s
+doc_service_test         [  11% ] 074/100 VUs  0m44.8s/7m00.0s
+websocket_service_test   [  11% ] 074/100 VUs  0m44.8s/7m00.0s
+
+running (0m46.2s), 228/300 VUs, 3375 complete and 0 interrupted iterations
+auth_service_test        [  11% ] 076/100 VUs  0m45.8s/7m00.0s
+doc_service_test         [  11% ] 076/100 VUs  0m45.8s/7m00.0s
+websocket_service_test   [  11% ] 076/100 VUs  0m45.8s/7m00.0s
+
+running (0m47.5s), 231/300 VUs, 3529 complete and 0 interrupted iterations
+auth_service_test        [  11% ] 077/100 VUs  0m46.8s/7m00.0s
+doc_service_test         [  11% ] 077/100 VUs  0m46.8s/7m00.0s
+websocket_service_test   [  11% ] 077/100 VUs  0m46.8s/7m00.0s
+
+running (0m48.5s), 237/300 VUs, 3682 complete and 0 interrupted iterations
+auth_service_test        [  11% ] 079/100 VUs  0m47.8s/7m00.0s
+doc_service_test         [  11% ] 079/100 VUs  0m47.8s/7m00.0s
+websocket_service_test   [  11% ] 079/100 VUs  0m47.8s/7m00.0s
+
+running (0m49.5s), 243/300 VUs, 3842 complete and 0 interrupted iterations
+auth_service_test        [  12% ] 081/100 VUs  0m48.8s/7m00.0s
+doc_service_test         [  12% ] 081/100 VUs  0m48.8s/7m00.0s
+websocket_service_test   [  12% ] 081/100 VUs  0m48.8s/7m00.0s
+
+running (0m50.5s), 246/300 VUs, 4006 complete and 0 interrupted iterations
+auth_service_test        [  12% ] 082/100 VUs  0m49.8s/7m00.0s
+doc_service_test         [  12% ] 082/100 VUs  0m49.8s/7m00.0s
+websocket_service_test   [  12% ] 082/100 VUs  0m49.8s/7m00.0s
+
+running (0m51.5s), 252/300 VUs, 4170 complete and 0 interrupted iterations
+auth_service_test        [  12% ] 084/100 VUs  0m50.8s/7m00.0s
+doc_service_test         [  12% ] 084/100 VUs  0m50.8s/7m00.0s
+websocket_service_test   [  12% ] 084/100 VUs  0m50.8s/7m00.0s
+
+running (0m52.5s), 258/300 VUs, 4339 complete and 0 interrupted iterations
+auth_service_test        [  12% ] 086/100 VUs  0m51.8s/7m00.0s
+doc_service_test         [  12% ] 086/100 VUs  0m51.8s/7m00.0s
+websocket_service_test   [  12% ] 086/100 VUs  0m51.8s/7m00.0s
+
+running (0m53.5s), 261/300 VUs, 4512 complete and 0 interrupted iterations
+auth_service_test        [  13% ] 087/100 VUs  0m52.8s/7m00.0s
+doc_service_test         [  13% ] 087/100 VUs  0m52.8s/7m00.0s
+websocket_service_test   [  13% ] 087/100 VUs  0m52.8s/7m00.0s
+
+running (0m54.5s), 267/300 VUs, 4687 complete and 0 interrupted iterations
+auth_service_test        [  13% ] 089/100 VUs  0m53.8s/7m00.0s
+doc_service_test         [  13% ] 089/100 VUs  0m53.8s/7m00.0s
+websocket_service_test   [  13% ] 089/100 VUs  0m53.8s/7m00.0s
+
+running (0m55.5s), 273/300 VUs, 4867 complete and 0 interrupted iterations
+auth_service_test        [  13% ] 091/100 VUs  0m54.8s/7m00.0s
+doc_service_test         [  13% ] 091/100 VUs  0m54.8s/7m00.0s
+websocket_service_test   [  13% ] 091/100 VUs  0m54.8s/7m00.0s
+
+running (0m56.5s), 276/300 VUs, 5050 complete and 0 interrupted iterations
+auth_service_test        [  13% ] 092/100 VUs  0m55.8s/7m00.0s
+doc_service_test         [  13% ] 092/100 VUs  0m55.8s/7m00.0s
+websocket_service_test   [  13% ] 092/100 VUs  0m55.8s/7m00.0s
+
+running (0m57.5s), 282/300 VUs, 5233 complete and 0 interrupted iterations
+auth_service_test        [  14% ] 094/100 VUs  0m56.8s/7m00.0s
+doc_service_test         [  14% ] 094/100 VUs  0m56.8s/7m00.0s
+websocket_service_test   [  14% ] 094/100 VUs  0m56.8s/7m00.0s
+
+running (0m58.5s), 288/300 VUs, 5422 complete and 0 interrupted iterations
+auth_service_test        [  14% ] 096/100 VUs  0m57.8s/7m00.0s
+doc_service_test         [  14% ] 096/100 VUs  0m57.8s/7m00.0s
+websocket_service_test   [  14% ] 096/100 VUs  0m57.8s/7m00.0s
+
+running (0m59.5s), 291/300 VUs, 5616 complete and 0 interrupted iterations
+auth_service_test        [  14% ] 097/100 VUs  0m58.8s/7m00.0s
+doc_service_test         [  14% ] 097/100 VUs  0m58.8s/7m00.0s
+websocket_service_test   [  14% ] 097/100 VUs  0m58.8s/7m00.0s
+
+running (1m00.5s), 297/300 VUs, 5809 complete and 0 interrupted iterations
+auth_service_test        [  14% ] 099/100 VUs  0m59.8s/7m00.0s
+doc_service_test         [  14% ] 099/100 VUs  0m59.8s/7m00.0s
+websocket_service_test   [  14% ] 099/100 VUs  0m59.8s/7m00.0s
+
+running (1m01.5s), 300/300 VUs, 6009 complete and 0 interrupted iterations
+auth_service_test        [  14% ] 100/100 VUs  1m00.8s/7m00.0s
+doc_service_test         [  14% ] 100/100 VUs  1m00.8s/7m00.0s
+websocket_service_test   [  14% ] 100/100 VUs  1m00.8s/7m00.0s
+
+running (1m02.5s), 300/300 VUs, 6211 complete and 0 interrupted iterations
+auth_service_test        [  15% ] 100/100 VUs  1m01.8s/7m00.0s
+doc_service_test         [  15% ] 100/100 VUs  1m01.8s/7m00.0s
+websocket_service_test   [  15% ] 100/100 VUs  1m01.8s/7m00.0s
+
+running (1m03.5s), 300/300 VUs, 6412 complete and 0 interrupted iterations
+auth_service_test        [  15% ] 100/100 VUs  1m02.8s/7m00.0s
+doc_service_test         [  15% ] 100/100 VUs  1m02.8s/7m00.0s
+websocket_service_test   [  15% ] 100/100 VUs  1m02.8s/7m00.0s
+
+running (1m04.5s), 300/300 VUs, 6615 complete and 0 interrupted iterations
+auth_service_test        [  15% ] 100/100 VUs  1m03.8s/7m00.0s
+doc_service_test         [  15% ] 100/100 VUs  1m03.8s/7m00.0s
+websocket_service_test   [  15% ] 100/100 VUs  1m03.8s/7m00.0s
+
+running (1m05.5s), 300/300 VUs, 6818 complete and 0 interrupted iterations
+auth_service_test        [  15% ] 100/100 VUs  1m04.8s/7m00.0s
+doc_service_test         [  15% ] 100/100 VUs  1m04.8s/7m00.0s
+websocket_service_test   [  15% ] 100/100 VUs  1m04.8s/7m00.0s
+
+running (1m06.5s), 300/300 VUs, 7020 complete and 0 interrupted iterations
+auth_service_test        [  16% ] 100/100 VUs  1m05.8s/7m00.0s
+doc_service_test         [  16% ] 100/100 VUs  1m05.8s/7m00.0s
+websocket_service_test   [  16% ] 100/100 VUs  1m05.8s/7m00.0s
+
+running (1m07.5s), 300/300 VUs, 7221 complete and 0 interrupted iterations
+auth_service_test        [  16% ] 100/100 VUs  1m06.8s/7m00.0s
+doc_service_test         [  16% ] 100/100 VUs  1m06.8s/7m00.0s
+websocket_service_test   [  16% ] 100/100 VUs  1m06.8s/7m00.0s
+
+running (1m08.5s), 300/300 VUs, 7424 complete and 0 interrupted iterations
+auth_service_test        [  16% ] 100/100 VUs  1m07.8s/7m00.0s
+doc_service_test         [  16% ] 100/100 VUs  1m07.8s/7m00.0s
+websocket_service_test   [  16% ] 100/100 VUs  1m07.8s/7m00.0s
+
+running (1m09.5s), 300/300 VUs, 7626 complete and 0 interrupted iterations
+auth_service_test        [  16% ] 100/100 VUs  1m08.8s/7m00.0s
+doc_service_test         [  16% ] 100/100 VUs  1m08.8s/7m00.0s
+websocket_service_test   [  16% ] 100/100 VUs  1m08.8s/7m00.0s
+
+running (1m10.5s), 300/300 VUs, 7829 complete and 0 interrupted iterations
+auth_service_test        [  17% ] 100/100 VUs  1m09.8s/7m00.0s
+doc_service_test         [  17% ] 100/100 VUs  1m09.8s/7m00.0s
+websocket_service_test   [  17% ] 100/100 VUs  1m09.8s/7m00.0s
+
+running (1m11.5s), 300/300 VUs, 8033 complete and 0 interrupted iterations
+auth_service_test        [  17% ] 100/100 VUs  1m10.8s/7m00.0s
+doc_service_test         [  17% ] 100/100 VUs  1m10.8s/7m00.0s
+websocket_service_test   [  17% ] 100/100 VUs  1m10.8s/7m00.0s
+
+running (1m12.5s), 300/300 VUs, 8233 complete and 0 interrupted iterations
+auth_service_test        [  17% ] 100/100 VUs  1m11.8s/7m00.0s
+doc_service_test         [  17% ] 100/100 VUs  1m11.8s/7m00.0s
+websocket_service_test   [  17% ] 100/100 VUs  1m11.8s/7m00.0s
+
+running (1m13.5s), 300/300 VUs, 8436 complete and 0 interrupted iterations
+auth_service_test        [  17% ] 100/100 VUs  1m12.8s/7m00.0s
+doc_service_test         [  17% ] 100/100 VUs  1m12.8s/7m00.0s
+websocket_service_test   [  17% ] 100/100 VUs  1m12.8s/7m00.0s
+
+running (1m14.5s), 300/300 VUs, 8639 complete and 0 interrupted iterations
+auth_service_test        [  18% ] 100/100 VUs  1m13.8s/7m00.0s
+doc_service_test         [  18% ] 100/100 VUs  1m13.8s/7m00.0s
+websocket_service_test   [  18% ] 100/100 VUs  1m13.8s/7m00.0s
+
+running (1m15.5s), 300/300 VUs, 8840 complete and 0 interrupted iterations
+auth_service_test        [  18% ] 100/100 VUs  1m14.8s/7m00.0s
+doc_service_test         [  18% ] 100/100 VUs  1m14.8s/7m00.0s
+websocket_service_test   [  18% ] 100/100 VUs  1m14.8s/7m00.0s
+
+running (1m16.5s), 300/300 VUs, 9042 complete and 0 interrupted iterations
+auth_service_test        [  18% ] 100/100 VUs  1m15.8s/7m00.0s
+doc_service_test         [  18% ] 100/100 VUs  1m15.8s/7m00.0s
+websocket_service_test   [  18% ] 100/100 VUs  1m15.8s/7m00.0s
+
+running (1m18.2s), 300/300 VUs, 9245 complete and 0 interrupted iterations
+auth_service_test        [  18% ] 100/100 VUs  1m16.8s/7m00.0s
+doc_service_test         [  18% ] 100/100 VUs  1m16.8s/7m00.0s
+websocket_service_test   [  18% ] 100/100 VUs  1m16.8s/7m00.0s
+
+running (1m19.2s), 300/300 VUs, 9447 complete and 0 interrupted iterations
+auth_service_test        [  19% ] 100/100 VUs  1m17.8s/7m00.0s
+doc_service_test         [  19% ] 100/100 VUs  1m17.8s/7m00.0s
+websocket_service_test   [  19% ] 100/100 VUs  1m17.8s/7m00.0s
+
+running (1m20.2s), 300/300 VUs, 9649 complete and 0 interrupted iterations
+auth_service_test        [  19% ] 100/100 VUs  1m18.8s/7m00.0s
+doc_service_test         [  19% ] 100/100 VUs  1m18.8s/7m00.0s
+websocket_service_test   [  19% ] 100/100 VUs  1m18.8s/7m00.0s
+
+running (1m21.2s), 300/300 VUs, 9853 complete and 0 interrupted iterations
+auth_service_test        [  19% ] 100/100 VUs  1m19.8s/7m00.0s
+doc_service_test         [  19% ] 100/100 VUs  1m19.8s/7m00.0s
+websocket_service_test   [  19% ] 100/100 VUs  1m19.8s/7m00.0s
+
+running (1m22.2s), 300/300 VUs, 10055 complete and 0 interrupted iterations
+auth_service_test        [  19% ] 100/100 VUs  1m20.8s/7m00.0s
+doc_service_test         [  19% ] 100/100 VUs  1m20.8s/7m00.0s
+websocket_service_test   [  19% ] 100/100 VUs  1m20.8s/7m00.0s
+
+running (1m23.2s), 300/300 VUs, 10257 complete and 0 interrupted iterations
+auth_service_test        [  19% ] 100/100 VUs  1m21.8s/7m00.0s
+doc_service_test         [  19% ] 100/100 VUs  1m21.8s/7m00.0s
+websocket_service_test   [  19% ] 100/100 VUs  1m21.8s/7m00.0s
+
+running (1m24.2s), 300/300 VUs, 10461 complete and 0 interrupted iterations
+auth_service_test        [  20% ] 100/100 VUs  1m22.8s/7m00.0s
+doc_service_test         [  20% ] 100/100 VUs  1m22.8s/7m00.0s
+websocket_service_test   [  20% ] 100/100 VUs  1m22.8s/7m00.0s
+
+running (1m25.2s), 300/300 VUs, 10663 complete and 0 interrupted iterations
+auth_service_test        [  20% ] 100/100 VUs  1m23.8s/7m00.0s
+doc_service_test         [  20% ] 100/100 VUs  1m23.8s/7m00.0s
+websocket_service_test   [  20% ] 100/100 VUs  1m23.8s/7m00.0s
+
+running (1m26.2s), 300/300 VUs, 10862 complete and 0 interrupted iterations
+auth_service_test        [  20% ] 100/100 VUs  1m24.8s/7m00.0s
+doc_service_test         [  20% ] 100/100 VUs  1m24.8s/7m00.0s
+websocket_service_test   [  20% ] 100/100 VUs  1m24.8s/7m00.0s
+
+running (1m27.2s), 300/300 VUs, 11065 complete and 0 interrupted iterations
+auth_service_test        [  20% ] 100/100 VUs  1m25.8s/7m00.0s
+doc_service_test         [  20% ] 100/100 VUs  1m25.8s/7m00.0s
+websocket_service_test   [  20% ] 100/100 VUs  1m25.8s/7m00.0s
+
+running (1m28.2s), 300/300 VUs, 11266 complete and 0 interrupted iterations
+auth_service_test        [  21% ] 100/100 VUs  1m26.8s/7m00.0s
+doc_service_test         [  21% ] 100/100 VUs  1m26.8s/7m00.0s
+websocket_service_test   [  21% ] 100/100 VUs  1m26.8s/7m00.0s
+
+running (1m29.2s), 300/300 VUs, 11466 complete and 0 interrupted iterations
+auth_service_test        [  21% ] 100/100 VUs  1m27.8s/7m00.0s
+doc_service_test         [  21% ] 100/100 VUs  1m27.8s/7m00.0s
+websocket_service_test   [  21% ] 100/100 VUs  1m27.8s/7m00.0s
+
+running (1m30.2s), 300/300 VUs, 11670 complete and 0 interrupted iterations
+auth_service_test        [  21% ] 100/100 VUs  1m28.8s/7m00.0s
+doc_service_test         [  21% ] 100/100 VUs  1m28.8s/7m00.0s
+websocket_service_test   [  21% ] 100/100 VUs  1m28.8s/7m00.0s
+
+running (1m31.2s), 300/300 VUs, 11872 complete and 0 interrupted iterations
+auth_service_test        [  21% ] 100/100 VUs  1m29.8s/7m00.0s
+doc_service_test         [  21% ] 100/100 VUs  1m29.8s/7m00.0s
+websocket_service_test   [  21% ] 100/100 VUs  1m29.8s/7m00.0s
+
+running (1m32.2s), 300/300 VUs, 12072 complete and 0 interrupted iterations
+auth_service_test        [  22% ] 100/100 VUs  1m30.8s/7m00.0s
+doc_service_test         [  22% ] 100/100 VUs  1m30.8s/7m00.0s
+websocket_service_test   [  22% ] 100/100 VUs  1m30.8s/7m00.0s
+
+running (1m33.2s), 300/300 VUs, 12275 complete and 0 interrupted iterations
+auth_service_test        [  22% ] 100/100 VUs  1m31.8s/7m00.0s
+doc_service_test         [  22% ] 100/100 VUs  1m31.8s/7m00.0s
+websocket_service_test   [  22% ] 100/100 VUs  1m31.8s/7m00.0s
+
+running (1m34.2s), 300/300 VUs, 12475 complete and 0 interrupted iterations
+auth_service_test        [  22% ] 100/100 VUs  1m32.8s/7m00.0s
+doc_service_test         [  22% ] 100/100 VUs  1m32.8s/7m00.0s
+websocket_service_test   [  22% ] 100/100 VUs  1m32.8s/7m00.0s
+
+running (1m35.2s), 300/300 VUs, 12671 complete and 0 interrupted iterations
+auth_service_test        [  22% ] 100/100 VUs  1m33.8s/7m00.0s
+doc_service_test         [  22% ] 100/100 VUs  1m33.8s/7m00.0s
+websocket_service_test   [  22% ] 100/100 VUs  1m33.8s/7m00.0s
+
+running (1m36.2s), 300/300 VUs, 12872 complete and 0 interrupted iterations
+auth_service_test        [  23% ] 100/100 VUs  1m34.8s/7m00.0s
+doc_service_test         [  23% ] 100/100 VUs  1m34.8s/7m00.0s
+websocket_service_test   [  23% ] 100/100 VUs  1m34.8s/7m00.0s
+
+running (1m37.2s), 300/300 VUs, 13076 complete and 0 interrupted iterations
+auth_service_test        [  23% ] 100/100 VUs  1m35.8s/7m00.0s
+doc_service_test         [  23% ] 100/100 VUs  1m35.8s/7m00.0s
+websocket_service_test   [  23% ] 100/100 VUs  1m35.8s/7m00.0s
+
+running (1m38.2s), 300/300 VUs, 13278 complete and 0 interrupted iterations
+auth_service_test        [  23% ] 100/100 VUs  1m36.8s/7m00.0s
+doc_service_test         [  23% ] 100/100 VUs  1m36.8s/7m00.0s
+websocket_service_test   [  23% ] 100/100 VUs  1m36.8s/7m00.0s
+
+running (1m39.2s), 300/300 VUs, 13481 complete and 0 interrupted iterations
+auth_service_test        [  23% ] 100/100 VUs  1m37.8s/7m00.0s
+doc_service_test         [  23% ] 100/100 VUs  1m37.8s/7m00.0s
+websocket_service_test   [  23% ] 100/100 VUs  1m37.8s/7m00.0s
+
+running (1m40.2s), 300/300 VUs, 13684 complete and 0 interrupted iterations
+auth_service_test        [  24% ] 100/100 VUs  1m38.8s/7m00.0s
+doc_service_test         [  24% ] 100/100 VUs  1m38.8s/7m00.0s
+websocket_service_test   [  24% ] 100/100 VUs  1m38.8s/7m00.0s
+
+running (1m41.2s), 300/300 VUs, 13884 complete and 0 interrupted iterations
+auth_service_test        [  24% ] 100/100 VUs  1m39.8s/7m00.0s
+doc_service_test         [  24% ] 100/100 VUs  1m39.8s/7m00.0s
+websocket_service_test   [  24% ] 100/100 VUs  1m39.8s/7m00.0s
+
+running (1m42.2s), 300/300 VUs, 14082 complete and 0 interrupted iterations
+auth_service_test        [  24% ] 100/100 VUs  1m40.8s/7m00.0s
+doc_service_test         [  24% ] 100/100 VUs  1m40.8s/7m00.0s
+websocket_service_test   [  24% ] 100/100 VUs  1m40.8s/7m00.0s
+
+running (1m43.2s), 300/300 VUs, 14284 complete and 0 interrupted iterations
+auth_service_test        [  24% ] 100/100 VUs  1m41.8s/7m00.0s
+doc_service_test         [  24% ] 100/100 VUs  1m41.8s/7m00.0s
+websocket_service_test   [  24% ] 100/100 VUs  1m41.8s/7m00.0s
+
+running (1m44.2s), 300/300 VUs, 14482 complete and 0 interrupted iterations
+auth_service_test        [  24% ] 100/100 VUs  1m42.8s/7m00.0s
+doc_service_test         [  24% ] 100/100 VUs  1m42.8s/7m00.0s
+websocket_service_test   [  24% ] 100/100 VUs  1m42.8s/7m00.0s
+
+running (1m45.2s), 300/300 VUs, 14684 complete and 0 interrupted iterations
+auth_service_test        [  25% ] 100/100 VUs  1m43.8s/7m00.0s
+doc_service_test         [  25% ] 100/100 VUs  1m43.8s/7m00.0s
+websocket_service_test   [  25% ] 100/100 VUs  1m43.8s/7m00.0s
+
+running (1m46.2s), 300/300 VUs, 14886 complete and 0 interrupted iterations
+auth_service_test        [  25% ] 100/100 VUs  1m44.8s/7m00.0s
+doc_service_test         [  25% ] 100/100 VUs  1m44.8s/7m00.0s
+websocket_service_test   [  25% ] 100/100 VUs  1m44.8s/7m00.0s
+
+running (1m47.2s), 300/300 VUs, 15088 complete and 0 interrupted iterations
+auth_service_test        [  25% ] 100/100 VUs  1m45.8s/7m00.0s
+doc_service_test         [  25% ] 100/100 VUs  1m45.8s/7m00.0s
+websocket_service_test   [  25% ] 100/100 VUs  1m45.8s/7m00.0s
+
+running (1m48.9s), 300/300 VUs, 15288 complete and 0 interrupted iterations
+auth_service_test        [  25% ] 100/100 VUs  1m46.8s/7m00.0s
+doc_service_test         [  25% ] 100/100 VUs  1m46.8s/7m00.0s
+websocket_service_test   [  25% ] 100/100 VUs  1m46.8s/7m00.0s
+
+running (1m49.9s), 300/300 VUs, 15492 complete and 0 interrupted iterations
+auth_service_test        [  26% ] 100/100 VUs  1m47.8s/7m00.0s
+doc_service_test         [  26% ] 100/100 VUs  1m47.8s/7m00.0s
+websocket_service_test   [  26% ] 100/100 VUs  1m47.8s/7m00.0s
+
+running (1m50.9s), 300/300 VUs, 15693 complete and 0 interrupted iterations
+auth_service_test        [  26% ] 100/100 VUs  1m48.8s/7m00.0s
+doc_service_test         [  26% ] 100/100 VUs  1m48.8s/7m00.0s
+websocket_service_test   [  26% ] 100/100 VUs  1m48.8s/7m00.0s
+
+running (1m51.9s), 300/300 VUs, 15896 complete and 0 interrupted iterations
+auth_service_test        [  26% ] 100/100 VUs  1m49.8s/7m00.0s
+doc_service_test         [  26% ] 100/100 VUs  1m49.8s/7m00.0s
+websocket_service_test   [  26% ] 100/100 VUs  1m49.8s/7m00.0s
+
+running (1m52.9s), 300/300 VUs, 16099 complete and 0 interrupted iterations
+auth_service_test        [  26% ] 100/100 VUs  1m50.8s/7m00.0s
+doc_service_test         [  26% ] 100/100 VUs  1m50.8s/7m00.0s
+websocket_service_test   [  26% ] 100/100 VUs  1m50.8s/7m00.0s
+
+running (1m53.9s), 300/300 VUs, 16301 complete and 0 interrupted iterations
+auth_service_test        [  27% ] 100/100 VUs  1m51.8s/7m00.0s
+doc_service_test         [  27% ] 100/100 VUs  1m51.8s/7m00.0s
+websocket_service_test   [  27% ] 100/100 VUs  1m51.8s/7m00.0s
+
+running (1m54.9s), 300/300 VUs, 16504 complete and 0 interrupted iterations
+auth_service_test        [  27% ] 100/100 VUs  1m52.8s/7m00.0s
+doc_service_test         [  27% ] 100/100 VUs  1m52.8s/7m00.0s
+websocket_service_test   [  27% ] 100/100 VUs  1m52.8s/7m00.0s
+
+running (1m55.9s), 300/300 VUs, 16704 complete and 0 interrupted iterations
+auth_service_test        [  27% ] 100/100 VUs  1m53.8s/7m00.0s
+doc_service_test         [  27% ] 100/100 VUs  1m53.8s/7m00.0s
+websocket_service_test   [  27% ] 100/100 VUs  1m53.8s/7m00.0s
+
+running (1m56.9s), 300/300 VUs, 16906 complete and 0 interrupted iterations
+auth_service_test        [  27% ] 100/100 VUs  1m54.8s/7m00.0s
+doc_service_test         [  27% ] 100/100 VUs  1m54.8s/7m00.0s
+websocket_service_test   [  27% ] 100/100 VUs  1m54.8s/7m00.0s
+
+running (1m57.9s), 300/300 VUs, 17104 complete and 0 interrupted iterations
+auth_service_test        [  28% ] 100/100 VUs  1m55.8s/7m00.0s
+doc_service_test         [  28% ] 100/100 VUs  1m55.8s/7m00.0s
+websocket_service_test   [  28% ] 100/100 VUs  1m55.8s/7m00.0s
+
+running (1m58.9s), 300/300 VUs, 17306 complete and 0 interrupted iterations
+auth_service_test        [  28% ] 100/100 VUs  1m56.8s/7m00.0s
+doc_service_test         [  28% ] 100/100 VUs  1m56.8s/7m00.0s
+websocket_service_test   [  28% ] 100/100 VUs  1m56.8s/7m00.0s
+
+running (1m59.9s), 300/300 VUs, 17506 complete and 0 interrupted iterations
+auth_service_test        [  28% ] 100/100 VUs  1m57.8s/7m00.0s
+doc_service_test         [  28% ] 100/100 VUs  1m57.8s/7m00.0s
+websocket_service_test   [  28% ] 100/100 VUs  1m57.8s/7m00.0s
+
+running (2m00.9s), 300/300 VUs, 17707 complete and 0 interrupted iterations
+auth_service_test        [  28% ] 100/100 VUs  1m58.8s/7m00.0s
+doc_service_test         [  28% ] 100/100 VUs  1m58.8s/7m00.0s
+websocket_service_test   [  28% ] 100/100 VUs  1m58.8s/7m00.0s
+
+running (2m01.9s), 300/300 VUs, 17911 complete and 0 interrupted iterations
+auth_service_test        [  29% ] 100/100 VUs  1m59.8s/7m00.0s
+doc_service_test         [  29% ] 100/100 VUs  1m59.8s/7m00.0s
+websocket_service_test   [  29% ] 100/100 VUs  1m59.8s/7m00.0s
+
+running (2m02.9s), 300/300 VUs, 18114 complete and 0 interrupted iterations
+auth_service_test        [  29% ] 100/100 VUs  2m00.8s/7m00.0s
+doc_service_test         [  29% ] 100/100 VUs  2m00.8s/7m00.0s
+websocket_service_test   [  29% ] 100/100 VUs  2m00.8s/7m00.0s
+
+running (2m03.9s), 300/300 VUs, 18317 complete and 0 interrupted iterations
+auth_service_test        [  29% ] 100/100 VUs  2m01.8s/7m00.0s
+doc_service_test         [  29% ] 100/100 VUs  2m01.8s/7m00.0s
+websocket_service_test   [  29% ] 100/100 VUs  2m01.8s/7m00.0s
+
+running (2m04.9s), 300/300 VUs, 18520 complete and 0 interrupted iterations
+auth_service_test        [  29% ] 100/100 VUs  2m02.8s/7m00.0s
+doc_service_test         [  29% ] 100/100 VUs  2m02.8s/7m00.0s
+websocket_service_test   [  29% ] 100/100 VUs  2m02.8s/7m00.0s
+
+running (2m05.9s), 300/300 VUs, 18722 complete and 0 interrupted iterations
+auth_service_test        [  29% ] 100/100 VUs  2m03.8s/7m00.0s
+doc_service_test         [  29% ] 100/100 VUs  2m03.8s/7m00.0s
+websocket_service_test   [  29% ] 100/100 VUs  2m03.8s/7m00.0s
+
+running (2m06.9s), 300/300 VUs, 18924 complete and 0 interrupted iterations
+auth_service_test        [  30% ] 100/100 VUs  2m04.8s/7m00.0s
+doc_service_test         [  30% ] 100/100 VUs  2m04.8s/7m00.0s
+websocket_service_test   [  30% ] 100/100 VUs  2m04.8s/7m00.0s
+
+running (2m07.9s), 300/300 VUs, 19126 complete and 0 interrupted iterations
+auth_service_test        [  30% ] 100/100 VUs  2m05.8s/7m00.0s
+doc_service_test         [  30% ] 100/100 VUs  2m05.8s/7m00.0s
+websocket_service_test   [  30% ] 100/100 VUs  2m05.8s/7m00.0s
+
+running (2m08.9s), 300/300 VUs, 19330 complete and 0 interrupted iterations
+auth_service_test        [  30% ] 100/100 VUs  2m06.8s/7m00.0s
+doc_service_test         [  30% ] 100/100 VUs  2m06.8s/7m00.0s
+websocket_service_test   [  30% ] 100/100 VUs  2m06.8s/7m00.0s
+
+running (2m09.9s), 300/300 VUs, 19530 complete and 0 interrupted iterations
+auth_service_test        [  30% ] 100/100 VUs  2m07.8s/7m00.0s
+doc_service_test         [  30% ] 100/100 VUs  2m07.8s/7m00.0s
+websocket_service_test   [  30% ] 100/100 VUs  2m07.8s/7m00.0s
+
+running (2m10.9s), 300/300 VUs, 19732 complete and 0 interrupted iterations
+auth_service_test        [  31% ] 100/100 VUs  2m08.8s/7m00.0s
+doc_service_test         [  31% ] 100/100 VUs  2m08.8s/7m00.0s
+websocket_service_test   [  31% ] 100/100 VUs  2m08.8s/7m00.0s
+
+running (2m11.9s), 300/300 VUs, 19934 complete and 0 interrupted iterations
+auth_service_test        [  31% ] 100/100 VUs  2m09.8s/7m00.0s
+doc_service_test         [  31% ] 100/100 VUs  2m09.8s/7m00.0s
+websocket_service_test   [  31% ] 100/100 VUs  2m09.8s/7m00.0s
+
+running (2m12.9s), 300/300 VUs, 20134 complete and 0 interrupted iterations
+auth_service_test        [  31% ] 100/100 VUs  2m10.8s/7m00.0s
+doc_service_test         [  31% ] 100/100 VUs  2m10.8s/7m00.0s
+websocket_service_test   [  31% ] 100/100 VUs  2m10.8s/7m00.0s
+
+running (2m13.9s), 300/300 VUs, 20330 complete and 0 interrupted iterations
+auth_service_test        [  31% ] 100/100 VUs  2m11.8s/7m00.0s
+doc_service_test         [  31% ] 100/100 VUs  2m11.8s/7m00.0s
+websocket_service_test   [  31% ] 100/100 VUs  2m11.8s/7m00.0s
+
+running (2m14.9s), 300/300 VUs, 20524 complete and 0 interrupted iterations
+auth_service_test        [  32% ] 100/100 VUs  2m12.8s/7m00.0s
+doc_service_test         [  32% ] 100/100 VUs  2m12.8s/7m00.0s
+websocket_service_test   [  32% ] 100/100 VUs  2m12.8s/7m00.0s
+
+running (2m15.9s), 300/300 VUs, 20716 complete and 0 interrupted iterations
+auth_service_test        [  32% ] 100/100 VUs  2m13.8s/7m00.0s
+doc_service_test         [  32% ] 100/100 VUs  2m13.8s/7m00.0s
+websocket_service_test   [  32% ] 100/100 VUs  2m13.8s/7m00.0s
+
+running (2m16.9s), 300/300 VUs, 20901 complete and 0 interrupted iterations
+auth_service_test        [  32% ] 100/100 VUs  2m14.8s/7m00.0s
+doc_service_test         [  32% ] 100/100 VUs  2m14.8s/7m00.0s
+websocket_service_test   [  32% ] 100/100 VUs  2m14.8s/7m00.0s
+
+running (2m17.9s), 300/300 VUs, 21103 complete and 0 interrupted iterations
+auth_service_test        [  32% ] 100/100 VUs  2m15.8s/7m00.0s
+doc_service_test         [  32% ] 100/100 VUs  2m15.8s/7m00.0s
+websocket_service_test   [  32% ] 100/100 VUs  2m15.8s/7m00.0s
+
+running (2m19.1s), 300/300 VUs, 21304 complete and 0 interrupted iterations
+auth_service_test        [  33% ] 100/100 VUs  2m16.8s/7m00.0s
+doc_service_test         [  33% ] 100/100 VUs  2m16.8s/7m00.0s
+websocket_service_test   [  33% ] 100/100 VUs  2m16.8s/7m00.0s
+
+running (2m20.1s), 300/300 VUs, 21503 complete and 0 interrupted iterations
+auth_service_test        [  33% ] 100/100 VUs  2m17.8s/7m00.0s
+doc_service_test         [  33% ] 100/100 VUs  2m17.8s/7m00.0s
+websocket_service_test   [  33% ] 100/100 VUs  2m17.8s/7m00.0s
+
+running (2m21.1s), 300/300 VUs, 21696 complete and 0 interrupted iterations
+auth_service_test        [  33% ] 100/100 VUs  2m18.8s/7m00.0s
+doc_service_test         [  33% ] 100/100 VUs  2m18.8s/7m00.0s
+websocket_service_test   [  33% ] 100/100 VUs  2m18.8s/7m00.0s
+
+running (2m22.1s), 300/300 VUs, 21896 complete and 0 interrupted iterations
+auth_service_test        [  33% ] 100/100 VUs  2m19.8s/7m00.0s
+doc_service_test         [  33% ] 100/100 VUs  2m19.8s/7m00.0s
+websocket_service_test   [  33% ] 100/100 VUs  2m19.8s/7m00.0s
+
+running (2m23.1s), 300/300 VUs, 22097 complete and 0 interrupted iterations
+auth_service_test        [  34% ] 100/100 VUs  2m20.8s/7m00.0s
+doc_service_test         [  34% ] 100/100 VUs  2m20.8s/7m00.0s
+websocket_service_test   [  34% ] 100/100 VUs  2m20.8s/7m00.0s
+
+running (2m24.1s), 300/300 VUs, 22301 complete and 0 interrupted iterations
+auth_service_test        [  34% ] 100/100 VUs  2m21.8s/7m00.0s
+doc_service_test         [  34% ] 100/100 VUs  2m21.8s/7m00.0s
+websocket_service_test   [  34% ] 100/100 VUs  2m21.8s/7m00.0s
+
+running (2m25.1s), 300/300 VUs, 22501 complete and 0 interrupted iterations
+auth_service_test        [  34% ] 100/100 VUs  2m22.8s/7m00.0s
+doc_service_test         [  34% ] 100/100 VUs  2m22.8s/7m00.0s
+websocket_service_test   [  34% ] 100/100 VUs  2m22.8s/7m00.0s
+
+running (2m26.1s), 300/300 VUs, 22703 complete and 0 interrupted iterations
+auth_service_test        [  34% ] 100/100 VUs  2m23.8s/7m00.0s
+doc_service_test         [  34% ] 100/100 VUs  2m23.8s/7m00.0s
+websocket_service_test   [  34% ] 100/100 VUs  2m23.8s/7m00.0s
+
+running (2m27.1s), 300/300 VUs, 22904 complete and 0 interrupted iterations
+auth_service_test        [  34% ] 100/100 VUs  2m24.8s/7m00.0s
+doc_service_test         [  34% ] 100/100 VUs  2m24.8s/7m00.0s
+websocket_service_test   [  34% ] 100/100 VUs  2m24.8s/7m00.0s
+
+running (2m28.1s), 300/300 VUs, 23107 complete and 0 interrupted iterations
+auth_service_test        [  35% ] 100/100 VUs  2m25.8s/7m00.0s
+doc_service_test         [  35% ] 100/100 VUs  2m25.8s/7m00.0s
+websocket_service_test   [  35% ] 100/100 VUs  2m25.8s/7m00.0s
+
+running (2m29.1s), 300/300 VUs, 23310 complete and 0 interrupted iterations
+auth_service_test        [  35% ] 100/100 VUs  2m26.8s/7m00.0s
+doc_service_test         [  35% ] 100/100 VUs  2m26.8s/7m00.0s
+websocket_service_test   [  35% ] 100/100 VUs  2m26.8s/7m00.0s
+
+running (2m30.1s), 300/300 VUs, 23511 complete and 0 interrupted iterations
+auth_service_test        [  35% ] 100/100 VUs  2m27.8s/7m00.0s
+doc_service_test         [  35% ] 100/100 VUs  2m27.8s/7m00.0s
+websocket_service_test   [  35% ] 100/100 VUs  2m27.8s/7m00.0s
+
+running (2m31.1s), 300/300 VUs, 23711 complete and 0 interrupted iterations
+auth_service_test        [  35% ] 100/100 VUs  2m28.8s/7m00.0s
+doc_service_test         [  35% ] 100/100 VUs  2m28.8s/7m00.0s
+websocket_service_test   [  35% ] 100/100 VUs  2m28.8s/7m00.0s
+
+running (2m32.1s), 300/300 VUs, 23913 complete and 0 interrupted iterations
+auth_service_test        [  36% ] 100/100 VUs  2m29.8s/7m00.0s
+doc_service_test         [  36% ] 100/100 VUs  2m29.8s/7m00.0s
+websocket_service_test   [  36% ] 100/100 VUs  2m29.8s/7m00.0s
+
+running (2m33.1s), 300/300 VUs, 24116 complete and 0 interrupted iterations
+auth_service_test        [  36% ] 100/100 VUs  2m30.8s/7m00.0s
+doc_service_test         [  36% ] 100/100 VUs  2m30.8s/7m00.0s
+websocket_service_test   [  36% ] 100/100 VUs  2m30.8s/7m00.0s
+
+running (2m34.1s), 300/300 VUs, 24318 complete and 0 interrupted iterations
+auth_service_test        [  36% ] 100/100 VUs  2m31.8s/7m00.0s
+doc_service_test         [  36% ] 100/100 VUs  2m31.8s/7m00.0s
+websocket_service_test   [  36% ] 100/100 VUs  2m31.8s/7m00.0s
+
+running (2m35.1s), 300/300 VUs, 24521 complete and 0 interrupted iterations
+auth_service_test        [  36% ] 100/100 VUs  2m32.8s/7m00.0s
+doc_service_test         [  36% ] 100/100 VUs  2m32.8s/7m00.0s
+websocket_service_test   [  36% ] 100/100 VUs  2m32.8s/7m00.0s
+
+running (2m36.1s), 300/300 VUs, 24723 complete and 0 interrupted iterations
+auth_service_test        [  37% ] 100/100 VUs  2m33.8s/7m00.0s
+doc_service_test         [  37% ] 100/100 VUs  2m33.8s/7m00.0s
+websocket_service_test   [  37% ] 100/100 VUs  2m33.8s/7m00.0s
+
+running (2m37.1s), 300/300 VUs, 24925 complete and 0 interrupted iterations
+auth_service_test        [  37% ] 100/100 VUs  2m34.8s/7m00.0s
+doc_service_test         [  37% ] 100/100 VUs  2m34.8s/7m00.0s
+websocket_service_test   [  37% ] 100/100 VUs  2m34.8s/7m00.0s
+
+running (2m38.1s), 300/300 VUs, 25126 complete and 0 interrupted iterations
+auth_service_test        [  37% ] 100/100 VUs  2m35.8s/7m00.0s
+doc_service_test         [  37% ] 100/100 VUs  2m35.8s/7m00.0s
+websocket_service_test   [  37% ] 100/100 VUs  2m35.8s/7m00.0s
+
+running (2m39.1s), 300/300 VUs, 25327 complete and 0 interrupted iterations
+auth_service_test        [  37% ] 100/100 VUs  2m36.8s/7m00.0s
+doc_service_test         [  37% ] 100/100 VUs  2m36.8s/7m00.0s
+websocket_service_test   [  37% ] 100/100 VUs  2m36.8s/7m00.0s
+
+running (2m40.1s), 300/300 VUs, 25531 complete and 0 interrupted iterations
+auth_service_test        [  38% ] 100/100 VUs  2m37.8s/7m00.0s
+doc_service_test         [  38% ] 100/100 VUs  2m37.8s/7m00.0s
+websocket_service_test   [  38% ] 100/100 VUs  2m37.8s/7m00.0s
+
+running (2m41.1s), 300/300 VUs, 25734 complete and 0 interrupted iterations
+auth_service_test        [  38% ] 100/100 VUs  2m38.8s/7m00.0s
+doc_service_test         [  38% ] 100/100 VUs  2m38.8s/7m00.0s
+websocket_service_test   [  38% ] 100/100 VUs  2m38.8s/7m00.0s
+
+running (2m42.1s), 300/300 VUs, 25937 complete and 0 interrupted iterations
+auth_service_test        [  38% ] 100/100 VUs  2m39.8s/7m00.0s
+doc_service_test         [  38% ] 100/100 VUs  2m39.8s/7m00.0s
+websocket_service_test   [  38% ] 100/100 VUs  2m39.8s/7m00.0s
+
+running (2m43.1s), 300/300 VUs, 26141 complete and 0 interrupted iterations
+auth_service_test        [  38% ] 100/100 VUs  2m40.8s/7m00.0s
+doc_service_test         [  38% ] 100/100 VUs  2m40.8s/7m00.0s
+websocket_service_test   [  38% ] 100/100 VUs  2m40.8s/7m00.0s
+
+running (2m44.1s), 300/300 VUs, 26344 complete and 0 interrupted iterations
+auth_service_test        [  39% ] 100/100 VUs  2m41.8s/7m00.0s
+doc_service_test         [  39% ] 100/100 VUs  2m41.8s/7m00.0s
+websocket_service_test   [  39% ] 100/100 VUs  2m41.8s/7m00.0s
+
+running (2m45.1s), 300/300 VUs, 26547 complete and 0 interrupted iterations
+auth_service_test        [  39% ] 100/100 VUs  2m42.8s/7m00.0s
+doc_service_test         [  39% ] 100/100 VUs  2m42.8s/7m00.0s
+websocket_service_test   [  39% ] 100/100 VUs  2m42.8s/7m00.0s
+
+running (2m46.1s), 300/300 VUs, 26751 complete and 0 interrupted iterations
+auth_service_test        [  39% ] 100/100 VUs  2m43.8s/7m00.0s
+doc_service_test         [  39% ] 100/100 VUs  2m43.8s/7m00.0s
+websocket_service_test   [  39% ] 100/100 VUs  2m43.8s/7m00.0s
+
+running (2m47.1s), 300/300 VUs, 26953 complete and 0 interrupted iterations
+auth_service_test        [  39% ] 100/100 VUs  2m44.8s/7m00.0s
+doc_service_test         [  39% ] 100/100 VUs  2m44.8s/7m00.0s
+websocket_service_test   [  39% ] 100/100 VUs  2m44.8s/7m00.0s
+
+running (2m48.1s), 300/300 VUs, 27156 complete and 0 interrupted iterations
+auth_service_test        [  39% ] 100/100 VUs  2m45.8s/7m00.0s
+doc_service_test         [  39% ] 100/100 VUs  2m45.8s/7m00.0s
+websocket_service_test   [  39% ] 100/100 VUs  2m45.8s/7m00.0s
+
+running (2m49.4s), 300/300 VUs, 27360 complete and 0 interrupted iterations
+auth_service_test        [  40% ] 100/100 VUs  2m46.8s/7m00.0s
+doc_service_test         [  40% ] 100/100 VUs  2m46.8s/7m00.0s
+websocket_service_test   [  40% ] 100/100 VUs  2m46.8s/7m00.0s
+
+running (2m50.4s), 300/300 VUs, 27562 complete and 0 interrupted iterations
+auth_service_test        [  40% ] 100/100 VUs  2m47.8s/7m00.0s
+doc_service_test         [  40% ] 100/100 VUs  2m47.8s/7m00.0s
+websocket_service_test   [  40% ] 100/100 VUs  2m47.8s/7m00.0s
+
+running (2m51.4s), 300/300 VUs, 27765 complete and 0 interrupted iterations
+auth_service_test        [  40% ] 100/100 VUs  2m48.8s/7m00.0s
+doc_service_test         [  40% ] 100/100 VUs  2m48.8s/7m00.0s
+websocket_service_test   [  40% ] 100/100 VUs  2m48.8s/7m00.0s
+
+running (2m52.4s), 300/300 VUs, 27969 complete and 0 interrupted iterations
+auth_service_test        [  40% ] 100/100 VUs  2m49.8s/7m00.0s
+doc_service_test         [  40% ] 100/100 VUs  2m49.8s/7m00.0s
+websocket_service_test   [  40% ] 100/100 VUs  2m49.8s/7m00.0s
+
+running (2m53.4s), 300/300 VUs, 28156 complete and 0 interrupted iterations
+auth_service_test        [  41% ] 100/100 VUs  2m50.8s/7m00.0s
+doc_service_test         [  41% ] 100/100 VUs  2m50.8s/7m00.0s
+websocket_service_test   [  41% ] 100/100 VUs  2m50.8s/7m00.0s
+
+running (2m54.4s), 300/300 VUs, 28355 complete and 0 interrupted iterations
+auth_service_test        [  41% ] 100/100 VUs  2m51.8s/7m00.0s
+doc_service_test         [  41% ] 100/100 VUs  2m51.8s/7m00.0s
+websocket_service_test   [  41% ] 100/100 VUs  2m51.8s/7m00.0s
+
+running (2m55.4s), 300/300 VUs, 28559 complete and 0 interrupted iterations
+auth_service_test        [  41% ] 100/100 VUs  2m52.8s/7m00.0s
+doc_service_test         [  41% ] 100/100 VUs  2m52.8s/7m00.0s
+websocket_service_test   [  41% ] 100/100 VUs  2m52.8s/7m00.0s
+
+running (2m56.4s), 300/300 VUs, 28732 complete and 0 interrupted iterations
+auth_service_test        [  41% ] 100/100 VUs  2m53.8s/7m00.0s
+doc_service_test         [  41% ] 100/100 VUs  2m53.8s/7m00.0s
+websocket_service_test   [  41% ] 100/100 VUs  2m53.8s/7m00.0s
+
+running (2m57.4s), 300/300 VUs, 28934 complete and 0 interrupted iterations
+auth_service_test        [  42% ] 100/100 VUs  2m54.8s/7m00.0s
+doc_service_test         [  42% ] 100/100 VUs  2m54.8s/7m00.0s
+websocket_service_test   [  42% ] 100/100 VUs  2m54.8s/7m00.0s
+
+running (2m58.4s), 300/300 VUs, 29128 complete and 0 interrupted iterations
+auth_service_test        [  42% ] 100/100 VUs  2m55.8s/7m00.0s
+doc_service_test         [  42% ] 100/100 VUs  2m55.8s/7m00.0s
+websocket_service_test   [  42% ] 100/100 VUs  2m55.8s/7m00.0s
+
+running (2m59.4s), 300/300 VUs, 29328 complete and 0 interrupted iterations
+auth_service_test        [  42% ] 100/100 VUs  2m56.8s/7m00.0s
+doc_service_test         [  42% ] 100/100 VUs  2m56.8s/7m00.0s
+websocket_service_test   [  42% ] 100/100 VUs  2m56.8s/7m00.0s
+
+running (3m00.4s), 300/300 VUs, 29528 complete and 0 interrupted iterations
+auth_service_test        [  42% ] 100/100 VUs  2m57.8s/7m00.0s
+doc_service_test         [  42% ] 100/100 VUs  2m57.8s/7m00.0s
+websocket_service_test   [  42% ] 100/100 VUs  2m57.8s/7m00.0s
+
+running (3m01.4s), 300/300 VUs, 29729 complete and 0 interrupted iterations
+auth_service_test        [  43% ] 100/100 VUs  2m58.8s/7m00.0s
+doc_service_test         [  43% ] 100/100 VUs  2m58.8s/7m00.0s
+websocket_service_test   [  43% ] 100/100 VUs  2m58.8s/7m00.0s
+
+running (3m02.4s), 300/300 VUs, 29920 complete and 0 interrupted iterations
+auth_service_test        [  43% ] 100/100 VUs  2m59.8s/7m00.0s
+doc_service_test         [  43% ] 100/100 VUs  2m59.8s/7m00.0s
+websocket_service_test   [  43% ] 100/100 VUs  2m59.8s/7m00.0s
+
+running (3m03.4s), 300/300 VUs, 30116 complete and 0 interrupted iterations
+auth_service_test        [  43% ] 100/100 VUs  3m00.8s/7m00.0s
+doc_service_test         [  43% ] 100/100 VUs  3m00.8s/7m00.0s
+websocket_service_test   [  43% ] 100/100 VUs  3m00.8s/7m00.0s
+
+running (3m04.4s), 300/300 VUs, 30298 complete and 0 interrupted iterations
+auth_service_test        [  43% ] 100/100 VUs  3m01.8s/7m00.0s
+doc_service_test         [  43% ] 100/100 VUs  3m01.8s/7m00.0s
+websocket_service_test   [  43% ] 100/100 VUs  3m01.8s/7m00.0s
+
+running (3m05.4s), 300/300 VUs, 30501 complete and 0 interrupted iterations
+auth_service_test        [  44% ] 100/100 VUs  3m02.8s/7m00.0s
+doc_service_test         [  44% ] 100/100 VUs  3m02.8s/7m00.0s
+websocket_service_test   [  44% ] 100/100 VUs  3m02.8s/7m00.0s
+
+running (3m06.4s), 300/300 VUs, 30702 complete and 0 interrupted iterations
+auth_service_test        [  44% ] 100/100 VUs  3m03.8s/7m00.0s
+doc_service_test         [  44% ] 100/100 VUs  3m03.8s/7m00.0s
+websocket_service_test   [  44% ] 100/100 VUs  3m03.8s/7m00.0s
+
+running (3m07.4s), 300/300 VUs, 30905 complete and 0 interrupted iterations
+auth_service_test        [  44% ] 100/100 VUs  3m04.8s/7m00.0s
+doc_service_test         [  44% ] 100/100 VUs  3m04.8s/7m00.0s
+websocket_service_test   [  44% ] 100/100 VUs  3m04.8s/7m00.0s
+
+running (3m08.4s), 300/300 VUs, 31107 complete and 0 interrupted iterations
+auth_service_test        [  44% ] 100/100 VUs  3m05.8s/7m00.0s
+doc_service_test         [  44% ] 100/100 VUs  3m05.8s/7m00.0s
+websocket_service_test   [  44% ] 100/100 VUs  3m05.8s/7m00.0s
+
+running (3m09.4s), 300/300 VUs, 31309 complete and 0 interrupted iterations
+auth_service_test        [  44% ] 100/100 VUs  3m06.8s/7m00.0s
+doc_service_test         [  44% ] 100/100 VUs  3m06.8s/7m00.0s
+websocket_service_test   [  44% ] 100/100 VUs  3m06.8s/7m00.0s
+
+running (3m10.4s), 300/300 VUs, 31510 complete and 0 interrupted iterations
+auth_service_test        [  45% ] 100/100 VUs  3m07.8s/7m00.0s
+doc_service_test         [  45% ] 100/100 VUs  3m07.8s/7m00.0s
+websocket_service_test   [  45% ] 100/100 VUs  3m07.8s/7m00.0s
+
+running (3m11.4s), 300/300 VUs, 31714 complete and 0 interrupted iterations
+auth_service_test        [  45% ] 100/100 VUs  3m08.8s/7m00.0s
+doc_service_test         [  45% ] 100/100 VUs  3m08.8s/7m00.0s
+websocket_service_test   [  45% ] 100/100 VUs  3m08.8s/7m00.0s
+
+running (3m12.4s), 300/300 VUs, 31916 complete and 0 interrupted iterations
+auth_service_test        [  45% ] 100/100 VUs  3m09.8s/7m00.0s
+doc_service_test         [  45% ] 100/100 VUs  3m09.8s/7m00.0s
+websocket_service_test   [  45% ] 100/100 VUs  3m09.8s/7m00.0s
+
+running (3m13.4s), 300/300 VUs, 32118 complete and 0 interrupted iterations
+auth_service_test        [  45% ] 100/100 VUs  3m10.8s/7m00.0s
+doc_service_test         [  45% ] 100/100 VUs  3m10.8s/7m00.0s
+websocket_service_test   [  45% ] 100/100 VUs  3m10.8s/7m00.0s
+
+running (3m14.4s), 300/300 VUs, 32321 complete and 0 interrupted iterations
+auth_service_test        [  46% ] 100/100 VUs  3m11.8s/7m00.0s
+doc_service_test         [  46% ] 100/100 VUs  3m11.8s/7m00.0s
+websocket_service_test   [  46% ] 100/100 VUs  3m11.8s/7m00.0s
+
+running (3m15.4s), 300/300 VUs, 32523 complete and 0 interrupted iterations
+auth_service_test        [  46% ] 100/100 VUs  3m12.8s/7m00.0s
+doc_service_test         [  46% ] 100/100 VUs  3m12.8s/7m00.0s
+websocket_service_test   [  46% ] 100/100 VUs  3m12.8s/7m00.0s
+
+running (3m16.4s), 300/300 VUs, 32724 complete and 0 interrupted iterations
+auth_service_test        [  46% ] 100/100 VUs  3m13.8s/7m00.0s
+doc_service_test         [  46% ] 100/100 VUs  3m13.8s/7m00.0s
+websocket_service_test   [  46% ] 100/100 VUs  3m13.8s/7m00.0s
+
+running (3m17.4s), 300/300 VUs, 32927 complete and 0 interrupted iterations
+auth_service_test        [  46% ] 100/100 VUs  3m14.8s/7m00.0s
+doc_service_test         [  46% ] 100/100 VUs  3m14.8s/7m00.0s
+websocket_service_test   [  46% ] 100/100 VUs  3m14.8s/7m00.0s
+
+running (3m18.4s), 300/300 VUs, 33129 complete and 0 interrupted iterations
+auth_service_test        [  47% ] 100/100 VUs  3m15.8s/7m00.0s
+doc_service_test         [  47% ] 100/100 VUs  3m15.8s/7m00.0s
+websocket_service_test   [  47% ] 100/100 VUs  3m15.8s/7m00.0s
+
+running (3m19.7s), 300/300 VUs, 33332 complete and 0 interrupted iterations
+auth_service_test        [  47% ] 100/100 VUs  3m16.8s/7m00.0s
+doc_service_test         [  47% ] 100/100 VUs  3m16.8s/7m00.0s
+websocket_service_test   [  47% ] 100/100 VUs  3m16.8s/7m00.0s
+
+running (3m20.7s), 300/300 VUs, 33536 complete and 0 interrupted iterations
+auth_service_test        [  47% ] 100/100 VUs  3m17.8s/7m00.0s
+doc_service_test         [  47% ] 100/100 VUs  3m17.8s/7m00.0s
+websocket_service_test   [  47% ] 100/100 VUs  3m17.8s/7m00.0s
+
+running (3m21.7s), 300/300 VUs, 33739 complete and 0 interrupted iterations
+auth_service_test        [  47% ] 100/100 VUs  3m18.8s/7m00.0s
+doc_service_test         [  47% ] 100/100 VUs  3m18.8s/7m00.0s
+websocket_service_test   [  47% ] 100/100 VUs  3m18.8s/7m00.0s
+
+running (3m22.7s), 300/300 VUs, 33942 complete and 0 interrupted iterations
+auth_service_test        [  48% ] 100/100 VUs  3m19.8s/7m00.0s
+doc_service_test         [  48% ] 100/100 VUs  3m19.8s/7m00.0s
+websocket_service_test   [  48% ] 100/100 VUs  3m19.8s/7m00.0s
+
+running (3m23.7s), 300/300 VUs, 34142 complete and 0 interrupted iterations
+auth_service_test        [  48% ] 100/100 VUs  3m20.8s/7m00.0s
+doc_service_test         [  48% ] 100/100 VUs  3m20.8s/7m00.0s
+websocket_service_test   [  48% ] 100/100 VUs  3m20.8s/7m00.0s
+
+running (3m24.7s), 300/300 VUs, 34343 complete and 0 interrupted iterations
+auth_service_test        [  48% ] 100/100 VUs  3m21.8s/7m00.0s
+doc_service_test         [  48% ] 100/100 VUs  3m21.8s/7m00.0s
+websocket_service_test   [  48% ] 100/100 VUs  3m21.8s/7m00.0s
+
+running (3m25.7s), 300/300 VUs, 34546 complete and 0 interrupted iterations
+auth_service_test        [  48% ] 100/100 VUs  3m22.8s/7m00.0s
+doc_service_test         [  48% ] 100/100 VUs  3m22.8s/7m00.0s
+websocket_service_test   [  48% ] 100/100 VUs  3m22.8s/7m00.0s
+
+running (3m26.7s), 300/300 VUs, 34750 complete and 0 interrupted iterations
+auth_service_test        [  49% ] 100/100 VUs  3m23.8s/7m00.0s
+doc_service_test         [  49% ] 100/100 VUs  3m23.8s/7m00.0s
+websocket_service_test   [  49% ] 100/100 VUs  3m23.8s/7m00.0s
+
+running (3m27.7s), 300/300 VUs, 34953 complete and 0 interrupted iterations
+auth_service_test        [  49% ] 100/100 VUs  3m24.8s/7m00.0s
+doc_service_test         [  49% ] 100/100 VUs  3m24.8s/7m00.0s
+websocket_service_test   [  49% ] 100/100 VUs  3m24.8s/7m00.0s
+
+running (3m28.7s), 300/300 VUs, 35155 complete and 0 interrupted iterations
+auth_service_test        [  49% ] 100/100 VUs  3m25.8s/7m00.0s
+doc_service_test         [  49% ] 100/100 VUs  3m25.8s/7m00.0s
+websocket_service_test   [  49% ] 100/100 VUs  3m25.8s/7m00.0s
+
+running (3m29.7s), 300/300 VUs, 35359 complete and 0 interrupted iterations
+auth_service_test        [  49% ] 100/100 VUs  3m26.8s/7m00.0s
+doc_service_test         [  49% ] 100/100 VUs  3m26.8s/7m00.0s
+websocket_service_test   [  49% ] 100/100 VUs  3m26.8s/7m00.0s
+
+running (3m30.7s), 300/300 VUs, 35562 complete and 0 interrupted iterations
+auth_service_test        [  49% ] 100/100 VUs  3m27.8s/7m00.0s
+doc_service_test         [  49% ] 100/100 VUs  3m27.8s/7m00.0s
+websocket_service_test   [  49% ] 100/100 VUs  3m27.8s/7m00.0s
+
+running (3m31.7s), 300/300 VUs, 35764 complete and 0 interrupted iterations
+auth_service_test        [  50% ] 100/100 VUs  3m28.8s/7m00.0s
+doc_service_test         [  50% ] 100/100 VUs  3m28.8s/7m00.0s
+websocket_service_test   [  50% ] 100/100 VUs  3m28.8s/7m00.0s
+
+running (3m32.7s), 300/300 VUs, 35968 complete and 0 interrupted iterations
+auth_service_test        [  50% ] 100/100 VUs  3m29.8s/7m00.0s
+doc_service_test         [  50% ] 100/100 VUs  3m29.8s/7m00.0s
+websocket_service_test   [  50% ] 100/100 VUs  3m29.8s/7m00.0s
+
+running (3m33.7s), 300/300 VUs, 36171 complete and 0 interrupted iterations
+auth_service_test        [  50% ] 100/100 VUs  3m30.8s/7m00.0s
+doc_service_test         [  50% ] 100/100 VUs  3m30.8s/7m00.0s
+websocket_service_test   [  50% ] 100/100 VUs  3m30.8s/7m00.0s
+
+running (3m35.4s), 300/300 VUs, 36374 complete and 0 interrupted iterations
+auth_service_test        [  50% ] 100/100 VUs  3m31.8s/7m00.0s
+doc_service_test         [  50% ] 100/100 VUs  3m31.8s/7m00.0s
+websocket_service_test   [  50% ] 100/100 VUs  3m31.8s/7m00.0s
+
+running (3m36.4s), 300/300 VUs, 36577 complete and 0 interrupted iterations
+auth_service_test        [  51% ] 100/100 VUs  3m32.8s/7m00.0s
+doc_service_test         [  51% ] 100/100 VUs  3m32.8s/7m00.0s
+websocket_service_test   [  51% ] 100/100 VUs  3m32.8s/7m00.0s
+
+running (3m37.4s), 300/300 VUs, 36779 complete and 0 interrupted iterations
+auth_service_test        [  51% ] 100/100 VUs  3m33.8s/7m00.0s
+doc_service_test         [  51% ] 100/100 VUs  3m33.8s/7m00.0s
+websocket_service_test   [  51% ] 100/100 VUs  3m33.8s/7m00.0s
+
+running (3m38.4s), 300/300 VUs, 36968 complete and 0 interrupted iterations
+auth_service_test        [  51% ] 100/100 VUs  3m34.8s/7m00.0s
+doc_service_test         [  51% ] 100/100 VUs  3m34.8s/7m00.0s
+websocket_service_test   [  51% ] 100/100 VUs  3m34.8s/7m00.0s
+
+running (3m39.4s), 300/300 VUs, 37168 complete and 0 interrupted iterations
+auth_service_test        [  51% ] 100/100 VUs  3m35.8s/7m00.0s
+doc_service_test         [  51% ] 100/100 VUs  3m35.8s/7m00.0s
+websocket_service_test   [  51% ] 100/100 VUs  3m35.8s/7m00.0s
+
+running (3m40.4s), 300/300 VUs, 37345 complete and 0 interrupted iterations
+auth_service_test        [  52% ] 100/100 VUs  3m36.8s/7m00.0s
+doc_service_test         [  52% ] 100/100 VUs  3m36.8s/7m00.0s
+websocket_service_test   [  52% ] 100/100 VUs  3m36.8s/7m00.0s
+
+running (3m41.4s), 300/300 VUs, 37534 complete and 0 interrupted iterations
+auth_service_test        [  52% ] 100/100 VUs  3m37.8s/7m00.0s
+doc_service_test         [  52% ] 100/100 VUs  3m37.8s/7m00.0s
+websocket_service_test   [  52% ] 100/100 VUs  3m37.8s/7m00.0s
+
+running (3m42.4s), 300/300 VUs, 37734 complete and 0 interrupted iterations
+auth_service_test        [  52% ] 100/100 VUs  3m38.8s/7m00.0s
+doc_service_test         [  52% ] 100/100 VUs  3m38.8s/7m00.0s
+websocket_service_test   [  52% ] 100/100 VUs  3m38.8s/7m00.0s
+
+running (3m43.4s), 300/300 VUs, 37933 complete and 0 interrupted iterations
+auth_service_test        [  52% ] 100/100 VUs  3m39.8s/7m00.0s
+doc_service_test         [  52% ] 100/100 VUs  3m39.8s/7m00.0s
+websocket_service_test   [  52% ] 100/100 VUs  3m39.8s/7m00.0s
+
+running (3m44.4s), 300/300 VUs, 38121 complete and 0 interrupted iterations
+auth_service_test        [  53% ] 100/100 VUs  3m40.8s/7m00.0s
+doc_service_test         [  53% ] 100/100 VUs  3m40.8s/7m00.0s
+websocket_service_test   [  53% ] 100/100 VUs  3m40.8s/7m00.0s
+
+running (3m45.4s), 300/300 VUs, 38315 complete and 0 interrupted iterations
+auth_service_test        [  53% ] 100/100 VUs  3m41.8s/7m00.0s
+doc_service_test         [  53% ] 100/100 VUs  3m41.8s/7m00.0s
+websocket_service_test   [  53% ] 100/100 VUs  3m41.8s/7m00.0s
+
+running (3m46.4s), 300/300 VUs, 38514 complete and 0 interrupted iterations
+auth_service_test        [  53% ] 100/100 VUs  3m42.8s/7m00.0s
+doc_service_test         [  53% ] 100/100 VUs  3m42.8s/7m00.0s
+websocket_service_test   [  53% ] 100/100 VUs  3m42.8s/7m00.0s
+
+running (3m47.4s), 300/300 VUs, 38711 complete and 0 interrupted iterations
+auth_service_test        [  53% ] 100/100 VUs  3m43.8s/7m00.0s
+doc_service_test         [  53% ] 100/100 VUs  3m43.8s/7m00.0s
+websocket_service_test   [  53% ] 100/100 VUs  3m43.8s/7m00.0s
+
+running (3m48.4s), 300/300 VUs, 38906 complete and 0 interrupted iterations
+auth_service_test        [  54% ] 100/100 VUs  3m44.8s/7m00.0s
+doc_service_test         [  54% ] 100/100 VUs  3m44.8s/7m00.0s
+websocket_service_test   [  54% ] 100/100 VUs  3m44.8s/7m00.0s
+
+running (3m49.4s), 300/300 VUs, 39110 complete and 0 interrupted iterations
+auth_service_test        [  54% ] 100/100 VUs  3m45.8s/7m00.0s
+doc_service_test         [  54% ] 100/100 VUs  3m45.8s/7m00.0s
+websocket_service_test   [  54% ] 100/100 VUs  3m45.8s/7m00.0s
+
+running (3m50.3s), 300/300 VUs, 39312 complete and 0 interrupted iterations
+auth_service_test        [  54% ] 100/100 VUs  3m46.8s/7m00.0s
+doc_service_test         [  54% ] 100/100 VUs  3m46.8s/7m00.0s
+websocket_service_test   [  54% ] 100/100 VUs  3m46.8s/7m00.0s
+
+running (3m51.3s), 300/300 VUs, 39512 complete and 0 interrupted iterations
+auth_service_test        [  54% ] 100/100 VUs  3m47.8s/7m00.0s
+doc_service_test         [  54% ] 100/100 VUs  3m47.8s/7m00.0s
+websocket_service_test   [  54% ] 100/100 VUs  3m47.8s/7m00.0s
+
+running (3m52.3s), 300/300 VUs, 39714 complete and 0 interrupted iterations
+auth_service_test        [  54% ] 100/100 VUs  3m48.8s/7m00.0s
+doc_service_test         [  54% ] 100/100 VUs  3m48.8s/7m00.0s
+websocket_service_test   [  54% ] 100/100 VUs  3m48.8s/7m00.0s
+
+running (3m53.3s), 300/300 VUs, 39917 complete and 0 interrupted iterations
+auth_service_test        [  55% ] 100/100 VUs  3m49.8s/7m00.0s
+doc_service_test         [  55% ] 100/100 VUs  3m49.8s/7m00.0s
+websocket_service_test   [  55% ] 100/100 VUs  3m49.8s/7m00.0s
+
+running (3m54.3s), 300/300 VUs, 40119 complete and 0 interrupted iterations
+auth_service_test        [  55% ] 100/100 VUs  3m50.8s/7m00.0s
+doc_service_test         [  55% ] 100/100 VUs  3m50.8s/7m00.0s
+websocket_service_test   [  55% ] 100/100 VUs  3m50.8s/7m00.0s
+
+running (3m55.3s), 300/300 VUs, 40320 complete and 0 interrupted iterations
+auth_service_test        [  55% ] 100/100 VUs  3m51.8s/7m00.0s
+doc_service_test         [  55% ] 100/100 VUs  3m51.8s/7m00.0s
+websocket_service_test   [  55% ] 100/100 VUs  3m51.8s/7m00.0s
+
+running (3m56.3s), 300/300 VUs, 40518 complete and 0 interrupted iterations
+auth_service_test        [  55% ] 100/100 VUs  3m52.8s/7m00.0s
+doc_service_test         [  55% ] 100/100 VUs  3m52.8s/7m00.0s
+websocket_service_test   [  55% ] 100/100 VUs  3m52.8s/7m00.0s
+
+running (3m57.3s), 300/300 VUs, 40720 complete and 0 interrupted iterations
+auth_service_test        [  56% ] 100/100 VUs  3m53.8s/7m00.0s
+doc_service_test         [  56% ] 100/100 VUs  3m53.8s/7m00.0s
+websocket_service_test   [  56% ] 100/100 VUs  3m53.8s/7m00.0s
+
+running (3m58.3s), 300/300 VUs, 40920 complete and 0 interrupted iterations
+auth_service_test        [  56% ] 100/100 VUs  3m54.8s/7m00.0s
+doc_service_test         [  56% ] 100/100 VUs  3m54.8s/7m00.0s
+websocket_service_test   [  56% ] 100/100 VUs  3m54.8s/7m00.0s
+
+running (3m59.3s), 300/300 VUs, 41123 complete and 0 interrupted iterations
+auth_service_test        [  56% ] 100/100 VUs  3m55.8s/7m00.0s
+doc_service_test         [  56% ] 100/100 VUs  3m55.8s/7m00.0s
+websocket_service_test   [  56% ] 100/100 VUs  3m55.8s/7m00.0s
+
+running (4m00.3s), 300/300 VUs, 41326 complete and 0 interrupted iterations
+auth_service_test        [  56% ] 100/100 VUs  3m56.8s/7m00.0s
+doc_service_test         [  56% ] 100/100 VUs  3m56.8s/7m00.0s
+websocket_service_test   [  56% ] 100/100 VUs  3m56.8s/7m00.0s
+
+running (4m01.3s), 300/300 VUs, 41529 complete and 0 interrupted iterations
+auth_service_test        [  57% ] 100/100 VUs  3m57.8s/7m00.0s
+doc_service_test         [  57% ] 100/100 VUs  3m57.8s/7m00.0s
+websocket_service_test   [  57% ] 100/100 VUs  3m57.8s/7m00.0s
+
+running (4m02.3s), 300/300 VUs, 41731 complete and 0 interrupted iterations
+auth_service_test        [  57% ] 100/100 VUs  3m58.8s/7m00.0s
+doc_service_test         [  57% ] 100/100 VUs  3m58.8s/7m00.0s
+websocket_service_test   [  57% ] 100/100 VUs  3m58.8s/7m00.0s
+
+running (4m03.3s), 300/300 VUs, 41934 complete and 0 interrupted iterations
+auth_service_test        [  57% ] 100/100 VUs  3m59.8s/7m00.0s
+doc_service_test         [  57% ] 100/100 VUs  3m59.8s/7m00.0s
+websocket_service_test   [  57% ] 100/100 VUs  3m59.8s/7m00.0s
+
+running (4m04.3s), 300/300 VUs, 42138 complete and 0 interrupted iterations
+auth_service_test        [  57% ] 100/100 VUs  4m00.8s/7m00.0s
+doc_service_test         [  57% ] 100/100 VUs  4m00.8s/7m00.0s
+websocket_service_test   [  57% ] 100/100 VUs  4m00.8s/7m00.0s
+
+running (4m05.3s), 300/300 VUs, 42341 complete and 0 interrupted iterations
+auth_service_test        [  58% ] 100/100 VUs  4m01.8s/7m00.0s
+doc_service_test         [  58% ] 100/100 VUs  4m01.8s/7m00.0s
+websocket_service_test   [  58% ] 100/100 VUs  4m01.8s/7m00.0s
+
+running (4m06.3s), 300/300 VUs, 42539 complete and 0 interrupted iterations
+auth_service_test        [  58% ] 100/100 VUs  4m02.8s/7m00.0s
+doc_service_test         [  58% ] 100/100 VUs  4m02.8s/7m00.0s
+websocket_service_test   [  58% ] 100/100 VUs  4m02.8s/7m00.0s
+
+running (4m07.3s), 300/300 VUs, 42742 complete and 0 interrupted iterations
+auth_service_test        [  58% ] 100/100 VUs  4m03.8s/7m00.0s
+doc_service_test         [  58% ] 100/100 VUs  4m03.8s/7m00.0s
+websocket_service_test   [  58% ] 100/100 VUs  4m03.8s/7m00.0s
+
+running (4m08.3s), 300/300 VUs, 42945 complete and 0 interrupted iterations
+auth_service_test        [  58% ] 100/100 VUs  4m04.8s/7m00.0s
+doc_service_test         [  58% ] 100/100 VUs  4m04.8s/7m00.0s
+websocket_service_test   [  58% ] 100/100 VUs  4m04.8s/7m00.0s
+
+running (4m09.3s), 300/300 VUs, 43148 complete and 0 interrupted iterations
+auth_service_test        [  59% ] 100/100 VUs  4m05.8s/7m00.0s
+doc_service_test         [  59% ] 100/100 VUs  4m05.8s/7m00.0s
+websocket_service_test   [  59% ] 100/100 VUs  4m05.8s/7m00.0s
+
+running (4m10.3s), 300/300 VUs, 43350 complete and 0 interrupted iterations
+auth_service_test        [  59% ] 100/100 VUs  4m06.8s/7m00.0s
+doc_service_test         [  59% ] 100/100 VUs  4m06.8s/7m00.0s
+websocket_service_test   [  59% ] 100/100 VUs  4m06.8s/7m00.0s
+
+running (4m11.3s), 300/300 VUs, 43551 complete and 0 interrupted iterations
+auth_service_test        [  59% ] 100/100 VUs  4m07.8s/7m00.0s
+doc_service_test         [  59% ] 100/100 VUs  4m07.8s/7m00.0s
+websocket_service_test   [  59% ] 100/100 VUs  4m07.8s/7m00.0s
+
+running (4m12.3s), 300/300 VUs, 43753 complete and 0 interrupted iterations
+auth_service_test        [  59% ] 100/100 VUs  4m08.8s/7m00.0s
+doc_service_test         [  59% ] 100/100 VUs  4m08.8s/7m00.0s
+websocket_service_test   [  59% ] 100/100 VUs  4m08.8s/7m00.0s
+
+running (4m13.3s), 300/300 VUs, 43956 complete and 0 interrupted iterations
+auth_service_test        [  59% ] 100/100 VUs  4m09.8s/7m00.0s
+doc_service_test         [  59% ] 100/100 VUs  4m09.8s/7m00.0s
+websocket_service_test   [  59% ] 100/100 VUs  4m09.8s/7m00.0s
+
+running (4m14.3s), 300/300 VUs, 44158 complete and 0 interrupted iterations
+auth_service_test        [  60% ] 100/100 VUs  4m10.8s/7m00.0s
+doc_service_test         [  60% ] 100/100 VUs  4m10.8s/7m00.0s
+websocket_service_test   [  60% ] 100/100 VUs  4m10.8s/7m00.0s
+
+running (4m15.3s), 300/300 VUs, 44359 complete and 0 interrupted iterations
+auth_service_test        [  60% ] 100/100 VUs  4m11.8s/7m00.0s
+doc_service_test         [  60% ] 100/100 VUs  4m11.8s/7m00.0s
+websocket_service_test   [  60% ] 100/100 VUs  4m11.8s/7m00.0s
+
+running (4m16.3s), 300/300 VUs, 44562 complete and 0 interrupted iterations
+auth_service_test        [  60% ] 100/100 VUs  4m12.8s/7m00.0s
+doc_service_test         [  60% ] 100/100 VUs  4m12.8s/7m00.0s
+websocket_service_test   [  60% ] 100/100 VUs  4m12.8s/7m00.0s
+
+running (4m17.3s), 300/300 VUs, 44766 complete and 0 interrupted iterations
+auth_service_test        [  60% ] 100/100 VUs  4m13.8s/7m00.0s
+doc_service_test         [  60% ] 100/100 VUs  4m13.8s/7m00.0s
+websocket_service_test   [  60% ] 100/100 VUs  4m13.8s/7m00.0s
+
+running (4m18.3s), 300/300 VUs, 44960 complete and 0 interrupted iterations
+auth_service_test        [  61% ] 100/100 VUs  4m14.8s/7m00.0s
+doc_service_test         [  61% ] 100/100 VUs  4m14.8s/7m00.0s
+websocket_service_test   [  61% ] 100/100 VUs  4m14.8s/7m00.0s
+
+running (4m19.3s), 300/300 VUs, 45150 complete and 0 interrupted iterations
+auth_service_test        [  61% ] 100/100 VUs  4m15.8s/7m00.0s
+doc_service_test         [  61% ] 100/100 VUs  4m15.8s/7m00.0s
+websocket_service_test   [  61% ] 100/100 VUs  4m15.8s/7m00.0s
+
+running (4m21.0s), 300/300 VUs, 45350 complete and 0 interrupted iterations
+auth_service_test        [  61% ] 100/100 VUs  4m16.8s/7m00.0s
+doc_service_test         [  61% ] 100/100 VUs  4m16.8s/7m00.0s
+websocket_service_test   [  61% ] 100/100 VUs  4m16.8s/7m00.0s
+
+running (4m22.0s), 300/300 VUs, 45550 complete and 0 interrupted iterations
+auth_service_test        [  61% ] 100/100 VUs  4m17.8s/7m00.0s
+doc_service_test         [  61% ] 100/100 VUs  4m17.8s/7m00.0s
+websocket_service_test   [  61% ] 100/100 VUs  4m17.8s/7m00.0s
+
+running (4m23.0s), 300/300 VUs, 45749 complete and 0 interrupted iterations
+auth_service_test        [  62% ] 100/100 VUs  4m18.8s/7m00.0s
+doc_service_test         [  62% ] 100/100 VUs  4m18.8s/7m00.0s
+websocket_service_test   [  62% ] 100/100 VUs  4m18.8s/7m00.0s
+
+running (4m24.0s), 300/300 VUs, 45944 complete and 0 interrupted iterations
+auth_service_test        [  62% ] 100/100 VUs  4m19.8s/7m00.0s
+doc_service_test         [  62% ] 100/100 VUs  4m19.8s/7m00.0s
+websocket_service_test   [  62% ] 100/100 VUs  4m19.8s/7m00.0s
+
+running (4m25.0s), 300/300 VUs, 46136 complete and 0 interrupted iterations
+auth_service_test        [  62% ] 100/100 VUs  4m20.8s/7m00.0s
+doc_service_test         [  62% ] 100/100 VUs  4m20.8s/7m00.0s
+websocket_service_test   [  62% ] 100/100 VUs  4m20.8s/7m00.0s
+
+running (4m26.0s), 300/300 VUs, 46317 complete and 0 interrupted iterations
+auth_service_test        [  62% ] 100/100 VUs  4m21.8s/7m00.0s
+doc_service_test         [  62% ] 100/100 VUs  4m21.8s/7m00.0s
+websocket_service_test   [  62% ] 100/100 VUs  4m21.8s/7m00.0s
+
+running (4m27.0s), 300/300 VUs, 46521 complete and 0 interrupted iterations
+auth_service_test        [  63% ] 100/100 VUs  4m22.8s/7m00.0s
+doc_service_test         [  63% ] 100/100 VUs  4m22.8s/7m00.0s
+websocket_service_test   [  63% ] 100/100 VUs  4m22.8s/7m00.0s
+
+running (4m28.0s), 300/300 VUs, 46715 complete and 0 interrupted iterations
+auth_service_test        [  63% ] 100/100 VUs  4m23.8s/7m00.0s
+doc_service_test         [  63% ] 100/100 VUs  4m23.8s/7m00.0s
+websocket_service_test   [  63% ] 100/100 VUs  4m23.8s/7m00.0s
+
+running (4m29.0s), 300/300 VUs, 46909 complete and 0 interrupted iterations
+auth_service_test        [  63% ] 100/100 VUs  4m24.8s/7m00.0s
+doc_service_test         [  63% ] 100/100 VUs  4m24.8s/7m00.0s
+websocket_service_test   [  63% ] 100/100 VUs  4m24.8s/7m00.0s
+
+running (4m30.0s), 300/300 VUs, 47107 complete and 0 interrupted iterations
+auth_service_test        [  63% ] 100/100 VUs  4m25.8s/7m00.0s
+doc_service_test         [  63% ] 100/100 VUs  4m25.8s/7m00.0s
+websocket_service_test   [  63% ] 100/100 VUs  4m25.8s/7m00.0s
+
+running (4m31.0s), 300/300 VUs, 47305 complete and 0 interrupted iterations
+auth_service_test        [  64% ] 100/100 VUs  4m26.8s/7m00.0s
+doc_service_test         [  64% ] 100/100 VUs  4m26.8s/7m00.0s
+websocket_service_test   [  64% ] 100/100 VUs  4m26.8s/7m00.0s
+
+running (4m32.0s), 300/300 VUs, 47495 complete and 0 interrupted iterations
+auth_service_test        [  64% ] 100/100 VUs  4m27.8s/7m00.0s
+doc_service_test         [  64% ] 100/100 VUs  4m27.8s/7m00.0s
+websocket_service_test   [  64% ] 100/100 VUs  4m27.8s/7m00.0s
+
+running (4m33.0s), 300/300 VUs, 47698 complete and 0 interrupted iterations
+auth_service_test        [  64% ] 100/100 VUs  4m28.8s/7m00.0s
+doc_service_test         [  64% ] 100/100 VUs  4m28.8s/7m00.0s
+websocket_service_test   [  64% ] 100/100 VUs  4m28.8s/7m00.0s
+
+running (4m34.0s), 300/300 VUs, 47901 complete and 0 interrupted iterations
+auth_service_test        [  64% ] 100/100 VUs  4m29.8s/7m00.0s
+doc_service_test         [  64% ] 100/100 VUs  4m29.8s/7m00.0s
+websocket_service_test   [  64% ] 100/100 VUs  4m29.8s/7m00.0s
+
+running (4m35.0s), 300/300 VUs, 48104 complete and 0 interrupted iterations
+auth_service_test        [  64% ] 100/100 VUs  4m30.8s/7m00.0s
+doc_service_test         [  64% ] 100/100 VUs  4m30.8s/7m00.0s
+websocket_service_test   [  64% ] 100/100 VUs  4m30.8s/7m00.0s
+
+running (4m36.0s), 300/300 VUs, 48308 complete and 0 interrupted iterations
+auth_service_test        [  65% ] 100/100 VUs  4m31.8s/7m00.0s
+doc_service_test         [  65% ] 100/100 VUs  4m31.8s/7m00.0s
+websocket_service_test   [  65% ] 100/100 VUs  4m31.8s/7m00.0s
+
+running (4m37.0s), 300/300 VUs, 48510 complete and 0 interrupted iterations
+auth_service_test        [  65% ] 100/100 VUs  4m32.8s/7m00.0s
+doc_service_test         [  65% ] 100/100 VUs  4m32.8s/7m00.0s
+websocket_service_test   [  65% ] 100/100 VUs  4m32.8s/7m00.0s
+
+running (4m38.0s), 300/300 VUs, 48711 complete and 0 interrupted iterations
+auth_service_test        [  65% ] 100/100 VUs  4m33.8s/7m00.0s
+doc_service_test         [  65% ] 100/100 VUs  4m33.8s/7m00.0s
+websocket_service_test   [  65% ] 100/100 VUs  4m33.8s/7m00.0s
+
+running (4m39.0s), 300/300 VUs, 48915 complete and 0 interrupted iterations
+auth_service_test        [  65% ] 100/100 VUs  4m34.8s/7m00.0s
+doc_service_test         [  65% ] 100/100 VUs  4m34.8s/7m00.0s
+websocket_service_test   [  65% ] 100/100 VUs  4m34.8s/7m00.0s
+
+running (4m40.0s), 300/300 VUs, 49116 complete and 0 interrupted iterations
+auth_service_test        [  66% ] 100/100 VUs  4m35.8s/7m00.0s
+doc_service_test         [  66% ] 100/100 VUs  4m35.8s/7m00.0s
+websocket_service_test   [  66% ] 100/100 VUs  4m35.8s/7m00.0s
+
+running (4m41.0s), 300/300 VUs, 49319 complete and 0 interrupted iterations
+auth_service_test        [  66% ] 100/100 VUs  4m36.8s/7m00.0s
+doc_service_test         [  66% ] 100/100 VUs  4m36.8s/7m00.0s
+websocket_service_test   [  66% ] 100/100 VUs  4m36.8s/7m00.0s
+
+running (4m42.0s), 300/300 VUs, 49519 complete and 0 interrupted iterations
+auth_service_test        [  66% ] 100/100 VUs  4m37.8s/7m00.0s
+doc_service_test         [  66% ] 100/100 VUs  4m37.8s/7m00.0s
+websocket_service_test   [  66% ] 100/100 VUs  4m37.8s/7m00.0s
+
+running (4m43.0s), 300/300 VUs, 49721 complete and 0 interrupted iterations
+auth_service_test        [  66% ] 100/100 VUs  4m38.8s/7m00.0s
+doc_service_test         [  66% ] 100/100 VUs  4m38.8s/7m00.0s
+websocket_service_test   [  66% ] 100/100 VUs  4m38.8s/7m00.0s
+
+running (4m44.0s), 300/300 VUs, 49923 complete and 0 interrupted iterations
+auth_service_test        [  67% ] 100/100 VUs  4m39.8s/7m00.0s
+doc_service_test         [  67% ] 100/100 VUs  4m39.8s/7m00.0s
+websocket_service_test   [  67% ] 100/100 VUs  4m39.8s/7m00.0s
+
+running (4m45.0s), 300/300 VUs, 50126 complete and 0 interrupted iterations
+auth_service_test        [  67% ] 100/100 VUs  4m40.8s/7m00.0s
+doc_service_test         [  67% ] 100/100 VUs  4m40.8s/7m00.0s
+websocket_service_test   [  67% ] 100/100 VUs  4m40.8s/7m00.0s
+
+running (4m46.0s), 300/300 VUs, 50330 complete and 0 interrupted iterations
+auth_service_test        [  67% ] 100/100 VUs  4m41.8s/7m00.0s
+doc_service_test         [  67% ] 100/100 VUs  4m41.8s/7m00.0s
+websocket_service_test   [  67% ] 100/100 VUs  4m41.8s/7m00.0s
+
+running (4m47.0s), 300/300 VUs, 50532 complete and 0 interrupted iterations
+auth_service_test        [  67% ] 100/100 VUs  4m42.8s/7m00.0s
+doc_service_test         [  67% ] 100/100 VUs  4m42.8s/7m00.0s
+websocket_service_test   [  67% ] 100/100 VUs  4m42.8s/7m00.0s
+
+running (4m48.0s), 300/300 VUs, 50734 complete and 0 interrupted iterations
+auth_service_test        [  68% ] 100/100 VUs  4m43.8s/7m00.0s
+doc_service_test         [  68% ] 100/100 VUs  4m43.8s/7m00.0s
+websocket_service_test   [  68% ] 100/100 VUs  4m43.8s/7m00.0s
+
+running (4m49.0s), 300/300 VUs, 50937 complete and 0 interrupted iterations
+auth_service_test        [  68% ] 100/100 VUs  4m44.8s/7m00.0s
+doc_service_test         [  68% ] 100/100 VUs  4m44.8s/7m00.0s
+websocket_service_test   [  68% ] 100/100 VUs  4m44.8s/7m00.0s
+
+running (4m50.0s), 300/300 VUs, 51139 complete and 0 interrupted iterations
+auth_service_test        [  68% ] 100/100 VUs  4m45.8s/7m00.0s
+doc_service_test         [  68% ] 100/100 VUs  4m45.8s/7m00.0s
+websocket_service_test   [  68% ] 100/100 VUs  4m45.8s/7m00.0s
+
+running (4m51.3s), 300/300 VUs, 51342 complete and 0 interrupted iterations
+auth_service_test        [  68% ] 100/100 VUs  4m46.8s/7m00.0s
+doc_service_test         [  68% ] 100/100 VUs  4m46.8s/7m00.0s
+websocket_service_test   [  68% ] 100/100 VUs  4m46.8s/7m00.0s
+
+running (4m52.3s), 300/300 VUs, 51544 complete and 0 interrupted iterations
+auth_service_test        [  69% ] 100/100 VUs  4m47.8s/7m00.0s
+doc_service_test         [  69% ] 100/100 VUs  4m47.8s/7m00.0s
+websocket_service_test   [  69% ] 100/100 VUs  4m47.8s/7m00.0s
+
+running (4m53.3s), 300/300 VUs, 51747 complete and 0 interrupted iterations
+auth_service_test        [  69% ] 100/100 VUs  4m48.8s/7m00.0s
+doc_service_test         [  69% ] 100/100 VUs  4m48.8s/7m00.0s
+websocket_service_test   [  69% ] 100/100 VUs  4m48.8s/7m00.0s
+
+running (4m54.3s), 300/300 VUs, 51950 complete and 0 interrupted iterations
+auth_service_test        [  69% ] 100/100 VUs  4m49.8s/7m00.0s
+doc_service_test         [  69% ] 100/100 VUs  4m49.8s/7m00.0s
+websocket_service_test   [  69% ] 100/100 VUs  4m49.8s/7m00.0s
+
+running (4m55.3s), 300/300 VUs, 52154 complete and 0 interrupted iterations
+auth_service_test        [  69% ] 100/100 VUs  4m50.8s/7m00.0s
+doc_service_test         [  69% ] 100/100 VUs  4m50.8s/7m00.0s
+websocket_service_test   [  69% ] 100/100 VUs  4m50.8s/7m00.0s
+
+running (4m56.3s), 300/300 VUs, 52355 complete and 0 interrupted iterations
+auth_service_test        [  69% ] 100/100 VUs  4m51.8s/7m00.0s
+doc_service_test         [  69% ] 100/100 VUs  4m51.8s/7m00.0s
+websocket_service_test   [  69% ] 100/100 VUs  4m51.8s/7m00.0s
+
+running (4m57.3s), 300/300 VUs, 52558 complete and 0 interrupted iterations
+auth_service_test        [  70% ] 100/100 VUs  4m52.8s/7m00.0s
+doc_service_test         [  70% ] 100/100 VUs  4m52.8s/7m00.0s
+websocket_service_test   [  70% ] 100/100 VUs  4m52.8s/7m00.0s
+
+running (4m58.3s), 300/300 VUs, 52759 complete and 0 interrupted iterations
+auth_service_test        [  70% ] 100/100 VUs  4m53.8s/7m00.0s
+doc_service_test         [  70% ] 100/100 VUs  4m53.8s/7m00.0s
+websocket_service_test   [  70% ] 100/100 VUs  4m53.8s/7m00.0s
+
+running (4m59.3s), 300/300 VUs, 52962 complete and 0 interrupted iterations
+auth_service_test        [  70% ] 100/100 VUs  4m54.8s/7m00.0s
+doc_service_test         [  70% ] 100/100 VUs  4m54.8s/7m00.0s
+websocket_service_test   [  70% ] 100/100 VUs  4m54.8s/7m00.0s
+
+running (5m00.3s), 300/300 VUs, 53150 complete and 0 interrupted iterations
+auth_service_test        [  70% ] 100/100 VUs  4m55.8s/7m00.0s
+doc_service_test         [  70% ] 100/100 VUs  4m55.8s/7m00.0s
+websocket_service_test   [  70% ] 100/100 VUs  4m55.8s/7m00.0s
+
+running (5m01.3s), 300/300 VUs, 53344 complete and 0 interrupted iterations
+auth_service_test        [  71% ] 100/100 VUs  4m56.8s/7m00.0s
+doc_service_test         [  71% ] 100/100 VUs  4m56.8s/7m00.0s
+websocket_service_test   [  71% ] 100/100 VUs  4m56.8s/7m00.0s
+
+running (5m02.3s), 300/300 VUs, 53546 complete and 0 interrupted iterations
+auth_service_test        [  71% ] 100/100 VUs  4m57.8s/7m00.0s
+doc_service_test         [  71% ] 100/100 VUs  4m57.8s/7m00.0s
+websocket_service_test   [  71% ] 100/100 VUs  4m57.8s/7m00.0s
+
+running (5m03.3s), 300/300 VUs, 53746 complete and 0 interrupted iterations
+auth_service_test        [  71% ] 100/100 VUs  4m58.8s/7m00.0s
+doc_service_test         [  71% ] 100/100 VUs  4m58.8s/7m00.0s
+websocket_service_test   [  71% ] 100/100 VUs  4m58.8s/7m00.0s
+
+running (5m04.3s), 300/300 VUs, 53946 complete and 0 interrupted iterations
+auth_service_test        [  71% ] 100/100 VUs  4m59.8s/7m00.0s
+doc_service_test         [  71% ] 100/100 VUs  4m59.8s/7m00.0s
+websocket_service_test   [  71% ] 100/100 VUs  4m59.8s/7m00.0s
+
+running (5m05.3s), 300/300 VUs, 54148 complete and 0 interrupted iterations
+auth_service_test        [  72% ] 100/100 VUs  5m00.8s/7m00.0s
+doc_service_test         [  72% ] 100/100 VUs  5m00.8s/7m00.0s
+websocket_service_test   [  72% ] 100/100 VUs  5m00.8s/7m00.0s
+
+running (5m06.3s), 300/300 VUs, 54345 complete and 0 interrupted iterations
+auth_service_test        [  72% ] 100/100 VUs  5m01.8s/7m00.0s
+doc_service_test         [  72% ] 100/100 VUs  5m01.8s/7m00.0s
+websocket_service_test   [  72% ] 100/100 VUs  5m01.8s/7m00.0s
+
+running (5m07.3s), 300/300 VUs, 54540 complete and 0 interrupted iterations
+auth_service_test        [  72% ] 100/100 VUs  5m02.8s/7m00.0s
+doc_service_test         [  72% ] 100/100 VUs  5m02.8s/7m00.0s
+websocket_service_test   [  72% ] 100/100 VUs  5m02.8s/7m00.0s
+
+running (5m08.3s), 300/300 VUs, 54736 complete and 0 interrupted iterations
+auth_service_test        [  72% ] 100/100 VUs  5m03.8s/7m00.0s
+doc_service_test         [  72% ] 100/100 VUs  5m03.8s/7m00.0s
+websocket_service_test   [  72% ] 100/100 VUs  5m03.8s/7m00.0s
+
+running (5m09.3s), 300/300 VUs, 54929 complete and 0 interrupted iterations
+auth_service_test        [  73% ] 100/100 VUs  5m04.8s/7m00.0s
+doc_service_test         [  73% ] 100/100 VUs  5m04.8s/7m00.0s
+websocket_service_test   [  73% ] 100/100 VUs  5m04.8s/7m00.0s
+
+running (5m10.3s), 300/300 VUs, 55110 complete and 0 interrupted iterations
+auth_service_test        [  73% ] 100/100 VUs  5m05.8s/7m00.0s
+doc_service_test         [  73% ] 100/100 VUs  5m05.8s/7m00.0s
+websocket_service_test   [  73% ] 100/100 VUs  5m05.8s/7m00.0s
+
+running (5m11.3s), 300/300 VUs, 55309 complete and 0 interrupted iterations
+auth_service_test        [  73% ] 100/100 VUs  5m06.8s/7m00.0s
+doc_service_test         [  73% ] 100/100 VUs  5m06.8s/7m00.0s
+websocket_service_test   [  73% ] 100/100 VUs  5m06.8s/7m00.0s
+
+running (5m12.3s), 300/300 VUs, 55510 complete and 0 interrupted iterations
+auth_service_test        [  73% ] 100/100 VUs  5m07.8s/7m00.0s
+doc_service_test         [  73% ] 100/100 VUs  5m07.8s/7m00.0s
+websocket_service_test   [  73% ] 100/100 VUs  5m07.8s/7m00.0s
+
+running (5m13.3s), 300/300 VUs, 55707 complete and 0 interrupted iterations
+auth_service_test        [  74% ] 100/100 VUs  5m08.8s/7m00.0s
+doc_service_test         [  74% ] 100/100 VUs  5m08.8s/7m00.0s
+websocket_service_test   [  74% ] 100/100 VUs  5m08.8s/7m00.0s
+
+running (5m14.3s), 300/300 VUs, 55901 complete and 0 interrupted iterations
+auth_service_test        [  74% ] 100/100 VUs  5m09.8s/7m00.0s
+doc_service_test         [  74% ] 100/100 VUs  5m09.8s/7m00.0s
+websocket_service_test   [  74% ] 100/100 VUs  5m09.8s/7m00.0s
+
+running (5m15.3s), 300/300 VUs, 56096 complete and 0 interrupted iterations
+auth_service_test        [  74% ] 100/100 VUs  5m10.8s/7m00.0s
+doc_service_test         [  74% ] 100/100 VUs  5m10.8s/7m00.0s
+websocket_service_test   [  74% ] 100/100 VUs  5m10.8s/7m00.0s
+
+running (5m16.3s), 300/300 VUs, 56299 complete and 0 interrupted iterations
+auth_service_test        [  74% ] 100/100 VUs  5m11.8s/7m00.0s
+doc_service_test         [  74% ] 100/100 VUs  5m11.8s/7m00.0s
+websocket_service_test   [  74% ] 100/100 VUs  5m11.8s/7m00.0s
+
+running (5m17.3s), 300/300 VUs, 56501 complete and 0 interrupted iterations
+auth_service_test        [  74% ] 100/100 VUs  5m12.8s/7m00.0s
+doc_service_test         [  74% ] 100/100 VUs  5m12.8s/7m00.0s
+websocket_service_test   [  74% ] 100/100 VUs  5m12.8s/7m00.0s
+
+running (5m18.3s), 300/300 VUs, 56704 complete and 0 interrupted iterations
+auth_service_test        [  75% ] 100/100 VUs  5m13.8s/7m00.0s
+doc_service_test         [  75% ] 100/100 VUs  5m13.8s/7m00.0s
+websocket_service_test   [  75% ] 100/100 VUs  5m13.8s/7m00.0s
+
+running (5m19.3s), 300/300 VUs, 56906 complete and 0 interrupted iterations
+auth_service_test        [  75% ] 100/100 VUs  5m14.8s/7m00.0s
+doc_service_test         [  75% ] 100/100 VUs  5m14.8s/7m00.0s
+websocket_service_test   [  75% ] 100/100 VUs  5m14.8s/7m00.0s
+
+running (5m20.3s), 300/300 VUs, 57108 complete and 0 interrupted iterations
+auth_service_test        [  75% ] 100/100 VUs  5m15.8s/7m00.0s
+doc_service_test         [  75% ] 100/100 VUs  5m15.8s/7m00.0s
+websocket_service_test   [  75% ] 100/100 VUs  5m15.8s/7m00.0s
+
+running (5m21.6s), 300/300 VUs, 57311 complete and 0 interrupted iterations
+auth_service_test        [  75% ] 100/100 VUs  5m16.8s/7m00.0s
+doc_service_test         [  75% ] 100/100 VUs  5m16.8s/7m00.0s
+websocket_service_test   [  75% ] 100/100 VUs  5m16.8s/7m00.0s
+
+running (5m22.6s), 300/300 VUs, 57513 complete and 0 interrupted iterations
+auth_service_test        [  76% ] 100/100 VUs  5m17.8s/7m00.0s
+doc_service_test         [  76% ] 100/100 VUs  5m17.8s/7m00.0s
+websocket_service_test   [  76% ] 100/100 VUs  5m17.8s/7m00.0s
+
+running (5m23.6s), 300/300 VUs, 57715 complete and 0 interrupted iterations
+auth_service_test        [  76% ] 100/100 VUs  5m18.8s/7m00.0s
+doc_service_test         [  76% ] 100/100 VUs  5m18.8s/7m00.0s
+websocket_service_test   [  76% ] 100/100 VUs  5m18.8s/7m00.0s
+
+running (5m24.6s), 300/300 VUs, 57918 complete and 0 interrupted iterations
+auth_service_test        [  76% ] 100/100 VUs  5m19.8s/7m00.0s
+doc_service_test         [  76% ] 100/100 VUs  5m19.8s/7m00.0s
+websocket_service_test   [  76% ] 100/100 VUs  5m19.8s/7m00.0s
+
+running (5m25.6s), 300/300 VUs, 58121 complete and 0 interrupted iterations
+auth_service_test        [  76% ] 100/100 VUs  5m20.8s/7m00.0s
+doc_service_test         [  76% ] 100/100 VUs  5m20.8s/7m00.0s
+websocket_service_test   [  76% ] 100/100 VUs  5m20.8s/7m00.0s
+
+running (5m26.6s), 300/300 VUs, 58325 complete and 0 interrupted iterations
+auth_service_test        [  77% ] 100/100 VUs  5m21.8s/7m00.0s
+doc_service_test         [  77% ] 100/100 VUs  5m21.8s/7m00.0s
+websocket_service_test   [  77% ] 100/100 VUs  5m21.8s/7m00.0s
+
+running (5m27.6s), 300/300 VUs, 58527 complete and 0 interrupted iterations
+auth_service_test        [  77% ] 100/100 VUs  5m22.8s/7m00.0s
+doc_service_test         [  77% ] 100/100 VUs  5m22.8s/7m00.0s
+websocket_service_test   [  77% ] 100/100 VUs  5m22.8s/7m00.0s
+
+running (5m28.6s), 300/300 VUs, 58730 complete and 0 interrupted iterations
+auth_service_test        [  77% ] 100/100 VUs  5m23.8s/7m00.0s
+doc_service_test         [  77% ] 100/100 VUs  5m23.8s/7m00.0s
+websocket_service_test   [  77% ] 100/100 VUs  5m23.8s/7m00.0s
+
+running (5m29.6s), 300/300 VUs, 58931 complete and 0 interrupted iterations
+auth_service_test        [  77% ] 100/100 VUs  5m24.8s/7m00.0s
+doc_service_test         [  77% ] 100/100 VUs  5m24.8s/7m00.0s
+websocket_service_test   [  77% ] 100/100 VUs  5m24.8s/7m00.0s
+
+running (5m30.6s), 300/300 VUs, 59134 complete and 0 interrupted iterations
+auth_service_test        [  78% ] 100/100 VUs  5m25.8s/7m00.0s
+doc_service_test         [  78% ] 100/100 VUs  5m25.8s/7m00.0s
+websocket_service_test   [  78% ] 100/100 VUs  5m25.8s/7m00.0s
+
+running (5m31.6s), 300/300 VUs, 59331 complete and 0 interrupted iterations
+auth_service_test        [  78% ] 100/100 VUs  5m26.8s/7m00.0s
+doc_service_test         [  78% ] 100/100 VUs  5m26.8s/7m00.0s
+websocket_service_test   [  78% ] 100/100 VUs  5m26.8s/7m00.0s
+
+running (5m32.6s), 300/300 VUs, 59535 complete and 0 interrupted iterations
+auth_service_test        [  78% ] 100/100 VUs  5m27.8s/7m00.0s
+doc_service_test         [  78% ] 100/100 VUs  5m27.8s/7m00.0s
+websocket_service_test   [  78% ] 100/100 VUs  5m27.8s/7m00.0s
+
+running (5m33.6s), 300/300 VUs, 59738 complete and 0 interrupted iterations
+auth_service_test        [  78% ] 100/100 VUs  5m28.8s/7m00.0s
+doc_service_test         [  78% ] 100/100 VUs  5m28.8s/7m00.0s
+websocket_service_test   [  78% ] 100/100 VUs  5m28.8s/7m00.0s
+
+running (5m34.6s), 300/300 VUs, 59941 complete and 0 interrupted iterations
+auth_service_test        [  79% ] 100/100 VUs  5m29.8s/7m00.0s
+doc_service_test         [  79% ] 100/100 VUs  5m29.8s/7m00.0s
+websocket_service_test   [  79% ] 100/100 VUs  5m29.8s/7m00.0s
+
+running (5m35.6s), 300/300 VUs, 60145 complete and 0 interrupted iterations
+auth_service_test        [  79% ] 100/100 VUs  5m30.8s/7m00.0s
+doc_service_test         [  79% ] 100/100 VUs  5m30.8s/7m00.0s
+websocket_service_test   [  79% ] 100/100 VUs  5m30.8s/7m00.0s
+
+running (5m36.6s), 300/300 VUs, 60348 complete and 0 interrupted iterations
+auth_service_test        [  79% ] 100/100 VUs  5m31.8s/7m00.0s
+doc_service_test         [  79% ] 100/100 VUs  5m31.8s/7m00.0s
+websocket_service_test   [  79% ] 100/100 VUs  5m31.8s/7m00.0s
+
+running (5m37.6s), 300/300 VUs, 60550 complete and 0 interrupted iterations
+auth_service_test        [  79% ] 100/100 VUs  5m32.8s/7m00.0s
+doc_service_test         [  79% ] 100/100 VUs  5m32.8s/7m00.0s
+websocket_service_test   [  79% ] 100/100 VUs  5m32.8s/7m00.0s
+
+running (5m38.6s), 300/300 VUs, 60754 complete and 0 interrupted iterations
+auth_service_test        [  79% ] 100/100 VUs  5m33.8s/7m00.0s
+doc_service_test         [  79% ] 100/100 VUs  5m33.8s/7m00.0s
+websocket_service_test   [  79% ] 100/100 VUs  5m33.8s/7m00.0s
+
+running (5m39.6s), 300/300 VUs, 60955 complete and 0 interrupted iterations
+auth_service_test        [  80% ] 100/100 VUs  5m34.8s/7m00.0s
+doc_service_test         [  80% ] 100/100 VUs  5m34.8s/7m00.0s
+websocket_service_test   [  80% ] 100/100 VUs  5m34.8s/7m00.0s
+
+running (5m40.6s), 300/300 VUs, 61158 complete and 0 interrupted iterations
+auth_service_test        [  80% ] 100/100 VUs  5m35.8s/7m00.0s
+doc_service_test         [  80% ] 100/100 VUs  5m35.8s/7m00.0s
+websocket_service_test   [  80% ] 100/100 VUs  5m35.8s/7m00.0s
+
+running (5m41.6s), 300/300 VUs, 61361 complete and 0 interrupted iterations
+auth_service_test        [  80% ] 100/100 VUs  5m36.8s/7m00.0s
+doc_service_test         [  80% ] 100/100 VUs  5m36.8s/7m00.0s
+websocket_service_test   [  80% ] 100/100 VUs  5m36.8s/7m00.0s
+
+running (5m42.6s), 300/300 VUs, 61564 complete and 0 interrupted iterations
+auth_service_test        [  80% ] 100/100 VUs  5m37.8s/7m00.0s
+doc_service_test         [  80% ] 100/100 VUs  5m37.8s/7m00.0s
+websocket_service_test   [  80% ] 100/100 VUs  5m37.8s/7m00.0s
+
+running (5m43.6s), 300/300 VUs, 61767 complete and 0 interrupted iterations
+auth_service_test        [  81% ] 100/100 VUs  5m38.8s/7m00.0s
+doc_service_test         [  81% ] 100/100 VUs  5m38.8s/7m00.0s
+websocket_service_test   [  81% ] 100/100 VUs  5m38.8s/7m00.0s
+
+running (5m44.6s), 300/300 VUs, 61970 complete and 0 interrupted iterations
+auth_service_test        [  81% ] 100/100 VUs  5m39.8s/7m00.0s
+doc_service_test         [  81% ] 100/100 VUs  5m39.8s/7m00.0s
+websocket_service_test   [  81% ] 100/100 VUs  5m39.8s/7m00.0s
+
+running (5m45.6s), 300/300 VUs, 62172 complete and 0 interrupted iterations
+auth_service_test        [  81% ] 100/100 VUs  5m40.8s/7m00.0s
+doc_service_test         [  81% ] 100/100 VUs  5m40.8s/7m00.0s
+websocket_service_test   [  81% ] 100/100 VUs  5m40.8s/7m00.0s
+
+running (5m46.6s), 300/300 VUs, 62369 complete and 0 interrupted iterations
+auth_service_test        [  81% ] 100/100 VUs  5m41.8s/7m00.0s
+doc_service_test         [  81% ] 100/100 VUs  5m41.8s/7m00.0s
+websocket_service_test   [  81% ] 100/100 VUs  5m41.8s/7m00.0s
+
+running (5m47.6s), 300/300 VUs, 62567 complete and 0 interrupted iterations
+auth_service_test        [  82% ] 100/100 VUs  5m42.8s/7m00.0s
+doc_service_test         [  82% ] 100/100 VUs  5m42.8s/7m00.0s
+websocket_service_test   [  82% ] 100/100 VUs  5m42.8s/7m00.0s
+
+running (5m48.6s), 300/300 VUs, 62758 complete and 0 interrupted iterations
+auth_service_test        [  82% ] 100/100 VUs  5m43.8s/7m00.0s
+doc_service_test         [  82% ] 100/100 VUs  5m43.8s/7m00.0s
+websocket_service_test   [  82% ] 100/100 VUs  5m43.8s/7m00.0s
+
+running (5m49.6s), 300/300 VUs, 62954 complete and 0 interrupted iterations
+auth_service_test        [  82% ] 100/100 VUs  5m44.8s/7m00.0s
+doc_service_test         [  82% ] 100/100 VUs  5m44.8s/7m00.0s
+websocket_service_test   [  82% ] 100/100 VUs  5m44.8s/7m00.0s
+
+running (5m50.6s), 300/300 VUs, 63150 complete and 0 interrupted iterations
+auth_service_test        [  82% ] 100/100 VUs  5m45.8s/7m00.0s
+doc_service_test         [  82% ] 100/100 VUs  5m45.8s/7m00.0s
+websocket_service_test   [  82% ] 100/100 VUs  5m45.8s/7m00.0s
+
+running (5m51.9s), 300/300 VUs, 63342 complete and 0 interrupted iterations
+auth_service_test        [  83% ] 100/100 VUs  5m46.8s/7m00.0s
+doc_service_test         [  83% ] 100/100 VUs  5m46.8s/7m00.0s
+websocket_service_test   [  83% ] 100/100 VUs  5m46.8s/7m00.0s
+
+running (5m52.9s), 300/300 VUs, 63521 complete and 0 interrupted iterations
+auth_service_test        [  83% ] 100/100 VUs  5m47.8s/7m00.0s
+doc_service_test         [  83% ] 100/100 VUs  5m47.8s/7m00.0s
+websocket_service_test   [  83% ] 100/100 VUs  5m47.8s/7m00.0s
+
+running (5m53.9s), 300/300 VUs, 63721 complete and 0 interrupted iterations
+auth_service_test        [  83% ] 100/100 VUs  5m48.8s/7m00.0s
+doc_service_test         [  83% ] 100/100 VUs  5m48.8s/7m00.0s
+websocket_service_test   [  83% ] 100/100 VUs  5m48.8s/7m00.0s
+
+running (5m54.9s), 300/300 VUs, 63911 complete and 0 interrupted iterations
+auth_service_test        [  83% ] 100/100 VUs  5m49.8s/7m00.0s
+doc_service_test         [  83% ] 100/100 VUs  5m49.8s/7m00.0s
+websocket_service_test   [  83% ] 100/100 VUs  5m49.8s/7m00.0s
+
+running (5m55.9s), 300/300 VUs, 64110 complete and 0 interrupted iterations
+auth_service_test        [  84% ] 100/100 VUs  5m50.8s/7m00.0s
+doc_service_test         [  84% ] 100/100 VUs  5m50.8s/7m00.0s
+websocket_service_test   [  84% ] 100/100 VUs  5m50.8s/7m00.0s
+
+running (5m56.9s), 300/300 VUs, 64304 complete and 0 interrupted iterations
+auth_service_test        [  84% ] 100/100 VUs  5m51.8s/7m00.0s
+doc_service_test         [  84% ] 100/100 VUs  5m51.8s/7m00.0s
+websocket_service_test   [  84% ] 100/100 VUs  5m51.8s/7m00.0s
+
+running (5m57.9s), 300/300 VUs, 64503 complete and 0 interrupted iterations
+auth_service_test        [  84% ] 100/100 VUs  5m52.8s/7m00.0s
+doc_service_test         [  84% ] 100/100 VUs  5m52.8s/7m00.0s
+websocket_service_test   [  84% ] 100/100 VUs  5m52.8s/7m00.0s
+
+running (5m58.9s), 300/300 VUs, 64694 complete and 0 interrupted iterations
+auth_service_test        [  84% ] 100/100 VUs  5m53.8s/7m00.0s
+doc_service_test         [  84% ] 100/100 VUs  5m53.8s/7m00.0s
+websocket_service_test   [  84% ] 100/100 VUs  5m53.8s/7m00.0s
+
+running (5m59.9s), 300/300 VUs, 64897 complete and 0 interrupted iterations
+auth_service_test        [  84% ] 100/100 VUs  5m54.8s/7m00.0s
+doc_service_test         [  84% ] 100/100 VUs  5m54.8s/7m00.0s
+websocket_service_test   [  84% ] 100/100 VUs  5m54.8s/7m00.0s
+
+running (6m00.9s), 300/300 VUs, 65101 complete and 0 interrupted iterations
+auth_service_test        [  85% ] 100/100 VUs  5m55.8s/7m00.0s
+doc_service_test         [  85% ] 100/100 VUs  5m55.8s/7m00.0s
+websocket_service_test   [  85% ] 100/100 VUs  5m55.8s/7m00.0s
+
+running (6m01.9s), 300/300 VUs, 65304 complete and 0 interrupted iterations
+auth_service_test        [  85% ] 100/100 VUs  5m56.8s/7m00.0s
+doc_service_test         [  85% ] 100/100 VUs  5m56.8s/7m00.0s
+websocket_service_test   [  85% ] 100/100 VUs  5m56.8s/7m00.0s
+
+running (6m02.9s), 300/300 VUs, 65505 complete and 0 interrupted iterations
+auth_service_test        [  85% ] 100/100 VUs  5m57.8s/7m00.0s
+doc_service_test         [  85% ] 100/100 VUs  5m57.8s/7m00.0s
+websocket_service_test   [  85% ] 100/100 VUs  5m57.8s/7m00.0s
+
+running (6m03.9s), 300/300 VUs, 65709 complete and 0 interrupted iterations
+auth_service_test        [  85% ] 100/100 VUs  5m58.8s/7m00.0s
+doc_service_test         [  85% ] 100/100 VUs  5m58.8s/7m00.0s
+websocket_service_test   [  85% ] 100/100 VUs  5m58.8s/7m00.0s
+
+running (6m04.9s), 300/300 VUs, 65912 complete and 0 interrupted iterations
+auth_service_test        [  86% ] 100/100 VUs  5m59.8s/7m00.0s
+doc_service_test         [  86% ] 100/100 VUs  5m59.8s/7m00.0s
+websocket_service_test   [  86% ] 100/100 VUs  5m59.8s/7m00.0s
+
+running (6m05.9s), 300/300 VUs, 66115 complete and 0 interrupted iterations
+auth_service_test        [  86% ] 100/100 VUs  6m00.8s/7m00.0s
+doc_service_test         [  86% ] 100/100 VUs  6m00.8s/7m00.0s
+websocket_service_test   [  86% ] 100/100 VUs  6m00.8s/7m00.0s
+
+running (6m06.9s), 297/300 VUs, 66319 complete and 0 interrupted iterations
+auth_service_test        [  86% ] 098/100 VUs  6m01.8s/7m00.0s
+doc_service_test         [  86% ] 099/100 VUs  6m01.8s/7m00.0s
+websocket_service_test   [  86% ] 100/100 VUs  6m01.8s/7m00.0s
+
+running (6m07.9s), 293/300 VUs, 66518 complete and 0 interrupted iterations
+auth_service_test        [  86% ] 097/100 VUs  6m02.8s/7m00.0s
+doc_service_test         [  86% ] 096/100 VUs  6m02.8s/7m00.0s
+websocket_service_test   [  86% ] 100/100 VUs  6m02.8s/7m00.0s
+
+running (6m08.9s), 290/300 VUs, 66713 complete and 0 interrupted iterations
+auth_service_test        [  87% ] 095/100 VUs  6m03.8s/7m00.0s
+doc_service_test         [  87% ] 095/100 VUs  6m03.8s/7m00.0s
+websocket_service_test   [  87% ] 100/100 VUs  6m03.8s/7m00.0s
+
+running (6m09.9s), 288/300 VUs, 66907 complete and 0 interrupted iterations
+auth_service_test        [  87% ] 094/100 VUs  6m04.8s/7m00.0s
+doc_service_test         [  87% ] 094/100 VUs  6m04.8s/7m00.0s
+websocket_service_test   [  87% ] 100/100 VUs  6m04.8s/7m00.0s
+
+running (6m10.9s), 284/300 VUs, 67097 complete and 0 interrupted iterations
+auth_service_test        [  87% ] 092/100 VUs  6m05.8s/7m00.0s
+doc_service_test         [  87% ] 092/100 VUs  6m05.8s/7m00.0s
+websocket_service_test   [  87% ] 100/100 VUs  6m05.8s/7m00.0s
+
+running (6m11.9s), 278/300 VUs, 67283 complete and 0 interrupted iterations
+auth_service_test        [  87% ] 090/100 VUs  6m06.8s/7m00.0s
+doc_service_test         [  87% ] 090/100 VUs  6m06.8s/7m00.0s
+websocket_service_test   [  87% ] 098/100 VUs  6m06.8s/7m00.0s
+
+running (6m12.9s), 273/300 VUs, 67462 complete and 0 interrupted iterations
+auth_service_test        [  88% ] 088/100 VUs  6m07.8s/7m00.0s
+doc_service_test         [  88% ] 089/100 VUs  6m07.8s/7m00.0s
+websocket_service_test   [  88% ] 096/100 VUs  6m07.8s/7m00.0s
+
+running (6m13.9s), 269/300 VUs, 67642 complete and 0 interrupted iterations
+auth_service_test        [  88% ] 087/100 VUs  6m08.8s/7m00.0s
+doc_service_test         [  88% ] 087/100 VUs  6m08.8s/7m00.0s
+websocket_service_test   [  88% ] 095/100 VUs  6m08.8s/7m00.0s
+
+running (6m14.9s), 263/300 VUs, 67819 complete and 0 interrupted iterations
+auth_service_test        [  88% ] 085/100 VUs  6m09.8s/7m00.0s
+doc_service_test         [  88% ] 085/100 VUs  6m09.8s/7m00.0s
+websocket_service_test   [  88% ] 093/100 VUs  6m09.8s/7m00.0s
+
+running (6m15.9s), 259/300 VUs, 67992 complete and 0 interrupted iterations
+auth_service_test        [  88% ] 083/100 VUs  6m10.8s/7m00.0s
+doc_service_test         [  88% ] 084/100 VUs  6m10.8s/7m00.0s
+websocket_service_test   [  88% ] 092/100 VUs  6m10.8s/7m00.0s
+
+running (6m16.9s), 256/300 VUs, 68161 complete and 0 interrupted iterations
+auth_service_test        [  89% ] 082/100 VUs  6m11.8s/7m00.0s
+doc_service_test         [  89% ] 082/100 VUs  6m11.8s/7m00.0s
+websocket_service_test   [  89% ] 092/100 VUs  6m11.8s/7m00.0s
+
+running (6m17.9s), 252/300 VUs, 68327 complete and 0 interrupted iterations
+auth_service_test        [  89% ] 080/100 VUs  6m12.8s/7m00.0s
+doc_service_test         [  89% ] 080/100 VUs  6m12.8s/7m00.0s
+websocket_service_test   [  89% ] 092/100 VUs  6m12.8s/7m00.0s
+
+running (6m18.9s), 248/300 VUs, 68490 complete and 0 interrupted iterations
+auth_service_test        [  89% ] 078/100 VUs  6m13.8s/7m00.0s
+doc_service_test         [  89% ] 078/100 VUs  6m13.8s/7m00.0s
+websocket_service_test   [  89% ] 092/100 VUs  6m13.8s/7m00.0s
+
+running (6m19.9s), 245/300 VUs, 68648 complete and 0 interrupted iterations
+auth_service_test        [  89% ] 076/100 VUs  6m14.8s/7m00.0s
+doc_service_test         [  89% ] 077/100 VUs  6m14.8s/7m00.0s
+websocket_service_test   [  89% ] 092/100 VUs  6m14.8s/7m00.0s
+
+running (6m20.9s), 241/300 VUs, 68804 complete and 0 interrupted iterations
+auth_service_test        [  89% ] 075/100 VUs  6m15.8s/7m00.0s
+doc_service_test         [  89% ] 074/100 VUs  6m15.8s/7m00.0s
+websocket_service_test   [  89% ] 092/100 VUs  6m15.8s/7m00.0s
+
+running (6m22.1s), 238/300 VUs, 68956 complete and 0 interrupted iterations
+auth_service_test        [  90% ] 073/100 VUs  6m16.8s/7m00.0s
+doc_service_test         [  90% ] 073/100 VUs  6m16.8s/7m00.0s
+websocket_service_test   [  90% ] 092/100 VUs  6m16.8s/7m00.0s
+
+running (6m23.1s), 235/300 VUs, 69106 complete and 0 interrupted iterations
+auth_service_test        [  90% ] 071/100 VUs  6m17.8s/7m00.0s
+doc_service_test         [  90% ] 072/100 VUs  6m17.8s/7m00.0s
+websocket_service_test   [  90% ] 092/100 VUs  6m17.8s/7m00.0s
+
+running (6m24.1s), 231/300 VUs, 69252 complete and 0 interrupted iterations
+auth_service_test        [  90% ] 070/100 VUs  6m18.8s/7m00.0s
+doc_service_test         [  90% ] 069/100 VUs  6m18.8s/7m00.0s
+websocket_service_test   [  90% ] 092/100 VUs  6m18.8s/7m00.0s
+
+running (6m25.1s), 228/300 VUs, 69394 complete and 0 interrupted iterations
+auth_service_test        [  90% ] 068/100 VUs  6m19.8s/7m00.0s
+doc_service_test         [  90% ] 068/100 VUs  6m19.8s/7m00.0s
+websocket_service_test   [  90% ] 092/100 VUs  6m19.8s/7m00.0s
+
+running (6m26.1s), 225/300 VUs, 69534 complete and 0 interrupted iterations
+auth_service_test        [  91% ] 066/100 VUs  6m20.8s/7m00.0s
+doc_service_test         [  91% ] 067/100 VUs  6m20.8s/7m00.0s
+websocket_service_test   [  91% ] 092/100 VUs  6m20.8s/7m00.0s
+
+running (6m27.1s), 220/300 VUs, 69670 complete and 0 interrupted iterations
+auth_service_test        [  91% ] 065/100 VUs  6m21.8s/7m00.0s
+doc_service_test         [  91% ] 064/100 VUs  6m21.8s/7m00.0s
+websocket_service_test   [  91% ] 091/100 VUs  6m21.8s/7m00.0s
+
+running (6m28.1s), 215/300 VUs, 69802 complete and 0 interrupted iterations
+auth_service_test        [  91% ] 063/100 VUs  6m22.8s/7m00.0s
+doc_service_test         [  91% ] 063/100 VUs  6m22.8s/7m00.0s
+websocket_service_test   [  91% ] 089/100 VUs  6m22.8s/7m00.0s
+
+running (6m29.1s), 210/300 VUs, 69932 complete and 0 interrupted iterations
+auth_service_test        [  91% ] 061/100 VUs  6m23.8s/7m00.0s
+doc_service_test         [  91% ] 062/100 VUs  6m23.8s/7m00.0s
+websocket_service_test   [  91% ] 087/100 VUs  6m23.8s/7m00.0s
+
+running (6m30.1s), 205/300 VUs, 70057 complete and 0 interrupted iterations
+auth_service_test        [  92% ] 060/100 VUs  6m24.8s/7m00.0s
+doc_service_test         [  92% ] 059/100 VUs  6m24.8s/7m00.0s
+websocket_service_test   [  92% ] 086/100 VUs  6m24.8s/7m00.0s
+
+running (6m31.1s), 200/300 VUs, 70179 complete and 0 interrupted iterations
+auth_service_test        [  92% ] 058/100 VUs  6m25.8s/7m00.0s
+doc_service_test         [  92% ] 058/100 VUs  6m25.8s/7m00.0s
+websocket_service_test   [  92% ] 084/100 VUs  6m25.8s/7m00.0s
+
+running (6m32.1s), 195/300 VUs, 70299 complete and 0 interrupted iterations
+auth_service_test        [  92% ] 056/100 VUs  6m26.8s/7m00.0s
+doc_service_test         [  92% ] 057/100 VUs  6m26.8s/7m00.0s
+websocket_service_test   [  92% ] 082/100 VUs  6m26.8s/7m00.0s
+
+running (6m33.1s), 190/300 VUs, 70415 complete and 0 interrupted iterations
+auth_service_test        [  92% ] 055/100 VUs  6m27.8s/7m00.0s
+doc_service_test         [  92% ] 054/100 VUs  6m27.8s/7m00.0s
+websocket_service_test   [  92% ] 081/100 VUs  6m27.8s/7m00.0s
+
+running (6m34.1s), 186/300 VUs, 70527 complete and 0 interrupted iterations
+auth_service_test        [  93% ] 054/100 VUs  6m28.8s/7m00.0s
+doc_service_test         [  93% ] 053/100 VUs  6m28.8s/7m00.0s
+websocket_service_test   [  93% ] 079/100 VUs  6m28.8s/7m00.0s
+
+running (6m35.1s), 180/300 VUs, 70638 complete and 0 interrupted iterations
+auth_service_test        [  93% ] 051/100 VUs  6m29.8s/7m00.0s
+doc_service_test         [  93% ] 052/100 VUs  6m29.8s/7m00.0s
+websocket_service_test   [  93% ] 077/100 VUs  6m29.8s/7m00.0s
+
+running (6m36.1s), 176/300 VUs, 70744 complete and 0 interrupted iterations
+auth_service_test        [  93% ] 050/100 VUs  6m30.8s/7m00.0s
+doc_service_test         [  93% ] 050/100 VUs  6m30.8s/7m00.0s
+websocket_service_test   [  93% ] 076/100 VUs  6m30.8s/7m00.0s
+
+running (6m37.1s), 170/300 VUs, 70847 complete and 0 interrupted iterations
+auth_service_test        [  93% ] 048/100 VUs  6m31.8s/7m00.0s
+doc_service_test         [  93% ] 048/100 VUs  6m31.8s/7m00.0s
+websocket_service_test   [  93% ] 074/100 VUs  6m31.8s/7m00.0s
+
+running (6m38.1s), 165/300 VUs, 70947 complete and 0 interrupted iterations
+auth_service_test        [  94% ] 046/100 VUs  6m32.8s/7m00.0s
+doc_service_test         [  94% ] 047/100 VUs  6m32.8s/7m00.0s
+websocket_service_test   [  94% ] 072/100 VUs  6m32.8s/7m00.0s
+
+running (6m39.1s), 162/300 VUs, 71043 complete and 0 interrupted iterations
+auth_service_test        [  94% ] 046/100 VUs  6m33.8s/7m00.0s
+doc_service_test         [  94% ] 045/100 VUs  6m33.8s/7m00.0s
+websocket_service_test   [  94% ] 071/100 VUs  6m33.8s/7m00.0s
+
+running (6m40.1s), 155/300 VUs, 71136 complete and 0 interrupted iterations
+auth_service_test        [  94% ] 043/100 VUs  6m34.8s/7m00.0s
+doc_service_test         [  94% ] 043/100 VUs  6m34.8s/7m00.0s
+websocket_service_test   [  94% ] 069/100 VUs  6m34.8s/7m00.0s
+
+running (6m41.1s), 149/300 VUs, 71226 complete and 1 interrupted iterations
+auth_service_test        [  94% ] 041/100 VUs  6m35.8s/7m00.0s
+doc_service_test         [  94% ] 042/100 VUs  6m35.8s/7m00.0s
+websocket_service_test   [  94% ] 066/100 VUs  6m35.8s/7m00.0s
+
+running (6m42.1s), 145/300 VUs, 71311 complete and 1 interrupted iterations
+auth_service_test        [  94% ] 040/100 VUs  6m36.8s/7m00.0s
+doc_service_test         [  94% ] 040/100 VUs  6m36.8s/7m00.0s
+websocket_service_test   [  94% ] 065/100 VUs  6m36.8s/7m00.0s
+
+running (6m43.1s), 140/300 VUs, 71392 complete and 1 interrupted iterations
+auth_service_test        [  95% ] 038/100 VUs  6m37.8s/7m00.0s
+doc_service_test         [  95% ] 038/100 VUs  6m37.8s/7m00.0s
+websocket_service_test   [  95% ] 064/100 VUs  6m37.8s/7m00.0s
+
+running (6m44.1s), 135/300 VUs, 71469 complete and 1 interrupted iterations
+auth_service_test        [  95% ] 036/100 VUs  6m38.8s/7m00.0s
+doc_service_test         [  95% ] 037/100 VUs  6m38.8s/7m00.0s
+websocket_service_test   [  95% ] 062/100 VUs  6m38.8s/7m00.0s
+
+running (6m45.1s), 129/300 VUs, 71543 complete and 1 interrupted iterations
+auth_service_test        [  95% ] 034/100 VUs  6m39.8s/7m00.0s
+doc_service_test         [  95% ] 035/100 VUs  6m39.8s/7m00.0s
+websocket_service_test   [  95% ] 060/100 VUs  6m39.8s/7m00.0s
+
+running (6m46.1s), 126/300 VUs, 71610 complete and 1 interrupted iterations
+auth_service_test        [  95% ] 034/100 VUs  6m40.8s/7m00.0s
+doc_service_test         [  95% ] 033/100 VUs  6m40.8s/7m00.0s
+websocket_service_test   [  95% ] 059/100 VUs  6m40.8s/7m00.0s
+
+running (6m47.1s), 121/300 VUs, 71678 complete and 1 interrupted iterations
+auth_service_test        [  96% ] 031/100 VUs  6m41.8s/7m00.0s
+doc_service_test         [  96% ] 033/100 VUs  6m41.8s/7m00.0s
+websocket_service_test   [  96% ] 057/100 VUs  6m41.8s/7m00.0s
+
+running (6m48.1s), 114/300 VUs, 71743 complete and 1 interrupted iterations
+auth_service_test        [  96% ] 029/100 VUs  6m42.8s/7m00.0s
+doc_service_test         [  96% ] 030/100 VUs  6m42.8s/7m00.0s
+websocket_service_test   [  96% ] 055/100 VUs  6m42.8s/7m00.0s
+
+running (6m49.1s), 110/300 VUs, 71803 complete and 1 interrupted iterations
+auth_service_test        [  96% ] 028/100 VUs  6m43.8s/7m00.0s
+doc_service_test         [  96% ] 028/100 VUs  6m43.8s/7m00.0s
+websocket_service_test   [  96% ] 054/100 VUs  6m43.8s/7m00.0s
+
+running (6m50.1s), 105/300 VUs, 71862 complete and 1 interrupted iterations
+auth_service_test        [  96% ] 026/100 VUs  6m44.8s/7m00.0s
+doc_service_test         [  96% ] 027/100 VUs  6m44.8s/7m00.0s
+websocket_service_test   [  96% ] 052/100 VUs  6m44.8s/7m00.0s
+
+running (6m51.1s), 099/300 VUs, 71919 complete and 1 interrupted iterations
+auth_service_test        [  97% ] 024/100 VUs  6m45.8s/7m00.0s
+doc_service_test         [  97% ] 025/100 VUs  6m45.8s/7m00.0s
+websocket_service_test   [  97% ] 050/100 VUs  6m45.8s/7m00.0s
+
+running (6m52.4s), 096/300 VUs, 71971 complete and 1 interrupted iterations
+auth_service_test        [  97% ] 024/100 VUs  6m46.8s/7m00.0s
+doc_service_test         [  97% ] 023/100 VUs  6m46.8s/7m00.0s
+websocket_service_test   [  97% ] 049/100 VUs  6m46.8s/7m00.0s
+
+running (6m53.4s), 090/300 VUs, 72021 complete and 1 interrupted iterations
+auth_service_test        [  97% ] 022/100 VUs  6m47.8s/7m00.0s
+doc_service_test         [  97% ] 021/100 VUs  6m47.8s/7m00.0s
+websocket_service_test   [  97% ] 047/100 VUs  6m47.8s/7m00.0s
+
+running (6m54.4s), 084/300 VUs, 72068 complete and 1 interrupted iterations
+auth_service_test        [  97% ] 019/100 VUs  6m48.8s/7m00.0s
+doc_service_test         [  97% ] 020/100 VUs  6m48.8s/7m00.0s
+websocket_service_test   [  97% ] 045/100 VUs  6m48.8s/7m00.0s
+
+running (6m55.4s), 081/300 VUs, 72108 complete and 1 interrupted iterations
+auth_service_test        [  98% ] 019/100 VUs  6m49.8s/7m00.0s
+doc_service_test         [  98% ] 018/100 VUs  6m49.8s/7m00.0s
+websocket_service_test   [  98% ] 044/100 VUs  6m49.8s/7m00.0s
+
+running (6m56.4s), 075/300 VUs, 72147 complete and 1 interrupted iterations
+auth_service_test        [  98% ] 017/100 VUs  6m50.8s/7m00.0s
+doc_service_test         [  98% ] 016/100 VUs  6m50.8s/7m00.0s
+websocket_service_test   [  98% ] 042/100 VUs  6m50.8s/7m00.0s
+
+running (6m57.4s), 069/300 VUs, 72183 complete and 2 interrupted iterations
+auth_service_test        [  98% ] 014/100 VUs  6m51.8s/7m00.0s
+doc_service_test         [  98% ] 015/100 VUs  6m51.8s/7m00.0s
+websocket_service_test   [  98% ] 040/100 VUs  6m51.8s/7m00.0s
+
+running (6m58.4s), 065/300 VUs, 72214 complete and 2 interrupted iterations
+auth_service_test        [  98% ] 014/100 VUs  6m52.8s/7m00.0s
+doc_service_test         [  98% ] 013/100 VUs  6m52.8s/7m00.0s
+websocket_service_test   [  98% ] 038/100 VUs  6m52.8s/7m00.0s
+
+running (6m59.4s), 059/300 VUs, 72242 complete and 2 interrupted iterations
+auth_service_test        [  99% ] 011/100 VUs  6m53.8s/7m00.0s
+doc_service_test         [  99% ] 011/100 VUs  6m53.8s/7m00.0s
+websocket_service_test   [  99% ] 037/100 VUs  6m53.8s/7m00.0s
+
+running (7m00.4s), 055/300 VUs, 72266 complete and 2 interrupted iterations
+auth_service_test        [  99% ] 009/100 VUs  6m54.8s/7m00.0s
+doc_service_test         [  99% ] 011/100 VUs  6m54.8s/7m00.0s
+websocket_service_test   [  99% ] 035/100 VUs  6m54.8s/7m00.0s
+
+running (7m01.4s), 050/300 VUs, 72288 complete and 2 interrupted iterations
+auth_service_test        [  99% ] 009/100 VUs  6m55.8s/7m00.0s
+doc_service_test         [  99% ] 008/100 VUs  6m55.8s/7m00.0s
+websocket_service_test   [  99% ] 033/100 VUs  6m55.8s/7m00.0s
+
+running (7m02.4s), 045/300 VUs, 72306 complete and 2 interrupted iterations
+auth_service_test        [  99% ] 007/100 VUs  6m56.8s/7m00.0s
+doc_service_test         [  99% ] 006/100 VUs  6m56.8s/7m00.0s
+websocket_service_test   [  99% ] 032/100 VUs  6m56.8s/7m00.0s
+
+running (7m03.4s), 040/300 VUs, 72321 complete and 2 interrupted iterations
+auth_service_test        [  99% ] 004/100 VUs  6m57.8s/7m00.0s
+doc_service_test         [  99% ] 006/100 VUs  6m57.8s/7m00.0s
+websocket_service_test   [  99% ] 030/100 VUs  6m57.8s/7m00.0s
+
+running (7m04.4s), 034/300 VUs, 72333 complete and 2 interrupted iterations
+auth_service_test        [ 100% ] 003/100 VUs  6m58.8s/7m00.0s
+doc_service_test         [ 100% ] 003/100 VUs  6m58.8s/7m00.0s
+websocket_service_test   [ 100% ] 028/100 VUs  6m58.8s/7m00.0s
+
+running (7m05.4s), 029/300 VUs, 72340 complete and 2 interrupted iterations
+auth_service_test        [ 100% ] 001/100 VUs  6m59.8s/7m00.0s
+doc_service_test         [ 100% ] 001/100 VUs  6m59.8s/7m00.0s
+websocket_service_test   [ 100% ] 027/100 VUs  6m59.8s/7m00.0s
+
+running (7m06.4s), 026/300 VUs, 72344 complete and 2 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ↓ [ 100% ] 001/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m07.4s), 023/300 VUs, 72347 complete and 2 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m08.4s), 022/300 VUs, 72348 complete and 2 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m09.4s), 020/300 VUs, 72350 complete and 2 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m10.4s), 018/300 VUs, 72352 complete and 2 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m11.4s), 017/300 VUs, 72353 complete and 2 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m12.4s), 014/300 VUs, 72355 complete and 3 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m13.4s), 014/300 VUs, 72355 complete and 3 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m14.4s), 014/300 VUs, 72355 complete and 3 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m15.4s), 014/300 VUs, 72355 complete and 3 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m16.4s), 014/300 VUs, 72355 complete and 3 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m17.4s), 014/300 VUs, 72355 complete and 3 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m18.4s), 014/300 VUs, 72355 complete and 3 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m19.4s), 014/300 VUs, 72355 complete and 3 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m20.4s), 013/300 VUs, 72356 complete and 3 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m21.4s), 012/300 VUs, 72357 complete and 3 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m22.7s), 010/300 VUs, 72359 complete and 3 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m23.7s), 008/300 VUs, 72361 complete and 3 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m24.7s), 007/300 VUs, 72362 complete and 3 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m25.7s), 005/300 VUs, 72364 complete and 3 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m26.7s), 003/300 VUs, 72366 complete and 3 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+running (7m27.7s), 002/300 VUs, 72367 complete and 3 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ↓ [ 100% ] 026/100 VUs  7m0s
+
+
+  █ THRESHOLDS 
+
+    http_req_duration
+    ✓ 'p(95)<500' p(95)=38.52ms
+
+    ws_connecting
+    ✓ 'p(95)<1000' p(95)=17.85ms
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 72374   161.516633/s
+    checks_succeeded...: 100.00% 72374 out of 72374
+    checks_failed......: 0.00%   0 out of 72374
+
+    ✓ Setup: Register 201
+    ✓ Setup: Login 200
+    ✓ Auth: Me 200
+    ✓ Doc: Get 200
+    ✓ WS: Connected (101)
+
+    HTTP
+    http_req_duration..............: avg=12.73ms min=2.13ms   med=6.95ms   max=730.26ms p(90)=29.25ms p(95)=38.52ms
+      { expected_response:true }...: avg=12.73ms min=2.13ms   med=6.95ms   max=730.26ms p(90)=29.25ms p(95)=38.52ms
+    http_req_failed................: 0.00% 0 out of 71163
+    http_reqs......................: 71163 158.814051/s
+
+    EXECUTION
+    iteration_duration.............: avg=1.51s   min=1s       med=1s       max=31.09s   p(90)=1.03s   p(95)=1.04s  
+    iterations.....................: 72368 161.503243/s
+    vus............................: 2     min=2          max=300
+    vus_max........................: 300   min=300        max=300
+
+    NETWORK
+    data_received..................: 61 MB 136 kB/s
+    data_sent......................: 28 MB 63 kB/s
+
+    WEBSOCKET
+    ws_connecting..................: avg=7.01ms  min=3.07ms   med=4.86ms   max=94.56ms  p(90)=11.93ms p(95)=17.85ms
+    ws_msgs_received...............: 1212  2.704813/s
+    ws_ping........................: avg=1.65ms  min=368.69µs med=921.59µs max=56.58ms  p(90)=2.18ms  p(95)=4.67ms 
+    ws_session_duration............: avg=30s     min=30s      med=30s      max=30.09s   p(90)=30.01s  p(95)=30.01s 
+    ws_sessions....................: 1212  2.704813/s
+
+
+
+
+running (7m28.1s), 000/300 VUs, 72368 complete and 4 interrupted iterations
+auth_service_test      ✓ [ 100% ] 000/100 VUs  7m0s
+doc_service_test       ✓ [ 100% ] 000/100 VUs  7m0s
+websocket_service_test ✓ [ 100% ] 000/100 VUs  7m0s

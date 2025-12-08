@@ -106,7 +106,6 @@ services:
   worker:
     build:
       context: ./src/worker
-    container_name: worker
     restart: always
     depends_on:
       - kafka

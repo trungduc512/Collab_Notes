@@ -24,13 +24,13 @@
 
 ---
 
-## 1. Mô tả Dự án
+## 1. Mô tả dự án
 
 Collab Notes là một nền tảng web cho phép nhiều người dùng cùng chỉnh sửa tài liệu theo thời gian thực, tương tự Google Docs. Hệ thống sử dụng Kafka làm xương sống cho luồng dữ liệu, MongoDB cho lưu trữ phi cấu trúc, và thuật toán **CRDT (Conflict-free Replicated Data Types)** thông qua thư viện Yjs để xử lý logic cộng tác.
 
 ---
 
-## 2. Các Nhiệm Vụ Đã Hoàn Thành
+## 2. Các nhiệm vụ Đã hoàn thành
 
 - **Xây dựng hệ thống microservices:** Tách biệt các service: Auth, Doc, Websocket, Worker, Client, Nginx.
 - **Chỉnh sửa tài liệu realtime:** Sử dụng Yjs, y-websocket, Quill, Kafka để đồng bộ nội dung giữa nhiều người dùng.
@@ -208,7 +208,7 @@ Trong hệ thống cộng tác realtime, xung đột xảy ra khi nhiều ngư�
 - Server chỉ lưu trữ và chuyển tiếp các bản vá, không tự sinh ra nội dung chỉnh sửa.
 - Mọi update từ client đều được merge vào lịch sử chung, không có thao tác ghi đè, đảm bảo không mất dữ liệu hay sai lệch phiên bản.
 
-## 3. Kiến trúc Triển Khai Hiện Tại (Microservices, Kafka, MongoDB, Load Balancing)
+## 3. Kiến trúc triển khai hiện tại (Microservices, Kafka, MongoDB, Load Balancing)
 
 ![Sơ đồ kiến trúc hệ thống](system-architecture.png)
 
@@ -225,9 +225,9 @@ Trong hệ thống cộng tác realtime, xung đột xảy ra khi nhiều ngư�
 
 ---
 
-## 4. Cách Sử Dụng
+## 4. Cách sử dụng
 
-### 4.1. Yêu Cầu Hệ Thống
+### 4.1. Yêu cầu hệ thống
 
 - Docker, Docker Compose
 - (Tùy chọn) Prometheus, Grafana để giám sát
@@ -286,7 +286,7 @@ docker compose down -v
 
 ---
 
-## 6. Thành Viên Nhóm
+## 6. Thành viên nhóm
 
 - Đỗ Trung Đức - 23020045 (Load Balancer, Gateway Offloading, CQRS, Message Queue, Conflict Resolve, Kafka Pub/sub)
 - Trương Quang Duy - 23020033 (CQRS, Conflict Resolve, Redis Pub/Sub, Testing, Message Queue)

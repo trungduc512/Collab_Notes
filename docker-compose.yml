@@ -7,7 +7,7 @@ services:
     container_name: mongo
     restart: always
     ports:
-      - "27017:27017"
+      - '27017:27017'
     volumes:
       - mongo-data:/data/db
 
@@ -21,7 +21,7 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
     ports:
-      - "2181:2181"
+      - '2181:2181'
 
   # ---------------------------------------------------------
   # KAFKA
@@ -32,7 +32,7 @@ services:
     depends_on:
       - zookeeper
     ports:
-      - "29092:29092"
+      - '29092:29092'
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
@@ -53,7 +53,7 @@ services:
     container_name: auth-service
     restart: always
     ports:
-      - "3002:3002"
+      - '3002:3002'
     depends_on:
       - mongo
     environment:
@@ -73,7 +73,7 @@ services:
     container_name: doc-service
     restart: always
     ports:
-      - "3001:3001"
+      - '3001:3001'
     depends_on:
       - mongo
     environment:
@@ -130,7 +130,7 @@ services:
       - websocket-service
       - kafka
     ports:
-      - "80:80"
+      - '80:80'
     environment:
       - APP_SERVICE_NAME=collab_notes-websocket-service
       - APP_PORT=1234
@@ -138,18 +138,21 @@ services:
   # ---------------------------------------------------------
   # CLIENT
   # ---------------------------------------------------------
-  # client:
-  #   build:
-  #     context: ./src/client
-  #   container_name: client
-  #   restart: always
-  #   environment:
-  #     - VITE_APP_BACKEND_URL=http://localhost:80/api/v1
-  #     - VITE_APP_WS_URL=ws://localhost:80
-  #   ports:
-  #     - "5173:5173"
-  #   depends_on:
-  #     - nginx
+  client:
+    build:
+      context: ./src/client
+    container_name: client
+    restart: always
+    environment:
+      - VITE_APP_BACKEND_URL=http://localhost:80/api/v1
+      - VITE_APP_WS_URL=ws://localhost:80/ws
+    ports:
+      - '5173:5173'
+    volumes:
+      - ./src/client:/app
+      - /app/node_modules
+    depends_on:
+      - nginx
 
 # ---------------------------------------------------------
 # VOLUMES

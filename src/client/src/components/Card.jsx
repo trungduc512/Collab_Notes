@@ -26,11 +26,6 @@ const Card = ({ cardData, deleteEvent }) => {
                                 </small>
                             </div>
                             <p className={`${textMutedClass} mb-2`}>Owner: {cardData?.owner?.username}</p>
-                            {/* Preview Text */}
-                            <p className="card-text mb-4">
-                                {cardData?.content?.ops[0]?.insert?.slice(0, 50) || ''}
-                                {cardData?.content?.ops[0]?.insert?.length > 50 ? '...' : ''}
-                            </p>
                             {/* Action Buttons */}
                             <div className="d-flex justify-content-between mt-auto">
                                 <button

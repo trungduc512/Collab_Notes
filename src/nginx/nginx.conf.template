@@ -1,0 +1,123 @@
+# nginx/nginx.conf.template
+
+events { worker_connections 1024; }
+
+http {
+    # Upstream cho WebSocket Cluster (tạo bởi entrypoint.sh)
+    include /etc/nginx/conf.d/upstream.conf;
+
+    # Map để xử lý Connection header cho WebSocket
+    map $http_upgrade $connection_upgrade {
+        default upgrade;
+        '' close;
+    }
+
+    # Log format để debug
+    log_format auth_debug '$remote_addr - $request - token=$arg_token - status=$status';
+
+    server {
+        listen 80;
+
+        # ===========================
+        # GLOBAL CORS
+        # ===========================
+        add_header Access-Control-Allow-Origin * always;
+        add_header Access-Control-Allow-Credentials true always;
+        add_header Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With" always;
+        add_header Access-Control-Allow-Methods "GET, POST, PUT, PATCH, DELETE, OPTIONS" always;
+
+        # ===========================
+        # PRE-FLIGHT (MATCH TẤT CẢ OPTIONS)
+        # ===========================
+        if ($request_method = OPTIONS) {
+            return 204;
+        }
+
+        # === INTERNAL: Auth verification (Authorization header) ===
+        location = /_auth {
+            internal;
+            proxy_pass http://auth-service:3002/api/v1/auth/verify;
+            proxy_pass_request_body off;
+            proxy_set_header Content-Length "";
+            proxy_set_header X-Original-URI $request_uri;
+            proxy_set_header Authorization $http_authorization;
+        }
+
+        # === INTERNAL: Auth verification for WebSocket (query param ?token=) ===
+        location = /_auth_ws {
+            internal;
+            # QUAN TRỌNG: Dùng $query_string để truyền token cho auth-service
+            proxy_pass http://auth-service:3002/api/v1/auth/verify-ws?$query_string;
+            proxy_pass_request_body off;
+            proxy_set_header Content-Length "";
+            proxy_set_header X-Original-URI $request_uri;
+        }
+
+        # Custom error page for auth failures
+        error_page 401 = @error401;
+        location @error401 {
+            add_header 'Access-Control-Allow-Origin' '*' always;
+            add_header 'Content-Type' 'application/json' always;
+            return 401 '{"error": "Unauthorized"}';
+        }
+
+        # === AUTH API (No auth required) ===
+        location /api/v1/auth {
+            proxy_pass http://auth-service:3002;
+            proxy_http_version 1.1;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+
+        # === DOC API (JWT Verified + Offloading) ===
+        location /api/v1/ {
+            # Verify JWT via auth-service
+            auth_request /_auth;
+            auth_request_set $auth_user_id $upstream_http_x_user_id;
+            auth_request_set $auth_user_name $upstream_http_x_user_name;
+            auth_request_set $auth_user_email $upstream_http_x_user_email;
+
+            # Forward user info to backend
+            proxy_set_header X-User-Id $auth_user_id;
+            proxy_set_header X-User-Name $auth_user_name;
+            proxy_set_header X-User-Email $auth_user_email;
+
+            proxy_pass http://doc-service:3001;
+            proxy_http_version 1.1;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+
+        # === DOC INTERNAL (State/Update) ===
+        location /docs/ {
+            # Verify JWT via auth-service
+            auth_request /_auth;
+            auth_request_set $auth_user_id $upstream_http_x_user_id;
+            auth_request_set $auth_user_name $upstream_http_x_user_name;
+            auth_request_set $auth_user_email $upstream_http_x_user_email;
+
+            # Forward user info to backend
+            proxy_set_header X-User-Id $auth_user_id;
+            proxy_set_header X-User-Name $auth_user_name;
+            proxy_set_header X-User-Email $auth_user_email;
+
+            proxy_pass http://doc-service:3001;
+            proxy_http_version 1.1;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+
+        # === WEBSOCKET SERVICE (JWT Required via ?token=) ===
+        location /ws/ {
+            proxy_pass http://websocket_cluster;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection $connection_upgrade;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+        }
+    }
+}

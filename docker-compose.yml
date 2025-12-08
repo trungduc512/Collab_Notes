@@ -1,0 +1,159 @@
+services:
+  # ---------------------------------------------------------
+  # MONGODB LOCAL
+  # ---------------------------------------------------------
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  # ---------------------------------------------------------
+  # ZOOKEEPER
+  # ---------------------------------------------------------
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.0
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+
+  # ---------------------------------------------------------
+  # KAFKA
+  # ---------------------------------------------------------
+  kafka:
+    image: confluentinc/cp-kafka:7.4.0
+    container_name: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "29092:29092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+
+  # ---------------------------------------------------------
+  # AUTH SERVICE
+  # ---------------------------------------------------------
+  auth-service:
+    build:
+      context: ./src/auth-service
+    container_name: auth-service
+    restart: always
+    ports:
+      - "3002:3002"
+    depends_on:
+      - mongo
+    environment:
+      PORT: 3002
+      MONGODB_URI: mongodb://mongo:27017/collab_notes
+      ACCESS_TOKEN_SECRET: mysecret
+      REFRESH_TOKEN_SECRET: mysecret
+      ACCESS_TOKEN_EXPIRES_IN: 12h
+      REFRESH_TOKEN_EXPIRES_IN: 7d
+
+  # ---------------------------------------------------------
+  # DOC SERVICE
+  # ---------------------------------------------------------
+  doc-service:
+    build:
+      context: ./src/doc-service
+    container_name: doc-service
+    restart: always
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mongo
+    environment:
+      PORT: 3001
+      MONGODB_URI: mongodb://mongo:27017/collab_notes
+      ACCESS_TOKEN_SECRET: mysecret
+
+  # ---------------------------------------------------------
+  # WEBSOCKET SERVICE (có thể scale)
+  # ---------------------------------------------------------
+  websocket-service:
+    build:
+      context: ./src/websocket-service
+    restart: always
+    depends_on:
+      - kafka
+      - auth-service
+      - doc-service
+      - mongo
+    environment:
+      PORT: 1234
+      AUTH_SERVICE_URL: http://auth-service:3002
+      DOC_SERVICE_URL: http://doc-service:3001
+      KAFKA_BROKER: kafka:29092
+      ACCESS_TOKEN_SECRET: mysecret
+
+  # ---------------------------------------------------------
+  # WORKER SERVICE
+  # ---------------------------------------------------------
+  worker:
+    build:
+      context: ./src/worker
+    restart: always
+    depends_on:
+      - kafka
+      - doc-service
+      - mongo
+    environment:
+      KAFKA_BROKER: kafka:29092
+      MONGODB_URI: mongodb://mongo:27017/collab_notes
+      TOPIC_NAME: yjs-updates
+
+  # ---------------------------------------------------------
+  # NGINX GATEWAY
+  # ---------------------------------------------------------
+  nginx:
+    build:
+      context: ./src/nginx
+    container_name: nginx
+    restart: always
+    depends_on:
+      - auth-service
+      - doc-service
+      - websocket-service
+      - kafka
+    ports:
+      - "80:80"
+    environment:
+      - APP_SERVICE_NAME=collab_notes-websocket-service
+      - APP_PORT=1234
+
+  # ---------------------------------------------------------
+  # CLIENT
+  # ---------------------------------------------------------
+  # client:
+  #   build:
+  #     context: ./src/client
+  #   container_name: client
+  #   restart: always
+  #   environment:
+  #     - VITE_APP_BACKEND_URL=http://localhost:80/api/v1
+  #     - VITE_APP_WS_URL=ws://localhost:80
+  #   ports:
+  #     - "5173:5173"
+  #   depends_on:
+  #     - nginx
+
+# ---------------------------------------------------------
+# VOLUMES
+# ---------------------------------------------------------
+volumes:
+  mongo-data:
+    driver: local

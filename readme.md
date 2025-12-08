@@ -17,9 +17,6 @@
    - [4.3. Sử Dụng Ứng Dụng](#43-sử-dụng-ứng-dụng)
    - [4.4. Dừng Hệ Thống](#44-dừng-hệ-thống)
 5. [So sánh hiệu năng](#5-so-sánh-hiệu-năng)
-   - [5.1. Mô tả kịch bản kiểm thử](#51-mô-tả-kịch-bản-kiểm-thử)
-   - [5.2. Mô tả kết quả](#52-mô-tả-kết-quả)
-   - [5.3. Kết luận](#53-kết-luận)
 6. [Thành Viên Nhóm](#6-thành-viên-nhóm)
 
 ---
